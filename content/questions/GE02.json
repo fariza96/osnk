@@ -1,0 +1,504 @@
+[
+ {
+  "id": "GE02-E01",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "diagonal trapesium",
+  "objective_id": "GE02-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "segitiga_sebangun",
+   "rasio_luas_tinggi_sama"
+  ],
+  "statement": "Trapesium $ABCD$ mempunyai $AB\\parallel DC$. Diagonal $AC$ dan $BD$ berpotongan di $O$. Diketahui\n$[AOB]=36$ dan $[COD]=16$. Tentukan luas trapesium $ABCD$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "100",
+   "display": "$100$"
+  },
+  "hints": [
+   "$\\triangle AOB\\sim\\triangle COD$. Dari perbandingan luasnya, tentukan $\\dfrac{AO}{OC}$.",
+   "$\\triangle AOD$ dan $\\triangle COD$ mempunyai tinggi yang sama dari $D$ ke garis $AC$. Selain itu $[AOD]=[BOC]$."
+  ],
+  "solution": "**Ide kunci.** Dua segitiga sebangun memberi rasio sisi, dan rasio sisi pada garis yang sama memberi rasio\nluas segitiga lain yang setinggi.\n\n**Langkah.**\n\n1. Karena $AB\\parallel DC$, $\\angle OAB=\\angle OCD$ dan $\\angle OBA=\\angle ODC$ (sudut dalam berseberangan).\n   Jadi $\\triangle AOB\\sim\\triangle COD$.\n2. Rasio luasnya $\\dfrac{36}{16}=\\left(\\dfrac32\\right)^2$, sehingga rasio sisinya $\\dfrac{AO}{OC}=\\dfrac32$.\n3. $\\triangle AOD$ dan $\\triangle COD$ mempunyai tinggi yang sama dari $D$, dengan alas $AO$ dan $OC$. Jadi\n   $[AOD]=\\dfrac32\\cdot16=24$.\n4. $[ABD]=[ABC]$ (alas $AB$ sama dan tingginya sama), sehingga $[BOC]=[AOD]=24$.\n5. Luas trapesium $=36+16+24+24=100$.\n\n**Pemeriksaan.** $[AOD]\\cdot[BOC]=576=[AOB]\\cdot[COD]$, sesuai dengan sifat umum trapesium ✓.",
+  "key_idea": "Rasio luas segitiga sebangun memberi rasio sisi; rasio sisi pada garis yang sama memberi rasio luas segitiga lain yang setinggi.",
+  "common_error": "Memakai rasio luas sebagai rasio sisi ($AO:OC=36:16$), sehingga $[AOD]=36$ dan luasnya $124$.",
+  "diagram": "GE02-E01.svg",
+  "diagram_alt": "Trapesium ABCD dengan AB (bawah) sejajar DC (atas); diagonal AC dan BD berpotongan di O.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-E02",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "garis tinggi segitiga siku-siku",
+  "objective_id": "GE02-O4",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "segitiga_sebangun",
+   "garis_tinggi_sisi_miring"
+  ],
+  "statement": "Segitiga $ABC$ siku-siku di $C$. Titik $D$ pada $AB$ sehingga $CD\\perp AB$, dengan $AD=4$ dan $DB=9$.\nTentukan luas segitiga $ABC$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "39",
+   "display": "$39$"
+  },
+  "hints": [
+   "Cari dua segitiga sebangun yang memuat $CD$. Bandingkan $\\angle ACD$ dengan $\\angle CBD$.",
+   "$\\triangle ADC\\sim\\triangle CDB$, sehingga $\\dfrac{AD}{CD}=\\dfrac{CD}{DB}$."
+  ],
+  "solution": "**Ide kunci.** Garis tinggi ke sisi miring membagi segitiga siku-siku menjadi dua segitiga yang sebangun\ndengan segitiga semula.\n\n**Langkah.**\n\n1. $\\angle ACD=90^\\circ-\\angle A$ (dari $\\triangle ADC$) dan $\\angle CBD=90^\\circ-\\angle A$ (dari $\\triangle ABC$).\n   Jadi $\\angle ACD=\\angle CBD$, dan keduanya juga memuat sudut siku-siku di $D$.\n2. Maka $\\triangle ADC\\sim\\triangle CDB$ (dengan $A\\leftrightarrow C$, $D\\leftrightarrow D$, $C\\leftrightarrow B$),\n   sehingga $\\dfrac{AD}{CD}=\\dfrac{CD}{DB}$, yaitu $CD^2=AD\\cdot DB=36$ dan $CD=6$.\n3. $AB=4+9=13$. Luasnya $\\tfrac12\\cdot AB\\cdot CD=\\tfrac12\\cdot13\\cdot6=39$.\n\n**Pemeriksaan.** $AC^2=4^2+6^2=52$ dan $BC^2=9^2+6^2=117$, sehingga $AC^2+BC^2=169=AB^2$ ✓.",
+  "key_idea": "Pada segitiga siku-siku, garis tinggi ke sisi miring memenuhi $CD^2=AD\\cdot DB$.",
+  "common_error": "Mengira $CD$ adalah rata-rata $AD$ dan $DB$ ($6{,}5$), sehingga luasnya $42{,}25$.",
+  "diagram": "GE02-E02.svg",
+  "diagram_alt": "Segitiga ABC siku-siku di C; CD tegak lurus AB dengan D pada AB; AD = 4 dan DB = 9.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P001",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "kesebangunan bayangan",
+  "objective_id": "GE02-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "segitiga_sebangun"
+  ],
+  "statement": "Pada saat yang sama di tanah datar, sebuah tiang setinggi $3$ m mempunyai bayangan sepanjang $2$ m dan\nsebuah pohon mempunyai bayangan sepanjang $14$ m. Berapa meter tinggi pohon itu?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "21",
+   "display": "$21$"
+  },
+  "hints": [
+   "Sinar matahari sejajar, jadi tiang dan bayangannya membentuk segitiga siku-siku yang sebangun dengan segitiga pohon.",
+   "$\\dfrac{\\text{tinggi pohon}}{14}=\\dfrac{3}{2}$."
+  ],
+  "solution": "Sinar matahari sejajar, sehingga sudut elevasinya sama. Segitiga siku-siku (tiang, bayangan, sinar) dan\n(pohon, bayangan, sinar) mempunyai dua sudut sama, jadi sebangun. Maka\n$$\\frac{\\text{tinggi pohon}}{14}=\\frac32,$$\ndan tinggi pohon $21$ m.",
+  "key_idea": "Benda tegak dan bayangannya pada saat yang sama membentuk segitiga-segitiga sebangun.",
+  "common_error": "Membalik perbandingan ($\\frac{h}{14}=\\frac23$), sehingga tinggi pohon lebih kecil dari bayangannya, padahal tiang lebih tinggi dari bayangannya.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P002",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "luas bangun sebangun",
+  "objective_id": "GE02-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "rasio_luas_sebangun"
+  ],
+  "statement": "Dua segitiga sebangun dengan perbandingan sisi-sisi yang bersesuaian $3:5$. Luas segitiga yang lebih kecil\n$27$. Tentukan luas segitiga yang lebih besar.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "75",
+   "display": "$75$"
+  },
+  "hints": [
+   "Perbandingan luas bangun sebangun sama dengan kuadrat perbandingan sisinya.",
+   "$\\dfrac{L}{27}=\\left(\\dfrac53\\right)^2$."
+  ],
+  "solution": "Perbandingan luas adalah kuadrat perbandingan sisi:\n$$\\frac{L}{27}=\\left(\\frac53\\right)^2=\\frac{25}9,$$\nsehingga $L=75$.",
+  "key_idea": "Rasio luas bangun sebangun adalah kuadrat rasio sisinya.",
+  "common_error": "Memakai rasio sisi langsung: $27\\cdot\\frac53=45$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P003",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "luas dengan tinggi sama",
+  "objective_id": "GE02-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "rasio_luas_tinggi_sama"
+  ],
+  "statement": "Pada segitiga $ABC$, titik $D$ terletak pada sisi $BC$ sehingga $BD:DC=2:5$. Jika $[ABC]=63$, tentukan $[ABD]$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "18",
+   "display": "$18$"
+  },
+  "hints": [
+   "Segitiga $ABD$ dan $ABC$ mempunyai tinggi yang sama dari $A$.",
+   "$\\dfrac{[ABD]}{[ABC]}=\\dfrac{BD}{BC}=\\dfrac27$."
+  ],
+  "solution": "Segitiga $ABD$ dan $ABC$ mempunyai tinggi yang sama, yaitu jarak $A$ ke garis $BC$. Jadi perbandingan\nluasnya sama dengan perbandingan alas:\n$$\\frac{[ABD]}{[ABC]}=\\frac{BD}{BC}=\\frac{2}{2+5}=\\frac27,$$\nsehingga $[ABD]=\\frac27\\cdot63=18$.",
+  "key_idea": "Segitiga dengan tinggi yang sama mempunyai perbandingan luas sama dengan perbandingan alasnya.",
+  "common_error": "Memakai $\\frac{BD}{DC}=\\frac25$ sebagai pengali dari $[ABC]$, sehingga mendapat $25{,}2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P004",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "persegi dalam segitiga",
+  "objective_id": "GE02-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "garis_sejajar_sisi",
+   "segitiga_sebangun"
+  ],
+  "statement": "Segitiga $ABC$ mempunyai $BC=12$, dan tinggi dari $A$ ke $BC$ sama dengan $6$; sudut $B$ dan sudut $C$\nlancip. Persegi $PQRS$ terletak di dalam segitiga dengan $P$ dan $Q$ pada $BC$, $R$ pada $AC$, dan $S$ pada $AB$.\nTentukan panjang sisi persegi itu.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "4",
+   "display": "$4$"
+  },
+  "hints": [
+   "$SR\\parallel BC$, jadi $\\triangle ASR\\sim\\triangle ABC$. Berapa tinggi $\\triangle ASR$ dari $A$ jika sisi persegi $s$?",
+   "Tinggi $\\triangle ASR$ adalah $6-s$. Tinggi-tinggi yang bersesuaian juga sebanding: $\\dfrac{s}{12}=\\dfrac{6-s}{6}$."
+  ],
+  "solution": "Misalkan sisi persegi $s$. Karena $SR\\parallel BC$, $\\triangle ASR\\sim\\triangle ABC$. Pada segitiga sebangun,\ntinggi yang bersesuaian mempunyai perbandingan yang sama dengan sisi. Tinggi $\\triangle ASR$ dari $A$ adalah\n$6-s$ (tinggi total dikurangi tinggi persegi). Jadi\n$$\\frac{SR}{BC}=\\frac{6-s}{6}\\iff\\frac{s}{12}=\\frac{6-s}{6}\\iff 6s=72-12s\\iff s=4.$$\n\n**Pemeriksaan.** $\\triangle ASR$ mempunyai alas $4$ dan tinggi $2$, yaitu $\\tfrac13$ dari $\\triangle ABC$ (alas $12$,\ntinggi $6$) ✓.",
+  "key_idea": "Ruas sejajar alas membentuk segitiga kecil yang sebangun; tinggi segitiga kecil adalah tinggi total dikurangi bagian di bawah ruas itu.",
+  "common_error": "Memakai tinggi segitiga kecil $s$ (bukan $6-s$), atau menebak sisi persegi sama dengan setengah tinggi ($3$).",
+  "diagram": "GE02-P004.svg",
+  "diagram_alt": "Segitiga ABC dengan alas BC dan tinggi dari A (garis putus-putus); persegi PQRS dengan P dan Q pada BC, R pada AC, S pada AB.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P005",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "rasio luas dua langkah",
+  "objective_id": "GE02-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "rasio_luas_tinggi_sama"
+  ],
+  "statement": "Luas segitiga $ABC$ adalah $120$. Titik $D$ pada $AB$ dengan $AD:DB=1:2$, dan titik $E$ pada $AC$ dengan\n$AE:EC=3:1$. Tentukan $[ADE]$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "30",
+   "display": "$30$"
+  },
+  "hints": [
+   "Pindah dari $\\triangle ABC$ ke $\\triangle ADC$ lebih dulu (tinggi sama dari $C$).",
+   "$[ADC]=\\frac13[ABC]$, lalu $[ADE]=\\frac34[ADC]$ (tinggi sama dari $D$)."
+  ],
+  "solution": "**Langkah 1.** $\\triangle ADC$ dan $\\triangle ABC$ mempunyai tinggi yang sama dari $C$ ke garis $AB$, sehingga\n$[ADC]=\\dfrac{AD}{AB}[ABC]=\\dfrac13\\cdot120=40$.\n\n**Langkah 2.** $\\triangle ADE$ dan $\\triangle ADC$ mempunyai tinggi yang sama dari $D$ ke garis $AC$, sehingga\n$[ADE]=\\dfrac{AE}{AC}[ADC]=\\dfrac34\\cdot40=30$.",
+  "key_idea": "Bandingkan luas satu langkah demi satu langkah, dan pada setiap langkah pilih dua segitiga yang tingginya sama.",
+  "common_error": "Membaca $AD:DB=1:2$ sebagai $\\frac{AD}{AB}=\\frac12$, sehingga mendapat $120\\cdot\\frac12\\cdot\\frac34=45$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P006",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "kesebangunan dengan sudut bersama",
+  "objective_id": "GE02-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "segitiga_sebangun",
+   "urutan_titik"
+  ],
+  "statement": "Pada segitiga $ABC$ berlaku $AB=6$ dan $AC=9$. Titik $D$ pada sisi $AC$ memenuhi $\\angle ABD=\\angle ACB$.\nTentukan panjang $DC$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5",
+   "display": "$5$"
+  },
+  "hints": [
+   "Segitiga $ABD$ dan $ACB$ mempunyai sudut $A$ yang sama. Sudut mana lagi yang sama?",
+   "$\\triangle ABD\\sim\\triangle ACB$ dengan $A\\leftrightarrow A$, $B\\leftrightarrow C$, $D\\leftrightarrow B$. Jadi $\\dfrac{AB}{AC}=\\dfrac{AD}{AB}$."
+  ],
+  "solution": "Segitiga $ABD$ dan $ACB$ memuat sudut $A$ yang sama, dan $\\angle ABD=\\angle ACB$. Jadi keduanya sebangun\ndengan pasangan $A\\leftrightarrow A$, $B\\leftrightarrow C$, $D\\leftrightarrow B$:\n$$\\triangle ABD\\sim\\triangle ACB\\implies\\frac{AB}{AC}=\\frac{AD}{AB}.$$\nMaka $AD=\\dfrac{AB^2}{AC}=\\dfrac{36}9=4$, dan $DC=AC-AD=9-4=5$.",
+  "key_idea": "Dua segitiga yang berbagi satu sudut dan mempunyai satu pasang sudut lain yang sama adalah sebangun; tentukan pasangan titik dari sudut-sudutnya.",
+  "common_error": "Salah memasangkan sisi, misalnya menulis $\\frac{AD}{AC}=\\frac{AB}{AB}$; atau berhenti di $AD=4$, padahal yang ditanya $DC$.",
+  "diagram": "GE02-P006.svg",
+  "diagram_alt": "Segitiga ABC dengan D pada sisi AC; sudut ABD dan sudut ACB ditandai sama besar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P007",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "segi empat titik tengah",
+  "objective_id": "GE02-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "garis_tengah",
+   "rasio_luas_sebangun"
+  ],
+  "statement": "Segi empat konveks $ABCD$ mempunyai luas $50$. Titik $K$, $L$, $M$, $N$ berturut-turut adalah titik tengah\n$AB$, $BC$, $CD$, dan $DA$. Tentukan luas segi empat $KLMN$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "25",
+   "display": "$25$"
+  },
+  "hints": [
+   "Potong $ABCD$ dari $KLMN$: tersisa empat segitiga di pojok. Bandingkan $\\triangle AKN$ dengan $\\triangle ABD$.",
+   "$[AKN]=\\frac14[ABD]$ dan $[CLM]=\\frac14[CBD]$; begitu juga $[BKL]=\\frac14[BAC]$ dan $[DMN]=\\frac14[DAC]$."
+  ],
+  "solution": "Menurut teorema garis tengah (homotetri berpusat $A$ dengan faktor $\\frac12$), $\\triangle AKN$ adalah bayangan\n$\\triangle ABD$, sehingga $[AKN]=\\frac14[ABD]$. Dengan cara yang sama, $[CLM]=\\frac14[CBD]$, $[BKL]=\\frac14[BAC]$,\ndan $[DMN]=\\frac14[DAC]$.\n\nKarena $[ABD]+[CBD]=[ABCD]$ dan $[BAC]+[DAC]=[ABCD]$, luas keempat segitiga pojok adalah\n$\\frac14\\cdot50+\\frac14\\cdot50=25$. Jadi $[KLMN]=50-25=25$.",
+  "key_idea": "Titik tengah membentuk segitiga pojok yang luasnya seperempat segitiga besar; pasangan pojok yang berseberangan menutup seluruh segi empat.",
+  "common_error": "Mengira $KLMN$ seperempat luas $ABCD$ (seperti segitiga garis tengah), sehingga menjawab $12{,}5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P008",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "ruas melalui perpotongan diagonal",
+  "objective_id": "GE02-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "garis_sejajar_sisi",
+   "segitiga_sebangun"
+  ],
+  "statement": "Trapesium $ABCD$ mempunyai $AB\\parallel DC$, $AB=10$, dan $DC=15$. Diagonal-diagonalnya berpotongan di $O$.\nGaris melalui $O$ yang sejajar $AB$ memotong $AD$ di $P$ dan $BC$ di $Q$. Tentukan panjang $PQ$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "$\\dfrac{AO}{OC}=\\dfrac{AB}{DC}=\\dfrac23$. Dalam $\\triangle ADC$, $PO\\parallel DC$.",
+   "$\\dfrac{PO}{DC}=\\dfrac{AO}{AC}=\\dfrac25$. Hitung $OQ$ dengan cara yang sama dalam $\\triangle BDC$."
+  ],
+  "solution": "Dari $\\triangle AOB\\sim\\triangle COD$: $\\dfrac{AO}{OC}=\\dfrac{BO}{OD}=\\dfrac{10}{15}=\\dfrac23$, sehingga\n$\\dfrac{AO}{AC}=\\dfrac{BO}{BD}=\\dfrac25$.\n\n- Dalam $\\triangle ADC$, $PO\\parallel DC$, jadi $\\triangle APO\\sim\\triangle ADC$ dan $PO=\\dfrac{AO}{AC}\\cdot DC=\\dfrac25\\cdot15=6$.\n- Dalam $\\triangle BDC$, $OQ\\parallel DC$, jadi $\\triangle BOQ\\sim\\triangle BDC$ dan $OQ=\\dfrac{BO}{BD}\\cdot DC=6$.\n\nJadi $PQ=6+6=12$.\n\n**Catatan.** Secara umum $PQ=\\dfrac{2ab}{a+b}$ untuk alas $a$ dan $b$, dan $O$ adalah titik tengah $PQ$.",
+  "key_idea": "Bagi $PQ$ di titik $O$, lalu hitung setiap bagian dari segitiga yang dibentuk oleh satu diagonal dan alas panjang.",
+  "common_error": "Menjawab $12{,}5$, panjang garis tengah trapesium (rata-rata kedua alas). Garis tengah melalui titik tengah kaki, bukan melalui $O$.",
+  "diagram": "GE02-P008.svg",
+  "diagram_alt": "Trapesium ABCD dengan AB (bawah, lebih pendek) sejajar DC (atas); diagonal berpotongan di O; ruas putus-putus PQ melalui O sejajar AB, dengan P pada AD dan Q pada BC.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P009",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "trapesium sebagai selisih segitiga",
+  "objective_id": "GE02-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "homotetri",
+   "segitiga_sebangun"
+  ],
+  "statement": "Trapesium $ABCD$ mempunyai $AB\\parallel DC$, $AB=6$, $DC=9$, dan tinggi $4$. Perpanjangan kaki $AD$ dan $BC$\nberpotongan di $P$. Tentukan luas segitiga $PAB$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "24",
+   "display": "$24$"
+  },
+  "hints": [
+   "$\\triangle PAB\\sim\\triangle PDC$ dengan rasio $6:9$. Misalkan tinggi $\\triangle PAB$ dari $P$ adalah $x$.",
+   "Tinggi $\\triangle PDC$ adalah $x+4$, sehingga $\\dfrac{x}{x+4}=\\dfrac69$."
+  ],
+  "solution": "Karena $AB\\parallel DC$, $\\triangle PAB\\sim\\triangle PDC$ (homotetri berpusat $P$) dengan rasio\n$\\dfrac{AB}{DC}=\\dfrac23$. Ruas $AB$ lebih pendek, jadi $P$ berada di sisi $AB$. Jika tinggi $\\triangle PAB$ dari\n$P$ adalah $x$, maka tinggi $\\triangle PDC$ adalah $x+4$. Jadi\n$$\\frac{x}{x+4}=\\frac23\\iff3x=2x+8\\iff x=8.$$\n$[PAB]=\\tfrac12\\cdot6\\cdot8=24$.\n\n**Pemeriksaan.** $[PDC]=\\tfrac12\\cdot9\\cdot12=54$, dan $54-24=30=\\tfrac12(6+9)\\cdot4$ adalah luas trapesium ✓.",
+  "key_idea": "Perpanjang kaki trapesium: trapesium adalah selisih dua segitiga sebangun, dan perbandingan tingginya sama dengan perbandingan alas.",
+  "common_error": "Menyamakan perbandingan alas dengan $\\frac{x}{4}$ (tinggi trapesium), bukan $\\frac{x}{x+4}$, sehingga mendapat $x=\\frac83$ dan luas $8$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P010",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "rasio pada perpotongan dua cevian",
+  "objective_id": "GE02-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "garis_tengah",
+   "garis_bantu_sejajar",
+   "rasio_luas_tinggi_sama"
+  ],
+  "statement": "Luas segitiga $ABC$ adalah $120$. Titik $D$ adalah titik tengah $BC$, dan titik $E$ pada $AC$ memenuhi\n$AE:EC=1:2$. Ruas $AD$ dan $BE$ berpotongan di $F$. Tentukan $[AFE]$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "10",
+   "display": "$10$"
+  },
+  "hints": [
+   "Tarik garis melalui $D$ yang sejajar $BE$, memotong $AC$ di $G$. Di mana letak $G$ pada $EC$?",
+   "Dalam $\\triangle BCE$, $DG$ adalah garis tengah, jadi $G$ titik tengah $EC$ dan $EG=AE$. Lalu dalam $\\triangle ADG$, $FE\\parallel DG$."
+  ],
+  "solution": "**Mencari $AF:FD$.** Tarik garis melalui $D$ sejajar $BE$, memotong $AC$ di $G$.\n\n- Dalam $\\triangle CBE$, $D$ titik tengah $CB$ dan $DG\\parallel BE$, jadi $G$ titik tengah $CE$ (garis tengah).\n  Karena $EC=2AE$, diperoleh $EG=GC=AE$.\n- Dalam $\\triangle ADG$, $E$ titik tengah $AG$ (sebab $AE=EG$) dan $EF\\parallel GD$. Jadi $F$ titik tengah $AD$.\n\n**Menghitung luas.**\n$[ADC]=\\tfrac12[ABC]=60$ (karena $BD=DC$). Lalu $[ADE]=\\tfrac{AE}{AC}[ADC]=\\tfrac13\\cdot60=20$, dan\n$[AFE]=\\tfrac{AF}{AD}[ADE]=\\tfrac12\\cdot20=10$.",
+  "key_idea": "Garis bantu yang sejajar salah satu cevian mengubah perpotongan menjadi rantai garis tengah, sehingga rasio pembagiannya terbaca langsung.",
+  "common_error": "Menganggap $F$ membagi $AD$ dengan perbandingan $2:1$ seperti titik berat, padahal $BE$ bukan garis berat.",
+  "diagram": "GE02-P010.svg",
+  "diagram_alt": "Segitiga ABC; D titik tengah BC (ditandai); E pada AC; ruas AD dan BE berpotongan di F.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P011",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "tegak lurus tersembunyi dalam persegi",
+  "objective_id": "GE02-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "kekongruenan",
+   "garis_tinggi_sisi_miring",
+   "rasio_luas_sebangun"
+  ],
+  "statement": "Persegi $ABCD$ mempunyai sisi $10$. Titik $E$ adalah titik tengah $BC$ dan titik $F$ adalah titik tengah $CD$.\nRuas $AE$ dan $BF$ berpotongan di $G$. Tentukan luas segi empat $GECF$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "20",
+   "display": "$20$"
+  },
+  "hints": [
+   "Bandingkan $\\triangle ABE$ dan $\\triangle BCF$. Apa akibatnya terhadap sudut antara $AE$ dan $BF$?",
+   "$BF\\perp AE$, jadi $BG$ adalah garis tinggi segitiga siku-siku $ABE$ ke sisi miringnya. $[GECF]=[BCF]-[BGE]$."
+  ],
+  "solution": "**$AE\\perp BF$.** $\\triangle ABE$ dan $\\triangle BCF$ kongruen (sisi siku-siku $10$ dan $5$), jadi\n$\\angle BAE=\\angle CBF$. Dalam $\\triangle ABG$:\n$\\angle ABG=90^\\circ-\\angle CBF=90^\\circ-\\angle BAG$, sehingga $\\angle AGB=90^\\circ$.\n\n**Luas $\\triangle BGE$.** $\\triangle BGE$ dan $\\triangle ABE$ sama-sama siku-siku (di $G$ dan di $B$) dan berbagi\nsudut $E$, jadi sebangun dengan rasio $\\dfrac{BE}{AE}$. Karena $AE=\\sqrt{10^2+5^2}=5\\sqrt5$, rasionya\n$\\dfrac{5}{5\\sqrt5}=\\dfrac1{\\sqrt5}$, dan rasio luasnya $\\dfrac15$. Maka $[BGE]=\\dfrac15[ABE]=\\dfrac15\\cdot25=5$.\n\n**Jawaban.** $[GECF]=[BCF]-[BGE]=25-5=20$.",
+  "key_idea": "Dua segitiga kongruen yang “diputar” $90^\\circ$ menghasilkan garis tegak lurus; setelah itu kesebangunan segitiga siku-siku memberi rasio luas.",
+  "common_error": "Menganggap $G$ titik tengah $AE$ atau $BF$ tanpa alasan. Dengan perhitungan yang benar, $BG:GF=2:3$, bukan $1:1$.",
+  "diagram": "GE02-P011.svg",
+  "diagram_alt": "Persegi ABCD; E titik tengah BC dan F titik tengah CD (ditandai); ruas AE dan BF berpotongan di G.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE02-P012",
+  "version": 1,
+  "module_id": "GE02",
+  "domain": "geometri",
+  "subtopic": "garis pembagi luas trapesium",
+  "objective_id": "GE02-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "GE01"
+  ],
+  "technique_tags": [
+   "homotetri",
+   "rasio_luas_sebangun"
+  ],
+  "statement": "Panjang kedua sisi sejajar sebuah trapesium adalah $7$ dan $17$. Sebuah ruas garis yang sejajar kedua sisi\nitu, dengan ujung-ujung pada kedua kaki trapesium, membagi trapesium menjadi dua bagian yang luasnya sama.\nTentukan panjang ruas garis tersebut.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "13",
+   "display": "$13$"
+  },
+  "hints": [
+   "Perpanjang kedua kaki sampai bertemu di $P$. Segitiga-segitiga dengan puncak $P$ dan alas sejajar saling sebangun.",
+   "Jika luas segitiga beralas $7$ adalah $49u$, luas segitiga beralas $x$ adalah $x^2u$ dan beralas $17$ adalah $289u$."
+  ],
+  "solution": "Perpanjang kedua kaki trapesium sampai bertemu di $P$. Segitiga dengan puncak $P$ dan alas $7$, alas $x$\n(ruas yang dicari), dan alas $17$ saling sebangun (homotetri berpusat $P$), sehingga luasnya sebanding\ndengan kuadrat alas: $49u$, $x^2u$, dan $289u$ untuk suatu $u>0$.\n\nLuas trapesium $=289u-49u=240u$. Bagian antara alas $7$ dan ruas $x$ harus berluas $120u$:\n$$x^2u-49u=120u\\iff x^2=169\\iff x=13.$$\n\n**Pemeriksaan.** Bagian lainnya $289u-169u=120u$ ✓.",
+  "key_idea": "Trapesium adalah selisih dua segitiga sebangun; luas setiap segitiga sebanding dengan kuadrat alasnya.",
+  "common_error": "Menjawab $12$, rata-rata kedua alas. Garis tengah membagi **tinggi** sama besar, tetapi tidak membagi luas sama besar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE02.md): A1–A6 lulus. A5: scripts/checks/GE02.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]

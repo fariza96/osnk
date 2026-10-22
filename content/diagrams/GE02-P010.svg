@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 235.2" width="280" height="235" role="img" aria-label="Segitiga ABC; D titik tengah BC, E pada AC; ruas AD dan BE berpotongan di F" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="95.2" y1="28.0" x2="28.0" y2="207.2"/>
+<line x1="28.0" y1="207.2" x2="252.0" y2="207.2"/>
+<line x1="252.0" y1="207.2" x2="95.2" y2="28.0"/>
+<line x1="95.2" y1="28.0" x2="140.0" y2="207.2"/>
+<line x1="28.0" y1="207.2" x2="147.47" y2="87.73"/>
+<line x1="84.0" y1="200.2" x2="84.0" y2="214.2" stroke-width="1.2"/>
+<line x1="196.0" y1="200.2" x2="196.0" y2="214.2" stroke-width="1.2"/>
+<circle cx="28.0" cy="207.2" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="215.2" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="252.0" cy="207.2" r="2.6" fill="currentColor" stroke="none"/>
+<text x="262.0" y="215.2" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="95.2" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="95.2" y="15.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="140.0" cy="207.2" r="2.6" fill="currentColor" stroke="none"/>
+<text x="140.0" y="221.2" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+<circle cx="147.47" cy="87.73" r="2.6" fill="currentColor" stroke="none"/>
+<text x="158.47" y="83.73" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">E</text>
+<circle cx="117.6" cy="117.6" r="2.6" fill="currentColor" stroke="none"/>
+<text x="105.6" y="115.6" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">F</text>
+</svg>

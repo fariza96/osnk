@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 168.0" width="280" height="168" role="img" aria-label="Trapesium ABCD dengan AB sejajar DC; diagonal AC dan BD berpotongan di O" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="28.0" y1="140.0" x2="252.0" y2="140.0"/>
+<line x1="252.0" y1="140.0" x2="214.67" y2="28.0"/>
+<line x1="214.67" y1="28.0" x2="65.33" y2="28.0"/>
+<line x1="65.33" y1="28.0" x2="28.0" y2="140.0"/>
+<line x1="28.0" y1="140.0" x2="214.67" y2="28.0"/>
+<line x1="252.0" y1="140.0" x2="65.33" y2="28.0"/>
+<circle cx="28.0" cy="140.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="148.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="252.0" cy="140.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="262.0" y="148.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="214.67" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="224.67" y="20.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="65.33" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="55.33" y="20.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+<circle cx="140.0" cy="72.8" r="2.6" fill="currentColor" stroke="none"/>
+<text x="140.0" y="86.8" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">O</text>
+</svg>

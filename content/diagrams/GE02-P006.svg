@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 185.33" width="280" height="185" role="img" aria-label="Segitiga ABC dengan D pada sisi AC; sudut ABD (ditandai) sama dengan sudut ACB (ditandai)" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="28.0" y1="157.33" x2="102.67" y2="28.0"/>
+<line x1="102.67" y1="28.0" x2="252.0" y2="157.33"/>
+<line x1="252.0" y1="157.33" x2="28.0" y2="157.33"/>
+<line x1="102.67" y1="28.0" x2="127.56" y2="157.33"/>
+<path d="M88.98 51.71 A27.38 27.38 0 0 0 107.84 54.88" stroke-width="1.2"/>
+<path d="M227.54 136.14 A32.36 32.36 0 0 0 219.64 157.33" stroke-width="1.2"/>
+<circle cx="28.0" cy="157.33" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="165.33" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="252.0" cy="157.33" r="2.6" fill="currentColor" stroke="none"/>
+<text x="262.0" y="165.33" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="102.67" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="102.67" y="15.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="127.56" cy="157.33" r="2.6" fill="currentColor" stroke="none"/>
+<text x="127.56" y="171.33" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+</svg>

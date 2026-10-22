@@ -39,6 +39,7 @@ Token penalaran (thinking) ditagih sebagai output.
 | 2026-10-22 | Tahap 2 pilot TB01+GE01 (28 butir, 2 materi, 5 SVG, audit, MathJax 4) | sesi Claude Code | tidak tersedia | (lihat baris kumulatif) | — |
 | 2026-10-22 | **Kumulatif Tahap 0–2 + koneksi GitHub** | sesi Claude Code | tidak tersedia | **US$11 (aktual, dilaporkan guru dari halaman akun)** | aktual |
 | 2026-10-22 | Tahap 4: AL01+KO01 (sesi 1) dan TB02+AL02 (sesi 2), masing-masing materi + 14 butir + audit | sesi Claude Code | tidak tersedia | estimasi ≈ US$3,5–4 per modul (proyeksi pilot), belum dikalibrasi | estimasi |
+| 2026-10-22 | Tahap 4: KO02+GE02 (sesi 2), GE02 dengan 7 diagram | sesi Claude Code | tidak tersedia | estimasi ≈ US$3,5–4 per modul, belum dikalibrasi; **guru diminta mengirim angka kumulatif aktual (tonggak 8 modul)** | estimasi |
 
 ### Proyeksi setelah pilot (dikalibrasi dengan US$11 aktual)
 
