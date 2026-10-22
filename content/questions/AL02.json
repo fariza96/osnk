@@ -1,0 +1,488 @@
+[
+ {
+  "id": "AL02-E01",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "menyusun persamaan dari akar",
+  "objective_id": "AL02-O2",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "vieta",
+   "bentuk_simetris"
+  ],
+  "statement": "Persamaan $x^2-7x+3=0$ mempunyai akar $a$ dan $b$. Persamaan $3x^2+qx+r=0$ mempunyai akar\n$\\dfrac ab$ dan $\\dfrac ba$. Tentukan nilai $q+r$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-40",
+   "display": "$-40$"
+  },
+  "hints": [
+   "Dari Vieta, $a+b=7$ dan $ab=3$. Hitung jumlah dan hasil kali akar baru dalam $a+b$ dan $ab$.",
+   "$\\dfrac ab+\\dfrac ba=\\dfrac{a^2+b^2}{ab}$ dan $\\dfrac ab\\cdot\\dfrac ba=1$. Lalu pakai Vieta untuk $3x^2+qx+r=0$."
+  ],
+  "solution": "**Ide kunci.** Akar baru tidak perlu dihitung. Cukup jumlah dan hasil kalinya, dan keduanya dapat\ndinyatakan dengan $a+b$ dan $ab$.\n\n**Langkah.**\n\n1. Vieta untuk $x^2-7x+3=0$: $a+b=7$ dan $ab=3$. Diskriminannya $49-12=37>0$, jadi $a,b$ real dan tak nol.\n2. $a^2+b^2=(a+b)^2-2ab=49-6=43$.\n3. Jumlah akar baru: $\\dfrac ab+\\dfrac ba=\\dfrac{a^2+b^2}{ab}=\\dfrac{43}3$. Hasil kalinya: $\\dfrac ab\\cdot\\dfrac ba=1$.\n4. Vieta untuk $3x^2+qx+r=0$: jumlah akar $-\\dfrac q3=\\dfrac{43}3$, sehingga $q=-43$; hasil kali akar\n   $\\dfrac r3=1$, sehingga $r=3$.\n5. $q+r=-43+3=-40$.\n\n**Pemeriksaan.** Persamaannya $3x^2-43x+3=0$. Kalikan $x^2-\\frac{43}3x+1=0$ dengan $3$ ✓.",
+  "key_idea": "Persamaan kuadrat ditentukan oleh jumlah dan hasil kali akarnya, dan keduanya sering dapat dihitung dari Vieta persamaan asal.",
+  "common_error": "Salah tanda pada Vieta: menulis jumlah akar $\\dfrac{q}{3}$ sehingga $q=43$, lalu menjawab $q+r=46$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-E02",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "sisa pembagian oleh polinom berderajat dua",
+  "objective_id": "AL02-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "teorema_sisa",
+   "sistem_linear"
+  ],
+  "statement": "Suku banyak $P(x)$ bersisa $5$ bila dibagi $x-1$, dan bersisa $-3$ bila dibagi $x+3$. Sisa pembagian\n$P(x)$ oleh $x^2+2x-3$ adalah $ax+b$. Tentukan nilai $ab$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Teorema sisa: $P(1)=5$ dan $P(-3)=-3$. Faktorkan $x^2+2x-3$.",
+   "$P(x)=(x-1)(x+3)H(x)+ax+b$. Substitusi $x=1$ dan $x=-3$."
+  ],
+  "solution": "**Ide kunci.** Hasil bagi $H(x)$ tidak diketahui, tetapi lenyap jika kita memilih $x$ yang membuat\npembaginya nol.\n\n**Langkah.**\n\n1. Teorema sisa: $P(1)=5$ dan $P(-3)=-3$.\n2. $x^2+2x-3=(x-1)(x+3)$. Pembaginya berderajat dua, jadi sisanya berderajat paling tinggi satu:\n   $$P(x)=(x-1)(x+3)H(x)+ax+b.$$\n3. $x=1$: $a+b=5$. $x=-3$: $-3a+b=-3$.\n4. Kurangkan: $4a=8$, jadi $a=2$ dan $b=3$. Sisanya $2x+3$, dan $ab=6$.\n\n**Pemeriksaan.** Sisa $2x+3$ bernilai $5$ di $x=1$ dan $-3$ di $x=-3$ ✓.",
+  "key_idea": "Substitusikan akar-akar pembagi: hasil bagi yang tidak diketahui hilang, dan tersisa sistem persamaan linear untuk koefisien sisa.",
+  "common_error": "Mengira sisa pembagian oleh polinom berderajat dua juga konstanta, atau memakai $P(3)$ untuk faktor $x+3$ (seharusnya $P(-3)$).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P001",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "diskriminan",
+  "objective_id": "AL02-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "diskriminan"
+  ],
+  "statement": "Berapa banyak bilangan bulat $k$ sehingga persamaan $x^2+kx+9=0$ **tidak** mempunyai akar real?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "11",
+   "display": "$11$"
+  },
+  "hints": [
+   "Persamaan kuadrat tidak mempunyai akar real tepat jika diskriminannya negatif.",
+   "$D=k^2-36<0$, yaitu $-6<k<6$."
+  ],
+  "solution": "Diskriminan $D=k^2-4\\cdot1\\cdot9=k^2-36$. Tidak ada akar real tepat jika $D<0$, yaitu $k^2<36$ atau\n$-6<k<6$. Bilangan bulatnya $-5,-4,\\dots,5$, sebanyak $11$.",
+  "key_idea": "Jenis akar persamaan kuadrat ditentukan oleh tanda diskriminan.",
+  "common_error": "Mengikutkan $k=\\pm6$. Untuk $k=\\pm6$, $D=0$ dan persamaannya mempunyai akar real kembar ($x=\\mp3$). Jawaban $13$ berasal dari kekeliruan ini.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P002",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "Vieta derajat dua",
+  "objective_id": "AL02-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "vieta",
+   "bentuk_simetris"
+  ],
+  "statement": "Persamaan $2x^2-6x+1=0$ mempunyai akar $a$ dan $b$. Tentukan nilai $a^2+b^2$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "8",
+   "display": "$8$"
+  },
+  "hints": [
+   "Vieta: $a+b=-\\dfrac{-6}2$ dan $ab=\\dfrac12$.",
+   "$a^2+b^2=(a+b)^2-2ab$."
+  ],
+  "solution": "Vieta: $a+b=\\dfrac62=3$ dan $ab=\\dfrac12$. Maka\n$$a^2+b^2=(a+b)^2-2ab=9-1=8.$$",
+  "key_idea": "Ekspresi simetris akar dihitung dari jumlah dan hasil kali akar, yang dibaca langsung dari koefisien.",
+  "common_error": "Lupa membagi dengan koefisien $x^2$, lalu memakai $a+b=6$ dan $ab=1$. Hasilnya $34$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P003",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "teorema sisa",
+  "objective_id": "AL02-O3",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "teorema_sisa"
+  ],
+  "statement": "Tentukan sisa pembagian $x^{2026}+3x^5-2$ oleh $x+1$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-4",
+   "display": "$-4$"
+  },
+  "hints": [
+   "Sisa pembagian oleh $x-k$ adalah $P(k)$. Untuk $x+1$, nilai $k$ berapa?",
+   "Hitung $P(-1)$; ingat $(-1)^{\\text{genap}}=1$ dan $(-1)^{\\text{ganjil}}=-1$."
+  ],
+  "solution": "Menurut teorema sisa, sisa pembagian oleh $x+1=x-(-1)$ adalah $P(-1)$:\n$$P(-1)=(-1)^{2026}+3(-1)^5-2=1-3-2=-4.$$\nSisanya $-4$.",
+  "key_idea": "Sisa pembagian oleh $x-k$ adalah nilai suku banyak di $x=k$.",
+  "common_error": "Menghitung $P(1)=1+3-2=2$, padahal pembaginya $x+1$, sehingga yang diperlukan adalah $P(-1)$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P004",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "akar bulat dan Vieta",
+  "objective_id": "AL02-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "vieta",
+   "sfft"
+  ],
+  "statement": "Semua akar persamaan $x^2-kx+2k=0$ adalah bilangan bulat. Tentukan jumlah semua nilai $k$ yang\nmungkin.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "16",
+   "display": "$16$"
+  },
+  "hints": [
+   "Misalkan akarnya $r$ dan $s$ (boleh sama). Vieta memberi $r+s=k$ dan $rs=2k$. Hilangkan $k$.",
+   "$rs=2(r+s)$ dapat ditulis $(r-2)(s-2)=4$."
+  ],
+  "solution": "Misalkan akarnya $r$ dan $s$ (bilangan bulat, boleh sama). Vieta: $r+s=k$ dan $rs=2k$. Hilangkan $k$:\n$$rs=2r+2s\\iff rs-2r-2s+4=4\\iff(r-2)(s-2)=4.$$\nPasangan faktor $4$ (bulat, boleh negatif):\n$(1,4),(2,2),(4,1),(-1,-4),(-2,-2),(-4,-1)$. Diperoleh $\\{r,s\\}$:\n\n- $\\{3,6\\}$: $k=9$;\n- $\\{4,4\\}$: $k=8$;\n- $\\{1,-2\\}$: $k=-1$;\n- $\\{0,0\\}$: $k=0$.\n\nSebaliknya, setiap nilai $k$ ini memang memberi akar-akar tersebut. Contohnya $k=-1$ memberi\n$x^2+x-2=(x-1)(x+2)$. Jumlahnya $9+8-1+0=16$.",
+  "key_idea": "Vieta mengubah syarat akar bulat menjadi persamaan bilangan bulat dalam $r$ dan $s$; SFFT (AL01) menyelesaikannya.",
+  "common_error": "Hanya memakai pasangan faktor positif dari $4$, sehingga $k=-1$ dan $k=0$ terlewat dan jawabannya $17$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P005",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "teorema faktor dan Vieta",
+  "objective_id": "AL02-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "teorema_faktor",
+   "vieta"
+  ],
+  "statement": "Suku banyak $x^3+ax^2+bx-6$ habis dibagi $x-1$ dan juga habis dibagi $x+2$. Tentukan akar ketiga\nsuku banyak itu.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-3",
+   "display": "$-3$"
+  },
+  "hints": [
+   "Teorema faktor: $1$ dan $-2$ adalah akar. Substitusikan untuk mencari $a$ dan $b$, atau langsung pakai Vieta.",
+   "Hasil kali ketiga akar $x^3+ax^2+bx-6$ adalah $-\\dfrac{-6}1=6$."
+  ],
+  "solution": "Menurut teorema faktor, $1$ dan $-2$ adalah akar. Misalkan akar ketiganya $r$. Vieta untuk hasil kali\nakar memberi $1\\cdot(-2)\\cdot r=-\\dfrac{-6}{1}=6$, sehingga $r=-3$.\n\n**Pemeriksaan lewat $a,b$.** $P(1)=0$ memberi $a+b=5$; $P(-2)=0$ memberi $4a-2b=14$. Jadi $a=4$, $b=1$, dan\n$$x^3+4x^2+x-6=(x-1)(x+2)(x+3)\\ ✓.$$",
+  "key_idea": "Teorema faktor memberi dua akar; Vieta (hasil kali akar) langsung memberi akar ketiga.",
+  "common_error": "Salah tanda pada hasil kali akar derajat tiga: memakai $x_1x_2x_3=-6$, sehingga mendapat $r=3$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P006",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "jumlah koefisien",
+  "objective_id": "AL02-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "evaluasi_satu_minus_satu"
+  ],
+  "statement": "Penjabaran $(2x-1)^5(x+1)^3$ ditulis sebagai $a_0+a_1x+a_2x^2+\\cdots+a_8x^8$. Tentukan nilai\n$a_0+a_2+a_4+a_6+a_8$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "4",
+   "display": "$4$"
+  },
+  "hints": [
+   "Substitusi $x=1$ memberi jumlah semua koefisien, sedangkan $x=-1$ memberi koefisien dengan tanda berganti.",
+   "$a_0+a_2+\\cdots+a_8=\\tfrac12\\big(P(1)+P(-1)\\big)$."
+  ],
+  "solution": "Misalkan $P(x)=(2x-1)^5(x+1)^3$. Maka\n$$\\begin{aligned}P(1)&=a_0+a_1+a_2+\\cdots+a_8,\\\\ P(-1)&=a_0-a_1+a_2-\\cdots+a_8.\\end{aligned}$$\nJika keduanya dijumlahkan, koefisien berindeks ganjil saling menghapus:\n$a_0+a_2+a_4+a_6+a_8=\\tfrac12\\big(P(1)+P(-1)\\big)$.\n\n$P(1)=1^5\\cdot2^3=8$ dan $P(-1)=(-3)^5\\cdot0^3=0$. Jadi jawabannya $\\tfrac12(8+0)=4$.",
+  "key_idea": "Substitusi $x=1$ dan $x=-1$ memisahkan koefisien pangkat genap dan ganjil tanpa menjabarkan.",
+  "common_error": "Menjawab $P(1)=8$, yaitu jumlah semua koefisien, padahal yang diminta hanya koefisien pangkat genap.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P007",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "Vieta terbalik",
+  "objective_id": "AL02-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "vieta_terbalik",
+   "teorema_faktor"
+  ],
+  "statement": "Berapa banyak tripel terurut $(x,y,z)$ bilangan real yang memenuhi\n$$\\begin{aligned}x+y+z&=6,\\\\ xy+yz+zx&=11,\\\\ xyz&=6?\\end{aligned}$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Menurut Vieta, $x,y,z$ adalah akar-akar suatu polinom berderajat tiga. Polinom apa?",
+   "$x,y,z$ adalah akar $t^3-6t^2+11t-6=0$. Coba $t=1$."
+  ],
+  "solution": "Polinom $(t-x)(t-y)(t-z)$ jika dijabarkan sama dengan\n$$t^3-(x+y+z)t^2+(xy+yz+zx)t-xyz=t^3-6t^2+11t-6.$$\nJadi $x,y,z$ adalah ketiga akar (dengan kelipatannya) dari $t^3-6t^2+11t-6=0$. Karena $t=1$ adalah akar,\nteorema faktor memberi $t^3-6t^2+11t-6=(t-1)(t^2-5t+6)=(t-1)(t-2)(t-3)$.\n\nJadi $\\{x,y,z\\}=\\{1,2,3\\}$, dan tripel terurutnya adalah semua urutan dari $1,2,3$, yaitu $3!=6$ tripel.",
+  "key_idea": "Jumlah, jumlah hasil kali berpasangan, dan hasil kali tiga variabel menentukan polinom berderajat tiga yang akar-akarnya variabel tersebut.",
+  "common_error": "Menemukan $(1,2,3)$ dengan coba-coba lalu menjawab $1$, padahal yang diminta tripel **terurut**; atau tidak memastikan bahwa tidak ada solusi lain.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P008",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "akar persekutuan",
+  "objective_id": "AL02-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "akar_persekutuan",
+   "kurangkan_persamaan"
+  ],
+  "statement": "Persamaan $x^2+ax+6=0$ dan $x^2+6x+a=0$ mempunyai **tepat satu** akar persekutuan. Tentukan nilai $a$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-7",
+   "display": "$-7$"
+  },
+  "hints": [
+   "Jika $r$ akar kedua persamaan, $r$ juga memenuhi selisih kedua persamaan.",
+   "Selisihnya $(a-6)x+(6-a)=0$, yaitu $(a-6)(x-1)=0$. Periksa kasus $a=6$ secara terpisah."
+  ],
+  "solution": "Misalkan $r$ akar persekutuan. Kurangkan kedua persamaan: $(a-6)r+(6-a)=0$, yaitu $(a-6)(r-1)=0$.\n\n- Jika $a=6$, kedua persamaan sama, yaitu $x^2+6x+6=0$. Diskriminannya $36-24=12>0$, jadi ada **dua**\n  akar persekutuan. Kasus ini tidak memenuhi \"tepat satu\".\n- Jika $a\\ne6$, maka $r=1$. Substitusi ke persamaan pertama: $1+a+6=0$, jadi $a=-7$.\n\n**Pemeriksaan.** $x^2-7x+6=(x-1)(x-6)$ dan $x^2+6x-7=(x-1)(x+7)$. Akar persekutuannya hanya $1$ ✓.",
+  "key_idea": "Akar persekutuan memenuhi selisih kedua persamaan, dan selisih itu berderajat lebih rendah.",
+  "common_error": "Membagi $(a-6)(r-1)=0$ dengan $a-6$ tanpa memeriksa $a=6$; atau berhenti di $r=1$ tanpa mencari $a$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P009",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "koefisien binomial",
+  "objective_id": "AL02-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "binomial",
+   "suku_umum"
+  ],
+  "statement": "Tentukan koefisien $x^4$ pada penjabaran $\\left(x^2-\\dfrac2x\\right)^5$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "40",
+   "display": "$40$"
+  },
+  "hints": [
+   "Suku umum: $\\dbinom5k(x^2)^{5-k}\\left(-\\dfrac2x\\right)^k$. Sederhanakan pangkat $x$-nya.",
+   "Pangkat $x$ adalah $10-3k$. Syarat $10-3k=4$ memberi $k=2$."
+  ],
+  "solution": "Suku umum penjabaran:\n$$\\binom5k(x^2)^{5-k}\\left(-\\frac2x\\right)^k=\\binom5k(-2)^k\\,x^{10-3k}.$$\nPangkat $x^4$ diperoleh jika $10-3k=4$, yaitu $k=2$. Koefisiennya $\\binom52(-2)^2=10\\cdot4=40$.",
+  "key_idea": "Tulis suku umum, sederhanakan pangkat variabelnya, lalu cari indeks yang memberi pangkat yang diminta.",
+  "common_error": "Lupa memangkatkan faktor $-2$ (hanya menghitung $\\binom52=10$), atau lupa bahwa $\\frac1x$ mengurangi pangkat sehingga mengambil $k$ yang salah.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P010",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "Vieta derajat tiga",
+  "objective_id": "AL02-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "vieta",
+   "evaluasi_polinom"
+  ],
+  "statement": "Bilangan real $a$, $b$, $c$ adalah akar-akar persamaan $x^3-6x^2+9x-1=0$. Tentukan nilai\n$$(a+b)(b+c)(c+a).$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "53",
+   "display": "$53$"
+  },
+  "hints": [
+   "Vieta: $a+b+c=6$. Nyatakan $a+b$, $b+c$, $c+a$ dengan satu akar saja.",
+   "$(a+b)(b+c)(c+a)=(6-c)(6-a)(6-b)$. Bandingkan dengan $P(x)=(x-a)(x-b)(x-c)$."
+  ],
+  "solution": "**Ide kunci.** Ganti setiap jumlah dua akar dengan \"$6$ dikurangi akar ketiga\", lalu kenali hasil kalinya\nsebagai nilai polinom.\n\nVieta: $a+b+c=6$, sehingga $a+b=6-c$, $b+c=6-a$, dan $c+a=6-b$. Koefisien $x^3$ sama dengan $1$, jadi\n$P(x)=x^3-6x^2+9x-1=(x-a)(x-b)(x-c)$. Maka\n$$(a+b)(b+c)(c+a)=(6-a)(6-b)(6-c)=P(6)=216-216+54-1=53.$$\n\n**Cara lain.** $(a+b)(b+c)(c+a)=(a+b+c)(ab+bc+ca)-abc=6\\cdot9-1=53$ ✓.",
+  "key_idea": "Jika jumlah semua akar diketahui, jumlah dua akar sama dengan konstanta dikurangi akar ketiga, dan hasil kali bentuk $(t-x_i)$ adalah $P(t)$.",
+  "common_error": "Menjabarkan $(a+b)(b+c)(c+a)$ lalu salah memakai tanda Vieta, misalnya $abc=-1$ sehingga mendapat $55$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P011",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "polinom bantu",
+  "objective_id": "AL02-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "polinom_bantu",
+   "teorema_faktor"
+  ],
+  "statement": "Suku banyak $P(x)$ berderajat $3$ memenuhi $P(1)=1$, $P(2)=2$, $P(3)=3$, dan $P(4)=5$. Tentukan $P(6)$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "16",
+   "display": "$16$"
+  },
+  "hints": [
+   "Perhatikan $Q(x)=P(x)-x$. Berapa nilai $Q(1)$, $Q(2)$, $Q(3)$?",
+   "$Q$ berderajat $3$ dan berakar $1,2,3$, jadi $Q(x)=c(x-1)(x-2)(x-3)$. Cari $c$ dari $Q(4)$."
+  ],
+  "solution": "Definisikan $Q(x)=P(x)-x$. Karena $P$ berderajat $3$, $Q$ juga berderajat $3$, dan $Q(1)=Q(2)=Q(3)=0$.\nMenurut teorema faktor, $Q(x)=c(x-1)(x-2)(x-3)$ untuk suatu konstanta $c$.\n\nDari $Q(4)=P(4)-4=1$ diperoleh $c\\cdot3\\cdot2\\cdot1=1$, jadi $c=\\tfrac16$. Maka\n$$P(6)=6+Q(6)=6+\\tfrac16\\cdot5\\cdot4\\cdot3=6+10=16.$$",
+  "key_idea": "Kurangkan bagian yang “jelas” ($x$) sehingga polinom sisanya mempunyai banyak akar yang diketahui, lalu pakai teorema faktor.",
+  "common_error": "Menebak pola $P(n)=n$ atau pola selisih tanpa memakai derajat, lalu menjawab $6$ atau $8$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL02-P012",
+  "version": 1,
+  "module_id": "AL02",
+  "domain": "aljabar",
+  "subtopic": "sistem simetris dengan syarat akar real",
+  "objective_id": "AL02-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "AL01"
+  ],
+  "technique_tags": [
+   "substitusi_s_p",
+   "diskriminan",
+   "teorema_faktor"
+  ],
+  "statement": "Bilangan real $x$ dan $y$ memenuhi $x^2+y^2=7$ dan $x^3+y^3=10$. Tentukan nilai $x+y$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "1",
+   "display": "$1$"
+  },
+  "hints": [
+   "Misalkan $s=x+y$ dan $p=xy$. Nyatakan kedua persamaan dalam $s$ dan $p$, lalu hilangkan $p$.",
+   "Diperoleh $s^3-21s+20=0$, dengan akar $1$, $4$, $-5$. Periksa syarat $x,y$ real: $s^2-4p\\ge0$."
+  ],
+  "solution": "Misalkan $s=x+y$ dan $p=xy$. Maka $x^2+y^2=s^2-2p=7$, sehingga $p=\\dfrac{s^2-7}2$, dan\n$$x^3+y^3=s^3-3ps=s^3-\\frac{3s(s^2-7)}2=10.$$\nKalikan $2$: $2s^3-3s^3+21s=20$, yaitu $s^3-21s+20=0$. Karena $s=1$ adalah akar,\n$s^3-21s+20=(s-1)(s^2+s-20)=(s-1)(s-4)(s+5)$.\n\n**Syarat real.** $x$ dan $y$ adalah akar $t^2-st+p=0$, jadi keduanya real tepat jika\n$s^2-4p=s^2-2(s^2-7)=14-s^2\\ge0$, yaitu $s^2\\le14$.\n\n- $s=4$: $16>14$, jadi $x,y$ tidak real (dibuang).\n- $s=-5$: $25>14$, dibuang.\n- $s=1$: $p=-3$, dan $t^2-t-3=0$ mempunyai dua akar real ✓.\n\nJadi $x+y=1$.\n\n**Pemeriksaan.** $x^2+y^2=1+6=7$ ✓ dan $x^3+y^3=1-3(-3)(1)=10$ ✓.",
+  "key_idea": "Setelah sistem simetris diubah ke $s$ dan $p$, setiap nilai $s$ harus diuji dengan diskriminan $s^2-4p\\ge0$ agar $x,y$ real.",
+  "common_error": "Menjawab $4$ (nilai terbesar dari persamaan $s$) tanpa memeriksa syarat real. Untuk $s=4$, $p=\\tfrac92$ dan $t^2-4t+\\tfrac92=0$ tidak mempunyai akar real.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL02.md): A1–A6 lulus. A5: scripts/checks/AL02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
