@@ -27,6 +27,9 @@ Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 2).
 - Penyimpanan: **repositori GitHub privat** (keputusan guru). Push menunggu akses.
 - MathJax 4.1.2 + font NewCM dibundel lokal (pemecahan baris otomatis untuk ponsel; berjalan tanpa internet, sudah diuji).
 - Pages: workflow `.github/workflows/pages.yml` hanya manual (`workflow_dispatch`).
+- **19 modul** (AL05 fungsi, KO05 induksi/rekursi/graf, AL06 kompleks & trigonometri ditambahkan, disetujui guru);
+  program 10 minggu. Sasaran lengkap: 228 latihan modul + 16 diagnostik + 40 campuran = **284 soal unik**, plus 38 contoh.
+- Repositori tujuan: `fariza96/osnk` (privat). Akses ditolak pada 22 Okt 2026, kemungkinan Claude GitHub App belum terpasang.
 
 ## Selesai (ID)
 
@@ -48,11 +51,9 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Keputusan terbuka (guru)
 
-1. **GitHub:** buat repositori privat kosong, hubungkan GitHub di claude.ai/connect-github, pasang Claude
-   GitHub App pada repositori itu, lalu beri tahu `pemilik/repo`.
+1. **GitHub:** pasang Claude GitHub App pada `fariza96/osnk` (lewat claude.ai/connect-github), lalu minta push.
 2. **Anggaran:** baca pemakaian di halaman akun Claude agar biaya pilot dapat dicatat dan proyeksi versi inti dihitung.
-3. **Modul tambahan** dari peta guru: AL05 (fungsi), AL06 (kompleks & trigonometri), KO05 (rekursi & induksi)?
-4. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
+3. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
 
 ## Berikutnya
 

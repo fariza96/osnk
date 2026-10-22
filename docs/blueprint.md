@@ -11,7 +11,7 @@ kesulitan adalah label editorial sampai diuji pada siswa.
 | Jenjang | SMA/MA kelas X–XI | Peserta OSN SMA 2026 kelas X–XI (sumber sekunder) |
 | Tahap | OSN-K (kabupaten/kota) | OSN-K 2026 sudah berlangsung 18–19 Juni 2026 (sumber sekunder) |
 | Tahun sasaran | **OSN 2027 (asumsi)** | Dokumen 2027 diperkirakan belum terbit; cakupan bersifat sementara |
-| Program | 8 minggu × 2 pertemuan × 90 menit | 16 pertemuan = 16 modul |
+| Program | 10 minggu × 2 pertemuan × 90 menit | 19 modul + 1 pertemuan review |
 | Peserta | Matematika sekolah cukup baik, pemula olimpiade | |
 
 ## 2. Pembagian inti / prasyarat / pengayaan
@@ -25,7 +25,7 @@ kesulitan adalah label editorial sampai diuji pada siswa.
 Materi TKA/UTBK/ASAS (limit, turunan, integral, matriks, vektor, statistika deskriptif, program
 linear) **tidak** dimasukkan.
 
-## 3. Matriks cakupan 16 modul
+## 3. Matriks cakupan 19 modul
 
 Sumber cakupan: peta materi guru (berbasis silabus tak resmi Evan Chen 2023), lihat `docs/sources.md`.
 Belum dicocokkan dengan dokumen resmi Puspresnas. Penyesuaian modul lain mengikuti §3a dan
@@ -49,6 +49,12 @@ diterapkan saat modul itu dikerjakan.
 | 14 | AL04 | Barisan, deret, rekursi | aritmetika/geometri, teleskopik, pola periodik, rekursi linear sederhana | AL01, AL02 | menjumlah deret teleskopik; menemukan periode atau bentuk tertutup rekursi | teleskopik, periodisitas, induksi | fungsi bilangan bulat terbesar |
 | 15 | KO04 | Pencacahan lanjutan & peluang | bintang-dan-sekat, inklusi-eksklusi 2–3 himpunan, lintasan grid, peluang klasik | KO01, KO02 | mencacah dengan bintang-sekat dan inklusi-eksklusi; menghitung peluang ruang sampel seragam | bijeksi, inklusi-eksklusi, rekursi | derangement |
 | 16 | GE04 | Koordinat & hubungan metrik | koordinat, jarak, luas shoelace, persamaan garis/lingkaran, Heron | GE01–GE03, AL02 | memilih sistem koordinat yang baik; menggabungkan hubungan metrik | koordinatisasi, Heron, shoelace | trigonometri segitiga (aturan sinus/kosinus) |
+| 17 | AL05 | Fungsi & persamaan fungsi | domain/kodomain, komposisi, invers, injektif/surjektif/bijektif, persamaan fungsi dengan substitusi, persamaan Cauchy $f(x+y)=f(x)+f(y)$ pada $\mathbb{Q}$ | AL01, AL02 | menentukan $f$ dari persamaan fungsi lewat substitusi terarah; memakai injektif/surjektif; menyelesaikan Cauchy pada $\mathbb{Q}$ | substitusi $x=y$, $y=0$, simetri, iterasi | fungsi periodik dari persamaan |
+| 18 | KO05 | Induksi, rekursi, graf dasar | induksi matematika, menyusun rekurensi dari kasus terakhir (pengubinan, barisan biner tanpa pola terlarang), rekursi Fibonacci, lemma jabat tangan, graf lengkap | KO01, KO02, AL04 | menyusun dan menghitung rekurensi untuk soal pencacahan; memakai induksi untuk memastikan pola; memakai jumlah derajat $=2|E|$ | kasus terakhir, tabel nilai kecil, bijeksi | rekurensi dua indeks |
+| 19 | AL06 | Bilangan kompleks & trigonometri | bentuk $a+bi$, modulus, konjugat, bentuk polar, De Moivre, akar satuan, identitas trigonometri dasar dan sudut rangkap | AL02, AL04 | menghitung pangkat dan akar bilangan kompleks; memakai akar satuan untuk jumlah/polinom; menyederhanakan ekspresi trigonometri | bentuk polar, $\omega^3=1$, simetri akar | jumlah $\cos$ berpola |
+
+Modul 17–19 ditambahkan atas keputusan guru (22 Okt 2026) untuk menutup topik *Wajib* peta guru yang belum
+terwadahi. Total sasaran menjadi 19 modul.
 
 ID soal: `<KODE>-E01..E02` (contoh terselesaikan), `<KODE>-P001..P012` (latihan),
 `DG-001..016` (diagnostik), `MX1-001..020`, `MX2-001..020` (paket campuran).
@@ -66,8 +72,8 @@ ID soal: `<KODE>-E01..E02` (contoh terselesaikan), `<KODE>-P001..P012` (latihan)
 | Polinom, teorema sisa, Vieta derajat 2–3, binomial | AL02 | — |
 | AM-GM 2–4 suku, Cauchy-Schwarz, Titu; nilai mutlak | AL03 | Cauchy-Schwarz/Titu menjadi inti |
 | $\sum$, $\prod$, teleskopik, barisan & deret | AL04 | — |
-| **Fungsi (injektif/surjektif, komposisi, invers), persamaan Cauchy** | — | **belum ada modul** → usul AL05 |
-| **Bilangan kompleks, trigonometri, De Moivre, akar satuan** | — | **belum ada modul** → usul AL06 |
+| Fungsi (injektif/surjektif, komposisi, invers), persamaan Cauchy | AL05 | modul baru (disetujui guru) |
+| Bilangan kompleks, trigonometri, De Moivre, akar satuan | AL06 | modul baru (disetujui guru) |
 | Titik istimewa segitiga: titik berat, garis bagi, $r=L/s$ | GE01 | ditambahkan ke GE01 |
 | $R=\frac{abc}{4L}$, sudut pusat/keliling, segi empat tali busur, garis singgung | GE03 | $R$ dipindah ke GE03 (butuh sudut keliling) |
 | Kesebangunan, perbandingan luas, trapesium, homotetri | GE02 | tambah homotetri |
@@ -77,14 +83,13 @@ ID soal: `<KODE>-E01..E02` (contoh terselesaikan), `<KODE>-P001..P012` (latihan)
 | Aturan perkalian, permutasi-kombinasi, bintang-garis, himpunan bagian, bijeksi | KO01, KO02 | bintang-garis pindah dari KO04 ke KO02 |
 | Inklusi-eksklusi, peluang, linearitas nilai harapan | KO04 | tambah nilai harapan |
 | Rumah merpati | KO03 | — |
-| **Induksi, rekursi & relasi rekurensi** (4 soal OSN-K 2021–2026) | AL04 (sebagian) | **kurang** → usul KO05, sekalian graf dasar (berguna) |
+| Induksi, rekursi & relasi rekurensi (4 soal OSN-K 2021–2026); graf dasar | KO05 | modul baru (disetujui guru); AL04 tetap memuat rekursi barisan sederhana |
 
-Usulan AL05, AL06, KO05 menambah 3 modul (19 modul, 36 latihan + 6 contoh). Ini keputusan guru;
-tidak memengaruhi pilot.
+AL05, AL06, KO05 disetujui guru: +3 modul (+36 latihan, +6 contoh).
 
 Bentuk jawaban mengikuti peta guru: **isian singkat** → latihan memakai `integer` sebisa mungkin.
 
-## 4. Rencana pembinaan 8 minggu
+## 4. Rencana pembinaan 10 minggu
 
 Setiap pertemuan 90 menit: 10' pemantik → 25' konsep → 15' contoh terselesaikan →
 35' latihan (fondasi dikerjakan semua; inti dipilih) → 5' refleksi. Soal tantangan dan
@@ -100,10 +105,13 @@ sisa latihan menjadi tugas mandiri.
 | 5 | TB03 | AL03 | pembahasan Latihan Campuran 1 di awal pertemuan A (15') |
 | 6 | KO03 | GE03 | |
 | 7 | TB04 | AL04 | |
-| 8 | KO04 | GE04 | Latihan Campuran 2 (20 soal, modul 1–16) |
+| 8 | KO04 | GE04 | |
+| 9 | AL05 | KO05 | |
+| 10 | AL06 | review bidang terlemah (dari progres & Latihan Campuran 1) | Latihan Campuran 2 (20 soal, modul 1–19) |
 
 Urutan memastikan setiap modul hanya memakai prasyarat dari modul sebelumnya, dan empat bidang
-bergantian. Modul 1–8 = **versi inti** (tonggak 2).
+bergantian. Modul 1–8 = **versi inti** (tonggak 2). Program menjadi 10 minggu (sebelumnya 8) karena
+ada 19 modul; jika harus tetap 8 minggu, AL05/KO05/AL06 dijadikan tugas mandiri.
 
 ## 5. Pilot
 
