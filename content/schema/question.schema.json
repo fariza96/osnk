@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "osnk-matematika/question.schema.json",
+  "title": "Butir soal OSN-K Matematika",
+  "description": "Dokumentasi skema. Penegakan dilakukan oleh scripts/validate.py (tanpa dependensi). Teks memakai Markdown + LaTeX ($...$, $$...$$).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "module_id", "domain", "subtopic", "objective_id", "role", "difficulty",
+               "estimated_minutes", "prerequisites", "technique_tags", "statement", "answer_type",
+               "answer_spec", "hints", "solution", "key_idea", "common_error", "origin", "source_refs",
+               "verification_status", "verification_notes"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^([A-Z]{2}\\d{2}-(E\\d{2}|P\\d{3})|DG-\\d{3}|MX\\d-\\d{3})$"},
+    "version": {"type": "integer", "minimum": 1},
+    "module_id": {"type": ["string", "null"], "pattern": "^[A-Z]{2}\\d{2}$"},
+    "domain": {"enum": ["teori_bilangan", "aljabar", "geometri", "kombinatorika"]},
+    "subtopic": {"type": "string"},
+    "objective_id": {"type": "string", "description": "mis. TB01-O2"},
+    "role": {"enum": ["worked_example", "practice", "diagnostic", "mixed"]},
+    "difficulty": {"enum": ["foundation", "core", "challenge"]},
+    "estimated_minutes": {"type": "integer", "minimum": 1, "maximum": 30},
+    "prerequisites": {"type": "array", "items": {"type": "string"}},
+    "technique_tags": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}},
+    "statement": {"type": "string"},
+    "answer_type": {"enum": ["integer", "rational", "decimal", "choice", "self_check"]},
+    "choices": {
+      "type": "array",
+      "items": {"type": "object", "required": ["id", "text"], "properties": {"id": {"pattern": "^[A-E]$"}, "text": {"type": "string"}}}
+    },
+    "answer_spec": {
+      "type": "object",
+      "description": "integer: {value:'12'}; rational: {value:'3/4'}; decimal: {value:'2.5', tolerance:0.01}; choice: {correct:'C'}; self_check: {rubric:[...]}. Semua: display (teks jawaban baku, LaTeX boleh)."
+    },
+    "hints": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}},
+    "solution": {"type": "string"},
+    "key_idea": {"type": "string"},
+    "common_error": {"type": "string"},
+    "alternative_solution": {"type": "string"},
+    "diagram": {"type": "string", "description": "nama berkas SVG di content/diagrams/, mis. GE01-P004.svg"},
+    "diagram_alt": {"type": "string", "description": "deskripsi teks diagram; wajib jika diagram ada"},
+    "origin": {"enum": ["original", "adapted", "reproduced_with_permission"]},
+    "source_refs": {"type": "array", "items": {"type": "string"}},
+    "verification_status": {"enum": ["draft", "reviewed", "verified", "needs_revision", "quarantined"]},
+    "verification_notes": {"type": "string"}
+  }
+}

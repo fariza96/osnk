@@ -1,0 +1,467 @@
+[
+ {
+  "id": "TB01-E01",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "sifat linear keterbagian",
+  "objective_id": "TB01-O1",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "kombinasi_linear",
+   "pembatasan_kasus"
+  ],
+  "statement": "Tentukan jumlah semua bilangan bulat positif $n$ sehingga $n+3$ membagi $n^2+15$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "39",
+   "display": "$39$"
+  },
+  "hints": [
+   "Nyatakan $n^2+15$ sebagai (kelipatan $n+3$) ditambah konstanta.",
+   "$n^2+15=(n+3)(n-3)+24$. Jadi $n+3$ harus membagi $24$."
+  ],
+  "solution": "**Ide kunci.** Bilangan yang dibagi masih memuat $n$, sehingga sulit diperiksa. Dengan sifat linear,\nkurangi kelipatan $n+3$ yang tepat agar $n$ hilang.\n\n**Langkah.**\n\n1. $(n+3)(n-3)=n^2-9$, sehingga $n^2+15=(n+3)(n-3)+24$.\n2. Karena $n+3\\mid n+3$, sifat linear memberi: $n+3\\mid n^2+15 \\iff n+3\\mid (n^2+15)-(n-3)(n+3)=24$.\n3. Untuk $n\\ge1$ berlaku $n+3\\ge4$. Pembagi positif $24$ yang paling sedikit $4$ adalah $4,6,8,12,24$.\n4. Jadi $n\\in\\{1,3,5,9,21\\}$, dan jumlahnya $1+3+5+9+21=39$.\n\n**Pemeriksaan.** Untuk $n=21$: $n^2+15=456=24\\cdot19$ ✓. Untuk $n=2$: $5\\nmid19$, sesuai karena $5\\nmid24$.",
+  "key_idea": "Jika $d$ membagi bentuk berisi $n$, kurangi kelipatan pembagi yang tepat sampai tersisa konstanta.\nSetelah itu pembaginya pasti salah satu pembagi konstanta tersebut, jadi kemungkinannya terbatas.",
+  "common_error": "Menyertakan pembagi $1,2,3$ dari $24$, padahal $n+3\\ge4$. Akibatnya muncul $n\\le0$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-E02",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB dan KPK",
+  "objective_id": "TB01-O2",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "keluarkan_fpb",
+   "faktorisasi_prima"
+  ],
+  "statement": "Dua bilangan bulat positif $a<b$ memenuhi $\\mathrm{FPB}(a,b)=12$ dan $\\mathrm{KPK}(a,b)=360$.\nBerapa banyak pasangan $(a,b)$ yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "4",
+   "display": "$4$"
+  },
+  "hints": [
+   "Tulis $a=12x$ dan $b=12y$ dengan $\\mathrm{FPB}(x,y)=1$. Berapakah $xy$?",
+   "$xy=30=2\\cdot3\\cdot5$. Setiap faktor prima harus masuk seluruhnya ke $x$ atau seluruhnya ke $y$."
+  ],
+  "solution": "**Ide kunci.** Keluarkan FPB-nya, lalu bagi faktor prima di antara dua bilangan yang relatif prima.\n\n**Langkah.**\n\n1. Tulis $a=12x$ dan $b=12y$ dengan $\\mathrm{FPB}(x,y)=1$ dan $x<y$. Maka $\\mathrm{KPK}(a,b)=12xy$, sehingga $xy=30$.\n2. $30=2\\cdot3\\cdot5$. Karena $x$ dan $y$ relatif prima, setiap prima masuk seluruhnya ke salah satu bilangan.\n   Ada $2^3=8$ cara membagi tiga prima. Separuhnya memenuhi $x<y$, yaitu $4$ cara.\n3. Pasangannya $(x,y)$ adalah $(1,30)$, $(2,15)$, $(3,10)$, dan $(5,6)$, yaitu $(a,b)$ bernilai $(12,360)$, $(24,180)$, $(36,120)$, dan $(60,72)$.\n\n**Pemeriksaan.** $\\mathrm{FPB}(60,72)=12$ dan $\\mathrm{KPK}(60,72)=360$ ✓. Pasangan $(x,y)=(6,5)$\ntidak dihitung lagi karena syarat $a<b$.",
+  "key_idea": "Dengan menulis $a=dx$, $b=dy$, $\\mathrm{FPB}(x,y)=1$, soal FPB–KPK berubah menjadi soal\nmembagi faktor prima. Untuk $k$ prima berbeda di $xy$ ada $2^k$ pasangan terurut.",
+  "common_error": "Menjawab $8$ karena menghitung pasangan terurut, padahal syarat $a<b$ membuat $(2,15)$ dan $(15,2)$ hanya dihitung sekali. Untuk tiga prima berbeda di $xy$ ada $8$ pasangan terurut, tetapi hanya $4$ yang memenuhi $x<y$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: teks kekeliruan umum ditulis ulang (versi awal membingungkan)."
+ },
+ {
+  "id": "TB01-P001",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "algoritma Euclid",
+  "objective_id": "TB01-O3",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "euclid"
+  ],
+  "statement": "Tentukan $\\mathrm{FPB}(2023,\\,1547)$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "119",
+   "display": "$119$"
+  },
+  "hints": [
+   "Pakai $\\mathrm{FPB}(a,b)=\\mathrm{FPB}(b,\\,a-qb)$ berulang kali.",
+   "$2023-1547=476$, kemudian $1547=3\\cdot476+119$."
+  ],
+  "solution": "Dengan algoritma Euclid:\n$$\\begin{aligned}\\mathrm{FPB}(2023,1547)&=\\mathrm{FPB}(1547,476)\\\\&=\\mathrm{FPB}(476,119)=\\mathrm{FPB}(119,0)=119,\\end{aligned}$$\nkarena $2023=1\\cdot1547+476$, $1547=3\\cdot476+119$, dan $476=4\\cdot119$.\n\nPemeriksaan dengan faktorisasi: $2023=7\\cdot17^2$ dan $1547=7\\cdot13\\cdot17$, sehingga FPB-nya $7\\cdot17=119$.",
+  "key_idea": "Euclid mengecilkan bilangan dengan cepat tanpa perlu memfaktorkan.",
+  "common_error": "Berhenti terlalu cepat dan menjawab sisa yang belum $0$ di langkah berikutnya, atau salah menghitung hasil bagi.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Tata letak: rantai Euclid dipecah dua baris (isi tetap)."
+ },
+ {
+  "id": "TB01-P002",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB dan KPK",
+  "objective_id": "TB01-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [],
+  "technique_tags": [
+   "fpb_kali_kpk"
+  ],
+  "statement": "Bilangan bulat positif $b$ memenuhi $\\mathrm{FPB}(84,b)=12$ dan $\\mathrm{KPK}(84,b)=420$. Tentukan $b$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "60",
+   "display": "$60$"
+  },
+  "hints": [
+   "Untuk dua bilangan positif: $\\mathrm{FPB}\\cdot\\mathrm{KPK}=$ hasil kali kedua bilangan.",
+   "$84b=12\\cdot420$."
+  ],
+  "solution": "Karena $\\mathrm{FPB}(84,b)\\cdot\\mathrm{KPK}(84,b)=84b$, diperoleh $84b=12\\cdot420=5040$, sehingga $b=60$.\n\nPemeriksaan: $84=2^2\\cdot3\\cdot7$ dan $60=2^2\\cdot3\\cdot5$. FPB-nya $2^2\\cdot3=12$ dan KPK-nya $2^2\\cdot3\\cdot5\\cdot7=420$ ✓.",
+  "key_idea": "$\\mathrm{FPB}(a,b)\\cdot\\mathrm{KPK}(a,b)=ab$ berlaku untuk dua bilangan positif karena $\\min+\\max$ eksponen sama dengan jumlah eksponen.",
+  "common_error": "Hanya memakai syarat FPB, misalnya menjawab $b=12$ atau $b=36$. Syarat KPK juga harus dipakai, dan $b$ tunggal karena $84b$ sudah ditentukan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: kekeliruan umum versi awal memuat 'tebakan' yang kebetulan menghasilkan jawaban benar; diganti."
+ },
+ {
+  "id": "TB01-P003",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB bentuk aljabar",
+  "objective_id": "TB01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "kombinasi_linear",
+   "euclid"
+  ],
+  "statement": "Untuk bilangan bulat positif $n$, berapakah nilai **terbesar** yang mungkin dari $\\mathrm{FPB}(n+2,\\;3n+11)$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5",
+   "display": "$5$"
+  },
+  "hints": [
+   "Misalkan $d$ membagi $n+2$ dan $3n+11$. Kombinasi linear apa yang menghilangkan $n$?",
+   "$(3n+11)-3(n+2)=5$, jadi $d\\mid5$. Apakah nilai $5$ benar-benar tercapai?"
+  ],
+  "solution": "Misalkan $d=\\mathrm{FPB}(n+2,3n+11)$. Menurut sifat linear, $d\\mid(3n+11)-3(n+2)=5$, sehingga $d\\in\\{1,5\\}$.\n\nNilai $5$ tercapai, misalnya untuk $n=3$: $n+2=5$ dan $3n+11=20$, dengan $\\mathrm{FPB}(5,20)=5$.\nJadi nilai terbesarnya $5$.",
+  "key_idea": "Batas atas diperoleh dari kombinasi linear. Nilai terbesar baru sah jika ditunjukkan ada $n$ yang mencapainya.",
+  "common_error": "Berhenti di \"$d$ membagi $5$\" tanpa menunjukkan $5$ tercapai. Pada soal lain, batas dari kombinasi linear bisa saja tidak tercapai.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P004",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB dan faktorisasi",
+  "objective_id": "TB01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "keluarkan_fpb",
+   "pencacahan_kelipatan"
+  ],
+  "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ yang memenuhi $\\mathrm{FPB}(n,12)=4$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "17",
+   "display": "$17$"
+  },
+  "hints": [
+   "$\\mathrm{FPB}(n,12)=4$ memaksa $4\\mid n$. Tulis $n=4m$.",
+   "$\\mathrm{FPB}(4m,12)=4\\cdot\\mathrm{FPB}(m,3)$. Jadi $m$ tidak boleh habis dibagi $3$."
+  ],
+  "solution": "Karena $4\\mid\\mathrm{FPB}(n,12)$, kita punya $4\\mid n$. Tulis $n=4m$ dengan $1\\le m\\le25$. Maka\n$$\\mathrm{FPB}(4m,12)=4\\cdot\\mathrm{FPB}(m,3),$$\nsehingga syaratnya sama dengan $\\mathrm{FPB}(m,3)=1$, yaitu $3\\nmid m$.\n\nDari $m=1,\\dots,25$ ada $\\lfloor25/3\\rfloor=8$ kelipatan $3$. Jadi banyaknya $25-8=17$.\n\nPemeriksaan: $n=8$ memberi FPB $4$ ✓; $n=12$ memberi FPB $12$, jadi dibuang ✓; $n=16$ memberi FPB $4$ ✓.",
+  "key_idea": "Keluarkan FPB yang diminta: syarat $\\mathrm{FPB}(n,12)=4$ berubah menjadi syarat relatif prima pada $m=n/4$.",
+  "common_error": "Menghitung semua kelipatan $4$ (ada $25$) tanpa membuang $n$ yang juga kelipatan $3$, karena untuk $n$ itu FPB-nya $12$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P005",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB bentuk aljabar",
+  "objective_id": "TB01-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "euclid",
+   "fpb_aljabar"
+  ],
+  "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ yang memenuhi $\\mathrm{FPB}(n^2+3,\\;n+1)=4$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "25",
+   "display": "$25$"
+  },
+  "hints": [
+   "Kurangi $n^2+3$ dengan kelipatan $n+1$ yang tepat: $(n-1)(n+1)=n^2-1$.",
+   "$\\mathrm{FPB}(n^2+3,n+1)=\\mathrm{FPB}(n+1,4)$. Kapan nilainya tepat $4$?"
+  ],
+  "solution": "Karena $n^2+3=(n-1)(n+1)+4$, algoritma Euclid memberi\n$$\\mathrm{FPB}(n^2+3,\\;n+1)=\\mathrm{FPB}(n+1,\\;4).$$\nNilai ini sama dengan $4$ tepat ketika $4\\mid n+1$, yaitu $n=3,7,11,\\dots,99$.\nBanyaknya $\\frac{99-3}{4}+1=25$.\n\nPemeriksaan: $n=3$ memberi $\\mathrm{FPB}(12,4)=4$ ✓. $n=5$ memberi $\\mathrm{FPB}(28,6)=2\\ne4$ ✓.",
+  "key_idea": "FPB dua bentuk aljabar diselesaikan seperti FPB bilangan: kurangi kelipatan sampai tersisa konstanta.",
+  "common_error": "Menyimpulkan \"FPB-nya $4$\" untuk semua $n$ ganjil. Untuk $n+1\\equiv2\\pmod4$, misalnya $n=5$, FPB-nya hanya $2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P006",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "identitas Bézout",
+  "objective_id": "TB01-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "bezout",
+   "kombinasi_linear"
+  ],
+  "statement": "Berapa banyak bilangan bulat $k$ dengan $1\\le k\\le100$ yang dapat ditulis dalam bentuk $k=84x+120y$\nuntuk suatu bilangan bulat $x$ dan $y$ (boleh negatif atau nol)?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "8",
+   "display": "$8$"
+  },
+  "hints": [
+   "Setiap bilangan berbentuk $84x+120y$ habis dibagi $\\mathrm{FPB}(84,120)$. Apakah sebaliknya juga benar?",
+   "$\\mathrm{FPB}(84,120)=12$. Menurut Bézout, bilangan yang dapat ditulis tepat sama dengan kelipatan $12$."
+  ],
+  "solution": "$\\mathrm{FPB}(84,120)=\\mathrm{FPB}(84,36)=\\mathrm{FPB}(36,12)=12$.\n\n- Setiap $84x+120y$ habis dibagi $12$ (sifat linear).\n- Sebaliknya, Euclid mundur memberi $12=84-2\\cdot36=84-2(120-84)=3\\cdot84-2\\cdot120$.\n  Karena itu $12t=84(3t)+120(-2t)$ untuk setiap bilangan bulat $t$.\n\nJadi bilangan yang dapat ditulis tepat sama dengan kelipatan $12$. Di antara $1$ sampai $100$ ada\n$12,24,\\dots,96$, yaitu $8$ bilangan.",
+  "key_idea": "Bézout: himpunan $\\{ax+by\\}$ dengan $x,y$ bulat sama dengan himpunan kelipatan $\\mathrm{FPB}(a,b)$.",
+  "common_error": "Menganggap $x,y$ harus positif lalu mencari kombinasi seperti $84+120=204$. Soal ini membolehkan $x,y$ negatif.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P007",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "KPK dalam masalah periodik",
+  "objective_id": "TB01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "kpk",
+   "pencacahan_kelipatan",
+   "inklusi_eksklusi"
+  ],
+  "statement": "Tiga lampu berkedip sesaat secara berkala: lampu pertama setiap $12$ detik, lampu kedua setiap $18$ detik,\ndan lampu ketiga setiap $30$ detik. Pada detik $t=0$ ketiganya berkedip bersamaan. Pada selang\n$0<t\\le3600$, berapa kali terjadi **tepat dua** lampu berkedip bersamaan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "140",
+   "display": "$140$"
+  },
+  "hints": [
+   "Dua lampu berkedip bersamaan pada kelipatan KPK periodenya. Hitung KPK untuk setiap pasangan dan untuk ketiganya.",
+   "$\\mathrm{KPK}(12,18)=36$, $\\mathrm{KPK}(12,30)=60$, $\\mathrm{KPK}(18,30)=90$, dan $\\mathrm{KPK}(12,18,30)=180$. Saat ketiganya berkedip harus dikeluarkan dari setiap pasangan."
+  ],
+  "solution": "Lampu dengan periode $p$ dan $q$ berkedip bersamaan tepat pada kelipatan $\\mathrm{KPK}(p,q)$.\n\n| Kejadian | KPK | Banyaknya pada $0<t\\le3600$ |\n|---|---|---|\n| lampu 1 dan 2 | $36$ | $100$ |\n| lampu 1 dan 3 | $60$ | $60$ |\n| lampu 2 dan 3 | $90$ | $40$ |\n| ketiganya | $180$ | $20$ |\n\nSetiap saat ketiganya berkedip ikut terhitung dalam ketiga baris pasangan. Jadi banyaknya saat dengan\n**tepat dua** lampu adalah\n$$(100-20)+(60-20)+(40-20)=140.$$",
+  "key_idea": "Kejadian bersamaan dihitung lewat kelipatan KPK. \"Tepat dua\" berarti saat ketiganya berkedip dikeluarkan dari setiap pasangan.",
+  "common_error": "Menjawab $100+60+40=200$ atau $200-20=180$. Saat ketiganya berkedip terhitung tiga kali (sekali di setiap pasangan), jadi harus dikurangi tiga kali $20$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P008",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "bilangan prima dan faktorisasi",
+  "objective_id": "TB01-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "faktorisasi",
+   "kasus_faktor_satu"
+  ],
+  "statement": "Tentukan jumlah semua bilangan bulat $n$ (boleh negatif) sehingga $|n^2+4n-21|$ merupakan bilangan prima.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-4",
+   "display": "$-4$"
+  },
+  "hints": [
+   "Faktorkan $n^2+4n-21$.",
+   "$|n^2+4n-21|=|n+7|\\cdot|n-3|$. Hasil kali dua bilangan bulat tak negatif bernilai prima hanya jika salah satunya $1$."
+  ],
+  "solution": "$n^2+4n-21=(n+7)(n-3)$, sehingga $|n^2+4n-21|=|n+7|\\,|n-3|$. Agar hasil kalinya prima, salah satu faktor\nharus bernilai $1$ dan faktor lainnya prima.\n\n- $|n-3|=1$: $n=4$ memberi $|n+7|=11$, prima ✓. $n=2$ memberi $|n+7|=9$, bukan prima.\n- $|n+7|=1$: $n=-6$ memberi $|n-3|=9$, bukan prima. $n=-8$ memberi $|n-3|=11$, prima ✓.\n\nJadi $n\\in\\{4,-8\\}$, dan jumlahnya $4+(-8)=-4$.",
+  "key_idea": "Jika suatu bentuk dapat difaktorkan, syarat \"prima\" memaksa salah satu faktor bernilai $\\pm1$. Periksa semua kasus tanda.",
+  "common_error": "Hanya memeriksa $n-3=1$ sehingga menjawab $4$. Kasus $n+7=-1$ (yaitu $n=-8$) terlewat.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P009",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "KPK dan eksponen prima",
+  "objective_id": "TB01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "faktorisasi_prima",
+   "eksponen_max",
+   "aturan_perkalian"
+  ],
+  "statement": "Berapa banyak pasangan **terurut** $(a,b)$ bilangan bulat positif dengan $\\mathrm{KPK}(a,b)=72$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "35",
+   "display": "$35$"
+  },
+  "hints": [
+   "$72=2^3\\cdot3^2$. Tulis $a=2^{\\alpha}3^{\\gamma}$ dan $b=2^{\\beta}3^{\\delta}$. Syaratnya $\\max(\\alpha,\\beta)=3$ dan $\\max(\\gamma,\\delta)=2$.",
+   "Hitung banyak pasangan $(\\alpha,\\beta)$ dari $\\{0,1,2,3\\}$ dengan maksimum $3$, lalu kalikan dengan banyak pasangan untuk prima $3$."
+  ],
+  "solution": "$a$ dan $b$ membagi $72=2^3\\cdot3^2$, jadi $a=2^{\\alpha}3^{\\gamma}$ dan $b=2^{\\beta}3^{\\delta}$. Syarat KPK-nya:\n\n- $\\max(\\alpha,\\beta)=3$ dengan $\\alpha,\\beta\\in\\{0,1,2,3\\}$: semua $4^2=16$ pasangan dikurangi $3^2=9$ pasangan yang keduanya $\\le2$, sisa $7$.\n- $\\max(\\gamma,\\delta)=2$ dengan $\\gamma,\\delta\\in\\{0,1,2\\}$: $3^2-2^2=5$.\n\nKedua prima dipilih secara independen, jadi banyaknya $7\\cdot5=35$.",
+  "key_idea": "KPK ditentukan oleh eksponen maksimum. Hitung per faktor prima, lalu kalikan. Untuk $p^e$ banyaknya $(e+1)^2-e^2=2e+1$.",
+  "common_error": "Menghitung pasangan tak terurut, atau menghitung semua pasangan pembagi $72$ ($12^2=144$) tanpa syarat maksimum.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P010",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB bentuk aljabar dan pencacahan",
+  "objective_id": "TB01-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "euclid",
+   "fpb_aljabar",
+   "inklusi_eksklusi"
+  ],
+  "statement": "Untuk berapa banyak bilangan bulat $n$ dengan $1\\le n\\le999$ pecahan $\\dfrac{n+5}{n^2+3}$ **tidak** dalam bentuk paling sederhana?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "572",
+   "display": "$572$"
+  },
+  "hints": [
+   "Pecahan tidak sederhana berarti $\\mathrm{FPB}(n+5,\\,n^2+3)>1$. Sederhanakan FPB itu dengan Euclid.",
+   "$n^2+3=(n+5)(n-5)+28$, jadi $\\mathrm{FPB}=\\mathrm{FPB}(n+5,28)$. Nilainya $>1$ tepat ketika $n+5$ genap atau habis dibagi $7$."
+  ],
+  "solution": "Pecahan tidak sederhana tepat ketika $\\mathrm{FPB}(n+5,n^2+3)>1$. Karena $n^2+3=(n+5)(n-5)+28$,\n$$\\mathrm{FPB}(n+5,\\;n^2+3)=\\mathrm{FPB}(n+5,\\;28).$$\nKarena $28=2^2\\cdot7$, FPB ini $>1$ tepat ketika $2\\mid n+5$ atau $7\\mid n+5$.\n\nMisalkan $m=n+5$, sehingga $6\\le m\\le1004$.\n\n- Kelipatan $2$: $6,8,\\dots,1004$ ada $500$.\n- Kelipatan $7$: $7,14,\\dots,1001$ ada $143$.\n- Kelipatan $14$: $14,28,\\dots,994$ ada $71$.\n\nDengan inklusi–eksklusi, banyaknya $500+143-71=572$.",
+  "key_idea": "Euclid mengubah syarat FPB berisi $n$ menjadi syarat keterbagian sederhana. Setelah itu soal menjadi soal mencacah kelipatan.",
+  "common_error": "Menghitung rentang $m$ sebagai $1$ sampai $999$ (lupa menggeser $+5$), atau lupa mengurangi kelipatan $14$ yang terhitung dua kali.",
+  "alternative_solution": "Hitung komplemennya: $m$ dengan $\\mathrm{FPB}(m,14)=1$. Pada $1\\le m\\le1008$ (tepat $72$ periode $14$) ada $72\\cdot6=432$ bilangan seperti itu. Keluarkan $m\\in\\{1,\\dots,5\\}$ yang relatif prima dengan $14$, yaitu $1,3,5$ (ada $3$), dan $m\\in\\{1005,\\dots,1008\\}$ yang relatif prima dengan $14$, yaitu $1005,1007$ (ada $2$). Hasilnya $432-5=427$ bilangan relatif prima, sehingga jawabannya $999-427=572$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB01-P011",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "KPK dan pangkat prima",
+  "objective_id": "TB01-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "eksponen_max",
+   "pangkat_prima"
+  ],
+  "statement": "Misalkan $L_n=\\mathrm{KPK}(1,2,\\dots,n)$. Untuk berapa banyak bilangan bulat $n$ dengan $2\\le n\\le50$\nberlaku $L_n\\ne L_{n-1}$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "23",
+   "display": "$23$"
+  },
+  "hints": [
+   "$L_n=\\mathrm{KPK}(L_{n-1},n)$. Kapan menambahkan $n$ menaikkan eksponen suatu prima?",
+   "Eksponen prima $p$ di $L_n$ adalah pangkat terbesar $p^k\\le n$. Nilainya naik tepat ketika $n$ sendiri berbentuk $p^k$."
+  ],
+  "solution": "Eksponen prima $p$ dalam $L_n$ adalah $k$ terbesar dengan $p^k\\le n$. Dari $n-1$ ke $n$, eksponen ini naik\ntepat ketika $n=p^k$ untuk suatu prima $p$ dan $k\\ge1$.\n\n- Jika $n=p^k$, eksponen $p$ naik dari $k-1$ menjadi $k$, sehingga $L_n\\ne L_{n-1}$.\n- Jika $n$ memiliki dua faktor prima berbeda, $n=p^a m$ dengan $p\\nmid m$ dan $m>1$. Maka $p^a<n$ dan $m<n$, jadi $p^a\\mid L_{n-1}$ dan $m\\mid L_{n-1}$. Karena $\\mathrm{FPB}(p^a,m)=1$, diperoleh $n\\mid L_{n-1}$ dan $L_n=L_{n-1}$.\n\nPangkat prima pada $2\\le n\\le50$:\n\n- prima: $2$, $3$, $5$, $7$, $11$, $13$, $17$, $19$, $23$, $29$, $31$, $37$, $41$, $43$, $47$ (ada $15$);\n- pangkat prima dengan $k\\ge2$: $4$, $8$, $16$, $32$, $9$, $27$, $25$, $49$ (ada $8$).\n\nJadi totalnya $15+8=23$.",
+  "key_idea": "KPK dibaca per faktor prima lewat eksponen maksimum. Nilainya hanya berubah ketika muncul pangkat prima yang lebih tinggi.",
+  "common_error": "Hanya menghitung bilangan prima ($15$) dan melewatkan $4,8,9,16,25,27,32,49$. Kesalahan lain: menganggap $n=6$ atau $n=12$ juga mengubah KPK.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Tata letak: daftar prima dipecah agar tidak melebar di ponsel (isi tetap)."
+ },
+ {
+  "id": "TB01-P012",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FPB bentuk simetris",
+  "objective_id": "TB01-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "euclid",
+   "relatif_prima",
+   "konstruksi_contoh"
+  ],
+  "statement": "Untuk bilangan bulat positif $a$ dan $b$ dengan $\\mathrm{FPB}(a,b)=1$, nilai\n$$\\mathrm{FPB}(a+b,\\;a^2-ab+b^2)$$\nhanya dapat menjadi beberapa bilangan tertentu. Tentukan jumlah semua nilai yang mungkin.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "4",
+   "display": "$4$"
+  },
+  "hints": [
+   "Tulis $a^2-ab+b^2=(a+b)^2-3ab$. Maka $\\mathrm{FPB}(a+b,\\,a^2-ab+b^2)=\\mathrm{FPB}(a+b,\\,3ab)$.",
+   "Tunjukkan $\\mathrm{FPB}(a+b,ab)=1$: setiap prima yang membagi $ab$ membagi $a$ atau $b$, dan karena juga membagi $a+b$, prima itu membagi keduanya. Jadi FPB-nya membagi $3$. Cari contoh untuk setiap kemungkinan."
+  ],
+  "solution": "Misalkan $g=\\mathrm{FPB}(a+b,\\,a^2-ab+b^2)$. Karena $a^2-ab+b^2=(a+b)^2-3ab$, sifat linear memberi\n$g=\\mathrm{FPB}(a+b,\\,3ab)$.\n\n**$a+b$ dan $ab$ relatif prima.** Andaikan prima $p$ membagi $a+b$ dan $ab$. Dari $p\\mid ab$, $p$ membagi\n$a$ atau $b$, misalnya $p\\mid a$. Bersama $p\\mid a+b$ diperoleh $p\\mid b$, padahal $\\mathrm{FPB}(a,b)=1$. Kontradiksi.\n\nKarena $g\\mid a+b$, berlaku $\\mathrm{FPB}(g,ab)=1$. Dari $g\\mid 3ab$ dan $\\mathrm{FPB}(g,ab)=1$ diperoleh $g\\mid3$, sehingga $g\\in\\{1,3\\}$.\n\nKedua nilai tercapai:\n\n- $a=b=1$: $\\mathrm{FPB}(2,1)=1$;\n- $a=1,b=2$: $\\mathrm{FPB}(3,3)=3$.\n\nJumlah semua nilai yang mungkin adalah $1+3=4$.",
+  "key_idea": "Ubah bentuk kedua menjadi (kelipatan bentuk pertama) $+$ sisa, lalu pakai relatif prima untuk membuang faktor yang tidak mungkin. Tutup dengan contoh untuk setiap nilai.",
+  "common_error": "Menjawab $3$ (hanya nilai terbesar) atau melupakan nilai $1$. Kesalahan lain: tidak memberi contoh, sehingga belum terbukti nilai $3$ benar-benar tercapai.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB01.md): A1–A6 lulus. A5: scripts/checks/TB01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: langkah 'g | 3' dirumuskan eksplisit lewat FPB(g,ab)=1."
+ }
+]

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 194.64" width="300" height="195" role="img" aria-label="Garis l dan m sejajar; A dan A' pada l, B dan B' pada m; P di antara kedua garis; sudut A'AP 40 derajat dan sudut B'BP 65 derajat" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="28.0" y1="28.0" x2="272.0" y2="28.0"/>
+<line x1="28.0" y1="166.64" x2="272.0" y2="166.64"/>
+<line x1="80.68" y1="28.0" x2="163.29" y2="97.32"/>
+<line x1="163.29" y1="97.32" x2="130.97" y2="166.64"/>
+<path d="M99.27 43.59 A24.26 24.26 0 0 0 104.94 28.0" stroke-width="1.2"/>
+<text x="121.07" y="42.7" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-size="13">40°</text>
+<path d="M151.76 166.64 A20.8 20.8 0 0 0 139.76 147.79" stroke-width="1.2"/>
+<text x="164.88" y="145.03" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-size="13">65°</text>
+<path d="M151.61 87.52 A15.25 15.25 0 0 0 156.85 111.14" stroke-width="1.2"/>
+<circle cx="80.68" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="80.68" y="15.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="163.29" cy="97.32" r="2.6" fill="currentColor" stroke="none"/>
+<text x="175.29" y="97.32" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">P</text>
+<circle cx="130.97" cy="166.64" r="2.6" fill="currentColor" stroke="none"/>
+<text x="130.97" y="180.64" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="260.91" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="260.91" y="15.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A'</text>
+<circle cx="260.91" cy="166.64" r="2.6" fill="currentColor" stroke="none"/>
+<text x="260.91" y="180.64" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B'</text>
+<text x="280.0" y="28.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">ℓ</text>
+<text x="280.0" y="166.64" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">m</text>
+</svg>

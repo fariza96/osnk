@@ -1,0 +1,480 @@
+[
+ {
+  "id": "GE01-E01",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "mengejar sudut pada segitiga sama kaki",
+  "objective_id": "GE01-O1",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "angle_chasing",
+   "segitiga_sama_kaki"
+  ],
+  "statement": "Pada segitiga $ABC$ berlaku $AB=AC$ dan $\\angle BAC=36^\\circ$. Garis bagi $\\angle ABC$ memotong sisi $AC$\ndi titik $D$. Tentukan besar $\\angle BDC$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "72",
+   "display": "$72^\\circ$"
+  },
+  "hints": [
+   "Hitung dulu $\\angle ABC$ dan $\\angle ACB$ dari sifat segitiga sama kaki.",
+   "$\\angle ABC=\\angle ACB=72^\\circ$, sehingga $\\angle DBC=36^\\circ$. Lihat segitiga $BDC$."
+  ],
+  "solution": "**Ide kunci.** Mulai dari sudut yang diketahui, lalu turunkan sudut lain dengan sifat sama kaki dan jumlah sudut.\n\n**Langkah.**\n\n1. Karena $AB=AC$, $\\angle ABC=\\angle ACB=\\tfrac12(180^\\circ-36^\\circ)=72^\\circ$.\n2. $BD$ membagi dua $\\angle ABC$, sehingga $\\angle ABD=\\angle DBC=36^\\circ$.\n3. Pada segitiga $BDC$: $\\angle BDC=180^\\circ-\\angle DBC-\\angle DCB=180^\\circ-36^\\circ-72^\\circ=72^\\circ$.\n\n**Pemeriksaan dengan sudut luar.** $\\angle BDC$ adalah sudut luar segitiga $ABD$ di $D$, sehingga\n$\\angle BDC=\\angle BAD+\\angle ABD=36^\\circ+36^\\circ=72^\\circ$ ✓.\n\n**Bonus.** $\\angle BDC=\\angle BCD=72^\\circ$ memberi $BD=BC$, dan $\\angle BAD=\\angle ABD=36^\\circ$ memberi $AD=BD$.\nJadi $AD=BD=BC$. Kesamaan ini sering dipakai pada soal \"segitiga $36^\\circ$–$72^\\circ$–$72^\\circ$\".",
+  "key_idea": "Setiap pasangan sudut sama besar memberi pasangan sisi sama panjang, begitu pula sebaliknya. Periksa hasil dengan cara kedua, misalnya sudut luar.",
+  "common_error": "Mengira $D$ adalah titik tengah $AC$ karena $BD$ adalah garis bagi. Garis bagi membagi **sudut**, tidak membagi sisi di hadapannya sama panjang.",
+  "diagram": "GE01-E01.svg",
+  "diagram_alt": "Segitiga ABC dengan AB = AC (ditandai) dan sudut A sebesar 36 derajat. Ruas BD membagi dua sudut B, dengan D pada sisi AC.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-E02",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "teorema garis bagi dan Pythagoras",
+  "objective_id": "GE01-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [],
+  "technique_tags": [
+   "garis_bagi",
+   "pythagoras"
+  ],
+  "statement": "Segitiga $ABC$ siku-siku di $C$ dengan $AC=6$ dan $BC=8$. Garis bagi $\\angle BAC$ memotong $BC$ di $D$.\nTentukan nilai $AD^2$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "45",
+   "display": "$45$"
+  },
+  "hints": [
+   "Hitung $AB$, lalu pakai $\\dfrac{BD}{DC}=\\dfrac{AB}{AC}$.",
+   "$AB=10$, jadi $BD:DC=10:6=5:3$ dan $DC=3$. Segitiga $ACD$ siku-siku di $C$."
+  ],
+  "solution": "**Ide kunci.** Teorema garis bagi menentukan letak $D$. Setelah itu panjang $AD$ diperoleh dari Pythagoras.\n\n**Langkah.**\n\n1. $AB=\\sqrt{6^2+8^2}=10$.\n2. Teorema garis bagi: $\\dfrac{BD}{DC}=\\dfrac{AB}{AC}=\\dfrac{10}{6}=\\dfrac53$. Karena $BD+DC=8$, $DC=8\\cdot\\dfrac38=3$.\n3. Segitiga $ACD$ siku-siku di $C$: $AD^2=AC^2+DC^2=36+9=45$.\n\n**Pemeriksaan dengan luas.** Jarak $D$ ke $AB$ sama dengan jarak $D$ ke $AC$, yaitu $DC=3$. Maka\n$[ABD]=\\tfrac12\\cdot10\\cdot3=15$ dan $[ACD]=\\tfrac12\\cdot6\\cdot3=9$. Jumlahnya $24=\\tfrac12\\cdot6\\cdot8=[ABC]$ ✓.",
+  "key_idea": "Teorema garis bagi mengubah informasi sudut menjadi perbandingan panjang. Setelah itu panjang dapat dihitung dengan Pythagoras.",
+  "common_error": "Menulis $\\dfrac{BD}{DC}=\\dfrac{AC}{AB}$ (terbalik) sehingga diperoleh $DC=5$ dan $AD^2=61$.",
+  "diagram": "GE01-E02.svg",
+  "diagram_alt": "Segitiga ABC siku-siku di C, dengan A di atas C dan B di kanan C. Ruas AD membagi dua sudut A, dengan D pada sisi CB.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P001",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "sudut pada garis sejajar",
+  "objective_id": "GE01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "angle_chasing",
+   "garis_sejajar",
+   "garis_bantu"
+  ],
+  "statement": "Garis $\\ell$ dan $m$ sejajar. Titik $A$ dan $A'$ terletak pada $\\ell$, sedangkan titik $B$ dan $B'$ terletak pada $m$,\ndengan $A'$ dan $B'$ berada di sisi yang sama (kanan) dari garis $AB$. Titik $P$ terletak di antara kedua garis,\njuga di sebelah kanan garis $AB$, sehingga $\\angle A'AP=40^\\circ$ dan $\\angle B'BP=65^\\circ$.\nTentukan besar $\\angle APB$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "105",
+   "display": "$105^\\circ$"
+  },
+  "hints": [
+   "Tarik garis melalui $P$ yang sejajar dengan $\\ell$ dan $m$.",
+   "Garis bantu itu membagi $\\angle APB$ menjadi dua sudut, masing-masing sama dengan sudut dalam berseberangan di $A$ dan di $B$."
+  ],
+  "solution": "Tarik garis $n$ melalui $P$ yang sejajar dengan $\\ell$ dan $m$, lalu ambil titik $Q$ pada $n$ di sebelah kiri $P$.\n\n- $\\angle APQ=\\angle A'AP=40^\\circ$ (sudut dalam berseberangan, $\\ell\\parallel n$, transversal $AP$).\n- $\\angle BPQ=\\angle B'BP=65^\\circ$ (sudut dalam berseberangan, $m\\parallel n$, transversal $BP$).\n\nKarena $A$ di atas $n$ dan $B$ di bawah $n$, $\\angle APB=\\angle APQ+\\angle QPB=40^\\circ+65^\\circ=105^\\circ$.",
+  "key_idea": "Untuk titik di antara dua garis sejajar, garis bantu sejajar melalui titik itu membagi sudutnya menjadi dua sudut dalam berseberangan.",
+  "common_error": "Menjawab $180^\\circ-40^\\circ-65^\\circ=75^\\circ$ karena menganggap $40^\\circ$ dan $65^\\circ$ adalah sudut segitiga $APB$ di $A$ dan $B$. Kedua sudut itu diukur dari garis $\\ell$ dan $m$, bukan dari ruas $AB$.",
+  "diagram": "GE01-P001.svg",
+  "diagram_alt": "Dua garis mendatar sejajar, l di atas dan m di bawah. A dan A' pada l, B dan B' pada m, dengan A' dan B' di kanan. Titik P di antara kedua garis, di kanan ruas AB. Sudut A'AP 40 derajat dan sudut B'BP 65 derajat.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: teks kekeliruan umum versi awal kabur; ditulis ulang."
+ },
+ {
+  "id": "GE01-P002",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "Pythagoras pada segitiga sama kaki",
+  "objective_id": "GE01-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "pythagoras",
+   "garis_tinggi"
+  ],
+  "statement": "Sebuah segitiga memiliki panjang sisi $13$, $13$, dan $10$. Tentukan luasnya.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "60",
+   "display": "$60$"
+  },
+  "hints": [
+   "Tarik garis tinggi dari puncak ke alas yang panjangnya $10$. Pada segitiga sama kaki, garis tinggi ini membagi alas menjadi dua sama panjang.",
+   "Tingginya $\\sqrt{13^2-5^2}$."
+  ],
+  "solution": "Pada segitiga sama kaki, garis tinggi dari puncak ke alas juga merupakan garis berat, sehingga alas $10$ terbagi\nmenjadi $5$ dan $5$. Tingginya $t=\\sqrt{13^2-5^2}=\\sqrt{144}=12$, dan luasnya $\\tfrac12\\cdot10\\cdot12=60$.",
+  "key_idea": "Garis tinggi pada segitiga sama kaki membentuk dua segitiga siku-siku yang kongruen.",
+  "common_error": "Memakai $\\sqrt{13^2-10^2}$ sebagai tinggi (alas tidak dibagi dua), atau lupa faktor $\\tfrac12$ sehingga menjawab $120$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P003",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "ketaksamaan segitiga",
+  "objective_id": "GE01-O5",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "ketaksamaan_segitiga"
+  ],
+  "statement": "Panjang dua sisi sebuah segitiga adalah $7$ dan $12$, dan panjang sisi ketiganya bilangan bulat $x$. Berapa banyak nilai $x$ yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "13",
+   "display": "$13$"
+  },
+  "hints": [
+   "Sisi ketiga harus lebih besar dari selisih dan lebih kecil dari jumlah dua sisi lainnya.",
+   "$5<x<19$."
+  ],
+  "solution": "Menurut ketaksamaan segitiga, $12-7<x<12+7$, yaitu $5<x<19$. Bilangan bulat $x$ yang memenuhi adalah\n$6,7,\\dots,18$, sehingga banyaknya $18-6+1=13$.",
+  "key_idea": "Sisi ketiga $x$ memenuhi $|p-q|<x<p+q$, dengan tanda **ketat** agar segitiganya tidak degenerat.",
+  "common_error": "Memakai $\\le$ sehingga $x=5$ dan $x=19$ ikut dihitung (jawaban $15$). Untuk nilai itu ketiga titik segaris.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P004",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "mengejar sudut dengan dua segitiga sama kaki",
+  "objective_id": "GE01-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "angle_chasing",
+   "segitiga_sama_kaki",
+   "sudut_luar"
+  ],
+  "statement": "Pada segitiga $ABC$, titik $D$ terletak pada sisi $BC$ sehingga $DA=DB$ dan $CA=CD$. Jika $\\angle ACB=52^\\circ$,\ntentukan besar $\\angle BAC$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "96",
+   "display": "$96^\\circ$"
+  },
+  "hints": [
+   "Misalkan $\\angle ABC=x$. Karena $DA=DB$, $\\angle BAD=x$. Berapakah $\\angle ADC$?",
+   "$\\angle ADC=2x$ (sudut luar segitiga $ABD$). Karena $CA=CD$, $\\angle CAD=\\angle CDA=2x$. Gunakan jumlah sudut segitiga $ACD$."
+  ],
+  "solution": "Misalkan $\\angle ABC=x$.\n\n1. $DA=DB$, sehingga $\\angle BAD=\\angle ABD=x$.\n2. $\\angle ADC$ adalah sudut luar segitiga $ABD$, sehingga $\\angle ADC=x+x=2x$.\n3. $CA=CD$, sehingga $\\angle CAD=\\angle CDA=2x$.\n4. Pada segitiga $ACD$: $2x+2x+52^\\circ=180^\\circ$, sehingga $x=32^\\circ$.\n\nJadi $\\angle BAC=\\angle BAD+\\angle DAC=x+2x=96^\\circ$.\n\nPemeriksaan: sudut segitiga $ABC$ adalah $96^\\circ+32^\\circ+52^\\circ=180^\\circ$ ✓.",
+  "key_idea": "Satu variabel ditambah dua segitiga sama kaki dan satu sudut luar cukup untuk menentukan semua sudut.",
+  "common_error": "Menganggap $\\angle CAD=\\angle ACD$, padahal pada segitiga $ACD$ yang sama panjang adalah $CA=CD$. Sudut yang sama terletak di hadapan kedua sisi itu, yaitu di $D$ dan di $A$.",
+  "diagram": "GE01-P004.svg",
+  "diagram_alt": "Segitiga ABC dengan B di kiri dan C di kanan bawah. D pada BC. Tanda menunjukkan DA = DB dan CA = CD. Sudut ACB 52 derajat.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P005",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "garis bagi dan pusat lingkaran dalam",
+  "objective_id": "GE01-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "garis_bagi",
+   "pusat_lingkaran_dalam"
+  ],
+  "statement": "Pada segitiga $ABC$ berlaku $AB=12$, $AC=9$, dan $BC=7$. Garis bagi $\\angle BAC$ memotong $BC$ di $D$, dan\ngaris bagi $\\angle ABC$ memotong $AD$ di $I$. Tentukan nilai $\\dfrac{AI}{ID}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3",
+   "display": "$3$"
+  },
+  "hints": [
+   "Hitung $BD$ dengan teorema garis bagi pada segitiga $ABC$.",
+   "$BD=4$. Pada segitiga $ABD$, $BI$ membagi dua $\\angle ABD$. Pakai teorema garis bagi sekali lagi."
+  ],
+  "solution": "1. Pada segitiga $ABC$, garis bagi dari $A$ memberi $\\dfrac{BD}{DC}=\\dfrac{AB}{AC}=\\dfrac{12}{9}=\\dfrac43$. Dengan $BD+DC=7$, diperoleh $BD=4$ dan $DC=3$.\n2. Pada segitiga $ABD$, $BI$ membagi dua $\\angle ABD$ dan memotong $AD$ di $I$. Teorema garis bagi memberi $\\dfrac{AI}{ID}=\\dfrac{BA}{BD}=\\dfrac{12}{4}=3$.\n\nRumus umum dengan cara yang sama: $\\dfrac{AI}{ID}=\\dfrac{b+c}{a}=\\dfrac{9+12}{7}=3$ ✓.",
+  "key_idea": "Teorema garis bagi dapat dipakai berulang pada segitiga yang lebih kecil. Titik $I$ adalah pusat lingkaran dalam, dan $AI:ID=(b+c):a$.",
+  "common_error": "Memakai $\\dfrac{AI}{ID}=\\dfrac{AB}{BC}$ pada segitiga $ABC$, padahal $BI$ adalah garis bagi di segitiga $ABD$, sehingga yang dipakai adalah $BD$, bukan $BC$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P006",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "titik berat dan luas",
+  "objective_id": "GE01-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "titik_berat",
+   "perbandingan_luas"
+  ],
+  "statement": "Luas segitiga $ABC$ adalah $90$. Titik $D$ dan $E$ berturut-turut adalah titik tengah $BC$ dan $CA$. Garis berat\n$AD$ dan $BE$ berpotongan di $G$. Tentukan luas segi empat $GDCE$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "30",
+   "display": "$30$"
+  },
+  "hints": [
+   "$G$ adalah titik berat. Ketiga garis berat membagi segitiga menjadi enam segitiga kecil yang sama luas.",
+   "Segi empat $GDCE$ tersusun dari segitiga $GDC$ dan $GCE$."
+  ],
+  "solution": "$G$ adalah titik berat, sehingga garis berat ketiga $CF$ ($F$ titik tengah $AB$) juga melalui $G$. Ketiga garis\nberat membagi segitiga menjadi enam segitiga yang masing-masing luasnya $\\tfrac16\\cdot90=15$. Segi empat $GDCE$\nterdiri atas segitiga $GDC$ dan $GCE$, sehingga luasnya $2\\cdot15=30$.",
+  "key_idea": "Enam segitiga yang dibentuk tiga garis berat luasnya sama, masing-masing $\\tfrac16$ luas segitiga.",
+  "common_error": "Mengira $GDCE$ adalah seperempat segitiga ($22{,}5$), seolah-olah garis berat membagi segitiga seperti garis tengah persegi panjang.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P007",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "jari-jari lingkaran dalam",
+  "objective_id": "GE01-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "jari_jari_dalam",
+   "pythagoras"
+  ],
+  "statement": "Sebuah segitiga siku-siku memiliki kaki $20$ dan $21$. Tentukan jari-jari lingkaran dalamnya.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Hitung sisi miring, luas, dan setengah keliling.",
+   "Sisi miring $29$, luas $210$, dan $s=35$. Pakai $r=L/s$."
+  ],
+  "solution": "Sisi miringnya $\\sqrt{20^2+21^2}=\\sqrt{841}=29$. Luasnya $\\tfrac12\\cdot20\\cdot21=210$ dan setengah kelilingnya\n$s=\\tfrac12(20+21+29)=35$. Jadi $r=\\dfrac{L}{s}=\\dfrac{210}{35}=6$.",
+  "key_idea": "$L=rs$ diperoleh dengan membagi segitiga menjadi tiga segitiga berpuncak di pusat lingkaran dalam.",
+  "common_error": "Membagi luas dengan keliling penuh ($70$), bukan setengah keliling, sehingga menjawab $3$.",
+  "alternative_solution": "Untuk segitiga siku-siku berlaku $r=\\dfrac{a+b-c}{2}=\\dfrac{20+21-29}{2}=6$. Alasannya: dari pusat lingkaran dalam, jarak ke kedua kaki sama dengan $r$, sehingga titik singgung pada kedua kaki berjarak $r$ dari titik siku-siku.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P008",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "garis tinggi dan Pythagoras",
+  "objective_id": "GE01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "pythagoras",
+   "garis_tinggi"
+  ],
+  "statement": "Segitiga $ABC$ memiliki $AB=13$, $BC=14$, dan $CA=15$. Tentukan luas segitiga $ABC$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "84",
+   "display": "$84$"
+  },
+  "hints": [
+   "Tarik garis tinggi $AH$ ke $BC$ dan misalkan $BH=x$. Tuliskan $AH^2$ dengan dua cara.",
+   "$13^2-x^2=15^2-(14-x)^2$. Suku $x^2$ saling hilang."
+  ],
+  "solution": "Tarik garis tinggi $AH$ ke $BC$, dengan $BH=x$ dan $HC=14-x$. Dari dua segitiga siku-siku:\n$$\\begin{aligned}13^2-x^2&=AH^2=15^2-(14-x)^2\\\\169-x^2&=225-196+28x-x^2\\\\140&=28x\\quad\\Longrightarrow\\quad x=5.\\end{aligned}$$\nMaka $AH=\\sqrt{169-25}=12$ dan luasnya $\\tfrac12\\cdot14\\cdot12=84$.\n\nKarena $0<x=5<14$, kaki garis tinggi memang terletak pada ruas $BC$ ✓.",
+  "key_idea": "Dengan tiga sisi diketahui, garis tinggi bantu memberi persamaan linear untuk letak kakinya.",
+  "common_error": "Menganggap kaki garis tinggi berada di titik tengah $BC$ (hanya benar jika $AB=AC$), sehingga tingginya $\\sqrt{13^2-7^2}$.",
+  "alternative_solution": "Rumus Heron (dibahas di GE04): $s=21$ dan $L=\\sqrt{21\\cdot8\\cdot7\\cdot6}=\\sqrt{7056}=84$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Tata letak: persamaan dipecah tiga baris, langkah 140=28x ditambahkan."
+ },
+ {
+  "id": "GE01-P009",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "jenis segitiga dari panjang sisi",
+  "objective_id": "GE01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "kebalikan_pythagoras",
+   "ketaksamaan_segitiga",
+   "pembagian_kasus"
+  ],
+  "statement": "Panjang sisi sebuah segitiga adalah $8$, $15$, dan $x$, dengan $x$ bilangan bulat positif. Berapa banyak nilai $x$\nsehingga segitiga tersebut **tumpul**?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "10",
+   "display": "$10$"
+  },
+  "hints": [
+   "Pertama, segitiga harus ada: $7<x<23$. Sudut tumpul hanya mungkin di depan sisi terpanjang. Bagi kasus: $x$ terpanjang atau $15$ terpanjang.",
+   "Jika $x\\ge15$: tumpul $\\iff x^2>8^2+15^2=289$. Jika $x<15$: tumpul $\\iff 15^2>8^2+x^2$."
+  ],
+  "solution": "Syarat segitiga: $15-8<x<15+8$, yaitu $8\\le x\\le22$.\n\n- **$x$ sisi terpanjang ($x\\ge15$).** Tumpul $\\iff x^2>64+225=289=17^2\\iff x>17$. Nilainya $x=18,\\dots,22$, ada $5$.\n- **$15$ sisi terpanjang ($x<15$).** Tumpul $\\iff 225>64+x^2\\iff x^2<161\\iff x\\le12$. Dengan $x\\ge8$, nilainya $x=8,\\dots,12$, ada $5$.\n\nTotalnya $5+5=10$. Perhatikan $x=17$ menghasilkan segitiga siku-siku, sedangkan $x=13,\\dots,16$ menghasilkan segitiga lancip.",
+  "key_idea": "Sudut tumpul hanya mungkin di hadapan sisi terpanjang. Bagi kasus menurut sisi mana yang terpanjang, lalu bandingkan $c^2$ dengan $a^2+b^2$.",
+  "common_error": "Hanya memeriksa kasus $x$ terpanjang sehingga menjawab $5$, atau memasukkan $x=17$ (siku-siku, bukan tumpul).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P010",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "mengejar sudut pada persegi",
+  "objective_id": "GE01-O1",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 8,
+  "prerequisites": [],
+  "technique_tags": [
+   "angle_chasing",
+   "segitiga_sama_kaki",
+   "simetri"
+  ],
+  "statement": "Titik $E$ terletak di dalam persegi $ABCD$ sehingga segitiga $ABE$ sama sisi. Tentukan besar $\\angle DEC$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "150",
+   "display": "$150^\\circ$"
+  },
+  "hints": [
+   "Sisi persegi sama dengan sisi segitiga sama sisi. Jadi $AD=AB=AE$. Segitiga apa yang terbentuk oleh $A$, $D$, $E$?",
+   "$\\angle DAE=90^\\circ-60^\\circ=30^\\circ$, sehingga segitiga $ADE$ sama kaki dengan $\\angle ADE=\\angle AED=75^\\circ$. Dengan simetri, hal yang sama berlaku di sisi $C$."
+  ],
+  "solution": "1. $AE=AB=AD$, sehingga segitiga $ADE$ sama kaki dengan puncak $A$.\n2. $\\angle DAE=\\angle DAB-\\angle EAB=90^\\circ-60^\\circ=30^\\circ$, sehingga $\\angle ADE=\\angle AED=\\tfrac12(180^\\circ-30^\\circ)=75^\\circ$.\n3. Dengan cara yang sama di $B$: $BE=BC$, $\\angle CBE=30^\\circ$, dan $\\angle BEC=75^\\circ$.\n4. Sudut di sekitar titik $E$ berjumlah $360^\\circ$:\n$$\\begin{aligned}\\angle DEC&=360^\\circ-\\angle AED-\\angle AEB-\\angle BEC\\\\&=360^\\circ-75^\\circ-60^\\circ-75^\\circ=150^\\circ.\\end{aligned}$$\n\nPemeriksaan: $\\angle EDC=90^\\circ-75^\\circ=15^\\circ$ dan $\\angle ECD=15^\\circ$, sehingga pada segitiga $DEC$ berlaku $15^\\circ+15^\\circ+150^\\circ=180^\\circ$ ✓.",
+  "key_idea": "Cari ruas yang sama panjang secara tidak langsung, misalnya sisi persegi sama dengan sisi segitiga sama sisi. Ruas itu memberi segitiga sama kaki baru.",
+  "common_error": "Mengira $\\angle DEC=60^\\circ$ karena gambarnya \"mirip\" segitiga sama sisi, atau lupa bahwa sudut di sekitar $E$ berjumlah $360^\\circ$.",
+  "diagram": "GE01-P010.svg",
+  "diagram_alt": "Persegi ABCD dengan A kiri bawah, B kanan bawah, C kanan atas, D kiri atas. Titik E di dalam persegi sehingga ABE segitiga sama sisi. Ruas DE dan CE digambar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Tata letak: persamaan sudut dipecah dua baris (isi tetap)."
+ },
+ {
+  "id": "GE01-P011",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "pusat lingkaran dalam segitiga siku-siku",
+  "objective_id": "GE01-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "jari_jari_dalam",
+   "koordinat",
+   "pythagoras"
+  ],
+  "statement": "Segitiga $ABC$ siku-siku di $C$ dengan $CA=12$ dan $CB=9$. Titik $I$ adalah pusat lingkaran dalam segitiga $ABC$.\nTentukan nilai $AI^2$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "90",
+   "display": "$90$"
+  },
+  "hints": [
+   "Hitung $r$ lebih dulu. Lalu letakkan $C$ di titik asal dengan kaki-kaki pada sumbu koordinat.",
+   "$r=3$. Pusat lingkaran dalam berjarak $3$ dari kedua kaki, sehingga $I=(3,3)$ jika $A=(12,0)$ dan $B=(0,9)$."
+  ],
+  "solution": "1. $AB=\\sqrt{12^2+9^2}=15$, $L=\\tfrac12\\cdot12\\cdot9=54$, dan $s=\\tfrac12(12+9+15)=18$, sehingga $r=\\dfrac{54}{18}=3$.\n2. Letakkan $C=(0,0)$, $A=(12,0)$, dan $B=(0,9)$. Pusat lingkaran dalam berada di dalam segitiga dan berjarak $r=3$ dari sumbu-$x$ (garis $CA$) maupun sumbu-$y$ (garis $CB$), sehingga $I=(3,3)$.\n3. $AI^2=(12-3)^2+(0-3)^2=81+9=90$.\n\nPemeriksaan: jarak $I=(3,3)$ ke garis $AB$, yaitu $3x+4y=36$, adalah $\\dfrac{|9+12-36|}{5}=3=r$ ✓.",
+  "key_idea": "Pada segitiga siku-siku, pusat lingkaran dalam terletak di $(r,r)$ jika titik siku-sikunya di titik asal. Koordinat mengubah soal jarak menjadi hitungan langsung.",
+  "common_error": "Menganggap $I$ terletak pada garis berat atau di tengah sisi miring, misalnya memakai titik $(6,4{,}5)$, yang merupakan pusat lingkaran **luar**.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE01-P012",
+  "version": 1,
+  "module_id": "GE01",
+  "domain": "geometri",
+  "subtopic": "mencacah segitiga bersisi bulat",
+  "objective_id": "GE01-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "ketaksamaan_segitiga",
+   "pencacahan_sistematis"
+  ],
+  "statement": "Berapa banyak segitiga yang tidak saling kongruen dengan panjang sisi bilangan bulat positif dan keliling $24$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "Tulis sisi-sisinya $a\\le b\\le c$ dengan $a+b+c=24$. Syarat segitiga $a+b>c$ setara dengan $c<12$.",
+   "Karena $c$ terbesar, $c\\ge8$. Untuk setiap $c\\in\\{8,9,10,11\\}$, cacah pasangan $a\\le b\\le c$ dengan $a+b=24-c$."
+  ],
+  "solution": "Misalkan $a\\le b\\le c$ dan $a+b+c=24$. Syarat segitiga $a+b>c$ berarti $24-c>c$, yaitu $c\\le11$.\nKarena $c$ terbesar, $3c\\ge24$, sehingga $c\\ge8$.\n\nUntuk setiap $c$, berlaku $a+b=24-c$ dengan $a\\le b\\le c$:\n\n| $c$ | $a+b$ | pasangan $(a,b)$ | banyak |\n|---|---|---|---|\n| $8$ | $16$ | $(8,8)$ | $1$ |\n| $9$ | $15$ | $(6,9)$, $(7,8)$ | $2$ |\n| $10$ | $14$ | $(4,10)$, $(5,9)$, $(6,8)$, $(7,7)$ | $4$ |\n| $11$ | $13$ | $(2,11)$, $(3,10)$, $(4,9)$, $(5,8)$, $(6,7)$ | $5$ |\n\nTotalnya $1+2+4+5=12$.",
+  "key_idea": "Urutkan sisi $a\\le b\\le c$ agar setiap segitiga terhitung sekali. Syarat segitiga cukup diperiksa untuk sisi terbesar, sehingga $c<\\tfrac12\\cdot\\text{keliling}$.",
+  "common_error": "Tidak mengurutkan sisi sehingga $(7,8,9)$ dan $(9,8,7)$ terhitung berulang, atau memasukkan $c=12$ yang menghasilkan segitiga degenerat.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_GE01.md): A1–A6 lulus. A5: scripts/checks/GE01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Tata letak: daftar pasangan dipecah (isi tetap)."
+ }
+]

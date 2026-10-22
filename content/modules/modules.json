@@ -1,0 +1,21 @@
+[
+  {"id": "TB01", "order": 1, "domain": "teori_bilangan", "title": "Keterbagian, Bilangan Prima, FPB dan KPK", "week": 1, "prerequisites": []},
+  {"id": "AL01", "order": 2, "domain": "aljabar", "title": "Identitas dan Faktorisasi", "week": 1, "prerequisites": []},
+  {"id": "KO01", "order": 3, "domain": "kombinatorika", "title": "Aturan Penjumlahan dan Perkalian", "week": 2, "prerequisites": []},
+  {"id": "GE01", "order": 4, "domain": "geometri", "title": "Sudut, Segitiga, dan Hubungan Panjang", "week": 2, "prerequisites": []},
+  {"id": "TB02", "order": 5, "domain": "teori_bilangan", "title": "Paritas, Sisa Pembagian, dan Kongruensi", "week": 3, "prerequisites": ["TB01"]},
+  {"id": "AL02", "order": 6, "domain": "aljabar", "title": "Persamaan dan Polinom Dasar", "week": 3, "prerequisites": ["AL01"]},
+  {"id": "KO02", "order": 7, "domain": "kombinatorika", "title": "Permutasi dan Kombinasi", "week": 4, "prerequisites": ["KO01"]},
+  {"id": "GE02", "order": 8, "domain": "geometri", "title": "Kesebangunan, Perbandingan, dan Luas", "week": 4, "prerequisites": ["GE01"]},
+  {"id": "TB03", "order": 9, "domain": "teori_bilangan", "title": "Faktorisasi Prima dan Banyak Faktor", "week": 5, "prerequisites": ["TB01", "TB02"]},
+  {"id": "AL03", "order": 10, "domain": "aljabar", "title": "Pertidaksamaan Dasar dan Nilai Ekstrem", "week": 5, "prerequisites": ["AL01", "AL02"]},
+  {"id": "KO03", "order": 11, "domain": "kombinatorika", "title": "Prinsip Rumah Merpati dan Invariant", "week": 6, "prerequisites": ["KO01", "TB02"]},
+  {"id": "GE03", "order": 12, "domain": "geometri", "title": "Lingkaran", "week": 6, "prerequisites": ["GE01", "GE02"]},
+  {"id": "TB04", "order": 13, "domain": "teori_bilangan", "title": "Persamaan Bilangan Bulat", "week": 7, "prerequisites": ["TB01", "TB02", "TB03", "AL01"]},
+  {"id": "AL04", "order": 14, "domain": "aljabar", "title": "Barisan, Deret, dan Rekursi", "week": 7, "prerequisites": ["AL01", "AL02"]},
+  {"id": "KO04", "order": 15, "domain": "kombinatorika", "title": "Pencacahan Lanjutan dan Peluang", "week": 8, "prerequisites": ["KO01", "KO02"]},
+  {"id": "GE04", "order": 16, "domain": "geometri", "title": "Koordinat dan Hubungan Metrik", "week": 8, "prerequisites": ["GE01", "GE02", "GE03", "AL02"]},
+  {"id": "AL05", "order": 17, "domain": "aljabar", "title": "Fungsi dan Persamaan Fungsi", "week": 9, "prerequisites": ["AL01", "AL02"]},
+  {"id": "KO05", "order": 18, "domain": "kombinatorika", "title": "Induksi, Rekursi, dan Graf Dasar", "week": 9, "prerequisites": ["KO01", "KO02", "AL04"]},
+  {"id": "AL06", "order": 19, "domain": "aljabar", "title": "Bilangan Kompleks dan Trigonometri", "week": 10, "prerequisites": ["AL02", "AL04"]}
+]
