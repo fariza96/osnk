@@ -1,0 +1,492 @@
+[
+ {
+  "id": "KO02-E01",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "metode celah",
+  "objective_id": "KO02-O1",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "metode_celah",
+   "aturan_perkalian"
+  ],
+  "statement": "Lima anak laki-laki dan tiga anak perempuan (semuanya berbeda) berbaris dalam satu barisan. Berapa\nbanyak susunan yang membuat tidak ada dua anak perempuan bersebelahan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "14400",
+   "display": "$14400$"
+  },
+  "hints": [
+   "Susun dulu kelima anak laki-laki. Berapa banyak celah yang terbentuk, termasuk kedua ujung?",
+   "Ada $6$ celah. Setiap anak perempuan menempati celah yang berbeda."
+  ],
+  "solution": "**Ide kunci.** Tempatkan dulu anak yang bebas, lalu sisipkan anak yang dibatasi di celah-celahnya.\n\n**Langkah.**\n\n1. Susun kelima anak laki-laki: $5!=120$ cara.\n2. Terbentuk $6$ celah: satu sebelum anak pertama, empat di antara anak, dan satu setelah anak terakhir.\n   $$\\square\\,L\\,\\square\\,L\\,\\square\\,L\\,\\square\\,L\\,\\square\\,L\\,\\square$$\n3. Dua anak perempuan bersebelahan tepat jika keduanya berada di celah yang sama. Jadi syaratnya: ketiga anak\n   perempuan menempati $3$ celah berbeda. Banyak cara memilih dan mengurutkan: $6\\cdot5\\cdot4=120$.\n4. Total $120\\cdot120=14\\,400$.\n\n**Pemeriksaan.** Ukuran kecil, $2$ laki-laki dan $2$ perempuan: rumusnya $2!\\cdot3\\cdot2=12$. Daftar langsung\npola L/P yang sah: PLPL, PLLP, LPLP, masing-masing $2!\\cdot2!=4$ susunan, jadi $12$ ✓.",
+  "key_idea": "Syarat “tidak bersebelahan” diatasi dengan menyusun objek bebas dulu, lalu menempatkan objek terbatas di celah yang berbeda.",
+  "common_error": "Hanya memakai $4$ celah di antara anak laki-laki dan melupakan kedua ujung, sehingga mendapat $5!\\cdot4\\cdot3\\cdot2=2880$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-E02",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "bintang dan sekat",
+  "objective_id": "KO02-O5",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "bintang_sekat",
+   "substitusi_batas_bawah"
+  ],
+  "statement": "Berapa banyak solusi bilangan bulat dari\n$$x_1+x_2+x_3+x_4=12$$\ndengan $x_1\\ge1$, $x_2\\ge2$, $x_3\\ge0$, dan $x_4\\ge0$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "220",
+   "display": "$220$"
+  },
+  "hints": [
+   "Ubah batas bawah menjadi $0$: misalkan $y_1=x_1-1$ dan $y_2=x_2-2$.",
+   "Diperoleh $y_1+y_2+x_3+x_4=9$ dengan semua variabel tak negatif. Pakai bintang dan sekat."
+  ],
+  "solution": "**Ide kunci.** Bintang dan sekat menghitung solusi tak negatif. Batas bawah lain dihilangkan dengan\nsubstitusi.\n\n**Langkah.**\n\n1. Misalkan $y_1=x_1-1\\ge0$ dan $y_2=x_2-2\\ge0$. Persamaannya menjadi $y_1+y_2+x_3+x_4=9$.\n   Substitusi ini memasangkan solusi lama dan solusi baru satu-satu.\n2. Setiap solusi tak negatif sesuai dengan barisan $9$ bintang dan $3$ sekat, yaitu $12$ tempat.\n3. Banyaknya $\\dbinom{12}{3}=220$.\n\n**Pemeriksaan.** Rumus umum $\\binom{n+k-1}{k-1}$ dengan $n=9$ dan $k=4$ memberi $\\binom{12}3$ ✓.",
+  "key_idea": "Geser setiap variabel sebesar batas bawahnya, lalu hitung solusi tak negatif dengan $\\binom{n+k-1}{k-1}$.",
+  "common_error": "Lupa mengurangi total dengan batas bawah, lalu menghitung $\\binom{15}{3}=455$ untuk $x_1+\\dots+x_4=12$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P001",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "kombinasi dua kelompok",
+  "objective_id": "KO02-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "kombinasi",
+   "aturan_perkalian"
+  ],
+  "statement": "Sebuah panitia beranggota $4$ orang akan dipilih dari $7$ siswa putra dan $5$ siswi putri. Panitia harus\nberanggotakan **tepat** $2$ putri. Berapa banyak panitia yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "210",
+   "display": "$210$"
+  },
+  "hints": [
+   "Urutan anggota panitia tidak penting, jadi pakai kombinasi. Pilih putri dan putra secara terpisah.",
+   "$\\binom52$ cara memilih putri dan $\\binom72$ cara memilih putra."
+  ],
+  "solution": "Panitia tanpa jabatan, jadi urutan tidak penting. Pilih $2$ dari $5$ putri: $\\binom52=10$ cara. Pilih\n$2$ dari $7$ putra: $\\binom72=21$ cara. Menurut aturan perkalian, banyaknya $10\\cdot21=210$.",
+  "key_idea": "Pecah pemilihan menurut kelompok, pilih dari tiap kelompok dengan kombinasi, lalu kalikan.",
+  "common_error": "Memakai permutasi, misalnya $P(5,2)\\cdot P(7,2)=840$, padahal panitia tidak memiliki jabatan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P002",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "susunan huruf berulang",
+  "objective_id": "KO02-O3",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "objek_identik"
+  ],
+  "statement": "Berapa banyak susunan huruf berbeda yang dapat dibentuk dari semua huruf kata $\\text{MATEMATIKA}$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "151200",
+   "display": "$151200$"
+  },
+  "hints": [
+   "Hitung banyak setiap huruf: ada $10$ huruf, dan beberapa muncul lebih dari sekali.",
+   "M muncul $2$ kali, A $3$ kali, T $2$ kali. Pakai $\\dfrac{10!}{2!\\,3!\\,2!}$."
+  ],
+  "solution": "Kata $\\text{MATEMATIKA}$ terdiri atas $10$ huruf: M ($2$), A ($3$), T ($2$), serta E, I, K (masing-masing $1$).\nJika semua huruf dianggap berbeda ada $10!$ susunan. Setiap susunan berbeda terhitung $2!\\cdot3!\\cdot2!$ kali,\nkarena huruf yang sama dapat ditukar tanpa mengubah kata. Jadi\n$$\\frac{10!}{2!\\,3!\\,2!}=\\frac{3\\,628\\,800}{24}=151\\,200.$$",
+  "key_idea": "Bagi $n!$ dengan faktorial banyak setiap huruf yang berulang.",
+  "common_error": "Hanya memperhitungkan huruf A yang berulang, sehingga mendapat $\\frac{10!}{3!}=604\\,800$; atau lupa salah satu huruf ganda dan mendapat $302\\,400$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P003",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "melingkar dengan blok",
+  "objective_id": "KO02-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "melingkar",
+   "metode_blok"
+  ],
+  "statement": "Tujuh orang, termasuk Ani dan Budi, duduk mengelilingi meja bundar. Dua susunan dianggap sama jika\nyang satu adalah hasil putaran yang lain. Berapa banyak susunan yang membuat Ani dan Budi duduk bersebelahan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "240",
+   "display": "$240$"
+  },
+  "hints": [
+   "Ikat Ani dan Budi menjadi satu blok. Berapa banyak “unit” yang duduk melingkar?",
+   "Ada $6$ unit yang disusun melingkar, $(6-1)!$ cara, dan di dalam blok ada $2$ urutan."
+  ],
+  "solution": "Ikat Ani dan Budi menjadi satu blok. Sekarang ada $6$ unit: blok itu dan $5$ orang lainnya. Susunan\nmelingkar $6$ unit: $(6-1)!=120$ cara. Di dalam blok, urutannya Ani–Budi atau Budi–Ani: $2$ cara.\nTotal $120\\cdot2=240$.",
+  "key_idea": "Gabungkan metode blok dengan rumus melingkar $(n-1)!$.",
+  "common_error": "Memakai rumus baris $6!\\cdot2=1440$, atau lupa urutan di dalam blok sehingga mendapat $120$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P004",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "blok dan celah",
+  "objective_id": "KO02-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "metode_blok",
+   "metode_celah"
+  ],
+  "statement": "Tujuh buku berbeda, yaitu $3$ buku matematika, $2$ buku fisika, dan $2$ buku lain, disusun berjajar di\nsebuah rak. Ketiga buku matematika harus berdampingan, sedangkan kedua buku fisika tidak boleh\nbersebelahan. Berapa banyak susunan yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "432",
+   "display": "$432$"
+  },
+  "hints": [
+   "Jadikan ketiga buku matematika satu blok. Buku fisika ditempatkan belakangan.",
+   "Susun blok matematika dan $2$ buku lain ($3$ unit), lalu tempatkan $2$ buku fisika di $4$ celah yang berbeda."
+  ],
+  "solution": "**Blok.** Ikat ketiga buku matematika menjadi satu blok; urutan di dalamnya $3!=6$ cara.\n\n**Celah.** Susun blok dan $2$ buku lain: $3!=6$ cara. Ketiga unit ini membentuk $4$ celah. Kedua buku fisika\ntidak bersebelahan tepat jika keduanya berada di celah berbeda: $4\\cdot3=12$ cara (buku fisika berbeda,\njadi urutan penting).\n\nTotal $6\\cdot6\\cdot12=432$.\n\n**Pemeriksaan dengan komplemen.** Dengan blok ($5$ unit) ada $5!=120$ susunan. Susunan dengan buku fisika\nbersebelahan ada $4!\\cdot2=48$. Jadi $120-48=72$ susunan unit, dikali $3!=6$ di dalam blok: $432$ ✓.",
+  "key_idea": "Syarat “harus berdampingan” ditangani dengan blok, lalu syarat “tidak bersebelahan” dengan celah.",
+  "common_error": "Lupa mengalikan dengan $3!$ susunan di dalam blok matematika, sehingga mendapat $72$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P005",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "paling sedikit dengan komplemen",
+  "objective_id": "KO02-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "komplemen",
+   "kombinasi"
+  ],
+  "statement": "Dari $6$ guru dan $4$ siswa akan dibentuk tim beranggota $5$ orang yang memuat **paling sedikit** $2$\nsiswa. Berapa banyak tim yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "186",
+   "display": "$186$"
+  },
+  "hints": [
+   "Hitung semua tim $5$ orang, lalu kurangi tim yang memuat $0$ siswa dan tepat $1$ siswa.",
+   "Semua tim: $\\binom{10}5$. Tanpa siswa: $\\binom65$. Tepat satu siswa: $\\binom41\\binom64$."
+  ],
+  "solution": "Semua tim $5$ orang dari $10$ orang: $\\binom{10}5=252$. Tim yang melanggar:\n\n- tanpa siswa: $\\binom65=6$;\n- tepat $1$ siswa: $\\binom41\\binom64=4\\cdot15=60$.\n\nBanyak tim yang sah $252-6-60=186$.\n\n**Pemeriksaan per kasus.** Tepat $2$, $3$, $4$ siswa:\n$\\binom42\\binom63+\\binom43\\binom62+\\binom44\\binom61=120+60+6=186$ ✓.",
+  "key_idea": "Syarat “paling sedikit” dihitung dengan komplemen atau dengan kasus “tepat $k$” yang saling lepas.",
+  "common_error": "Memilih $2$ siswa dulu, lalu $3$ anggota lain dari $8$ orang sisa: $\\binom42\\binom83=336$. Tim dengan $3$ atau $4$ siswa terhitung lebih dari sekali.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P006",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "lintasan grid",
+  "objective_id": "KO02-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "lintasan_grid",
+   "komplemen"
+  ],
+  "statement": "Sebuah lintasan dari titik $(0,0)$ ke titik $(6,4)$ tersusun atas langkah satu satuan ke kanan atau ke\natas. Berapa banyak lintasan yang melalui titik $(2,2)$ tetapi **tidak** melalui titik $(4,3)$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "36",
+   "display": "$36$"
+  },
+  "hints": [
+   "Hitung lintasan yang melalui $(2,2)$, lalu kurangi lintasan yang melalui $(2,2)$ dan juga $(4,3)$.",
+   "Banyak lintasan dari $(a,b)$ ke $(c,d)$ adalah $\\binom{(c-a)+(d-b)}{c-a}$."
+  ],
+  "solution": "Banyak lintasan dari $(a,b)$ ke $(c,d)$ dengan $c\\ge a$, $d\\ge b$ adalah $\\binom{(c-a)+(d-b)}{c-a}$.\n\n- Melalui $(2,2)$: $\\binom42\\cdot\\binom62=6\\cdot15=90$.\n- Melalui $(2,2)$ dan $(4,3)$: $\\binom42\\cdot\\binom31\\cdot\\binom31=6\\cdot3\\cdot3=54$.\n\nTitik $(4,3)$ selalu dicapai setelah $(2,2)$, karena koordinat lintasan tidak pernah turun. Jadi banyak\nlintasan yang diminta $90-54=36$.",
+  "key_idea": "Lintasan yang melalui suatu titik dihitung dengan memotongnya di titik itu; syarat “tidak melalui” ditangani dengan komplemen.",
+  "common_error": "Mengurangkan semua lintasan yang melalui $(4,3)$, yaitu $\\binom73\\binom31=105$, padahal yang perlu dikurangkan hanya lintasan yang melalui $(2,2)$ dan juga $(4,3)$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P007",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "bijeksi digit ke bintang dan sekat",
+  "objective_id": "KO02-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "bintang_sekat",
+   "bijeksi"
+  ],
+  "statement": "Berapa banyak bilangan empat digit yang jumlah digit-digitnya sama dengan $9$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "165",
+   "display": "$165$"
+  },
+  "hints": [
+   "Tulis bilangannya $\\overline{abcd}$ dengan $a\\ge1$ dan $b,c,d\\ge0$. Ubah menjadi persamaan bintang-sekat.",
+   "Dengan $a'=a-1$, diperoleh $a'+b+c+d=8$. Periksa juga apakah batas digit $\\le9$ dapat dilanggar."
+  ],
+  "solution": "Bilangan $\\overline{abcd}$ sesuai satu-satu dengan solusi $a+b+c+d=9$, dengan syarat $1\\le a\\le9$ dan\n$0\\le b,c,d\\le9$.\n\nMisalkan $a'=a-1\\ge0$. Diperoleh $a'+b+c+d=8$ dengan semua variabel tak negatif. Karena totalnya $8$, tidak\nada variabel yang melebihi $8$, sehingga batas digit ($a\\le9$ dan $b,c,d\\le9$) otomatis terpenuhi.\n\nBanyaknya $\\binom{8+3}{3}=\\binom{11}3=165$.",
+  "key_idea": "Ubah soal digit menjadi persamaan bilangan bulat, geser batas bawah digit pertama, dan periksa apakah batas atas digit berpengaruh.",
+  "common_error": "Lupa syarat digit pertama tak nol dan menghitung $\\binom{12}3=220$ solusi dari $a+b+c+d=9$, yang ikut memuat “bilangan” seperti $0459$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P008",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "bijeksi pilihan tanpa bilangan berurutan",
+  "objective_id": "KO02-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "bijeksi",
+   "kombinasi"
+  ],
+  "statement": "Berapa banyak himpunan bagian beranggota $3$ dari $\\{1,2,\\dots,12\\}$ yang **tidak** memuat dua bilangan\nberurutan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "120",
+   "display": "$120$"
+  },
+  "hints": [
+   "Tulis anggotanya $a<b<c$ dengan $b\\ge a+2$ dan $c\\ge b+2$. Geser $b$ dan $c$ agar syarat “selisih paling sedikit $2$” hilang.",
+   "Pasangan $(a,b,c)\\mapsto(a,\\,b-1,\\,c-2)$ menghasilkan tiga bilangan berbeda dari $\\{1,\\dots,10\\}$."
+  ],
+  "solution": "Tulis anggotanya $a<b<c$. Syaratnya $b\\ge a+2$ dan $c\\ge b+2$.\n\nDefinisikan $a'=a$, $b'=b-1$, $c'=c-2$. Maka $a'<b'<c'$ dan $1\\le a'$, $c'\\le10$. Jadi $\\{a',b',c'\\}$ adalah\nhimpunan bagian $3$ anggota dari $\\{1,\\dots,10\\}$. Sebaliknya, dari sembarang $a'<b'<c'$ di $\\{1,\\dots,10\\}$,\nbilangan $(a',\\,b'+1,\\,c'+2)$ memenuhi syarat soal. Ini korespondensi satu-satu, jadi banyaknya\n$\\binom{10}3=120$.\n\n**Pemeriksaan dengan celah.** $9$ bilangan yang tidak dipilih membentuk $10$ celah, dan $3$ bilangan\nterpilih menempati celah berbeda: $\\binom{10}3$ ✓.",
+  "key_idea": "Geser anggota terpilih untuk menghapus syarat jarak; hasilnya pemilihan biasa dari himpunan yang lebih kecil.",
+  "common_error": "Mengurangkan banyak himpunan yang memuat pasangan berurutan tanpa memperhatikan tumpang tindih (misalnya $\\{3,4,5\\}$ terhitung dua kali).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P009",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "melingkar berselang-seling",
+  "objective_id": "KO02-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "melingkar",
+   "metode_celah"
+  ],
+  "statement": "Empat pria dan empat wanita (semuanya berbeda) duduk mengelilingi meja bundar sehingga pria dan wanita\nduduk berselang-seling. Dua susunan dianggap sama jika yang satu adalah hasil putaran yang lain. Berapa\nbanyak susunan yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "144",
+   "display": "$144$"
+  },
+  "hints": [
+   "Dudukkan keempat pria lebih dulu secara melingkar.",
+   "Pria: $(4-1)!$ cara. Setelah pria duduk, kursi wanita sudah tertentu dan tidak lagi setara karena putaran."
+  ],
+  "solution": "Dudukkan keempat pria secara melingkar: $(4-1)!=6$ cara. Sekarang ada tepat $4$ kursi kosong di antara\npria. Kursi-kursi ini sudah dapat dibedakan (misalnya \"di kanan pria $X$\"), sehingga keempat wanita disusun\nseperti dalam baris: $4!=24$ cara.\n\nTotal $6\\cdot24=144$.",
+  "key_idea": "Pembagian dengan putaran hanya dilakukan sekali. Setelah satu kelompok duduk, sisanya ditempatkan di kursi yang sudah dapat dibedakan.",
+  "common_error": "Memakai $(4-1)!$ untuk wanita juga, sehingga mendapat $36$ (pembagian karena putaran terhitung dua kali), atau memakai $4!\\cdot4!=576$ tanpa memperhitungkan putaran.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P010",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "bintang dan sekat dengan batas atas",
+  "objective_id": "KO02-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "bintang_sekat",
+   "komplemen"
+  ],
+  "statement": "Berapa banyak solusi bilangan bulat dari $x+y+z=15$ dengan $0\\le x,y,z\\le7$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "28",
+   "display": "$28$"
+  },
+  "hints": [
+   "Hitung semua solusi tak negatif, lalu kurangi solusi yang memiliki variabel lebih dari $7$.",
+   "Jika $x\\ge8$, tulis $x'=x-8$. Dapatkah dua variabel sekaligus $\\ge8$?"
+  ],
+  "solution": "**Semua solusi tak negatif:** $\\binom{15+2}{2}=\\binom{17}2=136$.\n\n**Pelanggar.** Jika $x\\ge8$, tulis $x'=x-8\\ge0$, sehingga $x'+y+z=7$ dengan $\\binom92=36$ solusi. Hal yang sama\nberlaku untuk $y$ dan untuk $z$. Dua variabel sekaligus $\\ge8$ tidak mungkin, karena jumlahnya sudah\n$\\ge16>15$. Jadi ketiga himpunan pelanggar saling lepas, dan banyak pelanggar $3\\cdot36=108$.\n\nJawaban: $136-108=28$.\n\n**Pemeriksaan langsung.** Untuk $x$ tertentu, $y+z=15-x$ dengan $y,z\\le7$ memberi $y$ dari $8-x$ sampai $7$,\nyaitu $x$ pilihan (untuk $1\\le x\\le7$; $x=0$ tidak memberi solusi). Jumlahnya $1+2+\\cdots+7=28$ ✓.",
+  "key_idea": "Batas atas ditangani dengan komplemen: geser variabel yang melanggar, hitung dengan bintang dan sekat, lalu periksa apakah pelanggaran dapat terjadi bersamaan.",
+  "common_error": "Mengurangkan pelanggar hanya sekali ($136-36=100$), atau menganggap bintang dan sekat langsung menghormati batas atas.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P011",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "menghitung dua cara",
+  "objective_id": "KO02-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "hitung_dua_cara",
+   "kombinasi"
+  ],
+  "statement": "Tentukan nilai\n$$1\\binom{10}1+2\\binom{10}2+3\\binom{10}3+\\cdots+10\\binom{10}{10}.$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5120",
+   "display": "$5120$"
+  },
+  "hints": [
+   "Tafsirkan $k\\binom{10}k$ sebagai banyak cara memilih tim $k$ orang dari $10$ orang, lalu memilih ketua dari anggota tim.",
+   "Hitung pasangan (tim, ketua) dengan urutan sebaliknya: pilih ketua dulu, lalu tentukan anggota lainnya."
+  ],
+  "solution": "Ada $10$ orang. Hitung banyak pasangan (tim, ketua), dengan tim tak kosong dan ketua anggota tim.\n\n**Cara 1 (menurut ukuran tim).** Tim berukuran $k$ dapat dipilih dengan $\\binom{10}k$ cara dan ketuanya dengan\n$k$ cara. Jumlah atas $k=1,\\dots,10$ adalah bentuk yang ditanyakan.\n\n**Cara 2 (ketua dulu).** Pilih ketua: $10$ cara. Masing-masing dari $9$ orang lainnya ikut atau tidak ikut\ntim: $2^9$ cara. Totalnya $10\\cdot2^9=5120$.\n\nKedua cara menghitung hal yang sama, jadi nilainya $5120$.\n\n**Pemeriksaan kecil.** Untuk $n=3$: $1\\cdot3+2\\cdot3+3\\cdot1=12=3\\cdot2^2$ ✓.",
+  "key_idea": "Bentuk $k\\binom nk$ dapat ditafsirkan sebagai memilih tim dan ketuanya; menghitung dengan urutan lain memberi $n\\cdot2^{n-1}$.",
+  "common_error": "Menganggap ketua masih bisa ikut atau tidak ikut tim, sehingga mendapat $10\\cdot2^{10}=10\\,240$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO02-P012",
+  "version": 1,
+  "module_id": "KO02",
+  "domain": "kombinatorika",
+  "subtopic": "pemilihan melingkar tanpa tetangga",
+  "objective_id": "KO02-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "KO01"
+  ],
+  "technique_tags": [
+   "bijeksi",
+   "pembagian_kasus",
+   "melingkar"
+  ],
+  "statement": "Titik-titik sudut segi-$10$ beraturan diberi nama $A_1,A_2,\\dots,A_{10}$ berurutan. Berapa banyak segitiga\nyang ketiga titik sudutnya dipilih dari titik-titik itu dan **tidak satu pun** sisinya merupakan sisi\nsegi-$10$ tersebut?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "50",
+   "display": "$50$"
+  },
+  "hints": [
+   "Syaratnya: tidak ada dua titik terpilih yang bertetangga, termasuk pasangan $A_{10}$ dan $A_1$. Pisahkan kasus $A_1$ terpilih atau tidak.",
+   "Memilih $k$ titik dari $m$ titik pada satu garis tanpa dua yang bertetangga dapat dilakukan dengan $\\binom{m-k+1}{k}$ cara."
+  ],
+  "solution": "Sisi segitiga merupakan sisi segi-$10$ tepat jika kedua ujungnya bertetangga. Jadi kita memilih $3$ dari\n$10$ titik pada lingkaran tanpa dua yang bertetangga, dengan $A_{10}$ dan $A_1$ juga bertetangga.\n\n**Fakta pada garis.** Memilih $k$ dari $m$ titik berjajar tanpa dua yang bertetangga: $m-k$ titik yang tidak\ndipilih membentuk $m-k+1$ celah, dan setiap titik terpilih menempati celah berbeda. Banyaknya $\\binom{m-k+1}{k}$.\n\n- **$A_1$ terpilih.** Maka $A_2$ dan $A_{10}$ tidak boleh dipilih. Dua titik lain dipilih dari $A_3,\\dots,A_9$\n  ($7$ titik berjajar): $\\binom{6}{2}=15$.\n- **$A_1$ tidak terpilih.** Tiga titik dipilih dari $A_2,\\dots,A_{10}$ ($9$ titik berjajar, karena $A_{10}$\n  dan $A_2$ tidak bertetangga tanpa $A_1$): $\\binom{7}{3}=35$.\n\nTotal $15+35=50$.\n\n**Pemeriksaan.** Menurut simetri, setiap titik termuat di $15$ segitiga sah. Maka $10\\cdot15/3=50$ ✓.",
+  "key_idea": "Pada lingkaran, putus lingkarannya dengan membagi kasus untuk satu titik tertentu; setiap kasus menjadi pemilihan pada garis.",
+  "common_error": "Memperlakukan titik-titik sebagai satu garis dan lupa bahwa $A_{10}$ bertetangga dengan $A_1$, sehingga mendapat $\\binom83=56$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO02.md): A1–A6 lulus. A5: scripts/checks/KO02.py (enumerasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
