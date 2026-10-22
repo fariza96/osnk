@@ -1,7 +1,7 @@
 # CLAUDE.md — Ruang Latihan OSN-K Matematika
 
 Paket pembinaan OSN-K Matematika SMA/MA (kelas X–XI, pemula olimpiade) dalam bahasa Indonesia:
-16 modul, bank soal, dan situs latihan statis. Brief lengkap: prompt induk guru; ringkasannya di
+19 modul, bank soal, dan situs latihan statis. Brief lengkap: prompt induk guru; ringkasannya di
 `docs/blueprint.md`. Status terakhir selalu di `PROJECT_STATE.md`. Baca dua berkas itu dulu, lalu
 hanya berkas yang relevan.
 
