@@ -1,14 +1,15 @@
 # PROJECT_STATE
 
-Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 2).
+Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 3).
 
 ## Tahap
 
 - [x] Tahap 0 — lingkungan, sumber, kredit
 - [x] Tahap 1 — blueprint, rencana 8 minggu, skema, standar audit, platform, kerangka proyek + tes
 - [x] Tahap 2 — **pilot TB01 + GE01 selesai**: 2 materi, 4 contoh, 24 latihan, semuanya `verified`
-- [ ] Tahap 3 — penetapan volume (perlu data pemakaian dari guru, lihat "Anggaran")
-- [ ] Tahap 4–6
+- [x] Tahap 3 — volume dipertahankan (12 latihan/modul); biaya aktual US$11 setelah pilot, proyeksi di `costs/cost_log.md`
+- [ ] Tahap 4 — produksi: **4/19 modul selesai** (TB01, GE01, AL01, KO01)
+- [ ] Tahap 5–6
 
 ## Lingkungan
 
@@ -35,10 +36,12 @@ Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 2).
 
 - TB01: materi `content/modules/TB01.md`; `TB01-E01..E02`, `TB01-P001..P012`: verified.
 - GE01: materi `content/modules/GE01.md`; `GE01-E01..E02`, `GE01-P001..P012`: verified; diagram E01, E02, P001, P004, P010.
-- Audit: `review/audit_TB01.md`, `review/audit_GE01.md`. Pemeriksaan: `scripts/checks/TB01.py`, `GE01.py` (28/28 cocok).
+- AL01: materi + `AL01-E01..E02`, `AL01-P001..P012`: verified.
+- KO01: materi + `KO01-E01..E02`, `KO01-P001..P012`: verified.
+- Audit: `review/audit_<MODUL>.md` untuk keempat modul. Pemeriksaan: `npm run check:math` (56/56 cocok).
 - Tes: `npm test` (penilai, validator, build, situs fixture, dan tampilan konten nyata per modul) lulus.
 
-Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
+Mutu kumulatif: 56 butir; batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
 Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu ringkas (1), escaping LaTeX
 (tertangkap validator), dan rumus terlalu lebar di ponsel (tata letak).
 
@@ -51,10 +54,10 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Keputusan terbuka (guru)
 
-1. **Anggaran:** baca pemakaian di halaman akun Claude agar biaya pilot dapat dicatat dan proyeksi versi inti dihitung.
+1. **Anggaran:** kirim angka pemakaian kumulatif lagi setelah modul ke-8 (versi inti) untuk kalibrasi ulang.
 2. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
 
 ## Berikutnya
 
-Modul berikutnya menurut urutan: AL01 (identitas & faktorisasi, termasuk SFFT dan rasionalisasi) dan KO01
-(aturan penjumlahan & perkalian, bijeksi, himpunan bagian). Satu batch = 1 materi + 2 contoh + 6 latihan.
+TB02 (paritas, sisa, kongruensi; Fermat kecil, CRT, invers, orde, sisa kuadrat) dan AL02 (polinom, teorema
+sisa, Vieta derajat 2–3, binomial). Setelah itu KO02 dan GE02, sehingga versi inti (8 modul) lengkap.

@@ -1,0 +1,466 @@
+[
+ {
+  "id": "AL01-E01",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "bentuk simetris x + 1/x",
+  "objective_id": "AL01-O2",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "bentuk_simetris",
+   "kuadrat_sempurna"
+  ],
+  "statement": "Bilangan real tak nol $x$ memenuhi $x+\\dfrac1x=3$. Tentukan nilai $x^4+\\dfrac1{x^4}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "47",
+   "display": "$47$"
+  },
+  "hints": [
+   "Kuadratkan $x+\\dfrac1x=3$. Suku tengahnya adalah $2\\cdot x\\cdot\\dfrac1x=2$.",
+   "$x^2+\\dfrac1{x^2}=7$. Kuadratkan sekali lagi."
+  ],
+  "solution": "**Ide kunci.** Setiap kali dikuadratkan, suku tengah $2\\cdot x^k\\cdot\\frac1{x^k}=2$ adalah konstanta. Jadi kita bisa naik\ndari pangkat $1$ ke pangkat $2$, lalu ke pangkat $4$, tanpa mencari $x$.\n\n**Langkah.**\n\n1. $\\left(x+\\frac1x\\right)^2=x^2+2+\\frac1{x^2}=9$, sehingga $x^2+\\frac1{x^2}=7$.\n2. $\\left(x^2+\\frac1{x^2}\\right)^2=x^4+2+\\frac1{x^4}=49$, sehingga $x^4+\\frac1{x^4}=47$.\n\n**Pemeriksaan.** $x=\\frac{3+\\sqrt5}{2}$ memenuhi $x+\\frac1x=3$. Secara numerik $x\\approx2{,}618$, $x^4\\approx46{,}98$, dan\n$\\frac1{x^4}\\approx0{,}02$, jumlahnya $47$ ✓.",
+  "key_idea": "Untuk $x+\\frac1x=k$, kuadratkan berulang: $x^2+\\frac1{x^2}=k^2-2$, lalu $x^4+\\frac1{x^4}=(k^2-2)^2-2$. Tidak perlu mencari $x$.",
+  "common_error": "Lupa suku tengah sehingga menjawab $x^2+\\frac1{x^2}=9$ dan $x^4+\\frac1{x^4}=81$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-E02",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "trik faktorisasi Simon",
+  "objective_id": "AL01-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "sfft",
+   "pasangan_faktor"
+  ],
+  "statement": "Berapa banyak pasangan terurut $(x,y)$ bilangan bulat positif yang memenuhi $xy-2x-3y=6$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Tambahkan suatu konstanta pada kedua ruas agar ruas kiri dapat difaktorkan menjadi $(x-\\dots)(y-\\dots)$.",
+   "$xy-2x-3y+6=(x-3)(y-2)$, sehingga $(x-3)(y-2)=12$. Periksa juga kemungkinan kedua faktor negatif."
+  ],
+  "solution": "**Ide kunci.** Lengkapkan $xy-2x-3y$ menjadi hasil kali dua faktor linear, lalu manfaatkan bahwa\npembagi suatu bilangan bulat hanya sedikit.\n\n**Langkah.**\n\n1. $(x-3)(y-2)=xy-2x-3y+6$. Jadi persamaannya menjadi $(x-3)(y-2)=6+6=12$.\n2. Karena $x,y\\ge1$, berlaku $x-3\\ge-2$ dan $y-2\\ge-1$.\n3. **Kedua faktor negatif:** $y-2=-1$ dan $x-3\\in\\{-1,-2\\}$, sehingga hasil kalinya paling besar $2<12$. Tidak ada solusi.\n4. **Kedua faktor positif:** $x-3$ dapat bernilai setiap pembagi positif $12$, yaitu $1,2,3,4,6,12$. Ada $6$ pembagi, dan masing-masing menentukan $y$ secara tunggal.\n\nJadi ada $6$ pasangan, misalnya $(x,y)=(4,14)$ dan $(15,3)$.\n\n**Pemeriksaan.** $(4,14)$: $56-8-42=6$ ✓. $(15,3)$: $45-30-9=6$ ✓.",
+  "key_idea": "SFFT: $xy+ax+by=c\\iff(x+b)(y+a)=c+ab$. Sesudah itu, masalahnya menjadi mendaftar pasangan faktor beserta tandanya.",
+  "common_error": "Langsung menghitung semua pembagi $12$, termasuk yang negatif ($12$ pasangan), tanpa memeriksa syarat positif. Atau sebaliknya, tidak pernah memeriksa kasus negatif.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P001",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "selisih kuadrat",
+  "objective_id": "AL01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [],
+  "technique_tags": [
+   "selisih_kuadrat",
+   "substitusi"
+  ],
+  "statement": "Tentukan nilai $2026\\cdot2024-2025^2$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-1",
+   "display": "$-1$"
+  },
+  "hints": [
+   "Misalkan $a=2025$. Nyatakan $2026$ dan $2024$ dalam $a$.",
+   "$(a+1)(a-1)-a^2$."
+  ],
+  "solution": "Dengan $a=2025$: $2026\\cdot2024-2025^2=(a+1)(a-1)-a^2=a^2-1-a^2=-1$.",
+  "key_idea": "Bilangan besar yang berdekatan: ganti dengan satu variabel, lalu gunakan identitas.",
+  "common_error": "Menghitung $2026\\cdot2024$ secara langsung lalu salah di salah satu digit, atau menjawab $1$ karena tanda tertukar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P002",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "bentuk simetris dua variabel",
+  "objective_id": "AL01-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "bentuk_simetris"
+  ],
+  "statement": "Bilangan $a$ dan $b$ memenuhi $a+b=7$ dan $ab=10$. Tentukan nilai $a^3+b^3$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "133",
+   "display": "$133$"
+  },
+  "hints": [
+   "Nyatakan $a^3+b^3$ dalam $a+b$ dan $ab$.",
+   "$a^3+b^3=(a+b)^3-3ab(a+b)$."
+  ],
+  "solution": "$a^3+b^3=(a+b)^3-3ab(a+b)=343-3\\cdot10\\cdot7=343-210=133$.\n\nPemeriksaan: $a$ dan $b$ adalah $2$ dan $5$, dan $8+125=133$ ✓.",
+  "key_idea": "Bentuk simetris dihitung dari $s=a+b$ dan $p=ab$: $a^3+b^3=s^3-3ps$.",
+  "common_error": "Memakai $(a+b)^3=a^3+b^3$ sehingga menjawab $343$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P003",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "rasionalisasi dan teleskopik",
+  "objective_id": "AL01-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "rasionalisasi",
+   "teleskopik"
+  ],
+  "statement": "Tentukan nilai\n$$\\frac1{\\sqrt1+\\sqrt2}+\\frac1{\\sqrt2+\\sqrt3}+\\frac1{\\sqrt3+\\sqrt4}+\\cdots+\\frac1{\\sqrt{99}+\\sqrt{100}}.$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "Rasionalkan satu suku: kalikan $\\dfrac1{\\sqrt k+\\sqrt{k+1}}$ dengan $\\dfrac{\\sqrt{k+1}-\\sqrt k}{\\sqrt{k+1}-\\sqrt k}$.",
+   "Setiap suku sama dengan $\\sqrt{k+1}-\\sqrt k$. Jumlahkan dari $k=1$ sampai $99$."
+  ],
+  "solution": "Untuk setiap $k$: $\\dfrac1{\\sqrt k+\\sqrt{k+1}}=\\dfrac{\\sqrt{k+1}-\\sqrt k}{(k+1)-k}=\\sqrt{k+1}-\\sqrt k$. Maka jumlahnya\n$$(\\sqrt2-\\sqrt1)+(\\sqrt3-\\sqrt2)+\\cdots+(\\sqrt{100}-\\sqrt{99})=\\sqrt{100}-\\sqrt1=9.$$",
+  "key_idea": "Rasionalisasi mengubah setiap suku menjadi selisih $f(k+1)-f(k)$, sehingga jumlahnya teleskopik.",
+  "common_error": "Menjawab $10$ karena lupa suku $-\\sqrt1$ yang tersisa di awal.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P004",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "selisih kuadrat pada bilangan bulat",
+  "objective_id": "AL01-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "selisih_kuadrat",
+   "pasangan_faktor",
+   "paritas"
+  ],
+  "statement": "Berapa banyak pasangan $(x,y)$ bilangan bulat positif yang memenuhi $x^2-y^2=45$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3",
+   "display": "$3$"
+  },
+  "hints": [
+   "Faktorkan ruas kiri. Kedua faktor positif, dan faktor yang satu lebih besar dari yang lain.",
+   "$(x-y)(x+y)=45$ dengan $0<x-y<x+y$. Kedua faktor harus berparitas sama agar $x$ dan $y$ bulat."
+  ],
+  "solution": "$(x-y)(x+y)=45$. Karena $x,y>0$, berlaku $x+y>0$, sehingga $x-y>0$ dan $x-y<x+y$. Pasangan faktor $45$ yang\nmemenuhi $d<e$ adalah $(1,45)$, $(3,15)$, dan $(5,9)$. Ketiganya sama-sama ganjil, sehingga\n$x=\\frac{d+e}2$ dan $y=\\frac{e-d}2$ bulat:\n$(x,y)=(23,22)$, $(9,6)$, $(7,2)$.\n\nJadi ada $3$ pasangan.",
+  "key_idea": "$x^2-y^2=k$ menjadi $(x-y)(x+y)=k$. Daftarkan pasangan faktor, lalu periksa paritas: kedua faktor harus sama-sama genap atau sama-sama ganjil.",
+  "common_error": "Menghitung $6$ karena memasukkan pasangan dengan $x-y>x+y$, yang memberi $y$ negatif.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P005",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "bentuk simetris dengan selisih",
+  "objective_id": "AL01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "bentuk_simetris",
+   "kubus_selisih"
+  ],
+  "statement": "Bilangan real $a$ dan $b$ memenuhi $a-b=3$ dan $ab=4$. Tentukan nilai $a^3-b^3$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "63",
+   "display": "$63$"
+  },
+  "hints": [
+   "Jabarkan $(a-b)^3$ dan bandingkan dengan $a^3-b^3$.",
+   "$(a-b)^3=a^3-b^3-3ab(a-b)$, sehingga $a^3-b^3=(a-b)^3+3ab(a-b)$."
+  ],
+  "solution": "$(a-b)^3=a^3-3a^2b+3ab^2-b^3=a^3-b^3-3ab(a-b)$. Maka\n$$a^3-b^3=(a-b)^3+3ab(a-b)=27+3\\cdot4\\cdot3=63.$$\nPemeriksaan: $(a,b)=(4,1)$ memenuhi $a-b=3$ dan $ab=4$, dengan $64-1=63$ ✓. Pasangan lain, $(a,b)=(-1,-4)$, memberi $-1+64=63$ ✓.",
+  "key_idea": "Untuk selisih, gunakan $d=a-b$ dan $p=ab$: $a^3-b^3=d^3+3pd$. Hasilnya sama untuk semua pasangan yang memenuhi.",
+  "common_error": "Memakai tanda $-$: $27-36=-9$, akibat salah menjabarkan $(a-b)^3$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P006",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "trik faktorisasi Simon",
+  "objective_id": "AL01-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "sfft",
+   "pasangan_faktor"
+  ],
+  "statement": "Pasangan bilangan bulat positif $(x,y)$ memenuhi $xy+3x+2y=30$. Tentukan jumlah semua nilai $x$ yang mungkin.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "14",
+   "display": "$14$"
+  },
+  "hints": [
+   "Tambahkan konstanta agar ruas kiri menjadi $(x+\\dots)(y+\\dots)$.",
+   "$(x+2)(y+3)=36$ dengan $x+2\\ge3$ dan $y+3\\ge4$."
+  ],
+  "solution": "$xy+3x+2y+6=(x+2)(y+3)$, sehingga $(x+2)(y+3)=36$. Karena $x,y\\ge1$: $x+2\\ge3$ dan $y+3\\ge4$, artinya\n$x+2\\le9$. Pembagi $36$ di antara $3$ dan $9$ adalah $3,4,6,9$:\n\n| $x+2$ | $y+3$ | $(x,y)$ |\n|---|---|---|\n| $3$ | $12$ | $(1,9)$ |\n| $4$ | $9$ | $(2,6)$ |\n| $6$ | $6$ | $(4,3)$ |\n| $9$ | $4$ | $(7,1)$ |\n\nJumlah semua nilai $x$: $1+2+4+7=14$.",
+  "key_idea": "Batas bawah pada kedua faktor membatasi pembagi yang mungkin dari dua arah sekaligus.",
+  "common_error": "Memakai $(x+3)(y+2)$ (koefisien tertukar), sehingga konstantanya salah. Periksa dengan menjabarkan kembali.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P007",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "identitas Sophie Germain",
+  "objective_id": "AL01-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "sophie_germain",
+   "selisih_kuadrat",
+   "melengkapkan_kuadrat"
+  ],
+  "statement": "Tentukan faktor prima terbesar dari $18^4+4$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "181",
+   "display": "$181$"
+  },
+  "hints": [
+   "Lengkapkan $n^4+4$ menjadi kuadrat sempurna dikurangi suatu kuadrat.",
+   "$n^4+4=(n^2+2)^2-(2n)^2=(n^2+2n+2)(n^2-2n+2)$. Substitusikan $n=18$."
+  ],
+  "solution": "$n^4+4=(n^2+2)^2-4n^2=(n^2+2n+2)(n^2-2n+2)$. Untuk $n=18$:\n$$18^4+4=(324+36+2)(324-36+2)=362\\cdot290=(2\\cdot181)(2\\cdot5\\cdot29).$$\nBilangan $181$ prima (tidak habis dibagi $2,3,5,7,11,13$, dan $13^2<181<14^2$). Jadi faktor prima terbesarnya $181$.",
+  "key_idea": "$a^4+4b^4$ selalu dapat difaktorkan: lengkapkan kuadrat, lalu pakai selisih kuadrat.",
+  "common_error": "Mengira $362$ atau $290$ sebagai prima, atau berhenti di faktor $29$ tanpa memeriksa $362=2\\cdot181$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P008",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "bentuk simetris pangkat empat",
+  "objective_id": "AL01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "bentuk_simetris"
+  ],
+  "statement": "Bilangan real $x$ dan $y$ memenuhi $x+y=1$ dan $x^2+y^2=3$. Tentukan nilai $x^4+y^4$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "7",
+   "display": "$7$"
+  },
+  "hints": [
+   "Cari $xy$ dari $(x+y)^2=x^2+y^2+2xy$.",
+   "$xy=-1$. Kemudian $x^4+y^4=(x^2+y^2)^2-2(xy)^2$."
+  ],
+  "solution": "$1=(x+y)^2=3+2xy$, sehingga $xy=-1$. Maka $x^4+y^4=(x^2+y^2)^2-2x^2y^2=9-2=7$.\n\nPemeriksaan: $x,y=\\frac{1\\pm\\sqrt5}2$ adalah bilangan real, dan $x^2+y^2=\\frac{(6+2\\sqrt5)+(6-2\\sqrt5)}{4}=3$ ✓.",
+  "key_idea": "Dari $x+y$ dan $x^2+y^2$ dapat dihitung $xy$, lalu setiap bentuk simetris lain dapat dihitung.",
+  "common_error": "Menulis $x^4+y^4=(x^2+y^2)^2=9$, lupa suku $-2x^2y^2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P009",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "jumlah kubus",
+  "objective_id": "AL01-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "jumlah_kubus",
+   "substitusi"
+  ],
+  "statement": "Tentukan nilai $\\dfrac{2024^3+1}{2024^2-2023}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "2025",
+   "display": "$2025$"
+  },
+  "hints": [
+   "Misalkan $a=2024$. Tulis penyebutnya dalam $a$.",
+   "Penyebutnya $a^2-a+1$, dan $a^3+1=(a+1)(a^2-a+1)$."
+  ],
+  "solution": "Dengan $a=2024$, penyebutnya $a^2-(a-1)=a^2-a+1$. Karena $a^3+1=(a+1)(a^2-a+1)$, nilai pecahannya\n$a+1=2025$.",
+  "key_idea": "Kenali faktor $a^2-a+1$ dari jumlah kubus walaupun ditulis dalam bentuk angka.",
+  "common_error": "Menganggap $2023=a$ sehingga penyebutnya ditulis $a^2-a$. Padahal $2023=a-1$, jadi penyebutnya $a^2-(a-1)=a^2-a+1$, tepat faktor dari $a^3+1$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: teks kekeliruan umum dibetulkan (versi awal kontradiktif)."
+ },
+ {
+  "id": "AL01-P010",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "bentuk simetris tiga variabel",
+  "objective_id": "AL01-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 8,
+  "prerequisites": [],
+  "technique_tags": [
+   "bentuk_simetris",
+   "identitas_kubus_tiga"
+  ],
+  "statement": "Bilangan real $a,b,c$ memenuhi $a+b+c=5$, $ab+bc+ca=2$, dan $abc=-1$. Tentukan nilai $a^3+b^3+c^3$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "92",
+   "display": "$92$"
+  },
+  "hints": [
+   "Hitung dulu $a^2+b^2+c^2$ dari $(a+b+c)^2$.",
+   "$a^2+b^2+c^2=21$. Pakai $a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca)$."
+  ],
+  "solution": "1. $a^2+b^2+c^2=(a+b+c)^2-2(ab+bc+ca)=25-4=21$.\n2. $a^3+b^3+c^3-3abc=(a+b+c)\\big(a^2+b^2+c^2-(ab+bc+ca)\\big)=5\\cdot(21-2)=95$.\n3. $a^3+b^3+c^3=95+3abc=95-3=92$.\n\nKeberadaan: $a,b,c$ adalah akar $t^3-5t^2+2t+1=0$. Nilai polinom ini berganti tanda pada $(-1,0)$, $(0,1)$, dan $(4,5)$,\nsehingga ketiga akarnya real.",
+  "key_idea": "Untuk tiga variabel, bentuk simetris dihitung dari $s_1, s_2, s_3$. Identitas $a^3+b^3+c^3-3abc$ menghubungkan pangkat tiga dengan pangkat dua.",
+  "common_error": "Lupa menambahkan kembali $3abc$ sehingga menjawab $95$, atau salah tanda pada $abc=-1$ sehingga menjawab $98$.",
+  "alternative_solution": "Langsung dari rumus $a^3+b^3+c^3=s_1^3-3s_1s_2+3s_3=125-30-3=92$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL01-P011",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "rasionalisasi dan teleskopik",
+  "objective_id": "AL01-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 8,
+  "prerequisites": [],
+  "technique_tags": [
+   "rasionalisasi",
+   "teleskopik"
+  ],
+  "statement": "Tentukan nilai\n$$S=\\sum_{k=1}^{99}\\frac{1}{(k+1)\\sqrt k+k\\sqrt{k+1}}.$$\nTuliskan jawaban sebagai pecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "9/10",
+   "display": "$\\dfrac{9}{10}$"
+  },
+  "hints": [
+   "Keluarkan faktor $\\sqrt k\\sqrt{k+1}$ dari penyebut.",
+   "Penyebutnya $\\sqrt k\\sqrt{k+1}\\,(\\sqrt{k+1}+\\sqrt k)$. Rasionalkan, lalu tuliskan setiap suku sebagai $\\dfrac1{\\sqrt k}-\\dfrac1{\\sqrt{k+1}}$."
+  ],
+  "solution": "Penyebutnya $(k+1)\\sqrt k+k\\sqrt{k+1}=\\sqrt k\\sqrt{k+1}\\,(\\sqrt{k+1}+\\sqrt k)$. Maka\n$$\\begin{aligned}\\frac1{\\sqrt k\\sqrt{k+1}(\\sqrt{k+1}+\\sqrt k)}&=\\frac{\\sqrt{k+1}-\\sqrt k}{\\sqrt k\\sqrt{k+1}}\\\\&=\\frac1{\\sqrt k}-\\frac1{\\sqrt{k+1}}.\\end{aligned}$$\nJumlahnya teleskopik:\n$$S=\\frac1{\\sqrt1}-\\frac1{\\sqrt{100}}=1-\\frac1{10}=\\frac9{10}.$$",
+  "key_idea": "Faktorkan penyebut sampai tampak bentuk sekawan. Tujuannya menulis setiap suku sebagai $f(k)-f(k+1)$.",
+  "common_error": "Menganggap setiap suku sama dengan $\\sqrt{k+1}-\\sqrt k$ seperti pada soal teleskopik yang lebih sederhana, sehingga menjawab $9$. Faktor $\\sqrt k\\sqrt{k+1}$ di penyebut membuat setiap suku menjadi $\\frac1{\\sqrt k}-\\frac1{\\sqrt{k+1}}$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: kekeliruan umum versi awal bukan kesalahan nyata; diganti."
+ },
+ {
+  "id": "AL01-P012",
+  "version": 1,
+  "module_id": "AL01",
+  "domain": "aljabar",
+  "subtopic": "SFFT dengan tanda dan pengecualian",
+  "objective_id": "AL01-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "sfft",
+   "pasangan_faktor",
+   "kasus_tanda"
+  ],
+  "statement": "Berapa banyak pasangan terurut $(x,y)$ bilangan bulat tak nol (boleh negatif) yang memenuhi\n$$\\frac1x+\\frac1y=\\frac16\\,?$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "17",
+   "display": "$17$"
+  },
+  "hints": [
+   "Kalikan kedua ruas dengan $6xy$, lalu pakai SFFT.",
+   "$(x-6)(y-6)=36$. Hitung semua pasangan pembagi $36$, positif maupun negatif, lalu buang yang membuat $x=0$ atau $y=0$."
+  ],
+  "solution": "Kalikan dengan $6xy$ (sah karena $x,y\\ne0$): $6y+6x=xy$, sehingga $xy-6x-6y+36=36$, yaitu $(x-6)(y-6)=36$.\n\n- $36$ memiliki $9$ pembagi positif, sehingga ada $9$ pasangan $(x-6,\\,y-6)$ dengan kedua faktor positif dan $9$ pasangan dengan kedua faktor negatif. Totalnya $18$.\n- Buang yang membuat $x=0$ atau $y=0$. $x=0$ berarti $x-6=-6$ dan $y-6=-6$, yaitu $(x,y)=(0,0)$. Hanya pasangan ini yang dibuang.\n\nJadi banyaknya $18-1=17$.\n\nPemeriksaan: $(x,y)=(3,-6)$ dari $(-3)(-12)=36$ memberi $\\tfrac13-\\tfrac16=\\tfrac16$ ✓.",
+  "key_idea": "Setelah SFFT, hitung pasangan faktor dengan **kedua** tanda. Buang solusi yang melanggar syarat awal (penyebut nol). Langkah mengalikan dengan $xy$ bisa memasukkan solusi palsu.",
+  "common_error": "Menjawab $9$ (hanya faktor positif) atau $18$ (lupa membuang $(0,0)$ yang muncul karena kedua ruas dikalikan $xy$).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_AL01.md): A1–A6 lulus. A5: scripts/checks/AL01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]

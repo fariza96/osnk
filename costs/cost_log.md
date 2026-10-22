@@ -36,7 +36,18 @@ Token penalaran (thinking) ditagih sebagai output.
 | Waktu (UTC) | Fase | Model | Token | Biaya | Jenis |
 |---|---|---|---|---|---|
 | 2026-10-22 | Tahap 0–1 (lingkungan, sumber, blueprint, kerangka proyek, tes) | sesi Claude Code | tidak tersedia | tidak tersedia | — |
-| 2026-10-22 | Tahap 2 pilot TB01+GE01 (28 butir, 2 materi, 5 SVG, audit, MathJax 4) | sesi Claude Code | tidak tersedia | tidak tersedia; estimasi pra-pilot $4–13 | estimasi |
+| 2026-10-22 | Tahap 2 pilot TB01+GE01 (28 butir, 2 materi, 5 SVG, audit, MathJax 4) | sesi Claude Code | tidak tersedia | (lihat baris kumulatif) | — |
+| 2026-10-22 | **Kumulatif Tahap 0–2 + koneksi GitHub** | sesi Claude Code | tidak tersedia | **US$11 (aktual, dilaporkan guru dari halaman akun)** | aktual |
+
+### Proyeksi setelah pilot (dikalibrasi dengan US$11 aktual)
+
+- Pilot = 2 modul + penyiapan alat (validator, build, situs, MathJax 4, diagram, tes) ≈ US$11.
+  Perkiraan porsi alat ≈ US$3–4, sehingga per modul ≈ **US$3,5–4** (konservatif, termasuk audit).
+- Sisa 17 modul: ≈ US$60–68. Diagnostik + 2 Latihan Campuran (56 soal, tanpa materi): ≈ US$8–10.
+  Pengemasan akhir: ≈ US$3. **Total proyeksi ≈ US$82–92** terhadap batas operasional US$90.
+- Konsekuensi: margin tipis. Aturan kerja: tidak ada fitur tampilan baru sebelum konten selesai, tangkapan layar
+  hanya bila tes gagal, dan pemakaian dicek ulang oleh guru setiap 4 modul. Jika kumulatif melewati US$50 sebelum
+  modul ke-12 selesai, volume diturunkan (mis. 10 latihan per modul) dengan persetujuan guru.
 
 **Untuk kalibrasi:** guru diminta mencatat pemakaian aktual dari halaman akun Claude sebelum dan sesudah
 sesi berikutnya. Tanpa angka itu, proyeksi versi inti/lengkap hanya bisa berupa skala relatif:

@@ -1,0 +1,469 @@
+[
+ {
+  "id": "KO01-E01",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "aturan perkalian dengan kasus",
+  "objective_id": "KO01-O1",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "aturan_perkalian",
+   "pembagian_kasus",
+   "posisi_terbatas"
+  ],
+  "statement": "Berapa banyak bilangan tiga digit genap yang ketiga digitnya berbeda?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "328",
+   "display": "$328$"
+  },
+  "hints": [
+   "Posisi mana yang paling dibatasi? Digit satuan harus genap, dan digit ratusan tidak boleh $0$.",
+   "Bagi kasus: digit satuan $0$, atau digit satuan $2,4,6,8$. Mengapa perlu dipisah?"
+  ],
+  "solution": "**Ide kunci.** Pilih digit satuan lebih dulu karena paling dibatasi. Banyak pilihan digit ratusan bergantung\npada apakah digit satuan bernilai $0$, jadi kasusnya dipisah.\n\n**Langkah.**\n\n1. **Satuan $0$:** ratusan boleh $1$–$9$ ($9$ pilihan), puluhan boleh sisa $8$ digit. Ada $9\\cdot8=72$.\n2. **Satuan $2,4,6,8$ ($4$ pilihan):** ratusan bukan $0$ dan bukan digit satuan ($8$ pilihan), puluhan boleh sisa $8$ digit (termasuk $0$). Ada $4\\cdot8\\cdot8=256$.\n3. Kedua kasus saling lepas dan lengkap: $72+256=328$.\n\n**Pemeriksaan dengan komplemen.** Semua bilangan tiga digit dengan digit berbeda ada $9\\cdot9\\cdot8=648$.\nYang ganjil: satuan ganjil ($5$), ratusan bukan $0$ dan bukan satuan ($8$), puluhan ($8$), sehingga $320$.\nMaka $648-320=328$ ✓.",
+  "key_idea": "Mulai dari posisi yang paling dibatasi. Jika banyak pilihan berikutnya berbeda-beda, bagi menjadi kasus.",
+  "common_error": "Menghitung $9\\cdot9\\cdot5$ atau $9\\cdot8\\cdot5$ seolah-olah digit satuan selalu punya $5$ pilihan, tanpa memperhatikan bahwa digit $0$ dan digit ratusan saling memengaruhi.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-E02",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "komplemen",
+  "objective_id": "KO01-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "komplemen",
+   "aturan_perkalian"
+  ],
+  "statement": "Berapa banyak bilangan empat digit yang memuat paling sedikit satu digit $7$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3168",
+   "display": "$3168$"
+  },
+  "hints": [
+   "Lebih mudah menghitung bilangan empat digit yang **tidak** memuat $7$.",
+   "Tanpa $7$: digit pertama punya $8$ pilihan (bukan $0$, bukan $7$), sedangkan digit lainnya masing-masing $9$ pilihan."
+  ],
+  "solution": "**Ide kunci.** \"Paling sedikit satu\" punya banyak kasus (tepat satu $7$, tepat dua, dan seterusnya),\nsedangkan kebalikannya, \"tidak ada $7$\", cukup dihitung dengan satu perkalian.\n\n**Langkah.**\n\n1. Banyak bilangan empat digit: $9000$.\n2. Tanpa digit $7$: $8\\cdot9\\cdot9\\cdot9=5832$.\n3. Yang memuat paling sedikit satu $7$: $9000-5832=3168$.\n\n**Pemeriksaan cepat.** Bilangan $7000$–$7999$ saja sudah $1000$ buah, dan jawaban $3168$ masuk akal karena\nsekitar sepertiga bilangan empat digit memuat $7$.",
+  "key_idea": "Untuk syarat \"paling sedikit satu\", hitung komplemennya, yaitu \"tidak ada sama sekali\".",
+  "common_error": "Memakai $9^4$ untuk \"tanpa $7$\" sehingga digit pertama $0$ ikut terhitung, atau memakai $10000$ sebagai banyak bilangan empat digit.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P001",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "aturan perkalian",
+  "objective_id": "KO01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [],
+  "technique_tags": [
+   "aturan_perkalian"
+  ],
+  "statement": "Sebuah kode terdiri atas $2$ huruf (A–Z, $26$ huruf) yang diikuti $3$ angka ($0$–$9$). Huruf dan angka boleh berulang. Berapa banyak kode yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "676000",
+   "display": "$676000$"
+  },
+  "hints": [
+   "Ada $5$ posisi yang diisi satu per satu. Berapa pilihan untuk setiap posisi?",
+   "$26\\cdot26\\cdot10\\cdot10\\cdot10$."
+  ],
+  "solution": "Setiap posisi diisi secara bebas: $26\\cdot26\\cdot10^3=676\\,000$.",
+  "key_idea": "Jika setiap posisi punya banyak pilihan yang tetap, kalikan semuanya.",
+  "common_error": "Menjumlahkan ($26+26+10+10+10$) padahal tahap-tahapnya terjadi berurutan dan bersama-sama, bukan sebagai kasus yang saling lepas.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P002",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "himpunan bagian bersyarat",
+  "objective_id": "KO01-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [],
+  "technique_tags": [
+   "himpunan_bagian",
+   "pilihan_per_anggota"
+  ],
+  "statement": "Berapa banyak himpunan bagian dari $\\{1,2,3,\\dots,10\\}$ yang memuat $1$ tetapi tidak memuat $2$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "256",
+   "display": "$256$"
+  },
+  "hints": [
+   "Setiap anggota memilih masuk atau tidak. Anggota mana yang pilihannya sudah ditentukan?",
+   "Anggota $1$ dan $2$ masing-masing hanya punya $1$ pilihan, sedangkan $8$ anggota lain bebas."
+  ],
+  "solution": "Anggota $1$ wajib masuk dan anggota $2$ dilarang masuk. Delapan anggota lain masing-masing punya $2$ pilihan, sehingga banyaknya $2^8=256$.",
+  "key_idea": "Himpunan bagian dihitung per anggota: wajib atau dilarang berarti $1$ pilihan, bebas berarti $2$ pilihan.",
+  "common_error": "Menjawab $2^{10}-2$ atau $2^9$ karena hanya memperhitungkan salah satu syarat.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P003",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "aturan perkalian dengan pilihan kosong",
+  "objective_id": "KO01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "aturan_perkalian",
+   "pilihan_kosong"
+  ],
+  "statement": "Sebuah warung menyediakan $3$ jenis pembuka, $4$ jenis hidangan utama, dan $2$ jenis penutup. Seorang pembeli\nmemesan **tepat satu** hidangan utama, **paling banyak satu** pembuka, dan **paling banyak satu** penutup.\nBerapa banyak pesanan berbeda yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "48",
+   "display": "$48$"
+  },
+  "hints": [
+   "\"Paling banyak satu pembuka\" berarti ada pilihan tambahan: tidak memesan pembuka.",
+   "Pembuka: $3+1$ pilihan, utama: $4$, penutup: $2+1$."
+  ],
+  "solution": "Pembuka punya $3+1=4$ pilihan (termasuk \"tidak memesan\"), utama $4$, dan penutup $2+1=3$. Banyaknya $4\\cdot4\\cdot3=48$.",
+  "key_idea": "Pilihan \"tidak mengambil\" dihitung sebagai satu pilihan tambahan sehingga aturan perkalian tetap berlaku.",
+  "common_error": "Menjawab $3\\cdot4\\cdot2=24$ karena lupa pilihan \"tidak memesan\".",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: tanda kutip ter-escape di petunjuk dibetulkan."
+ },
+ {
+  "id": "KO01-P004",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "aturan penjumlahan dan perkalian",
+  "objective_id": "KO01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [],
+  "technique_tags": [
+   "aturan_penjumlahan",
+   "aturan_perkalian"
+  ],
+  "statement": "Berapa banyak bilangan bulat positif kurang dari $1000$ yang tidak memuat digit $0$ maupun digit $5$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "584",
+   "display": "$584$"
+  },
+  "hints": [
+   "Bagi menurut banyak digit: satu, dua, atau tiga digit.",
+   "Setiap digit hanya boleh salah satu dari $8$ digit $\\{1,2,3,4,6,7,8,9\\}$."
+  ],
+  "solution": "Digit yang boleh dipakai: $1,2,3,4,6,7,8,9$ ($8$ digit). Karena $0$ tidak dipakai, masalah digit pertama nol tidak muncul.\n\n- satu digit: $8$;\n- dua digit: $8^2=64$;\n- tiga digit: $8^3=512$.\n\nTotalnya $8+64+512=584$.",
+  "key_idea": "Bagi menurut panjang bilangan (kasus saling lepas), lalu pakai aturan perkalian di setiap kasus.",
+  "common_error": "Menghitung $8^3=512$ saja, seolah-olah semua bilangan bertiga digit, atau memakai $9$ pilihan karena lupa membuang $5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P005",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "pewarnaan dengan syarat",
+  "objective_id": "KO01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "pembagian_kasus",
+   "aturan_perkalian"
+  ],
+  "statement": "Lima kotak berjajar diwarnai dengan merah, hijau, atau biru. Kotak yang bersebelahan harus berbeda warna,\nserta kotak pertama dan kotak kelima harus merah. Berapa banyak pewarnaan yang mungkin?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Kotak $2$ dan kotak $4$ tidak boleh merah (bersebelahan dengan kotak merah). Kotak $3$ menentukan banyak pilihan kotak $4$.",
+   "Bagi kasus: kotak $3$ merah, atau kotak $3$ bukan merah."
+  ],
+  "solution": "Kotak $1$ dan $5$ merah, sehingga kotak $2$ dan $4$ masing-masing hijau atau biru.\n\n- Kotak $2$: $2$ pilihan.\n- **Kotak $3$ merah:** kotak $4$ boleh hijau atau biru ($2$ pilihan).\n- **Kotak $3$ bukan merah:** kotak $3$ harus warna non-merah yang berbeda dari kotak $2$ ($1$ pilihan), dan kotak $4$ harus non-merah serta berbeda dari kotak $3$ ($1$ pilihan).\n\nUntuk setiap pilihan kotak $2$, ada $2+1=3$ cara. Totalnya $2\\cdot3=6$.\n\nDaftar lengkapnya (M = merah, H = hijau, B = biru): MHMHM, MHMBM, MHBHM, MBMHM, MBMBM, MBHBM ✓.",
+  "key_idea": "Jika banyak pilihan suatu tahap bergantung pada tahap sebelumnya, bagi kasus menurut tahap yang menentukan.",
+  "common_error": "Menghitung $3\\cdot2\\cdot2\\cdot2\\cdot2$ lalu \"menyesuaikan\" tanpa dasar, atau menganggap kotak $4$ selalu punya $2$ pilihan sehingga menjawab $8$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P006",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "komplemen pada himpunan bagian",
+  "objective_id": "KO01-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "komplemen",
+   "himpunan_bagian"
+  ],
+  "statement": "Berapa banyak himpunan bagian dari $\\{1,2,\\dots,10\\}$ yang memuat paling sedikit satu bilangan genap?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "992",
+   "display": "$992$"
+  },
+  "hints": [
+   "Hitung himpunan bagian yang **tidak** memuat bilangan genap.",
+   "Himpunan bagian tanpa bilangan genap adalah himpunan bagian dari $\\{1,3,5,7,9\\}$."
+  ],
+  "solution": "Semua himpunan bagian: $2^{10}=1024$. Yang tidak memuat bilangan genap adalah himpunan bagian dari $\\{1,3,5,7,9\\}$, ada $2^5=32$ (termasuk $\\varnothing$). Jadi banyaknya $1024-32=992$.",
+  "key_idea": "Untuk \"paling sedikit satu\": total dikurangi \"tidak ada\". Himpunan kosong ikut masuk ke kelompok \"tidak ada\".",
+  "common_error": "Menjawab $2^{10}-2^5-1=991$ karena mengurangi $\\varnothing$ dua kali. $\\varnothing$ sudah termasuk dalam $2^5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P007",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "bijeksi pada himpunan bagian",
+  "objective_id": "KO01-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "bijeksi",
+   "himpunan_bagian",
+   "paritas"
+  ],
+  "statement": "Berapa banyak himpunan bagian dari $\\{1,2,\\dots,12\\}$ yang banyak anggotanya genap? (Himpunan kosong dihitung, karena banyak anggotanya $0$.)",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "2048",
+   "display": "$2048$"
+  },
+  "hints": [
+   "Cari pemasangan antara himpunan bagian berukuran genap dan berukuran ganjil.",
+   "\"Balik\" keanggotaan bilangan $1$: tambahkan jika belum ada, buang jika sudah ada. Ukurannya berubah $\\pm1$."
+  ],
+  "solution": "Pasangkan setiap himpunan bagian $S$ dengan $S'$, yaitu $S$ yang keanggotaan $1$-nya dibalik. Pemasangan ini satu-satu\n(membalik dua kali kembali ke $S$) dan mengubah ukuran sebesar tepat $1$. Jadi setiap himpunan berukuran genap\nberpasangan dengan tepat satu himpunan berukuran ganjil. Kedua kelompok sama banyak, masing-masing\n$\\frac{2^{12}}{2}=2048$.",
+  "key_idea": "Bijeksi \"balik satu anggota\" membuktikan bahwa himpunan bagian berukuran genap dan ganjil sama banyak.",
+  "common_error": "Mengira yang berukuran genap lebih banyak karena $\\varnothing$ ikut dihitung, lalu menjawab $2049$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: tanda kutip ter-escape di petunjuk dibetulkan."
+ },
+ {
+  "id": "KO01-P008",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "kasus dengan digit berbeda",
+  "objective_id": "KO01-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "pembagian_kasus",
+   "aturan_perkalian",
+   "posisi_terbatas"
+  ],
+  "statement": "Berapa banyak bilangan genap empat digit yang lebih besar dari $5000$ dan keempat digitnya berbeda?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "1288",
+   "display": "$1288$"
+  },
+  "hints": [
+   "Digit ribuan harus $5,6,7,8,$ atau $9$, dan digit satuan genap. Kedua syarat ini saling memengaruhi jika digit ribuan genap.",
+   "Bagi kasus: digit ribuan genap ($6,8$) atau ganjil ($5,7,9$). Pilih ribuan, lalu satuan, lalu dua digit tengah ($8\\cdot7$)."
+  ],
+  "solution": "Bilangan $5000$ sendiri tidak memenuhi karena digitnya tidak berbeda, sehingga cukup digit ribuan $\\ge5$.\n\n- **Ribuan $6$ atau $8$:** satuan genap dan berbeda dari ribuan, $4$ pilihan. Dua digit tengah dipilih dari $8$ digit sisa: $8\\cdot7=56$. Jumlahnya $2\\cdot4\\cdot56=448$.\n- **Ribuan $5,7,9$:** satuan boleh $0,2,4,6,8$ ($5$ pilihan), lalu dua digit tengah $8\\cdot7=56$. Jumlahnya $3\\cdot5\\cdot56=840$.\n\nTotalnya $448+840=1288$.",
+  "key_idea": "Jika dua posisi dibatasi oleh syarat yang beririsan (ribuan dan satuan sama-sama bisa genap), bagi kasus menurut posisi yang lebih dulu dipilih.",
+  "common_error": "Memakai $5$ pilihan digit satuan untuk semua digit ribuan sehingga menjawab $5\\cdot5\\cdot56=1400$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P009",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "penjumlahan dan komplemen",
+  "objective_id": "KO01-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "komplemen",
+   "aturan_penjumlahan"
+  ],
+  "statement": "Kata sandi disusun dari huruf A, B, C, D (boleh berulang) dengan panjang $3$, $4$, atau $5$ huruf. Berapa banyak kata\nsandi yang memuat paling sedikit satu huruf A?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "993",
+   "display": "$993$"
+  },
+  "hints": [
+   "Untuk setiap panjang $n$, hitung semua kata sandi dikurangi yang tanpa A.",
+   "Panjang $n$: $4^n-3^n$. Jumlahkan untuk $n=3,4,5$."
+  ],
+  "solution": "Untuk panjang $n$: semua kata sandi $4^n$, tanpa A $3^n$. Maka\n\n- $n=3$: $64-27=37$;\n- $n=4$: $256-81=175$;\n- $n=5$: $1024-243=781$.\n\nPanjang yang berbeda adalah kasus yang saling lepas, sehingga totalnya $37+175+781=993$.",
+  "key_idea": "Aturan penjumlahan untuk panjang yang berbeda; komplemen di dalam setiap kasus.",
+  "common_error": "Hanya menghitung panjang $5$ sehingga menjawab $781$, atau mengurangi $3^3+3^4+3^5$ dari $4^5$ saja, padahal setiap panjang punya totalnya sendiri.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru. Revisi 1: teks kekeliruan umum diperjelas."
+ },
+ {
+  "id": "KO01-P010",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "pencacahan sistematis hasil kali digit",
+  "objective_id": "KO01-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "pencacahan_sistematis",
+   "pembagian_kasus",
+   "aturan_perkalian"
+  ],
+  "statement": "Berapa banyak bilangan bulat positif kurang dari $10\\,000$ yang hasil kali digit-digitnya sama dengan $12$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "55",
+   "display": "$55$"
+  },
+  "hints": [
+   "Digit yang mungkin hanya $1,2,3,4,6$ (pembagi $12$ yang terdiri atas satu digit). Kelompokkan menurut banyak digit.",
+   "Untuk setiap banyak digit, daftarkan himpunan digit (boleh berulang) yang hasil kalinya $12$, lalu hitung susunannya. Contoh: $\\{1,1,2,6\\}$ punya $4\\cdot3=12$ susunan (pilih posisi $2$, lalu posisi $6$)."
+  ],
+  "solution": "Digit $0$ membuat hasil kali $0$, sedangkan $5,7,8,9$ tidak membagi $12$. Jadi digitnya dari $\\{1,2,3,4,6\\}$.\n\n| Banyak digit | Kumpulan digit | Banyak susunan |\n|---|---|---|\n| $1$ | — (tidak ada digit $12$) | $0$ |\n| $2$ | $\\{2,6\\}$, $\\{3,4\\}$ | $2+2=4$ |\n| $3$ | $\\{1,2,6\\}$, $\\{1,3,4\\}$, $\\{2,2,3\\}$ | $6+6+3=15$ |\n| $4$ | $\\{1,1,2,6\\}$, $\\{1,1,3,4\\}$, $\\{1,2,2,3\\}$ | $12+12+12=36$ |\n\nPenjelasan beberapa susunan:\n\n- $\\{2,2,3\\}$: pilih posisi $3$, ada $3$ cara.\n- $\\{1,1,2,6\\}$: pilih posisi $2$ ($4$ cara), lalu posisi $6$ ($3$ cara), sehingga ada $12$.\n- $\\{1,2,2,3\\}$: pilih posisi $1$ ($4$), lalu posisi $3$ ($3$), sehingga ada $12$.\n\nKelengkapan untuk $4$ digit: faktorisasi $12=2^2\\cdot3$ ke dalam empat digit dari $\\{1,2,3,4,6\\}$ hanya\n$\\{1,1,2,6\\}$, $\\{1,1,3,4\\}$, dan $\\{1,2,2,3\\}$ ($\\{1,1,1,12\\}$ tidak boleh).\n\nTotalnya $0+4+15+36=55$.",
+  "key_idea": "Batasi dulu digit yang mungkin, lalu kelompokkan menurut panjang dan kumpulan digit. Susunan dihitung dengan memilih posisi digit yang berbeda satu per satu.",
+  "common_error": "Melewatkan kumpulan $\\{1,2,2,3\\}$ atau menghitung susunan $\\{2,2,3\\}$ sebagai $6$ (dua digit $2$ yang sama tertukar tidak menghasilkan bilangan baru).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P011",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "penjumlahan atas digit tengah",
+  "objective_id": "KO01-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 8,
+  "prerequisites": [],
+  "technique_tags": [
+   "pembagian_kasus",
+   "aturan_perkalian",
+   "penjumlahan_deret"
+  ],
+  "statement": "Berapa banyak bilangan tiga digit $\\overline{abc}$ yang memenuhi $a<b$ dan $b>c$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "240",
+   "display": "$240$"
+  },
+  "hints": [
+   "Tetapkan digit tengah $b$ terlebih dahulu. Berapa pilihan untuk $a$ dan untuk $c$?",
+   "Untuk $b$ tetap: $a\\in\\{1,\\dots,b-1\\}$ ($b-1$ pilihan) dan $c\\in\\{0,\\dots,b-1\\}$ ($b$ pilihan). Jumlahkan $b(b-1)$ untuk $b=2,\\dots,9$."
+  ],
+  "solution": "Tetapkan $b$. Digit $a$ tidak boleh $0$ dan $a<b$, sehingga ada $b-1$ pilihan. Digit $c$ boleh $0$ dan $c<b$, sehingga\nada $b$ pilihan. Pilihan $a$ dan $c$ saling bebas, jadi ada $b(b-1)$ bilangan untuk setiap $b$.\n\n$$\\sum_{b=2}^{9}b(b-1)=2+6+12+20+30+42+56+72=240.$$",
+  "key_idea": "Pilih \"pusat\" yang mengikat syarat lain (di sini $b$). Sesudah itu, sisanya menjadi pilihan yang saling bebas.",
+  "common_error": "Memberi $c$ juga $b-1$ pilihan (lupa $c=0$ boleh), sehingga menjawab $\\sum(b-1)^2=204$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO01-P012",
+  "version": 1,
+  "module_id": "KO01",
+  "domain": "kombinatorika",
+  "subtopic": "pasangan himpunan saling lepas",
+  "objective_id": "KO01-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "pilihan_per_anggota",
+   "komplemen",
+   "simetri"
+  ],
+  "statement": "Berapa banyak cara memilih dua himpunan bagian **tak kosong** $A$ dan $B$ dari $\\{1,2,3,4,5\\}$ yang saling lepas\n($A\\cap B=\\varnothing$), jika pasangan $\\{A,B\\}$ dianggap **tidak terurut**?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "90",
+   "display": "$90$"
+  },
+  "hints": [
+   "Hitung dulu pasangan **terurut** $(A,B)$ yang saling lepas, tanpa syarat tak kosong. Setiap anggota punya berapa status?",
+   "Ada $3^5$ pasangan terurut saling lepas (status: masuk $A$, masuk $B$, atau tidak keduanya). Buang yang $A$ atau $B$ kosong, lalu bagi $2$."
+  ],
+  "solution": "1. Setiap anggota punya $3$ status: di $A$, di $B$, atau tidak di keduanya. Jadi pasangan terurut $(A,B)$ yang saling lepas ada $3^5=243$.\n2. Buang yang memiliki himpunan kosong. $A=\\varnothing$: $B$ sembarang, $2^5=32$. $B=\\varnothing$: $32$. Keduanya kosong terhitung dua kali, sehingga yang dibuang $32+32-1=63$. Sisanya $180$.\n3. Karena $A,B$ tak kosong dan saling lepas, $A\\ne B$, sehingga setiap pasangan tak terurut terhitung tepat dua kali. Jawabannya $180/2=90$.",
+  "key_idea": "Pilihan per anggota dengan beberapa status menghitung pasangan himpunan. Untuk pasangan tak terurut, bagi $2$ hanya setelah memastikan tidak ada pasangan $(A,A)$.",
+  "common_error": "Membuang $64$ (lupa bahwa pasangan $A=B=\\varnothing$ terhitung dua kali) sehingga menjawab $179/2$, bukan bilangan bulat. Kesalahan lain: tidak membagi $2$ sehingga menjawab $180$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_KO01.md): A1–A6 lulus. A5: scripts/checks/KO01.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]

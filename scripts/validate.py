@@ -143,6 +143,8 @@ def check_item(q, modules, diagram_dir, err):
     for name, s in text_fields(q):
         if CTRL_RE.search(s):
             err(qid, f"{name}: karakter kontrol (kemungkinan backslash LaTeX tidak di-escape di JSON)")
+        if '\\"' in s:
+            err(qid, f"{name}: ada \\\" (tanda kutip ter-escape ganda akan tampil sebagai backslash)")
         if unescaped_dollars(s) % 2:
             err(qid, f"{name}: jumlah $ ganjil")
 
