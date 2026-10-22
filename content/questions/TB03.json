@@ -1,0 +1,490 @@
+[
+ {
+  "id": "TB03-E01",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "pembagi kuadrat sempurna",
+  "objective_id": "TB03-O1",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "legendre",
+   "banyak_pembagi_bersyarat"
+  ],
+  "statement": "Berapa banyak pembagi positif dari $10!$ yang merupakan kuadrat sempurna?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "30",
+   "display": "$30$"
+  },
+  "hints": [
+   "Faktorkan $10!$ dengan rumus Legendre untuk $p=2,3,5,7$.",
+   "$10!=2^8\\cdot3^4\\cdot5^2\\cdot7$. Pembagi kuadrat sempurna mempunyai semua eksponen genap."
+  ],
+  "solution": "**Ide kunci.** Faktorkan dulu, lalu ubah syarat \"kuadrat sempurna\" menjadi syarat pada setiap eksponen.\n\n**Langkah.**\n\n1. Legendre: $v_2(10!)=5+2+1=8$, $v_3(10!)=3+1=4$, $v_5(10!)=2$, $v_7(10!)=1$. Jadi\n   $10!=2^8\\cdot3^4\\cdot5^2\\cdot7$.\n2. Pembagi $2^a3^b5^c7^d$ adalah kuadrat sempurna tepat jika $a,b,c,d$ genap.\n3. Pilihan: $a\\in\\{0,2,4,6,8\\}$ ($5$), $b\\in\\{0,2,4\\}$ ($3$), $c\\in\\{0,2\\}$ ($2$), $d\\in\\{0\\}$ ($1$).\n4. Banyaknya $5\\cdot3\\cdot2\\cdot1=30$.\n\n**Pemeriksaan.** $2^8\\cdot3^4\\cdot5^2\\cdot7=256\\cdot81\\cdot25\\cdot7=3\\,628\\,800=10!$ ✓.",
+  "key_idea": "Syarat pada pembagi (genap, kuadrat, kelipatan sesuatu) diterjemahkan menjadi syarat pada setiap eksponen, lalu banyak pilihan dikalikan.",
+  "common_error": "Lupa bahwa eksponen $0$ juga genap, misalnya memakai $a\\in\\{2,4,6,8\\}$ saja. Akibatnya pembagi seperti $1$, $9$, dan $25$ tidak terhitung.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-E02",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "banyak nol di akhir faktorial",
+  "objective_id": "TB03-O4",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "legendre"
+  ],
+  "statement": "Berapa banyak angka $0$ di akhir penulisan desimal $2026!$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "505",
+   "display": "$505$"
+  },
+  "hints": [
+   "Setiap angka $0$ di akhir berasal dari faktor $10=2\\cdot5$. Faktor mana yang lebih sedikit dalam $2026!$?",
+   "Hitung $v_5(2026!)=\\lfloor2026/5\\rfloor+\\lfloor2026/25\\rfloor+\\lfloor2026/125\\rfloor+\\lfloor2026/625\\rfloor$."
+  ],
+  "solution": "**Ide kunci.** Banyak angka $0$ di akhir sama dengan pangkat $10$ terbesar yang membagi, yaitu\n$\\min\\big(v_2(2026!),v_5(2026!)\\big)=v_5(2026!)$.\n\n**Langkah.**\n\n1. Kelipatan $5$: $\\lfloor2026/5\\rfloor=405$. Masing-masing menyumbang satu faktor $5$.\n2. Kelipatan $25$: $\\lfloor2026/25\\rfloor=81$, masing-masing menyumbang satu faktor $5$ **tambahan**.\n3. Kelipatan $125$: $16$. Kelipatan $625$: $3$. Kelipatan $3125$: $0$.\n4. $v_5(2026!)=405+81+16+3=505$. Karena $v_2(2026!)\\ge\\lfloor2026/2\\rfloor=1013>505$, banyak angka $0$ di akhir adalah $505$.",
+  "key_idea": "Banyak nol di akhir $n!$ adalah $v_5(n!)$, dihitung dengan rumus Legendre.",
+  "common_error": "Hanya menghitung $\\lfloor2026/5\\rfloor=405$ dan melupakan faktor $5$ tambahan dari kelipatan $25$, $125$, dan $625$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P001",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "banyak pembagi",
+  "objective_id": "TB03-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "banyak_pembagi"
+  ],
+  "statement": "Berapa banyak pembagi positif dari $360$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "24",
+   "display": "$24$"
+  },
+  "hints": [
+   "Faktorkan $360$ menjadi bilangan prima.",
+   "$360=2^3\\cdot3^2\\cdot5$, jadi $\\tau(360)=(3+1)(2+1)(1+1)$."
+  ],
+  "solution": "$360=2^3\\cdot3^2\\cdot5$. Pembaginya berbentuk $2^a3^b5^c$ dengan $0\\le a\\le3$, $0\\le b\\le2$, $0\\le c\\le1$, sehingga\nbanyaknya $4\\cdot3\\cdot2=24$.",
+  "key_idea": "$\\tau(n)$ adalah hasil kali (eksponen $+1$) dari faktorisasi prima.",
+  "common_error": "Menjumlahkan eksponen ($3+2+1=6$) atau mengalikan eksponen tanpa menambah $1$ ($3\\cdot2\\cdot1=6$).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P002",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "jumlah pembagi",
+  "objective_id": "TB03-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "jumlah_pembagi"
+  ],
+  "statement": "Tentukan jumlah semua pembagi positif dari $72$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "195",
+   "display": "$195$"
+  },
+  "hints": [
+   "$72=2^3\\cdot3^2$.",
+   "$\\sigma(72)=(1+2+4+8)(1+3+9)$."
+  ],
+  "solution": "$72=2^3\\cdot3^2$. Penjabaran $(1+2+4+8)(1+3+9)$ menghasilkan setiap pembagi $2^a3^b$ tepat satu kali, jadi\n$$\\sigma(72)=15\\cdot13=195.$$",
+  "key_idea": "Jumlah pembagi adalah hasil kali jumlah pangkat setiap prima, dari pangkat $0$ sampai pangkat maksimum.",
+  "common_error": "Lupa suku $1$ (pangkat $0$) di setiap kurung, misalnya menghitung $(2+4+8)(3+9)=168$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P003",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "rumus Legendre",
+  "objective_id": "TB03-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "legendre"
+  ],
+  "statement": "Tentukan bilangan bulat terbesar $k$ sehingga $2^k$ membagi $20!$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "18",
+   "display": "$18$"
+  },
+  "hints": [
+   "Pakai rumus Legendre: jumlahkan $\\lfloor20/2^j\\rfloor$.",
+   "$\\lfloor20/2\\rfloor+\\lfloor20/4\\rfloor+\\lfloor20/8\\rfloor+\\lfloor20/16\\rfloor$."
+  ],
+  "solution": "$$v_2(20!)=\\left\\lfloor\\tfrac{20}2\\right\\rfloor+\\left\\lfloor\\tfrac{20}4\\right\\rfloor+\\left\\lfloor\\tfrac{20}8\\right\\rfloor+\\left\\lfloor\\tfrac{20}{16}\\right\\rfloor=10+5+2+1=18.$$",
+  "key_idea": "Setiap kelipatan $2^j$ menyumbang satu faktor $2$ untuk setiap $j$; Legendre menjumlahkan semua sumbangan itu.",
+  "common_error": "Hanya menghitung banyak bilangan genap ($10$).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P004",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "hasil kali pembagi",
+  "objective_id": "TB03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "pasangan_pembagi",
+   "banyak_pembagi"
+  ],
+  "statement": "Berapa banyak bilangan bulat $n$ dengan $2\\le n\\le100$ yang hasil kali semua pembagi positifnya sama dengan $n^2$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "32",
+   "display": "$32$"
+  },
+  "hints": [
+   "Hasil kali semua pembagi positif $n$ adalah $n^{\\tau(n)/2}$. Jadi syaratnya $\\tau(n)=4$.",
+   "$\\tau(n)=4$ tepat jika $n=p^3$ atau $n=pq$ dengan $p<q$ prima. Hitung keduanya sampai $100$."
+  ],
+  "solution": "**Mengubah syarat.** Pasangkan setiap pembagi $d$ dengan $\\frac nd$; setiap pasangan berhasil kali $n$, jadi hasil\nkali semua pembagi adalah $n^{\\tau(n)/2}$. Untuk $n\\ge2$, $n^{\\tau(n)/2}=n^2$ tepat jika $\\tau(n)=4$.\n\n**Bentuk $n$.** $4=4$ atau $2\\cdot2$, jadi $n=p^3$ atau $n=pq$ ($p<q$ prima).\n\n- $p^3\\le100$: $8$, $27$, ada $2$.\n- $pq\\le100$:\n  - $p=2$: $q\\in\\{3,5,\\dots,47\\}$, ada $14$;\n  - $p=3$: $q\\in\\{5,7,\\dots,31\\}$, ada $9$;\n  - $p=5$: $q\\in\\{7,11,13,17,19\\}$, ada $5$;\n  - $p=7$: $q\\in\\{11,13\\}$, ada $2$.\n\n  Untuk $p\\ge11$, $pq>121$. Jumlahnya $30$.\n\nTotal $2+30=32$.",
+  "key_idea": "Hasil kali pembagi $n^{\\tau(n)/2}$ mengubah syarat hasil kali menjadi syarat banyak pembagi, yang lalu menjadi bentuk faktorisasi.",
+  "common_error": "Melupakan bentuk $p^3$ ($8$ dan $27$), sehingga hanya mendapat $30$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P005",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "pembagi n kuadrat yang kurang dari n",
+  "objective_id": "TB03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "pasangan_pembagi",
+   "banyak_pembagi"
+  ],
+  "statement": "Misalkan $n=2^4\\cdot3^3$. Berapa banyak pembagi positif dari $n^2$ yang kurang dari $n$ tetapi **tidak** membagi $n$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "Pasangkan pembagi $d$ dari $n^2$ dengan $\\frac{n^2}d$. Berapa banyak pembagi $n^2$ yang kurang dari $n$?",
+   "$\\tau(n^2)=9\\cdot7=63$, jadi ada $\\frac{63-1}2=31$ pembagi yang kurang dari $n$. Kurangi pembagi $n$ yang kurang dari $n$."
+  ],
+  "solution": "$n^2=2^8\\cdot3^6$, jadi $\\tau(n^2)=9\\cdot7=63$. Pasangan $d\\leftrightarrow\\frac{n^2}d$ menukar pembagi yang kurang\ndari $n$ dengan pembagi yang lebih dari $n$; hanya $d=n$ yang berpasangan dengan dirinya sendiri. Maka ada\n$\\frac{63-1}2=31$ pembagi $n^2$ yang kurang dari $n$.\n\nSetiap pembagi $n$ juga pembagi $n^2$. Pembagi $n$ yang kurang dari $n$ ada $\\tau(n)-1=5\\cdot4-1=19$.\nJadi jawabannya $31-19=12$.",
+  "key_idea": "Pasangan $d\\leftrightarrow\\frac{n^2}d$ membagi pembagi $n^2$ secara simetris di sekitar $n$; sisanya diselesaikan dengan komplemen.",
+  "common_error": "Berhenti di $31$ (semua pembagi $n^2$ yang kurang dari $n$) tanpa membuang pembagi $n$.",
+  "origin": "adapted",
+  "source_refs": [
+   "Gagasan dari AIME 1995 Soal 6 (n = 2^31·3^19); angka diubah"
+  ],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P006",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "syarat kubus sempurna",
+  "objective_id": "TB03-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "syarat_eksponen",
+   "kubus_sempurna"
+  ],
+  "statement": "Berapa banyak bilangan bulat positif $k\\le1000$ sehingga $540k$ merupakan kubus sempurna?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "2",
+   "display": "$2$"
+  },
+  "hints": [
+   "$540=2^2\\cdot3^3\\cdot5$. Eksponen setiap prima dalam $540k$ harus kelipatan $3$.",
+   "Syarat itu sama dengan $k=2\\cdot5^2\\cdot t^3=50t^3$ untuk suatu bilangan bulat positif $t$."
+  ],
+  "solution": "$540=2^2\\cdot3^3\\cdot5$. Agar $540k$ kubus sempurna, setiap eksponen harus kelipatan $3$:\n$v_2(k)\\equiv1$, $v_3(k)\\equiv0$, $v_5(k)\\equiv2\\pmod 3$, dan eksponen prima lain dalam $k$ kelipatan $3$.\nIni tepat berarti $k=2\\cdot5^2\\cdot t^3=50t^3$ untuk suatu bilangan bulat positif $t$.\n\nSyarat $50t^3\\le1000$ memberi $t^3\\le20$, jadi $t\\in\\{1,2\\}$ dan $k\\in\\{50,400\\}$.\n\n**Pemeriksaan.** $540\\cdot50=27\\,000=30^3$ dan $540\\cdot400=216\\,000=60^3$ ✓.",
+  "key_idea": "Kubus sempurna berarti semua eksponen kelipatan $3$; setelah eksponen minimum dilengkapi, faktor tambahan haruslah kubus.",
+  "common_error": "Hanya menemukan $k$ terkecil ($50$) lalu menjawab $1$, padahal $50t^3$ juga memenuhi untuk $t=2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P007",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "pangkat bilangan komposit dalam faktorial",
+  "objective_id": "TB03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "legendre",
+   "batas_per_prima"
+  ],
+  "statement": "Tentukan bilangan bulat terbesar $k$ sehingga $12^k$ membagi $30!$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "13",
+   "display": "$13$"
+  },
+  "hints": [
+   "$12^k=2^{2k}\\cdot3^k$. Hitung $v_2(30!)$ dan $v_3(30!)$.",
+   "Syaratnya $2k\\le v_2(30!)$ dan $k\\le v_3(30!)$."
+  ],
+  "solution": "$12^k=2^{2k}3^k$. Legendre:\n$v_2(30!)=15+7+3+1=26$ dan $v_3(30!)=10+3+1=14$.\n\nSyarat $2k\\le26$ memberi $k\\le13$, dan syarat $k\\le14$ lebih longgar. Jadi $k=13$.",
+  "key_idea": "Untuk pangkat bilangan komposit, setiap faktor prima memberi batas sendiri; jawabannya batas yang paling ketat.",
+  "common_error": "Hanya melihat faktor $3$ (karena lebih jarang daripada $2$) dan menjawab $14$, padahal $12$ memuat $2^2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P008",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "jumlah pembagi ganjil",
+  "objective_id": "TB03-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "jumlah_pembagi",
+   "banyak_pembagi_bersyarat"
+  ],
+  "statement": "Tentukan jumlah semua pembagi positif **ganjil** dari $360$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "78",
+   "display": "$78$"
+  },
+  "hints": [
+   "Pembagi ganjil tidak memuat faktor $2$. Hapus kurung untuk prima $2$.",
+   "Pembagi ganjil $360$ adalah pembagi $45=3^2\\cdot5$."
+  ],
+  "solution": "$360=2^3\\cdot3^2\\cdot5$. Pembagi ganjil adalah $3^b5^c$ dengan $b\\le2$ dan $c\\le1$, yaitu pembagi $45$. Jumlahnya\n$$(1+3+9)(1+5)=13\\cdot6=78.$$",
+  "key_idea": "Syarat pada pembagi menjadi syarat pada eksponen: “ganjil” berarti eksponen $2$ harus $0$.",
+  "common_error": "Menghitung $\\sigma(360)=1170$ lalu membagi dua, seolah-olah separuh jumlah berasal dari pembagi ganjil.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P009",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "bilangan terkecil dengan banyak pembagi tertentu",
+  "objective_id": "TB03-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "banyak_pembagi",
+   "pembagian_kasus"
+  ],
+  "statement": "Tentukan bilangan bulat positif terkecil yang mempunyai tepat $12$ pembagi positif.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "60",
+   "display": "$60$"
+  },
+  "hints": [
+   "Tulis $12$ sebagai hasil kali faktor-faktor yang lebih dari $1$: $12$, $6\\cdot2$, $4\\cdot3$, $3\\cdot2\\cdot2$. Setiap cara memberi satu bentuk $n$.",
+   "Bentuknya $p^{11}$, $p^5q$, $p^3q^2$, $p^2qr$. Beri eksponen terbesar ke prima terkecil."
+  ],
+  "solution": "$\\tau(n)=12$ dan $12$ dapat ditulis sebagai $12$, $6\\cdot2$, $4\\cdot3$, atau $3\\cdot2\\cdot2$, sehingga $n$ berbentuk\n$p^{11}$, $p^5q$, $p^3q^2$, atau $p^2qr$. Nilai terkecil tiap bentuk (eksponen terbesar untuk prima terkecil):\n\n- $2^{11}=2048$;\n- $2^5\\cdot3=96$;\n- $2^3\\cdot3^2=72$;\n- $2^2\\cdot3\\cdot5=60$.\n\nYang terkecil adalah $60$.\n\n**Pemeriksaan.** Pembagi $60$: $1,2,3,4,5,6,10,12,15,20,30,60$, ada $12$ ✓.",
+  "key_idea": "Banyak pembagi menentukan pola eksponen; periksa semua pola, dan pada setiap pola pasangkan eksponen besar dengan prima kecil.",
+  "common_error": "Hanya memeriksa sebagian pola, misalnya berhenti di $72=2^3\\cdot3^2$, dan melewatkan pola tiga prima $p^2qr$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P010",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "lompatan banyak nol di akhir faktorial",
+  "objective_id": "TB03-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "legendre",
+   "pencacahan_lompatan"
+  ],
+  "statement": "Untuk bilangan bulat positif $n$, misalkan $z(n)$ adalah banyak angka $0$ di akhir $n!$. Berapa banyak bilangan\nbulat $k$ dengan $1\\le k\\le50$ sehingga **tidak ada** $n$ yang memenuhi $z(n)=k$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "$z(n)=v_5(n!)$ hanya berubah ketika $n$ kelipatan $5$. Saat $n$ melewati $5m$, nilai $z$ naik sebesar $v_5(5m)$.",
+   "Kenaikan lebih dari $1$ terjadi di kelipatan $25$ (naik $2$) dan di $125$ (naik $3$). Setiap kenaikan $j$ melewatkan $j-1$ nilai."
+  ],
+  "solution": "$z(n)=v_5(n!)$. Dari $n-1$ ke $n$, nilai $z$ naik sebesar $v_5(n)$. Jadi $z$ hanya naik di kelipatan $5$:\nnaik $1$ di kelipatan $5$ yang bukan kelipatan $25$, naik $2$ di kelipatan $25$ yang bukan kelipatan $125$, dan\nnaik $3$ di $125$. Kenaikan sebesar $j$ melewatkan $j-1$ nilai.\n\nLompatan sebelum $z$ melewati $50$ (dengan $z(n)=\\lfloor n/5\\rfloor+\\lfloor n/25\\rfloor+\\lfloor n/125\\rfloor$):\n\n| $n$ | $z(n-1)\\to z(n)$ | dilewati |\n|---|---|---|\n| $25$ | $4\\to6$ | $5$ |\n| $50$ | $10\\to12$ | $11$ |\n| $75$ | $16\\to18$ | $17$ |\n| $100$ | $22\\to24$ | $23$ |\n| $125$ | $28\\to31$ | $29,30$ |\n| $150$ | $35\\to37$ | $36$ |\n| $175$ | $41\\to43$ | $42$ |\n| $200$ | $47\\to49$ | $48$ |\n\nLompatan berikutnya di $n=225$ ($53\\to55$), sudah di atas $50$, dan $z(205)=50$ tercapai. Jadi ada $9$ nilai yang\ntidak pernah muncul.",
+  "key_idea": "Legendre bukan hanya menghitung $v_p(n!)$, tetapi juga menunjukkan bagaimana nilainya naik: setiap kelipatan $p^j$ menambah lompatan.",
+  "common_error": "Hanya menghitung kelipatan $25$ sampai $200$ ($8$ nilai) dan lupa bahwa di $n=125$ ada dua nilai yang terlewat sekaligus.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P011",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "paritas jumlah pembagi",
+  "objective_id": "TB03-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "jumlah_pembagi",
+   "paritas"
+  ],
+  "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ sehingga jumlah semua pembagi positif $n$ ganjil?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "17",
+   "display": "$17$"
+  },
+  "hints": [
+   "$\\sigma(n)$ adalah hasil kali faktor $1+p+\\cdots+p^a$. Kapan faktor ini ganjil, untuk $p=2$ dan untuk $p$ ganjil?",
+   "Untuk $p$ ganjil, $1+p+\\cdots+p^a$ terdiri atas $a+1$ suku ganjil, jadi ganjil tepat jika $a$ genap. Untuk $p=2$, faktornya selalu ganjil."
+  ],
+  "solution": "$\\sigma(n)$ ganjil tepat jika setiap faktor $1+p+\\cdots+p^a$ ganjil.\n\n- $p=2$: $1+2+\\cdots+2^a$ selalu ganjil.\n- $p$ ganjil: ada $a+1$ suku ganjil, jadi jumlahnya ganjil tepat jika $a+1$ ganjil, yaitu $a$ genap.\n\nJadi $\\sigma(n)$ ganjil tepat jika setiap prima ganjil muncul dengan eksponen genap, yaitu $n=2^e m^2$ dengan $m$\nganjil. Bentuk ini sama dengan **kuadrat sempurna** (jika $e$ genap) atau **dua kali kuadrat sempurna** (jika $e$ ganjil).\n\n- Kuadrat sempurna $\\le100$: $1,4,\\dots,100$, ada $10$.\n- Dua kali kuadrat $\\le100$: $2k^2\\le100$, $k\\le7$, ada $7$.\n\nKedua jenis tidak beririsan, karena eksponen $2$ pada kuadrat genap dan pada dua kali kuadrat ganjil.\nJawabannya $17$.",
+  "key_idea": "$\\sigma$ adalah hasil kali, jadi paritasnya ditentukan oleh paritas setiap faktor; paritas faktor bergantung pada banyak suku.",
+  "common_error": "Hanya menghitung kuadrat sempurna ($10$), karena tertukar dengan sifat $\\tau(n)$ ganjil, sehingga lupa $2,8,18,32,50,72,98$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB03-P012",
+  "version": 1,
+  "module_id": "TB03",
+  "domain": "teori_bilangan",
+  "subtopic": "mencacah bilangan dengan banyak pembagi tertentu",
+  "objective_id": "TB03-O1",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "banyak_pembagi",
+   "pembagian_kasus"
+  ],
+  "statement": "Berapa banyak bilangan bulat positif $n\\le1000$ yang mempunyai tepat $10$ pembagi positif?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "22",
+   "display": "$22$"
+  },
+  "hints": [
+   "$10=10$ atau $5\\cdot2$, jadi $n=p^9$ atau $n=p^4q$ dengan $p\\ne q$ prima.",
+   "Untuk $p^4q$, pisahkan $p=2$, $p=3$, $p=5$; jangan lupa $q$ boleh lebih kecil dari $p$."
+  ],
+  "solution": "$\\tau(n)=10$ dan $10=10=5\\cdot2$, sehingga $n=p^9$ atau $n=p^4q$ dengan $p,q$ prima berbeda.\n\n- $p^9\\le1000$: hanya $2^9=512$. Ada $1$.\n- $p=2$: $16q\\le1000$, jadi $q\\le62$ dengan $q\\ne2$:\n  $q$ salah satu dari $3,5,7,11,13,17,$ $19,23,29,31,37,$ $41,43,47,53,59,61$. Ada $17$.\n- $p=3$: $81q\\le1000$, jadi $q\\le12$ dengan $q\\ne3$: $q\\in\\{2,5,7,11\\}$. Ada $4$.\n- $p=5$: $625q\\ge1250>1000$. Tidak ada.\n\nTotal $1+17+4=22$.",
+  "key_idea": "Banyak pembagi menentukan pola eksponen; setiap pola dicacah dengan memisahkan kasus prima yang berpangkat besar.",
+  "common_error": "Menganggap $q>p$ sehingga melewatkan $3^4\\cdot2=162$, atau melupakan bentuk $p^9=512$; hasilnya $21$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB03.md): A1–A6 lulus. A5: scripts/checks/TB03.py (daftar pembagi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]

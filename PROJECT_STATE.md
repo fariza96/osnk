@@ -8,7 +8,7 @@ Terakhir diperbarui: 2026-10-22 (sesi 2).
 - [x] Tahap 1 — blueprint, rencana 8 minggu, skema, standar audit, platform, kerangka proyek + tes
 - [x] Tahap 2 — **pilot TB01 + GE01 selesai**: 2 materi, 4 contoh, 24 latihan, semuanya `verified`
 - [x] Tahap 3 — volume dipertahankan (12 latihan/modul); biaya aktual US$11 setelah pilot, proyeksi di `costs/cost_log.md`
-- [ ] Tahap 4 — produksi: **8/19 modul selesai = versi inti lengkap** (TB01, GE01, AL01, KO01, TB02, AL02, KO02, GE02)
+- [ ] Tahap 4 — produksi: **9/19 modul selesai** (versi inti 8 modul lengkap + TB03)
 - [ ] Tahap 5–6
 
 ## Lingkungan
@@ -41,12 +41,13 @@ Terakhir diperbarui: 2026-10-22 (sesi 2).
 - TB02: materi + `TB02-E01..E02`, `TB02-P001..P012`: verified.
 - AL02: materi + `AL02-E01..E02`, `AL02-P001..P012`: verified.
 - KO02: materi + `KO02-E01..E02`, `KO02-P001..P012`: verified.
+- TB03: materi + `TB03-E01..E02`, `TB03-P001..P012`: verified (P005 `adapted`).
 - GE02: materi + `GE02-E01..E02`, `GE02-P001..P012`: verified; diagram E01, E02, P004, P006, P008, P010, P011 (`scripts/diagrams/GE02.py`).
-- Audit: `review/audit_<MODUL>.md` untuk kedelapan modul. Pemeriksaan: `npm run check:math` (112/112 cocok).
+- Audit: `review/audit_<MODUL>.md` untuk kesembilan modul. Pemeriksaan: `npm run check:math` (126/126 cocok).
 - Lingkungan sesi baru: `npm ci` dan `pip install sympy==1.13.3` (sympy tidak terpasang bawaan).
 - Tes: `npm test` (penilai, validator, build, situs fixture, dan tampilan konten nyata per modul) lulus.
 
-Mutu kumulatif: 112 butir; batch GE02: 2 temuan (contoh materi membocorkan P006; klaim rasio salah di kekeliruan umum P011), keduanya diperbaiki sebelum verified, 0 kunci salah; batch KO02: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL02: 1 temuan (pemantik materi membocorkan trik P010, diganti), 0 kunci salah. Batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
+Mutu kumulatif: 126 butir; batch TB03: 4 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten, 1 tata letak), 0 kunci salah; batch GE02: 2 temuan (contoh materi membocorkan P006; klaim rasio salah di kekeliruan umum P011), keduanya diperbaiki sebelum verified, 0 kunci salah; batch KO02: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL02: 1 temuan (pemantik materi membocorkan trik P010, diganti), 0 kunci salah. Batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
 Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu ringkas (1), escaping LaTeX
 (tertangkap validator), dan rumus terlalu lebar di ponsel (tata letak).
 
@@ -64,7 +65,6 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Berikutnya
 
-**Tonggak versi inti tercapai (8 modul, 112 butir).** Sebelum lanjut: guru diminta mengirim angka pemakaian
-kumulatif dari halaman akun Claude untuk kalibrasi ulang anggaran (lihat `costs/cost_log.md`). Modul berikutnya
-menurut blueprint: TB03 (faktorisasi prima, banyak/jumlah faktor, Legendre) dan AL03 (pertidaksamaan, AM-GM,
-Cauchy-Schwarz/Titu, nilai mutlak). Latihan Campuran 1 (20 soal, modul 1–8) dapat disusun kapan saja setelah ini.
+Versi inti (8 modul) tercapai; guru menyetujui lanjut ke TB03 + AL03 tanpa mengirim angka pemakaian. Angka
+pemakaian kumulatif tetap diminta (keputusan terbuka 1). Sedang dikerjakan: AL03 (pertidaksamaan, AM-GM,
+Cauchy-Schwarz/Titu, nilai mutlak). Setelah itu menurut blueprint: KO03 dan GE03.
