@@ -1,6 +1,6 @@
 # PROJECT_STATE
 
-Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 3).
+Terakhir diperbarui: 2026-10-22 (sesi 2).
 
 ## Tahap
 
@@ -8,7 +8,7 @@ Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 3).
 - [x] Tahap 1 — blueprint, rencana 8 minggu, skema, standar audit, platform, kerangka proyek + tes
 - [x] Tahap 2 — **pilot TB01 + GE01 selesai**: 2 materi, 4 contoh, 24 latihan, semuanya `verified`
 - [x] Tahap 3 — volume dipertahankan (12 latihan/modul); biaya aktual US$11 setelah pilot, proyeksi di `costs/cost_log.md`
-- [ ] Tahap 4 — produksi: **4/19 modul selesai** (TB01, GE01, AL01, KO01)
+- [ ] Tahap 4 — produksi: **5/19 modul selesai** (TB01, GE01, AL01, KO01, TB02)
 - [ ] Tahap 5–6
 
 ## Lingkungan
@@ -38,10 +38,12 @@ Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 3).
 - GE01: materi `content/modules/GE01.md`; `GE01-E01..E02`, `GE01-P001..P012`: verified; diagram E01, E02, P001, P004, P010.
 - AL01: materi + `AL01-E01..E02`, `AL01-P001..P012`: verified.
 - KO01: materi + `KO01-E01..E02`, `KO01-P001..P012`: verified.
-- Audit: `review/audit_<MODUL>.md` untuk keempat modul. Pemeriksaan: `npm run check:math` (56/56 cocok).
+- TB02: materi + `TB02-E01..E02`, `TB02-P001..P012`: verified.
+- Audit: `review/audit_<MODUL>.md` untuk kelima modul. Pemeriksaan: `npm run check:math` (70/70 cocok).
+- Lingkungan sesi baru: `npm ci` dan `pip install sympy==1.13.3` (sympy tidak terpasang bawaan).
 - Tes: `npm test` (penilai, validator, build, situs fixture, dan tampilan konten nyata per modul) lulus.
 
-Mutu kumulatif: 56 butir; batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
+Mutu kumulatif: 70 butir; batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
 Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu ringkas (1), escaping LaTeX
 (tertangkap validator), dan rumus terlalu lebar di ponsel (tata letak).
 
@@ -59,5 +61,5 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Berikutnya
 
-TB02 (paritas, sisa, kongruensi; Fermat kecil, CRT, invers, orde, sisa kuadrat) dan AL02 (polinom, teorema
-sisa, Vieta derajat 2–3, binomial). Setelah itu KO02 dan GE02, sehingga versi inti (8 modul) lengkap.
+AL02 (polinom, teorema sisa, Vieta derajat 2–3, binomial). Setelah itu KO02 dan GE02, sehingga versi inti
+(8 modul) lengkap.

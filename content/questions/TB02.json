@@ -1,0 +1,474 @@
+[
+ {
+  "id": "TB02-E01",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "siklus sisa pangkat",
+  "objective_id": "TB02-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "orde",
+   "siklus_sisa"
+  ],
+  "statement": "Tentukan sisa pembagian $2^{2026}+3^{2026}$ oleh $7$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Hitung $2^1,2^2,2^3,\\dots$ dan $3^1,3^2,\\dots$ modulo $7$ sampai muncul sisa $1$.",
+   "Orde $2$ modulo $7$ adalah $3$ dan orde $3$ modulo $7$ adalah $6$. Cari sisa $2026$ ketika dibagi $3$ dan dibagi $6$."
+  ],
+  "solution": "**Ide kunci.** Kita tidak memerlukan nilai pangkatnya, cukup sisanya. Cari pangkat terkecil yang bersisa $1$\n(orde), lalu kurangi eksponennya.\n\n**Langkah.**\n\n1. Modulo $7$: $2^1\\equiv2$, $2^2\\equiv4$, $2^3=8\\equiv1$. Orde $2$ adalah $3$. Karena $2026=3\\cdot675+1$,\n   $2^{2026}=(2^3)^{675}\\cdot2\\equiv2$.\n2. Modulo $7$: $3^1,3^2,\\dots,3^6\\equiv3,2,6,4,5,1$. Orde $3$ adalah $6$, sesuai Fermat ($3^6\\equiv1$).\n   Karena $2026=6\\cdot337+4$, $3^{2026}\\equiv3^4\\equiv4$.\n3. Jadi $2^{2026}+3^{2026}\\equiv2+4=6\\pmod7$.\n\n**Pemeriksaan.** Cara lain untuk langkah 2: $3^{2026}=9^{1013}\\equiv2^{1013}$, dan $1013=3\\cdot337+2$,\nsehingga $2^{1013}\\equiv2^2=4$ ✓.",
+  "key_idea": "Untuk $a^n\\bmod m$, cari orde $d$ (pangkat terkecil yang bersisa $1$), lalu ganti $n$ dengan sisa $n$ dibagi $d$.",
+  "common_error": "Mereduksi eksponen modulo $7$ (modulonya), bukan modulo orde: $2026\\equiv3\\pmod7$, lalu menghitung $2^3+3^3\\equiv1+6\\equiv0$. Hasil $0$ ini salah.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-E02",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "teorema sisa Tiongkok",
+  "objective_id": "TB02-O5",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "crt",
+   "invers_modulo"
+  ],
+  "statement": "Tentukan bilangan bulat positif terkecil $n$ yang bersisa $2$ bila dibagi $5$, bersisa $3$ bila dibagi $7$, dan bersisa $4$ bila dibagi $9$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "157",
+   "display": "$157$"
+  },
+  "hints": [
+   "Mulai dari syarat dengan modulo terbesar: $n=9k+4$. Substitusikan ke syarat modulo $7$.",
+   "$9k+4\\equiv3\\pmod7$ menjadi $2k\\equiv6$, sehingga $k\\equiv3\\pmod 7$. Lanjutkan dengan $n=31+63j$ dan syarat modulo $5$."
+  ],
+  "solution": "**Ide kunci.** Gabungkan syarat satu per satu: tulis $n$ dengan parameter dari satu syarat, lalu\nselesaikan parameternya pada syarat berikutnya dengan invers.\n\n**Langkah.**\n\n1. Dari $n\\equiv4\\pmod9$: $n=9k+4$.\n2. Modulo $7$: $9k+4\\equiv2k+4\\equiv3$, jadi $2k\\equiv-1\\equiv6\\pmod7$. Karena $2\\cdot4=8\\equiv1$, invers $2$\n   adalah $4$, sehingga $k\\equiv4\\cdot6=24\\equiv3$. Tulis $k=3+7j$, maka $n=31+63j$.\n3. Modulo $5$: $31+63j\\equiv1+3j\\equiv2$, jadi $3j\\equiv1\\pmod5$. Karena $3\\cdot2=6\\equiv1$, $j\\equiv2\\pmod5$.\n   Tulis $j=2+5t$, maka $n=157+315t$.\n4. Bilangan positif terkecil adalah $n=157$ (untuk $t=0$).\n\n**Pemeriksaan.** $157=5\\cdot31+2=7\\cdot22+3=9\\cdot17+4$ ✓.",
+  "key_idea": "CRT secara bertahap: setiap syarat baru mempersempit parameter menjadi satu kelas sisa, sampai diperoleh satu kelas sisa modulo $5\\cdot7\\cdot9=315$.",
+  "common_error": "Berhenti setelah dua syarat dan menjawab $31$. Bilangan $31$ memenuhi syarat modulo $9$ dan modulo $7$, tetapi $31\\equiv1\\pmod5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P001",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "aritmetika modulo",
+  "objective_id": "TB02-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "suku_nol_modulo"
+  ],
+  "statement": "Tentukan sisa pembagian $1!+2!+3!+\\cdots+100!$ oleh $12$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "Mulai dari suku keberapa $k!$ habis dibagi $12$?",
+   "$4!=24$ habis dibagi $12$, dan setiap $k!$ dengan $k\\ge4$ adalah kelipatan $4!$."
+  ],
+  "solution": "Untuk $k\\ge4$, $k!=4!\\cdot5\\cdot6\\cdots k$ adalah kelipatan $4!=24$, sehingga $k!\\equiv0\\pmod{12}$.\nYang tersisa hanya $1!+2!+3!=1+2+6=9$. Karena $9<12$, sisanya $9$.",
+  "key_idea": "Suku yang habis dibagi modulo bernilai $0$, sehingga jumlah yang panjang menyusut menjadi beberapa suku awal.",
+  "common_error": "Mengira $3!=6$ sudah habis dibagi $12$, lalu menjawab $1!+2!=3$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P002",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "angka satuan pangkat",
+  "objective_id": "TB02-O3",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "siklus_sisa",
+   "angka_satuan"
+  ],
+  "statement": "Tentukan angka satuan dari $7^{2027}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3",
+   "display": "$3$"
+  },
+  "hints": [
+   "Angka satuan sama dengan sisa pembagian oleh $10$. Tuliskan angka satuan $7^1,7^2,7^3,\\dots$",
+   "Angka satuannya berulang $7,9,3,1$ dengan periode $4$. Cari sisa $2027$ dibagi $4$."
+  ],
+  "solution": "Angka satuan $7^n$ untuk $n=1,2,3,4$ adalah $7,9,3,1$ ($7^4=2401$). Karena $7^4\\equiv1\\pmod{10}$, pola itu\nberulang setiap $4$ pangkat. Dari $2027=4\\cdot506+3$ diperoleh\n$$7^{2027}=(7^4)^{506}\\cdot7^3\\equiv7^3=343\\equiv3\\pmod{10}.$$\nAngka satuannya $3$.",
+  "key_idea": "Angka satuan pangkat berulang dengan periode tetap; kurangi eksponen modulo periode itu.",
+  "common_error": "Salah membaca posisi dalam pola: sisa $3$ berarti suku **ketiga** ($7^3$), bukan suku keempat. Jawaban $1$ berasal dari kekeliruan ini.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P003",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "invers modulo",
+  "objective_id": "TB02-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "invers_modulo",
+   "kongruensi_linear"
+  ],
+  "statement": "Tentukan bilangan bulat positif terkecil $x$ yang memenuhi $5x\\equiv4\\pmod{13}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Cari invers $5$ modulo $13$, yaitu bilangan $y$ dengan $5y\\equiv1\\pmod{13}$.",
+   "$5\\cdot8=40=3\\cdot13+1$, jadi invers $5$ adalah $8$. Kalikan kedua ruas dengan $8$."
+  ],
+  "solution": "Karena $\\mathrm{FPB}(5,13)=1$, bilangan $5$ memiliki invers modulo $13$. Dari $5\\cdot8=40\\equiv1\\pmod{13}$,\ninversnya $8$. Kalikan kedua ruas dengan $8$:\n$$x\\equiv8\\cdot4=32\\equiv6\\pmod{13}.$$\nBilangan positif terkecil adalah $x=6$.\n\n**Pemeriksaan.** $5\\cdot6=30=2\\cdot13+4$ ✓.",
+  "key_idea": "Membagi dalam modulo berarti mengalikan dengan invers.",
+  "common_error": "Menulis $x\\equiv\\tfrac45$ lalu membulatkan, atau mengalikan kedua ruas dengan $5$ (bukan inversnya). Pecahan baru bermakna dalam modulo setelah diganti dengan invers.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P004",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "paritas sebagai invarian",
+  "objective_id": "TB02-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "paritas",
+   "invarian",
+   "konstruksi"
+  ],
+  "statement": "Setiap bilangan $1,2,\\dots,10$ diberi tanda $+$ atau $-$, lalu kesepuluh bilangan bertanda itu\ndijumlahkan. Misalnya $-1+2+3-4+5+6+7+8+9-10=25$. Berapa banyak nilai **berbeda** yang dapat dihasilkan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "56",
+   "display": "$56$"
+  },
+  "hints": [
+   "Jika bilangan-bilangan yang diberi tanda $-$ berjumlah $S$, hasilnya $55-2S$. Bagaimana paritas hasilnya?",
+   "Hasilnya selalu ganjil dan berada di antara $-55$ dan $55$. Periksa apakah setiap $S=0,1,\\dots,55$ dapat dicapai."
+  ],
+  "solution": "**Rumus hasil.** Misalkan $S$ adalah jumlah bilangan yang diberi tanda $-$. Karena\n$1+2+\\cdots+10=55$, hasilnya $(55-S)-S=55-2S$.\n\n**Paritas.** $55-2S$ selalu ganjil, dan karena $0\\le S\\le55$, hasilnya berada di antara $-55$ dan $55$.\nBilangan ganjil di rentang ini ada $56$, yaitu $\\pm1,\\pm3,\\dots,\\pm55$.\n\n**Semua tercapai.** Cukup ditunjukkan bahwa setiap $S=0,1,\\dots,55$ adalah jumlah suatu himpunan bagian\ndari $\\{1,\\dots,10\\}$:\n\n- $S=0$: himpunan kosong; $1\\le S\\le10$: $\\{S\\}$.\n- $11\\le S\\le19$: $\\{10,\\,S-10\\}$, dengan $S-10\\in\\{1,\\dots,9\\}$.\n- $20\\le S\\le27$: $\\{10,9,\\,S-19\\}$, dengan $S-19\\in\\{1,\\dots,8\\}$.\n- $28\\le S\\le55$: ambil komplemen himpunan untuk $55-S\\le27$.\n\nJadi ada tepat $56$ nilai berbeda.",
+  "key_idea": "Paritas membatasi nilai yang mungkin (selalu ganjil); konstruksi menunjukkan bahwa semua nilai ganjil itu benar-benar tercapai.",
+  "common_error": "Menjawab $2^{10}=1024$ (banyak pilihan tanda), padahal banyak pilihan tanda menghasilkan nilai yang sama. Atau menjawab $111$ (semua bilangan bulat dari $-55$ sampai $55$) karena lupa bahwa hasilnya selalu ganjil.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P005",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "orde modulo 100",
+  "objective_id": "TB02-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [],
+  "technique_tags": [
+   "orde",
+   "dua_digit_terakhir"
+  ],
+  "statement": "Tentukan sisa pembagian $7^{2026}$ oleh $100$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "49",
+   "display": "$49$"
+  },
+  "hints": [
+   "Sisa modulo $100$ adalah dua digit terakhir. Hitung $7^2$ dan $7^4$ modulo $100$.",
+   "$7^4=2401\\equiv1\\pmod{100}$. Cari sisa $2026$ dibagi $4$."
+  ],
+  "solution": "$7^2=49$ dan $7^4=49^2=2401\\equiv1\\pmod{100}$. Jadi $7^4\\equiv1$, dan pangkat $7$ modulo $100$ berulang\nsetiap $4$. Karena $2026=4\\cdot506+2$,\n$$7^{2026}=(7^4)^{506}\\cdot7^2\\equiv1\\cdot49=49\\pmod{100}.$$\nSisanya $49$.\n\n**Pemeriksaan.** $7^6=117649$ berakhiran $49$, sesuai pola karena $6\\equiv2\\pmod4$ ✓.",
+  "key_idea": "Pangkat kecil yang bersisa $1$ modulo $100$ membuat eksponen besar menyusut.",
+  "common_error": "Hanya memakai pola angka satuan ($7,9,3,1$), lalu menebak dua digit terakhir. Angka satuan saja tidak menentukan digit puluhan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P006",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "teorema kecil Fermat",
+  "objective_id": "TB02-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "fermat",
+   "pencacahan_kelipatan"
+  ],
+  "statement": "Tentukan sisa pembagian $1^6+2^6+3^6+\\cdots+2026^6$ oleh $7$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "1",
+   "display": "$1$"
+  },
+  "hints": [
+   "Teorema kecil Fermat: jika $7\\nmid k$, maka $k^6\\equiv1\\pmod7$. Bagaimana jika $7\\mid k$?",
+   "Setiap suku bersisa $1$ atau $0$ modulo $7$. Hitung banyak $k\\le2026$ yang bukan kelipatan $7$."
+  ],
+  "solution": "Jika $7\\mid k$, maka $k^6\\equiv0\\pmod7$. Jika $7\\nmid k$, teorema kecil Fermat dengan $p=7$ memberi\n$k^6\\equiv1\\pmod 7$.\n\nDi antara $1,\\dots,2026$ ada $\\lfloor2026/7\\rfloor=289$ kelipatan $7$ (karena $7\\cdot289=2023$). Jadi ada\n$2026-289=1737$ bilangan yang bukan kelipatan $7$, dan jumlahnya $\\equiv1737\\pmod7$. Karena\n$1737=7\\cdot248+1$, sisanya $1$.",
+  "key_idea": "Pangkat $p-1$ dari bilangan yang tidak habis dibagi $p$ selalu bersisa $1$ modulo $p$ (Fermat), sedangkan kelipatan $p$ bersisa $0$.",
+  "common_error": "Menganggap semua $2026$ suku bersisa $1$ (lupa syarat $7\\nmid k$), lalu menjawab $2026\\bmod7=3$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P007",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "syarat sisa dengan modulo tidak relatif prima",
+  "objective_id": "TB02-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "sisa_kurang_satu",
+   "kpk"
+  ],
+  "statement": "Banyak kelereng Rina lebih dari $100$ dan kurang dari $1000$. Jika kelereng itu dikelompokkan\n$4$-an, tersisa $3$; jika dikelompokkan $6$-an, tersisa $5$; jika dikelompokkan $9$-an, tersisa $8$.\nAda berapa kemungkinan banyak kelereng Rina?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "25",
+   "display": "$25$"
+  },
+  "hints": [
+   "Setiap sisa kurang satu dari pembaginya. Apa yang dapat dikatakan tentang $n+1$?",
+   "$n+1$ habis dibagi $4$, $6$, dan $9$, jadi habis dibagi $\\mathrm{KPK}(4,6,9)=36$."
+  ],
+  "solution": "Misalkan banyak kelereng $n$. Sisa $3$, $5$, $8$ berarti $n\\equiv-1$ modulo $4$, $6$, dan $9$, sehingga\n$4$, $6$, dan $9$ semuanya membagi $n+1$. Jadi $n+1$ kelipatan $\\mathrm{KPK}(4,6,9)=36$. Sebaliknya, jika\n$36\\mid n+1$, ketiga syarat terpenuhi.\n\nTulis $n=36k-1$. Syarat $100<n<1000$ menjadi $101<36k<1001$, yaitu $3\\le k\\le27$ (karena $36\\cdot2=72$,\n$36\\cdot3=108$, $36\\cdot27=972$, $36\\cdot28=1008$). Banyaknya $27-3+1=25$.\n\n**Pemeriksaan.** $n=107$: $107=4\\cdot26+3=6\\cdot17+5=9\\cdot11+8$ ✓.",
+  "key_idea": "Sisa yang selalu kurang satu dari pembaginya berarti $n+1$ kelipatan semua pembagi, yaitu kelipatan KPK-nya.",
+  "common_error": "Memakai hasil kali $4\\cdot6\\cdot9=216$ sebagai periode seperti pada CRT, padahal $4,6,9$ tidak saling relatif prima. Cara ini hanya menemukan $4$ kemungkinan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P008",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "sisa kuadrat modulo 3",
+  "objective_id": "TB02-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "sisa_kuadrat",
+   "pembatasan_kasus"
+  ],
+  "statement": "Tentukan jumlah semua bilangan prima $p$ sehingga $2^p+p^2$ juga bilangan prima.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3",
+   "display": "$3$"
+  },
+  "hints": [
+   "Coba $p=2$ dan $p=3$. Untuk $p>3$, periksa $2^p+p^2$ modulo $3$.",
+   "Untuk prima $p>3$: $p$ ganjil sehingga $2^p\\equiv(-1)^p=-1$, dan $3\\nmid p$ sehingga $p^2\\equiv1\\pmod 3$."
+  ],
+  "solution": "**Kasus kecil.** $p=2$: $2^2+2^2=8$, bukan prima. $p=3$: $2^3+3^2=17$, prima.\n\n**Kasus $p>3$.** Prima $p>3$ ganjil dan tidak habis dibagi $3$. Modulo $3$ berlaku $2\\equiv-1$, jadi\n$2^p\\equiv(-1)^p=-1$. Sisa kuadrat modulo $3$ hanya $0$ atau $1$, dan karena $3\\nmid p$, $p^2\\equiv1$. Maka\n$$2^p+p^2\\equiv-1+1=0\\pmod3.$$\nBilangan ini lebih besar dari $3$ dan habis dibagi $3$, jadi bukan prima.\n\nSatu-satunya $p$ adalah $3$, sehingga jumlahnya $3$.",
+  "key_idea": "Pilih modulo yang membuat ekspresi selalu habis dibagi suatu prima kecil; kasus kecil yang tidak tercakup diperiksa terpisah.",
+  "common_error": "Lupa memeriksa $p=3$ secara terpisah. Argumen modulo $3$ memakai $3\\nmid p$, sehingga tidak berlaku untuk $p=3$; siswa yang menyimpulkan “tidak ada” menjawab $0$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P009",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "orde dan Fermat",
+  "objective_id": "TB02-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [],
+  "technique_tags": [
+   "orde",
+   "fermat"
+  ],
+  "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ sehingga $17$ membagi $2^n-1$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "Cari pangkat positif terkecil $d$ dengan $2^d\\equiv1\\pmod{17}$. Menurut Fermat, $d$ membagi $16$.",
+   "$2^4=16\\equiv-1\\pmod{17}$, jadi $2^8\\equiv1$, sedangkan $2^1,2^2,2^4$ tidak bersisa $1$. Maka $17\\mid2^n-1$ tepat jika $8\\mid n$."
+  ],
+  "solution": "Menurut teorema kecil Fermat, $2^{16}\\equiv1\\pmod{17}$, sehingga orde $d$ dari $2$ membagi $16$:\n$d\\in\\{1,2,4,8,16\\}$. Hitung: $2^1=2$, $2^2=4$, $2^4=16\\equiv-1$, dan $2^8\\equiv(-1)^2=1\\pmod{17}$. Jadi $d=8$.\n\nMenurut sifat orde, $2^n\\equiv1\\pmod{17}$ tepat jika $8\\mid n$. Kelipatan $8$ dari $1$ sampai $100$ ada\n$\\lfloor100/8\\rfloor=12$.\n\n**Pemeriksaan.** $2^8-1=255=15\\cdot17$ ✓, sedangkan $2^4-1=15$ tidak habis dibagi $17$ ✓.",
+  "key_idea": "$a^n\\equiv1\\pmod m$ tepat ketika orde $a$ membagi $n$; Fermat membatasi calon orde pada pembagi $p-1$.",
+  "common_error": "Memakai Fermat saja dan menyimpulkan syaratnya $16\\mid n$, sehingga menjawab $6$. Fermat hanya menjamin $2^{16}\\equiv1$; pangkat yang lebih kecil bisa saja sudah bersisa $1$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P010",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "menara pangkat",
+  "objective_id": "TB02-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "orde",
+   "reduksi_eksponen"
+  ],
+  "statement": "Tentukan sisa pembagian $3^{3^{2026}}$ oleh $100$. (Bilangan $3$ dipangkatkan $3^{2026}$.)",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "83",
+   "display": "$83$"
+  },
+  "hints": [
+   "Hitung $3^5$, $3^{10}$, $3^{20}$ modulo $100$. Pangkat berapa yang bersisa $1$?",
+   "$3^{20}\\equiv1\\pmod{100}$, jadi yang diperlukan hanyalah $3^{2026}\\bmod 20$. Modulo $20$ berlaku $3^4=81\\equiv1$."
+  ],
+  "solution": "**Langkah 1: periode modulo $100$.** $3^5=243\\equiv43$, $3^{10}\\equiv43^2=1849\\equiv49$,\n$3^{20}\\equiv49^2=2401\\equiv1\\pmod{100}$. Jadi untuk eksponen $N$, $3^N\\equiv3^{r}$ dengan $r$ sisa $N$ dibagi $20$.\n\n**Langkah 2: eksponen modulo $20$.** $N=3^{2026}$. Karena $3^4=81\\equiv1\\pmod{20}$ dan $2026=4\\cdot506+2$,\ndiperoleh $N\\equiv3^2=9\\pmod{20}$.\n\n**Langkah 3.** $3^N\\equiv3^9\\pmod{100}$, dan\n$$3^9=3^5\\cdot3^4\\equiv43\\cdot81=3483\\equiv83\\pmod{100}.$$\nSisanya $83$.\n\n**Pemeriksaan.** $3^9=19683$ ✓.",
+  "key_idea": "Pada menara pangkat, kurangi eksponen modulo periode, lalu ulangi langkah yang sama pada eksponen itu dengan modulo yang lebih kecil.",
+  "common_error": "Membaca soal sebagai $(3^3)^{2026}=3^{6078}$. Menara $3^{3^{2026}}$ berarti $3$ dipangkatkan $3^{2026}$, dan bilangan itu jauh lebih besar dari $6078$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P011",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "menggabungkan dua siklus",
+  "objective_id": "TB02-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "TB01"
+  ],
+  "technique_tags": [
+   "siklus_sisa",
+   "crt",
+   "invers_modulo"
+  ],
+  "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ sehingga $n\\cdot2^n+1$ habis dibagi $5$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "20",
+   "display": "$20$"
+  },
+  "hints": [
+   "$2^n\\bmod5$ berulang dengan periode $4$, sedangkan $n\\bmod5$ berulang dengan periode $5$. Jadi syaratnya hanya bergantung pada $n\\bmod20$.",
+   "Untuk setiap sisa $r=n\\bmod4$, syaratnya menjadi $n\\cdot2^r\\equiv-1\\pmod5$, yang menentukan tepat satu sisa $n\\bmod5$."
+  ],
+  "solution": "Modulo $5$: $2^1,2^2,2^3,2^4\\equiv2,4,3,1$, jadi $2^n$ hanya bergantung pada $r=n\\bmod4$. Syarat\n$n\\cdot2^n\\equiv-1\\equiv4\\pmod5$ dipecah menurut $r$; pada tiap kasus, kalikan dengan invers $2^r$:\n\n| $n\\bmod4$ | $2^n\\bmod5$ | syarat | $n\\bmod5$ |\n|---|---|---|---|\n| $0$ | $1$ | $n\\equiv4$ | $4$ |\n| $1$ | $2$ | $2n\\equiv4$ | $2$ |\n| $2$ | $4$ | $4n\\equiv4$ | $1$ |\n| $3$ | $3$ | $3n\\equiv4$ | $3$ |\n\nSetiap baris memberi sepasang syarat ($n\\bmod 4$ dan $n\\bmod 5$). Menurut CRT, tiap pasangan menentukan\ntepat satu sisa modulo $20$, yaitu berturut-turut $n\\equiv4,\\,17,\\,6,\\,3\\pmod{20}$.\n\nJadi dalam setiap $20$ bilangan berurutan ada tepat $4$ yang memenuhi. Rentang $1$ sampai $100$ terdiri atas\n$5$ blok, sehingga banyaknya $5\\cdot4=20$.\n\n**Pemeriksaan.** $n=3$: $3\\cdot8+1=25$ ✓; $n=6$: $6\\cdot64+1=385$ ✓.",
+  "key_idea": "Dua pola dengan periode berbeda ($4$ dan $5$) digabung dengan CRT menjadi satu pola berperiode $20$.",
+  "common_error": "Hanya memperhatikan periode $2^n$ (yaitu $4$) dan lupa bahwa faktor $n$ di depan juga berubah dengan periode $5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB02-P012",
+  "version": 1,
+  "module_id": "TB02",
+  "domain": "teori_bilangan",
+  "subtopic": "sisa kuadrat modulo 4",
+  "objective_id": "TB02-O1",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "technique_tags": [
+   "sisa_kuadrat",
+   "selisih_kuadrat",
+   "pembatasan_kasus"
+  ],
+  "statement": "Tentukan jumlah $m+n$ atas semua pasangan bilangan bulat positif $(m,n)$ yang memenuhi $$3^m+7=n^2.$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Periksa kedua ruas modulo $4$. Kuadrat hanya bersisa $0$ atau $1$ modulo $4$, sedangkan $3^m\\equiv(-1)^m$.",
+   "Modulo $4$ memaksa $m$ genap. Tulis $m=2k$, lalu faktorkan $n^2-(3^k)^2=7$."
+  ],
+  "solution": "**Modulo $4$.** $3\\equiv-1\\pmod4$, jadi $3^m+7\\equiv(-1)^m+3$. Jika $m$ ganjil, nilainya $\\equiv2\\pmod4$,\npadahal kuadrat hanya bersisa $0$ atau $1$ modulo $4$. Jadi $m$ genap: $m=2k$ dengan $k\\ge1$.\n\n**Selisih kuadrat.** $n^2-(3^k)^2=7$, yaitu $(n-3^k)(n+3^k)=7$. Faktor kedua positif, jadi faktor pertama\njuga positif, dan $n-3^k<n+3^k$. Karena $7$ prima, $n-3^k=1$ dan $n+3^k=7$. Diperoleh $n=4$ dan $3^k=3$,\nsehingga $k=1$ dan $m=2$.\n\n**Pemeriksaan.** $3^2+7=16=4^2$ ✓. Satu-satunya pasangan adalah $(2,4)$, sehingga jumlahnya $m+n=6$.",
+  "key_idea": "Modulo yang tepat membuang separuh kasus (paritas $m$); kasus sisanya menjadi selisih dua kuadrat yang dapat difaktorkan.",
+  "common_error": "Mencoba $m=1,2,3,4$ lalu menyimpulkan tanpa bukti. Soal yang meminta “semua pasangan” menuntut argumen bahwa $m$ ganjil mustahil dan $m$ genap hanya memberi $(2,4)$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-22 (review/audit_TB02.md): A1–A6 lulus. A5: scripts/checks/TB02.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
