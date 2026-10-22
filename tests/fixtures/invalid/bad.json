@@ -1,0 +1,111 @@
+[
+ {
+  "id": "TB01-P001",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FIXTURE TES — bukan konten",
+  "objective_id": "TB01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [],
+  "technique_tags": [
+   "fixture"
+  ],
+  "statement": "Nilai \frac{1}{2}$",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "3/4",
+   "display": "$\\tfrac34$"
+  },
+  "hints": [
+   "Petunjuk satu: $\\theta$",
+   "Petunjuk dua"
+  ],
+  "solution": "Bagi dengan $\\mathrm{FPB}(6,8)=2$.",
+  "key_idea": "FPB.",
+  "common_error": "Tidak menyederhanakan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "fixture tes"
+ },
+ {
+  "id": "TB01-P002",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FIXTURE pilihan",
+  "objective_id": "TB01-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 3,
+  "prerequisites": [],
+  "technique_tags": [
+   "fixture"
+  ],
+  "statement": "Fixture pilihan: $2+2=$?",
+  "answer_type": "choice",
+  "choices": [
+   {
+    "id": "A",
+    "text": "$3$"
+   },
+   {
+    "id": "B",
+    "text": "$4$"
+   },
+   {
+    "id": "C",
+    "text": "$5$"
+   }
+  ],
+  "answer_spec": {
+   "correct": "E",
+   "display": "E"
+  },
+  "hints": [
+   "h1",
+   "h2"
+  ],
+  "solution": "s",
+  "key_idea": "k",
+  "common_error": "c",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "draft",
+  "verification_notes": ""
+ },
+ {
+  "id": "TB01-P001",
+  "version": 1,
+  "module_id": "TB01",
+  "domain": "teori_bilangan",
+  "subtopic": "FIXTURE TES — bukan konten",
+  "objective_id": "TB01-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [],
+  "technique_tags": [
+   "fixture"
+  ],
+  "statement": "Fixture: tentukan $\\frac{6}{8}$ dalam bentuk paling sederhana. $$\\begin{aligned} x &= 1 \\end{aligned}$$ Tanda \"kutip\" dan <b>tag</b> & ampersand $a<b$.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "3/4",
+   "display": "$\\tfrac34$"
+  },
+  "hints": [
+   "satu"
+  ],
+  "solution": "Bagi dengan $\\mathrm{FPB}(6,8)=2$.",
+  "key_idea": "FPB.",
+  "common_error": "Tidak menyederhanakan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "fixture tes"
+ }
+]
