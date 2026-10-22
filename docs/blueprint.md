@@ -27,14 +27,16 @@ linear) **tidak** dimasukkan.
 
 ## 3. Matriks cakupan 16 modul
 
-Kolom "Sumber" untuk semua baris saat ini: `belum_terverifikasi` (lihat `docs/sources.md`).
+Sumber cakupan: peta materi guru (berbasis silabus tak resmi Evan Chen 2023), lihat `docs/sources.md`.
+Belum dicocokkan dengan dokumen resmi Puspresnas. Penyesuaian modul lain mengikuti §3a dan
+diterapkan saat modul itu dikerjakan.
 
 | Urutan | Kode | Modul | Subtopik inti | Prasyarat | Tujuan belajar terukur (siswa mampu…) | Teknik utama | Pengayaan (challenge) |
 |---|---|---|---|---|---|---|---|
-| 1 | TB01 | Keterbagian, prima, FPB/KPK | definisi $a\mid b$, sifat keterbagian linear, algoritma Euclid, $\mathrm{FPB}\cdot\mathrm{KPK}=ab$, uji keterbagian 2–11 | aritmetika bulat | menentukan FPB/KPK dengan Euclid; membuktikan $d\mid a,\,d\mid b\Rightarrow d\mid ax+by$; memakai uji keterbagian | kombinasi linear, faktor bersama, kasus kecil | identitas Bézout sederhana |
+| 1 | TB01 | Keterbagian, prima, FPB/KPK | definisi $a\mid b$, sifat linear, prima & teorema dasar aritmetika (pernyataan), FPB/KPK via faktorisasi, $\mathrm{FPB}\cdot\mathrm{KPK}=ab$, algoritma Euclid, FPB bentuk aljabar, Bézout | aritmetika bulat | memakai $d\mid a,\,d\mid b\Rightarrow d\mid ax+by$; menghitung FPB dengan Euclid termasuk bentuk aljabar; memakai Bézout; memakai sifat prima untuk membatasi kasus | kombinasi linear, eksponen maksimum/minimum, kasus faktor $\pm1$ | KPK$(1,\dots,n)$, FPB bentuk simetris |
 | 2 | AL01 | Identitas & faktorisasi | kuadrat/kubus sempurna, selisih kuadrat/kubus, $(a+b+c)^2$, faktorisasi parsial, Sophie Germain dasar | aljabar SMP | menyederhanakan ekspresi dengan identitas; menghitung nilai ekspresi simetris dari $a+b$ dan $ab$ | substitusi, simetri, melengkapkan kuadrat | $a^3+b^3+c^3-3abc$ |
 | 3 | KO01 | Aturan tambah & kali | aturan penjumlahan/perkalian, pencacahan sistematis, komplemen, tabel/diagram pohon | — | mencacah dengan memecah kasus yang saling lepas dan lengkap; memakai komplemen | partisi kasus, komplemen, bijeksi sederhana | pencacahan dengan simetri |
-| 4 | GE01 | Sudut, segitiga, panjang | sudut sejajar, jumlah sudut, segitiga sama kaki, Pythagoras, ketaksamaan segitiga, teorema bisektor | geometri SMP | menghitung sudut/panjang dengan rantai hubungan sudut; memakai Pythagoras dan bisektor | angle chasing, garis bantu | Stewart (pengayaan) |
+| 4 | GE01 | Sudut, segitiga, panjang | sudut sejajar, jumlah & sudut luar, segitiga sama kaki, Pythagoras & kebalikannya (lancip/tumpul), ketaksamaan segitiga, teorema garis bagi, titik berat (2:1, enam segitiga sama luas), jari-jari lingkaran dalam $r=L/s$ | geometri SMP | mengejar sudut; menghitung panjang/luas dengan Pythagoras; memakai teorema garis bagi; memakai sifat titik berat dan $r=L/s$; mencacah sisi bulat dengan ketaksamaan segitiga | angle chasing, garis tinggi bantu, perbandingan luas | koordinat titik pusat lingkaran dalam |
 | 5 | TB02 | Paritas, sisa, kongruensi | paritas, sisa pembagian, aritmetika modulo, siklus sisa pangkat | TB01 | menentukan sisa $a^n \bmod m$; memakai paritas/modulo untuk menunjukkan ketakmungkinan | tabel sisa, siklus, invariant paritas | Fermat kecil (pernyataan) |
 | 6 | AL02 | Persamaan & polinom dasar | persamaan kuadrat, Vieta derajat 2–3, teorema sisa/faktor, sistem persamaan | AL01 | memakai Vieta untuk ekspresi akar tanpa menghitung akar; memakai teorema sisa | Vieta, substitusi, pemfaktoran | polinom dengan akar bersama |
 | 7 | KO02 | Permutasi & kombinasi | $n!$, $\binom{n}{k}$, susunan dengan pembatasan, objek identik, melingkar | KO01 | mencacah susunan berbatasan; memilih model permutasi vs kombinasi dengan alasan | blok, sekat, komplemen | identitas binomial sederhana |
@@ -50,6 +52,37 @@ Kolom "Sumber" untuk semua baris saat ini: `belum_terverifikasi` (lihat `docs/so
 
 ID soal: `<KODE>-E01..E02` (contoh terselesaikan), `<KODE>-P001..P012` (latihan),
 `DG-001..016` (diagnostik), `MX1-001..020`, `MX2-001..020` (paket campuran).
+
+## 3a. Pemetaan topik *Wajib* peta guru → modul
+
+| Topik wajib (peta guru) | Modul | Penyesuaian dari rancangan awal |
+|---|---|---|
+| Prima, teorema dasar aritmetika, banyak/jumlah pembagi | TB01 (pernyataan, FPB/KPK), TB03 (pembagi) | — |
+| Euclid, FPB$(a-b,b)$, Bézout, FPB bentuk aljabar | TB01 | Bézout naik dari pengayaan ke inti |
+| Aritmetika modular: Fermat kecil, CRT, invers, orde; sisa kuadrat mod 3, 4, 8, 10 | TB02 | Fermat kecil, CRT, invers, orde menjadi inti |
+| $\nu_p$, Legendre | TB03 | — |
+| Digit, floor, Diophantine (sering keluar) | TB04 | tambah digit & floor |
+| Manipulasi aljabar, SFFT, rasionalisasi, $x^n-y^n$ | AL01 | tambah SFFT, rasionalisasi |
+| Polinom, teorema sisa, Vieta derajat 2–3, binomial | AL02 | — |
+| AM-GM 2–4 suku, Cauchy-Schwarz, Titu; nilai mutlak | AL03 | Cauchy-Schwarz/Titu menjadi inti |
+| $\sum$, $\prod$, teleskopik, barisan & deret | AL04 | — |
+| **Fungsi (injektif/surjektif, komposisi, invers), persamaan Cauchy** | — | **belum ada modul** → usul AL05 |
+| **Bilangan kompleks, trigonometri, De Moivre, akar satuan** | — | **belum ada modul** → usul AL06 |
+| Titik istimewa segitiga: titik berat, garis bagi, $r=L/s$ | GE01 | ditambahkan ke GE01 |
+| $R=\frac{abc}{4L}$, sudut pusat/keliling, segi empat tali busur, garis singgung | GE03 | $R$ dipindah ke GE03 (butuh sudut keliling) |
+| Kesebangunan, perbandingan luas, trapesium, homotetri | GE02 | tambah homotetri |
+| Kuasa titik, sumbu radikal | GE03 | sumbu radikal menjadi inti |
+| Ceva, Menelaus (pernyataan) | GE04 | dipindah dari pengayaan GE02 ke inti GE04 |
+| Aturan sinus/kosinus, Heron, koordinat Kartesius (berguna) | GE04 | — |
+| Aturan perkalian, permutasi-kombinasi, bintang-garis, himpunan bagian, bijeksi | KO01, KO02 | bintang-garis pindah dari KO04 ke KO02 |
+| Inklusi-eksklusi, peluang, linearitas nilai harapan | KO04 | tambah nilai harapan |
+| Rumah merpati | KO03 | — |
+| **Induksi, rekursi & relasi rekurensi** (4 soal OSN-K 2021–2026) | AL04 (sebagian) | **kurang** → usul KO05, sekalian graf dasar (berguna) |
+
+Usulan AL05, AL06, KO05 menambah 3 modul (19 modul, 36 latihan + 6 contoh). Ini keputusan guru;
+tidak memengaruhi pilot.
+
+Bentuk jawaban mengikuti peta guru: **isian singkat** → latihan memakai `integer` sebisa mungkin.
 
 ## 4. Rencana pembinaan 8 minggu
 
@@ -74,7 +107,7 @@ bergantian. Modul 1–8 = **versi inti** (tonggak 2).
 
 ## 5. Pilot
 
-**TB01 (Keterbagian, prima, FPB/KPK) + GE01 (Sudut, segitiga, panjang).**
+**TB01 (Keterbagian, prima, FPB/KPK) + GE01 (Sudut, segitiga, panjang)** — disetujui guru 22 Okt 2026.
 
 Alasan: TB01 adalah modul pertama dan jawabannya mudah diverifikasi komputasional; GE01 adalah
 bidang paling berisiko (diagram SVG, kesalahan berkorelasi pada geometri). Memasukkan geometri ke

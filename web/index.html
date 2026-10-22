@@ -8,8 +8,13 @@
 <link rel="stylesheet" href="css/style.css">
 <script>
   window.MathJax = {
+    loader: { paths: { fonts: "vendor/fonts" } },
     tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]], displayMath: [["$$", "$$"], ["\\[", "\\]"]], processEscapes: true },
-    options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code", "input"] },
+    output: { displayOverflow: "linebreak", linebreaks: { inline: true } },
+    options: {
+      skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code", "input"],
+      menuOptions: { settings: { enrich: false, speech: false, braille: false, collapsible: false, assistiveMml: true } }
+    },
     startup: { typeset: false }
   };
 </script>

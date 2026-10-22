@@ -1,6 +1,21 @@
 # Sumber cakupan — log verifikasi
 
-Tanggal akses: 22 Oktober 2026. Status keseluruhan cakupan: **`belum_terverifikasi`**.
+Tanggal akses: 22 Oktober 2026. Status keseluruhan cakupan: **`peta_guru` — mengikuti peta materi dari guru; belum dicocokkan dengan dokumen resmi Puspresnas**.
+
+## Dokumen dari guru (dibaca lengkap, 22 Okt 2026)
+
+| Hal | Isi |
+|---|---|
+| Berkas | `Peta-Materi-Silabus-Olimpiade-OSNK.docx` (diunggah guru; tidak disalin ke repositori) |
+| Judul | "Peta Materi Persiapan OSN-K — Silabus Olimpiade Internasional untuk OSN-K" |
+| Dasar | *Unofficial syllabus for math olympiads*, Evan Chen (31 Jan 2023); dokumen menyatakan itu **bukan** pedoman resmi |
+| Klaim format | "OSN-K berbentuk isian singkat tanpa pembuktian" (pernyataan guru, belum dicocokkan dengan pedoman resmi) |
+| Frekuensi OSN-K 2021–2026 (analisis guru, 100 soal) | Aljabar 27, Teori Bilangan 26, Geometri 25 (luas & kesebangunan 8, kuasa titik 8), Kombinatorika 22 (inklusi-eksklusi, permutasi-kombinasi, rekursi masing-masing 4) |
+| Status topik | Wajib → diajarkan penuh; Berguna → alat bantu/kotak wawasan; Lanjutan → pengayaan OSN-P; Tidak diperlukan → tidak diajarkan |
+| Soal AoPS yang sudah dipakai guru di Modul 2 | AIME 1983 #6, AIME 1985 #13, AIME 1986 #5, AIME 2006 II #3, AMC 10B 2017 #14 — **dihindari** di bank ini agar tidak tumpang-tindih |
+
+Pemetaan topik wajib ke 16 modul ada di `docs/blueprint.md` §3a.
+
 
 ## Upaya akses dokumen resmi
 

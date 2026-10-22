@@ -1,0 +1,41 @@
+# Membangun dist/ (hanya butir verified) dan menerbitkannya ke GitHub Pages.
+# Sengaja hanya dijalankan manual (Actions → Pages → Run workflow) agar tidak ada publikasi tanpa keputusan guru.
+# Prasyarat: Settings → Pages → Source: GitHub Actions. Pages untuk repositori privat butuh paket GitHub berbayar,
+# dan situs Pages dapat diakses publik kecuali memakai fitur akses terbatas (Enterprise).
+name: Pages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: npm ci --omit=dev
+      - run: pip install sympy==1.13.3
+      - run: npm run check:math
+      - run: npm run build:release
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

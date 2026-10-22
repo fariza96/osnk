@@ -1,58 +1,60 @@
 # PROJECT_STATE
 
-Terakhir diperbarui: 2026-10-22 (sesi 1).
+Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 2).
 
 ## Tahap
 
-- [x] Tahap 0 — lingkungan, sumber, kredit (lihat di bawah)
-- [x] Tahap 1 — blueprint 16 modul, rencana 8 minggu, skema, standar audit, platform, rencana biaya, kerangka proyek + tes
-- [ ] Tahap 2 — pilot TB01 + GE01 (4 contoh, 24 latihan) — **menunggu keputusan guru** (lihat "Keputusan terbuka")
-- [ ] Tahap 3–6
+- [x] Tahap 0 — lingkungan, sumber, kredit
+- [x] Tahap 1 — blueprint, rencana 8 minggu, skema, standar audit, platform, kerangka proyek + tes
+- [x] Tahap 2 — **pilot TB01 + GE01 selesai**: 2 materi, 4 contoh, 24 latihan, semuanya `verified`
+- [ ] Tahap 3 — penetapan volume (perlu data pemakaian dari guru, lihat "Anggaran")
+- [ ] Tahap 4–6
 
-## Lingkungan (diperiksa, bukan diasumsikan)
+## Lingkungan
 
 | Hal | Temuan |
 |---|---|
-| Produk | Claude Code di cloud (dibuka dari aplikasi desktop); kontainer sementara — berkas hilang bila sesi berakhir kecuali diunduh/didorong |
+| Produk | Claude Code di cloud; kontainer sementara |
 | Alat | Python 3.13 + sympy 1.13.3, Node 22, Chromium (Playwright), git |
-| Jaringan | hanya registry paket (npm, PyPI). Situs Puspresnas, tirto.id, CDN **diblokir** |
-| Kredit | `rate_limit_type = ccr_promotional`, reset/berakhir 2026-11-05 08:00 UTC; saldo & biaya **tidak tersedia** dari dalam sesi |
-| API Claude | tidak ada API key; tidak ada skrip API; Batch/caching tidak dipakai |
+| Jaringan | hanya npm & PyPI; Puspresnas/CDN diblokir |
+| Kredit | `ccr_promotional`, reset/berakhir 2026-11-05 08:00 UTC; biaya tidak terlihat dari dalam sesi |
+| GitHub | **belum terhubung**: token sesi tidak valid, tidak ada repositori yang dapat diakses. Commit masih lokal |
 
-## Keputusan yang sudah diambil (dapat diubah)
+## Keputusan
 
-- Jenjang SMA/MA X–XI; tahun sasaran **OSN 2027 (asumsi)** karena OSN-K 2026 sudah lewat (Juni 2026).
-- Platform: situs statis + MathJax lokal, siap GitHub Pages. Apps Script ditunda.
-- Data dibundel `data.js` (bukan fetch) → bisa dibuka via `file://`.
-- Pilot: TB01 + GE01 (satu modul mudah diverifikasi, satu modul berisiko/diagram).
-- Paket campuran berlabel "Latihan Campuran" sampai format resmi terverifikasi.
+- Silabus: peta materi guru (berbasis silabus tak resmi Evan Chen 2023), dibaca 22 Okt 2026 → `docs/sources.md`, `docs/blueprint.md` §3a.
+- Format jawaban: isian singkat bilangan bulat (sesuai peta guru).
+- Penyimpanan: **repositori GitHub privat** (keputusan guru). Push menunggu akses.
+- MathJax 4.1.2 + font NewCM dibundel lokal (pemecahan baris otomatis untuk ponsel; berjalan tanpa internet, sudah diuji).
+- Pages: workflow `.github/workflows/pages.yml` hanya manual (`workflow_dispatch`).
 
-## Selesai
+## Selesai (ID)
 
-Berkas: `docs/blueprint.md`, `docs/sources.md`, `costs/cost_log.md`, `CLAUDE.md`, `README.md`,
-`content/modules/modules.json`, `content/schema/question.schema.json`, `scripts/validate.py`,
-`scripts/build.mjs`, `web/` (index.html, css, js/app.js, js/grader.js), `tests/` (13 tes, lulus).
+- TB01: materi `content/modules/TB01.md`; `TB01-E01..E02`, `TB01-P001..P012`: verified.
+- GE01: materi `content/modules/GE01.md`; `GE01-E01..E02`, `GE01-P001..P012`: verified; diagram E01, E02, P001, P004, P010.
+- Audit: `review/audit_TB01.md`, `review/audit_GE01.md`. Pemeriksaan: `scripts/checks/TB01.py`, `GE01.py` (28/28 cocok).
+- Tes: `npm test` (penilai, validator, build, situs fixture, dan tampilan konten nyata per modul) lulus.
 
-Butir soal: 0. Modul bermateri: 0.
+Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
+Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu ringkas (1), escaping LaTeX
+(tertangkap validator), dan rumus terlalu lebar di ponsel (tata letak).
 
-## Belum dibangun (sengaja ditunda)
+## Cara kerja konten (penting untuk sesi berikutnya)
 
-- Paket campuran dengan timer + pemulihan setelah reload (Tahap 4, setelah bank stabil).
-- Pengacakan urutan soal pada paket campuran (fungsi `shuffle` sudah ada dan teruji).
-- Workflow GitHub Pages (setelah guru memilih tujuan publikasi).
-- `scripts/checks/` per modul (dibuat bersama konten pilot).
+- JSON di `content/questions/` adalah sumber kebenaran. Skrip penulis sementara tidak disimpan, jadi
+  perubahan berikutnya langsung menyunting JSON (backslash LaTeX ganda) lalu menjalankan `validate.py`.
+- Rumus display panjang ditulis dengan `\begin{aligned}…\end{aligned}` per baris; daftar panjang dipecah
+  menjadi beberapa `$…$`. `tests/content.test.mjs` memastikan tidak ada galat LaTeX dan tidak ada yang melebar di lebar 390 px.
 
 ## Keputusan terbuka (guru)
 
-1. Lanjut pilot di sesi ini? Biaya tidak terlihat dari dalam sesi; estimasi pilot ≈ US$4–13 (tarif Opus 5.5, ketidakpastian tinggi).
-2. Penyimpanan: kontainer sementara. Repositori GitHub privat (butuh otorisasi) atau unduh arsip tiap akhir sesi?
-3. Dokumen silabus/pedoman OSN SMA resmi: unggah PDF, atau izinkan domain Puspresnas di pengaturan jaringan.
-
-## Masalah terbuka
-
-- Cakupan `belum_terverifikasi` (lihat `docs/sources.md`).
+1. **GitHub:** buat repositori privat kosong, hubungkan GitHub di claude.ai/connect-github, pasang Claude
+   GitHub App pada repositori itu, lalu beri tahu `pemilik/repo`.
+2. **Anggaran:** baca pemakaian di halaman akun Claude agar biaya pilot dapat dicatat dan proyeksi versi inti dihitung.
+3. **Modul tambahan** dari peta guru: AL05 (fungsi), AL06 (kompleks & trigonometri), KO05 (rekursi & induksi)?
+4. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
 
 ## Berikutnya
 
-Setelah keputusan 1: tulis `content/modules/TB01.md` + `TB01-E01..E02` + batch `TB01-P001..P006`,
-`scripts/checks/TB01.py`, audit, `review/audit_TB01.md`.
+Modul berikutnya menurut urutan: AL01 (identitas & faktorisasi, termasuk SFFT dan rasionalisasi) dan KO01
+(aturan penjumlahan & perkalian, bijeksi, himpunan bagian). Satu batch = 1 materi + 2 contoh + 6 latihan.

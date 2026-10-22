@@ -13,6 +13,7 @@ hanya berkas yang relevan.
    Situs (`dist/`) selalu dibangun ulang dari sumber; jangan menyunting `dist/`.
 3. **Skema soal** mengikuti `content/schema/question.schema.json`; jalankan
    `python3 scripts/validate.py` setelah setiap perubahan. LaTeX di JSON: backslash ganda (`\\frac`).
+   Rumus display panjang: `aligned` per baris; daftar panjang: beberapa `$…$` (layar ponsel 390 px).
 4. **Status**: `draft → reviewed → verified`, cabang `needs_revision`, `quarantined`. Mengubah
    redaksi, data, opsi, diagram, atau solusi mengembalikan status ke `draft`. Build rilis
    (`npm run build:release`) hanya memuat `verified`.

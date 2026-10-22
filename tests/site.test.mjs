@@ -43,6 +43,8 @@ after(async () => { await browser?.close(); server?.close(); fs.rmSync(OUT, { re
 
 async function open(url, width = 390) {
   const page = await browser.newPage({ viewport: { width, height: 800 } });
+  // Situs harus berjalan tanpa internet: semua permintaan di luar file:// dan server lokal diblokir.
+  await page.route(/^(?!file:|http:\/\/127\.0\.0\.1).*/, (r) => r.abort());
   const errors = [], failed = [];
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
@@ -89,6 +91,7 @@ for (const mode of ["subpath http", "file://"]) {
     assert.match(await page.locator("main").innerText(), /Bagi dengan/);
     await page.goto(url + "#/cetak/TB01/soal"); await mathReady(page);
     assert.doesNotMatch(await page.locator("main").innerText(), /Bagi dengan/);
+    assert.equal(await page.locator("mjx-merror").count(), 0, "tidak ada galat LaTeX");
     assert.deepEqual(errors, []);
     assert.deepEqual(failed, []);
     await page.close();

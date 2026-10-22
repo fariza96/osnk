@@ -36,6 +36,11 @@ Token penalaran (thinking) ditagih sebagai output.
 | Waktu (UTC) | Fase | Model | Token | Biaya | Jenis |
 |---|---|---|---|---|---|
 | 2026-10-22 | Tahap 0–1 (lingkungan, sumber, blueprint, kerangka proyek, tes) | sesi Claude Code | tidak tersedia | tidak tersedia | — |
+| 2026-10-22 | Tahap 2 pilot TB01+GE01 (28 butir, 2 materi, 5 SVG, audit, MathJax 4) | sesi Claude Code | tidak tersedia | tidak tersedia; estimasi pra-pilot $4–13 | estimasi |
+
+**Untuk kalibrasi:** guru diminta mencatat pemakaian aktual dari halaman akun Claude sebelum dan sesudah
+sesi berikutnya. Tanpa angka itu, proyeksi versi inti/lengkap hanya bisa berupa skala relatif:
+satu modul ≈ setengah pilot (pilot = 2 modul + penyiapan alat diagram/MathJax 4 yang tidak perlu diulang).
 
 ## Estimasi pilot (2 modul, 4 contoh, 24 latihan, audit + skrip cek + web minimum)
 

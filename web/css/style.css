@@ -40,7 +40,7 @@ summary { cursor: pointer; color: var(--accent); }
 .diagram svg { max-width: 100%; height: auto; display: block; margin: 8px auto; }
 .mjx-chtml { max-width: 100%; } mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 .material { overflow-wrap: anywhere; }
-table { border-collapse: collapse; } td, th { border: 1px solid var(--line); padding: 4px 8px; }
+table { border-collapse: collapse; display: block; max-width: 100%; overflow-x: auto; } td, th { border: 1px solid var(--line); padding: 4px 8px; }
 .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
 @media print {
   .no-print, .toolbar, .answer-row, footer, header.top { display: none !important; }
