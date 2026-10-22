@@ -18,18 +18,18 @@ Terakhir diperbarui: 2026-10-22 (sesi 1, bagian 2).
 | Alat | Python 3.13 + sympy 1.13.3, Node 22, Chromium (Playwright), git |
 | Jaringan | hanya npm & PyPI; Puspresnas/CDN diblokir |
 | Kredit | `ccr_promotional`, reset/berakhir 2026-11-05 08:00 UTC; biaya tidak terlihat dari dalam sesi |
-| GitHub | **belum terhubung**: token sesi tidak valid, tidak ada repositori yang dapat diakses. Commit masih lokal |
+| GitHub | terhubung ke `fariza96/osnk` (privat), cabang `main`, sejak 22 Okt 2026 |
 
 ## Keputusan
 
 - Silabus: peta materi guru (berbasis silabus tak resmi Evan Chen 2023), dibaca 22 Okt 2026 → `docs/sources.md`, `docs/blueprint.md` §3a.
 - Format jawaban: isian singkat bilangan bulat (sesuai peta guru).
-- Penyimpanan: **repositori GitHub privat** (keputusan guru). Push menunggu akses.
+- Penyimpanan: repositori GitHub privat `fariza96/osnk`.
 - MathJax 4.1.2 + font NewCM dibundel lokal (pemecahan baris otomatis untuk ponsel; berjalan tanpa internet, sudah diuji).
 - Pages: workflow `.github/workflows/pages.yml` hanya manual (`workflow_dispatch`).
 - **19 modul** (AL05 fungsi, KO05 induksi/rekursi/graf, AL06 kompleks & trigonometri ditambahkan, disetujui guru);
   program 10 minggu. Sasaran lengkap: 228 latihan modul + 16 diagnostik + 40 campuran = **284 soal unik**, plus 38 contoh.
-- Repositori tujuan: `fariza96/osnk` (privat). Akses ditolak pada 22 Okt 2026, kemungkinan Claude GitHub App belum terpasang.
+- Repositori: `fariza96/osnk` (privat), `main`. Setiap batch di-commit dan di-push.
 
 ## Selesai (ID)
 
@@ -51,9 +51,8 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Keputusan terbuka (guru)
 
-1. **GitHub:** pasang Claude GitHub App pada `fariza96/osnk` (lewat claude.ai/connect-github), lalu minta push.
-2. **Anggaran:** baca pemakaian di halaman akun Claude agar biaya pilot dapat dicatat dan proyeksi versi inti dihitung.
-3. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
+1. **Anggaran:** baca pemakaian di halaman akun Claude agar biaya pilot dapat dicatat dan proyeksi versi inti dihitung.
+2. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
 
 ## Berikutnya
 
