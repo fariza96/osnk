@@ -1,0 +1,514 @@
+[
+  {
+    "id": "AL05-E01",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "sistem dari substitusi x dan 1/x",
+    "objective_id": "AL05-O5",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "substitusi",
+      "sistem_persamaan",
+      "siklus"
+    ],
+    "statement": "Fungsi $f$ terdefinisi untuk setiap bilangan real $x\\ne0$ dan memenuhi $$f(x)+2f\\!\\left(\\frac1x\\right)=3x.$$ Tentukan $f(2)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "-1",
+      "display": "$-1$"
+    },
+    "hints": [
+      "Substitusi $x=2$ memuat $f(2)$ dan $f\\!\\left(\\frac12\\right)$. Substitusi apa yang memuat kedua nilai yang sama?",
+      "Substitusi $x=\\frac12$ memberi $f\\!\\left(\\frac12\\right)+2f(2)=\\frac32$. Selesaikan sistem dua persamaan itu."
+    ],
+    "solution": "**Ide kunci.** Penukaran $x\\leftrightarrow\\frac1x$ membawa persamaan kembali ke dua nilai yang sama, $f(2)$ dan\n$f\\!\\left(\\frac12\\right)$. Kita memperoleh sistem dua persamaan linear.\n\nMisalkan $a=f(2)$ dan $b=f\\!\\left(\\frac12\\right)$.\n$$\\begin{aligned}x=2:&\\quad a+2b=6,\\\\x=\\tfrac12:&\\quad b+2a=\\tfrac32.\\end{aligned}$$\nDari persamaan kedua, $b=\\frac32-2a$. Substitusi ke persamaan pertama: $a+3-4a=6$, jadi $a=-1$.\n\n**Pemeriksaan.** Cara yang sama untuk $x$ umum memberi $f(x)=\\frac2x-x$. Fungsi ini memang memenuhi persamaan:\n$\\left(\\frac2x-x\\right)+2\\left(2x-\\frac1x\\right)=3x$. Jadi $f$ seperti itu ada, dan $f(2)=1-2=-1$.",
+    "key_idea": "Ganti $x$ dengan pasangannya ($\\frac1x$) agar diperoleh sistem dengan anu yang sama.",
+    "common_error": "Menganggap $f\\!\\left(\\frac12\\right)=\\frac12f(2)$ atau $f\\!\\left(\\frac12\\right)=\\frac1{f(2)}$, padahal tidak ada alasan untuk itu.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-E02",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "mengubah ke persamaan Cauchy",
+    "objective_id": "AL05-O4",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 7,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "cauchy",
+      "fungsi_pembantu",
+      "verifikasi"
+    ],
+    "statement": "Fungsi $f:\\mathbb Q\\to\\mathbb Q$ memenuhi $f(1)=4$ dan $$f(x+y)=f(x)+f(y)+2xy$$ untuk semua bilangan rasional $x,y$.\nTentukan $f\\!\\left(\\frac12\\right)$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "7/4",
+      "display": "$\\dfrac74$"
+    },
+    "hints": [
+      "Suku $2xy$ muncul dari $(x+y)^2=x^2+y^2+2xy$. Coba $g(x)=f(x)-x^2$.",
+      "$g(x+y)=g(x)+g(y)$ dan $g(1)=3$. Persamaan Cauchy pada $\\mathbb Q$ memberi $g(x)=3x$."
+    ],
+    "solution": "**Ide kunci.** Buang suku pengganggu $2xy$ dengan fungsi pembantu, sehingga yang tersisa adalah persamaan Cauchy.\n\nKarena $(x+y)^2=x^2+y^2+2xy$, misalkan $g(x)=f(x)-x^2$. Maka\n$$g(x+y)=f(x+y)-(x+y)^2=\\big(f(x)+f(y)+2xy\\big)-x^2-y^2-2xy=g(x)+g(y).$$\nJadi $g$ memenuhi persamaan Cauchy pada $\\mathbb Q$, sehingga $g(x)=g(1)\\,x=(4-1)x=3x$. Akibatnya $f(x)=x^2+3x$.\n\n**Pemeriksaan.** $(x+y)^2+3(x+y)=(x^2+3x)+(y^2+3y)+2xy$ benar, dan $f(1)=4$.\n\nJadi $f\\!\\left(\\frac12\\right)=\\frac14+\\frac32=\\frac74$.",
+    "key_idea": "Fungsi pembantu $g=f-x^2$ mengubah persamaan menjadi Cauchy.",
+    "common_error": "Menganggap $f(\\tfrac12)=\\tfrac12f(1)=2$ seolah-olah $f$ memenuhi Cauchy. Suku $2xy$ membuat $f$ tidak aditif.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P001",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "komposisi fungsi",
+    "objective_id": "AL05-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "komposisi"
+    ],
+    "statement": "Diketahui $f(x)=2x+3$ dan $g(x)=x^2-1$. Tentukan nilai $(f\\circ g)(3)-(g\\circ f)(1)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "-5",
+      "display": "$-5$"
+    },
+    "hints": [
+      "$(f\\circ g)(3)=f(g(3))$: kerjakan $g$ lebih dulu.",
+      "$g(3)=8$, $f(8)=19$; $f(1)=5$, $g(5)=24$."
+    ],
+    "solution": "$(f\\circ g)(3)=f(g(3))=f(8)=19$ dan $(g\\circ f)(1)=g(f(1))=g(5)=24$. Selisihnya $19-24=-5$.",
+    "key_idea": "Pada $(f\\circ g)(x)$, fungsi $g$ dikerjakan lebih dulu.",
+    "common_error": "Membalik urutan komposisi: $g(f(3))-f(g(1))=80-3=77$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P002",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "nilai invers",
+    "objective_id": "AL05-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "invers"
+    ],
+    "statement": "Fungsi $f(x)=\\dfrac{3x+2}{x-1}$ terdefinisi untuk $x\\ne1$. Tentukan $f^{-1}(5)$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "7/2",
+      "display": "$\\dfrac72$"
+    },
+    "hints": [
+      "$f^{-1}(5)$ adalah bilangan $x$ dengan $f(x)=5$.",
+      "Selesaikan $\\frac{3x+2}{x-1}=5$."
+    ],
+    "solution": "$f^{-1}(5)=x$ berarti $f(x)=5$:\n$$\\frac{3x+2}{x-1}=5\\iff3x+2=5x-5\\iff x=\\tfrac72.$$\nNilai $x=\\frac72\\ne1$ berada di domain. Jadi $f^{-1}(5)=\\frac72$.",
+    "key_idea": "Nilai invers diperoleh dengan menyelesaikan $f(x)=c$, tanpa mencari rumus $f^{-1}$ lengkap.",
+    "common_error": "Menghitung $\\frac1{f(5)}=\\frac4{17}$, yaitu mengira $f^{-1}$ berarti kebalikan $\\frac1f$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P003",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "nilai dari f(ekspresi)",
+    "objective_id": "AL05-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "substitusi"
+    ],
+    "statement": "Fungsi $f$ memenuhi $f(2x-1)=4x^2-2x+1$ untuk setiap bilangan real $x$. Tentukan $f(5)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "31",
+      "display": "$31$"
+    },
+    "hints": [
+      "Pilih $x$ sehingga $2x-1=5$.",
+      "$x=3$, lalu hitung $4\\cdot9-6+1$."
+    ],
+    "solution": "Agar $2x-1=5$, ambil $x=3$. Maka $f(5)=4\\cdot3^2-2\\cdot3+1=31$.",
+    "key_idea": "Pilih nilai $x$ yang membuat argumen sama dengan nilai yang ditanya.",
+    "common_error": "Mensubstitusikan $x=5$ langsung ke ruas kanan, sehingga diperoleh $91$, padahal itu nilai $f(9)$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P004",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "persamaan fungsi perkalian",
+    "objective_id": "AL05-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "substitusi",
+      "x_sama_dengan_y"
+    ],
+    "statement": "Fungsi $f$ terdefinisi pada bilangan rasional positif, bernilai real, dan memenuhi $f(xy)=f(x)+f(y)$ untuk semua $x,y$\nrasional positif. Jika $f(2)=3$ dan $f(3)=5$, tentukan $f(72)+f\\!\\left(\\frac16\\right)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "11",
+      "display": "$11$"
+    },
+    "hints": [
+      "$72=2^3\\cdot3^2$. Untuk $f\\!\\left(\\frac16\\right)$, tentukan dulu $f(1)$ dengan $x=y=1$.",
+      "$f(1)=0$, sehingga $f(6)+f\\!\\left(\\frac16\\right)=f(1)=0$."
+    ],
+    "solution": "Dengan $x=y=1$: $f(1)=2f(1)$, jadi $f(1)=0$. Dengan sifat perkalian berulang,\n$$f(72)=f(2^3\\cdot3^2)=3f(2)+2f(3)=9+10=19.$$\nKarena $f(6)+f\\!\\left(\\frac16\\right)=f(1)=0$ dan $f(6)=f(2)+f(3)=8$, diperoleh $f\\!\\left(\\frac16\\right)=-8$.\nJadi $f(72)+f\\!\\left(\\frac16\\right)=19-8=11$.\n\n*Fungsi seperti ini ada:* untuk $x=2^a3^bc$ dengan $c$ rasional positif tanpa faktor $2$ dan $3$ (pangkat $a,b$ bulat),\nambil $f(x)=3a+5b$.",
+    "key_idea": "$x=y=1$ memberi $f(1)=0$, sehingga $f\\!\\left(\\frac1x\\right)=-f(x)$.",
+    "common_error": "Mengira $f\\!\\left(\\frac16\\right)=\\frac1{f(6)}=\\frac18$, yaitu mencampur sifat perkalian dengan kebalikan nilai fungsi.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P005",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "mencacah fungsi involusi",
+    "objective_id": "AL05-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "bijektif",
+      "pencacahan_fungsi",
+      "partisi_kasus"
+    ],
+    "statement": "Berapa banyak fungsi $f:\\{1,2,3,4\\}\\to\\{1,2,3,4\\}$ yang memenuhi $f(f(x))=x$ untuk setiap $x$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "10",
+      "display": "$10$"
+    },
+    "hints": [
+      "Jika $f(a)=b$ dengan $b\\ne a$, maka $f(b)=f(f(a))=a$. Jadi anggota yang tidak tetap berpasangan.",
+      "Hitung menurut banyak pasangan yang ditukar: $0$, $1$, atau $2$ pasangan."
+    ],
+    "solution": "Jika $f(a)=b\\ne a$, maka $f(b)=f(f(a))=a$; jadi $a$ dan $b$ saling ditukar. Setiap anggota tetap ($f(a)=a$) atau\nberpasangan dengan tepat satu anggota lain. Sebaliknya, setiap pembagian seperti itu memberi fungsi yang memenuhi syarat.\n$$\\begin{aligned}0\\text{ pasangan}&:\\ 1,\\\\1\\text{ pasangan}&:\\ \\tbinom42=6,\\\\2\\text{ pasangan}&:\\ \\tfrac12\\tbinom42=3.\\end{aligned}$$\nTotalnya $1+6+3=10$.",
+    "key_idea": "$f(f(x))=x$ berarti $f$ menukar pasangan-pasangan dan menetapkan sisanya.",
+    "common_error": "Menghitung $2$ pasangan sebagai $\\binom42\\binom22=6$, yaitu lupa bahwa urutan kedua pasangan tidak penting; atau hanya menghitung fungsi identitas.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P006",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "iterasi fungsi periodik",
+    "objective_id": "AL05-O5",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "iterasi",
+      "komposisi",
+      "periodik"
+    ],
+    "statement": "Misalkan $f(x)=\\dfrac1{1-x}$, dan $f^{[n]}$ menyatakan $f$ yang dikomposisikan $n$ kali, misalnya $f^{[2]}(x)=f(f(x))$.\nTentukan $f^{[2026]}(3)$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "-1/2",
+      "display": "$-\\dfrac12$"
+    },
+    "hints": [
+      "Hitung $f(3)$, $f(f(3))$, $f(f(f(3)))$.",
+      "Nilainya kembali ke $3$ setelah tiga langkah. Berapa sisa $2026$ dibagi $3$?"
+    ],
+    "solution": "$f(3)=-\\frac12$, $f\\!\\left(-\\frac12\\right)=\\frac23$, dan $f\\!\\left(\\frac23\\right)=3$. Jadi $f^{[3]}(3)=3$, dan nilai\n$f^{[n]}(3)$ berulang dengan periode $3$. Karena $2026=3\\cdot675+1$, $f^{[2026]}(3)=f(3)=-\\frac12$.\n\n(Secara umum $f^{[3]}(x)=x$ untuk setiap $x\\ne0,1$.)",
+    "key_idea": "Cari periode iterasi, lalu pakai sisa pembagian.",
+    "common_error": "Salah menghitung sisa (misalnya menganggap $2026$ habis dibagi $3$) sehingga menjawab $3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P007",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "substitusi nol dan kasus",
+    "objective_id": "AL05-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "substitusi",
+      "x_sama_dengan_nol",
+      "verifikasi"
+    ],
+    "statement": "Fungsi $f:\\mathbb R\\to\\mathbb R$ memenuhi $$f(x)f(y)-f(xy)=x+y$$ untuk semua bilangan real $x,y$. Tentukan $f(2026)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "2027",
+      "display": "$2027$"
+    },
+    "hints": [
+      "Substitusi $x=y=0$ memberi persamaan untuk $f(0)$. Ada dua kemungkinan.",
+      "Substitusi $y=0$: $f(x)f(0)-f(0)=x$. Kemungkinan $f(0)=0$ menghasilkan kontradiksi."
+    ],
+    "solution": "Dengan $x=y=0$: $f(0)^2-f(0)=0$, jadi $f(0)=0$ atau $f(0)=1$.\n\nDengan $y=0$: $f(x)f(0)-f(0)=x$ untuk semua $x$.\n\n- Jika $f(0)=0$, ruas kiri $0$, padahal ruas kanan $x$; untuk $x=1$ ini mustahil.\n- Jadi $f(0)=1$, dan $f(x)-1=x$, yaitu $f(x)=x+1$.\n\n**Pemeriksaan.** $(x+1)(y+1)-(xy+1)=x+y$. Benar. Jadi $f(2026)=2027$.",
+    "key_idea": "$x=y=0$ memberi dua kasus; $y=0$ membuang satu kasus dan langsung memberi rumus $f$.",
+    "common_error": "Mengambil $f(0)=0$ tanpa memeriksa, atau menganggap $f$ linear $ax+b$ lalu mencocokkan koefisien tanpa menunjukkan bahwa $f$ memang harus linear.",
+    "origin": "adapted",
+    "source_refs": [
+      "Soal klasik persamaan fungsi f(x)f(y) − f(xy) = x + y (folklor olimpiade)"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P008",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "persamaan Cauchy pada Q",
+    "objective_id": "AL05-O4",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "cauchy"
+    ],
+    "statement": "Fungsi $f:\\mathbb Q\\to\\mathbb Q$ memenuhi $f(x+y)=f(x)+f(y)$ untuk semua bilangan rasional $x,y$, dan $f\\!\\left(\\frac23\\right)=4$.\nTentukan $f\\!\\left(\\frac52\\right)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "15",
+      "display": "$15$"
+    },
+    "hints": [
+      "$f\\!\\left(\\frac23\\right)=f\\!\\left(\\frac13\\right)+f\\!\\left(\\frac13\\right)$.",
+      "$f\\!\\left(\\frac13\\right)=2$, jadi $f(1)=3f\\!\\left(\\frac13\\right)=6$ dan $f(x)=6x$."
+    ],
+    "solution": "Dari $f(nx)=nf(x)$: $4=f\\!\\left(\\frac23\\right)=2f\\!\\left(\\frac13\\right)$, jadi $f\\!\\left(\\frac13\\right)=2$ dan $f(1)=3\\cdot2=6$.\nMenurut persamaan Cauchy pada $\\mathbb Q$, $f(x)=6x$. Fungsi ini memang memenuhi syarat, dan $f\\!\\left(\\frac52\\right)=15$.",
+    "key_idea": "Pada $\\mathbb Q$, persamaan Cauchy memaksa $f(x)=f(1)\\,x$; $f(1)$ dicari dari nilai yang diketahui.",
+    "common_error": "Mengira $f(1)=4\\cdot\\frac23=\\frac83$ (mengalikan, bukan membagi), sehingga diperoleh $f\\!\\left(\\frac52\\right)=\\frac{20}3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P009",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "fungsi linear dari komposisi",
+    "objective_id": "AL05-O1",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "komposisi",
+      "kelengkapan_kasus"
+    ],
+    "statement": "Fungsi linear $f(x)=ax+b$ ($a,b$ real) memenuhi $f(f(x))=4x+9$ untuk setiap bilangan real $x$. Tentukan jumlah semua\nnilai $f(1)$ yang mungkin.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "-6",
+      "display": "$-6$"
+    },
+    "hints": [
+      "$f(f(x))=a(ax+b)+b=a^2x+(a+1)b$. Samakan koefisien.",
+      "$a^2=4$ memberi dua kasus, $a=2$ atau $a=-2$."
+    ],
+    "solution": "$f(f(x))=a(ax+b)+b=a^2x+(a+1)b$. Karena sama dengan $4x+9$ untuk semua $x$: $a^2=4$ dan $(a+1)b=9$.\n\n- $a=2$: $b=3$, $f(x)=2x+3$, $f(1)=5$.\n- $a=-2$: $-b=9$, $b=-9$, $f(x)=-2x-9$, $f(1)=-11$.\n\nKeduanya memenuhi (cek: $-2(-2x-9)-9=4x+9$). Jumlahnya $5+(-11)=-6$.",
+    "key_idea": "Samakan koefisien, lalu periksa **semua** akar $a^2=4$.",
+    "common_error": "Hanya mengambil $a=2$ dan menjawab $5$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P010",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "persamaan fungsi pada bilangan bulat",
+    "objective_id": "AL05-O3",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "substitusi",
+      "rekursi",
+      "kelengkapan_kasus"
+    ],
+    "statement": "Fungsi $f:\\mathbb Z\\to\\mathbb Z$ memenuhi $f(1)=1$ dan $$f(x+y)=f(x)+f(y)+xy+1$$ untuk semua bilangan bulat $x,y$.\nTentukan jumlah semua bilangan bulat $n$ yang memenuhi $f(n)=n$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "-1",
+      "display": "$-1$"
+    },
+    "hints": [
+      "Substitusi $y=0$ memberi $f(0)$; substitusi $y=1$ memberi $f(x+1)$ dalam $f(x)$.",
+      "$f(0)=-1$ dan $f(x+1)=f(x)+x+2$. Tunjukkan $f(n)=\\frac{n^2+3n-2}2$ untuk semua bilangan bulat $n$, termasuk negatif."
+    ],
+    "solution": "**Mencari $f$.** Dengan $y=0$: $f(x)=f(x)+f(0)+1$, jadi $f(0)=-1$. Dengan $y=1$:\n$$f(x+1)=f(x)+x+2.$$\nHubungan ini menentukan $f(n)$ untuk semua $n$ dari $f(0)$, maju (untuk $n>0$) maupun mundur, dengan\n$f(x)=f(x+1)-x-2$ (untuk $n<0$). Fungsi $g(n)=\\frac{n^2+3n-2}2$ memenuhi $g(0)=-1$ dan\n$g(n+1)-g(n)=\\frac{2n+4}2=n+2$, jadi $f=g$ pada semua bilangan bulat.\n\n**Pemeriksaan.** $g(x+y)-g(x)-g(y)=\\frac{2xy+2}2=xy+1$, dan $g(1)=1$. Selain itu, $n^2+3n$ selalu genap, jadi $g$ bernilai bulat.\n\n**Menyelesaikan $f(n)=n$.** $\\frac{n^2+3n-2}2=n\\iff n^2+n-2=0\\iff(n+2)(n-1)=0$. Jadi $n=1$ atau $n=-2$, dengan jumlah $-1$.",
+    "key_idea": "$y=1$ memberi rekursi; rumus tertutup berlaku juga untuk bilangan bulat negatif.",
+    "common_error": "Hanya mencari $n$ positif (dengan menghitung $f(1),f(2),\\dots$) sehingga menjawab $1$ dan melewatkan $n=-2$.",
+    "origin": "adapted",
+    "source_refs": [
+      "Soal klasik persamaan fungsi f(x+y) = f(x) + f(y) + xy + 1 pada bilangan bulat (folklor olimpiade); pertanyaan diubah menjadi jumlah"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P011",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "siklus tiga substitusi",
+    "objective_id": "AL05-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "siklus",
+      "sistem_persamaan",
+      "substitusi"
+    ],
+    "statement": "Fungsi $f$ terdefinisi untuk setiap bilangan real $x\\ne0,1$ dan memenuhi $$f(x)+f\\!\\left(\\frac{x-1}{x}\\right)=1+x.$$ Tentukan $f(2)$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "3/4",
+      "display": "$\\dfrac34$"
+    },
+    "hints": [
+      "Lacak $x=2\\mapsto\\frac{2-1}2=\\frac12\\mapsto\\dots$. Kapan kembali ke $2$?",
+      "$2\\mapsto\\frac12\\mapsto-1\\mapsto2$. Tulis tiga persamaan dengan anu $f(2)$, $f\\!\\left(\\frac12\\right)$, $f(-1)$."
+    ],
+    "solution": "Misalkan $T(x)=\\frac{x-1}x$. Maka $T(2)=\\frac12$, $T\\!\\left(\\frac12\\right)=-1$, $T(-1)=2$: siklus panjang tiga.\nDengan $a=f(2)$, $b=f\\!\\left(\\frac12\\right)$, $c=f(-1)$:\n$$\\begin{aligned}x=2:&\\quad a+b=3,\\\\x=\\tfrac12:&\\quad b+c=\\tfrac32,\\\\x=-1:&\\quad c+a=0.\\end{aligned}$$\nJumlah ketiganya: $2(a+b+c)=\\frac92$, jadi $a+b+c=\\frac94$ dan $a=\\frac94-(b+c)=\\frac94-\\frac32=\\frac34$.\n\n*Fungsi seperti ini ada:* $f(x)=\\dfrac{x^3-x^2-1}{2x(x-1)}$ memenuhi persamaan untuk semua $x\\ne0,1$, dan $f(2)=\\frac34$.",
+    "key_idea": "Substitusi $x\\mapsto\\frac{x-1}x$ kembali ke $x$ setelah tiga langkah; tiga persamaan, tiga anu.",
+    "common_error": "Berhenti setelah dua substitusi dan menganggap $f\\!\\left(\\frac12\\right)=f(-1)$, atau salah menghitung $T(-1)$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL05-P012",
+    "version": 1,
+    "module_id": "AL05",
+    "domain": "aljabar",
+    "subtopic": "mencacah fungsi idempoten",
+    "objective_id": "AL05-O2",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 12,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "pencacahan_fungsi",
+      "daerah_hasil",
+      "partisi_kasus"
+    ],
+    "statement": "Berapa banyak fungsi $f:\\{1,2,3,4\\}\\to\\{1,2,3,4\\}$ yang memenuhi $f(f(x))=f(x)$ untuk setiap $x$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "41",
+      "display": "$41$"
+    },
+    "hints": [
+      "Jika $y$ termasuk daerah hasil $f$, yaitu $y=f(x)$, maka $f(y)=f(f(x))=f(x)=y$. Jadi setiap nilai di daerah hasil adalah titik tetap.",
+      "Pilih daerah hasil $R$ dengan $|R|=k$. Anggota $R$ tetap; setiap anggota lain dipetakan ke salah satu anggota $R$: $k^{4-k}$ cara."
+    ],
+    "solution": "**Sifat kunci.** Jika $y=f(x)$, maka $f(y)=f(f(x))=f(x)=y$. Jadi $f$ menetapkan setiap anggota daerah hasilnya $R$.\nSebaliknya, jika $f$ menetapkan setiap anggota $R$ dan semua nilai $f$ ada di $R$, maka $f(f(x))=f(x)$.\n\nJadi fungsi seperti ini ditentukan oleh pilihan $R$ (tak kosong) dan peta setiap anggota di luar $R$ ke salah satu anggota $R$.\nDengan $|R|=k$ ada $\\binom4k k^{4-k}$ fungsi:\n$$\\begin{aligned}k=1&:\\ 4\\cdot1=4,\\\\k=2&:\\ 6\\cdot2^2=24,\\\\k=3&:\\ 4\\cdot3=12,\\\\k=4&:\\ 1.\\end{aligned}$$\nTotalnya $4+24+12+1=41$.",
+    "key_idea": "Daerah hasil fungsi idempoten terdiri atas titik tetap; cacah menurut ukuran daerah hasil.",
+    "common_error": "Mengira hanya fungsi identitas dan fungsi konstan yang memenuhi ($1+4=5$), atau memetakan anggota di luar $R$ ke sembarang anggota $\\{1,2,3,4\\}$ ($4^{4-k}$).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL05.md): A1–A6 lulus. A5: scripts/checks/AL05.py (substitusi + verifikasi simbolik / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]

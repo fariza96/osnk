@@ -1,0 +1,532 @@
+[
+  {
+    "id": "KO05-E01",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi barisan biner",
+    "objective_id": "KO05-O2",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "kasus_terakhir",
+      "fibonacci"
+    ],
+    "statement": "Berapa banyak barisan sepanjang $10$ yang setiap sukunya $0$ atau $1$ dan tidak memuat dua angka $1$ yang berurutan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "144",
+      "display": "$144$"
+    },
+    "hints": [
+      "Misalkan $a_n$ banyak barisan baik sepanjang $n$. Bagi menurut suku terakhir: $0$ atau $1$.",
+      "Jika suku terakhir $1$, suku sebelumnya harus $0$. Jadi $a_n=a_{n-1}+a_{n-2}$ dengan $a_1=2$, $a_2=3$."
+    ],
+    "solution": "**Ide kunci.** Barisan baik sepanjang $n$ dibangun dari barisan baik yang lebih pendek, menurut **suku terakhirnya**.\n\nMisalkan $a_n$ banyak barisan baik sepanjang $n$.\n\n- Suku terakhir $0$: bagian depannya barisan baik sepanjang $n-1$ apa saja, ada $a_{n-1}$.\n- Suku terakhir $1$: suku sebelumnya wajib $0$, dan bagian sebelum itu barisan baik sepanjang $n-2$ apa saja, ada $a_{n-2}$.\n\nKedua kasus saling lepas dan lengkap, jadi $a_n=a_{n-1}+a_{n-2}$ untuk $n\\ge3$. Nilai awal: $a_1=2$ ($0$, $1$) dan\n$a_2=3$ ($00$, $01$, $10$). Tabelnya:\n\n| $n$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $a_n$ | 2 | 3 | 5 | 8 | 13 | 21 | 34 | 55 | 89 | 144 |\n\nCek: $a_3=5$ sesuai daftar $000,001,010,100,101$. Jawabannya $144$.",
+    "key_idea": "Pecah menurut suku terakhir; larangan “$11$” memaksa suku sebelum $1$ terakhir adalah $0$.",
+    "common_error": "Menulis $a_n=a_{n-1}+a_{n-1}$ (suku terakhir $0$ atau $1$ dengan bagian depan bebas), yang mengabaikan larangan di batas antara bagian depan dan suku terakhir.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-E02",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "lemma jabat tangan",
+    "objective_id": "KO05-O4",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "jabat_tangan",
+      "sistem_persamaan"
+    ],
+    "statement": "Di sebuah kelompok yang terdiri atas $15$ siswa, setiap siswa berteman dengan tepat $3$ atau tepat $4$ siswa lain di\nkelompok itu (pertemanan berlaku dua arah). Banyak pasangan siswa yang berteman adalah $26$. Berapa siswa yang berteman\ndengan tepat $4$ siswa lain?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "7",
+      "display": "$7$"
+    },
+    "hints": [
+      "Pandang siswa sebagai titik dan pertemanan sebagai sisi. Jumlah semua derajat sama dengan $2\\times$ banyak sisi.",
+      "Jika $x$ siswa berderajat $3$ dan $y$ berderajat $4$: $x+y=15$ dan $3x+4y=52$."
+    ],
+    "solution": "**Ide kunci.** Setiap pasangan teman dihitung dua kali bila kita menjumlahkan banyak teman setiap siswa.\n\nMisalkan $x$ siswa mempunyai $3$ teman dan $y$ siswa mempunyai $4$ teman. Menurut lemma jabat tangan,\n$$\\begin{aligned}x+y&=15,\\\\3x+4y&=2\\cdot26=52.\\end{aligned}$$\nKurangkan $3$ kali persamaan pertama: $y=52-45=7$, sehingga $x=8$.\n\nPerhatikan bahwa $x=8$ genap, sesuai akibat lemma jabat tangan (banyak titik berderajat ganjil selalu genap). Susunan\npertemanan seperti itu memang ada (dapat dicek dengan menggambar satu contoh).",
+    "key_idea": "Jumlah derajat $=2\\times$ banyak sisi memberi persamaan kedua.",
+    "common_error": "Menulis $3x+4y=26$, yaitu lupa bahwa setiap pertemanan terhitung dua kali, sehingga diperoleh $y<0$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P001",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "jumlah derajat",
+    "objective_id": "KO05-O4",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "jabat_tangan"
+    ],
+    "statement": "Sebuah graf mempunyai $8$ titik dengan derajat $1,2,2,3,3,4,4,5$. Berapa banyak sisi graf itu?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "12",
+      "display": "$12$"
+    },
+    "hints": [
+      "Jumlahkan semua derajat.",
+      "Setiap sisi menyumbang $2$ pada jumlah derajat."
+    ],
+    "solution": "Jumlah derajat $1+2+2+3+3+4+4+5=24$. Menurut lemma jabat tangan, banyak sisi $=\\frac{24}2=12$.",
+    "key_idea": "Banyak sisi = setengah jumlah derajat.",
+    "common_error": "Menjawab $24$, yaitu lupa membagi dua.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P002",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi pengubinan",
+    "objective_id": "KO05-O2",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "kasus_terakhir",
+      "pengubinan"
+    ],
+    "statement": "Sebuah papan berukuran $1\\times9$ akan ditutup penuh oleh ubin $1\\times1$ dan ubin $1\\times3$ tanpa tumpang tindih\n(banyak setiap jenis ubin tidak dibatasi; ubin sejenis dianggap sama). Berapa banyak cara menutupnya?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "19",
+      "display": "$19$"
+    },
+    "hints": [
+      "Misalkan $a_n$ banyak cara untuk papan $1\\times n$. Ubin terakhir berukuran $1$ atau $3$.",
+      "$a_n=a_{n-1}+a_{n-3}$ dengan $a_0=a_1=a_2=1$."
+    ],
+    "solution": "Misalkan $a_n$ banyak cara untuk papan $1\\times n$, dengan $a_0=1$. Ubin paling kanan berukuran $1$ (sisa $n-1$) atau $3$\n(sisa $n-3$), jadi $a_n=a_{n-1}+a_{n-3}$ untuk $n\\ge3$, dengan $a_0=a_1=a_2=1$:\n\n| $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n|---|---|---|---|---|---|---|---|---|---|---|\n| $a_n$ | 1 | 1 | 1 | 2 | 3 | 4 | 6 | 9 | 13 | 19 |\n\nJawabannya $19$.",
+    "key_idea": "Pecah menurut ubin terakhir.",
+    "common_error": "Memakai $a_n=a_{n-1}+a_{n-2}$ seperti pada soal tangga, padahal ubin panjangnya $3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P003",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi daerah oleh garis",
+    "objective_id": "KO05-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "induksi"
+    ],
+    "statement": "Sepuluh garis lurus digambar pada bidang sehingga tidak ada dua garis yang sejajar dan tidak ada tiga garis yang melalui\nsatu titik. Menjadi berapa daerah bidang itu terbagi?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "56",
+      "display": "$56$"
+    },
+    "hints": [
+      "Misalkan $r_n$ banyak daerah oleh $n$ garis. Garis ke-$n$ dipotong oleh $n-1$ garis lain menjadi berapa bagian?",
+      "Garis ke-$n$ terbagi menjadi $n$ bagian, dan setiap bagian membelah satu daerah lama menjadi dua. Jadi $r_n=r_{n-1}+n$."
+    ],
+    "solution": "Misalkan $r_n$ banyak daerah oleh $n$ garis; $r_0=1$. Garis ke-$n$ memotong $n-1$ garis lain di $n-1$ titik berbeda,\nsehingga terbagi menjadi $n$ bagian (ruas dan sinar). Setiap bagian membelah satu daerah lama menjadi dua, jadi\n$r_n=r_{n-1}+n$. Akibatnya\n$$r_{10}=1+(1+2+\\cdots+10)=1+55=56.$$\n(Rumus umum $r_n=1+\\frac{n(n+1)}2$ dapat dibuktikan dengan induksi dari rekurensi ini.)",
+    "key_idea": "Garis baru yang dipotong menjadi $n$ bagian menambah $n$ daerah.",
+    "common_error": "Menganggap setiap garis baru menggandakan banyak daerah, sehingga menjawab $2^{10}=1024$.",
+    "origin": "adapted",
+    "source_refs": [
+      "Masalah klasik banyak daerah oleh n garis (folklor)"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P004",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi tanpa pola terlarang",
+    "objective_id": "KO05-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "kasus_terakhir"
+    ],
+    "statement": "Berapa banyak barisan sepanjang $8$ yang setiap sukunya $0$ atau $1$ dan tidak memuat tiga angka $1$ berurutan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "149",
+      "display": "$149$"
+    },
+    "hints": [
+      "Bagi menurut akhir barisan: $\\dots0$, $\\dots01$, atau $\\dots011$.",
+      "$a_n=a_{n-1}+a_{n-2}+a_{n-3}$ dengan $a_0=1$, $a_1=2$, $a_2=4$."
+    ],
+    "solution": "Misalkan $a_n$ banyak barisan baik sepanjang $n$ ($a_0=1$). Barisan baik berakhir dengan tepat salah satu dari\n$0$, $01$, atau $011$ (blok $1$ di akhir panjangnya $0$, $1$, atau $2$, didahului $0$ atau awal barisan). Bagian\ndepannya barisan baik apa saja, jadi\n$$a_n=a_{n-1}+a_{n-2}+a_{n-3}\\quad(n\\ge3),$$\ndengan $a_0=1$, $a_1=2$, $a_2=4$:\n\n| $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n|---|---|---|---|---|---|---|---|---|---|\n| $a_n$ | 1 | 2 | 4 | 7 | 13 | 24 | 44 | 81 | 149 |\n\nCek: $a_3=8-1=7$ (hanya $111$ yang terlarang). Jawabannya $149$.",
+    "key_idea": "Pecah menurut blok $1$ di akhir barisan.",
+    "common_error": "Hanya membedakan akhiran $0$ dan $1$ seperti pada Contoh 1, sehingga memakai $a_n=a_{n-1}+a_{n-2}$ dan menjawab $55$, yaitu banyak barisan tanpa **dua** angka $1$ berurutan.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P005",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "pengubinan papan 2 x n",
+    "objective_id": "KO05-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "pengubinan",
+      "kasus_terakhir"
+    ],
+    "statement": "Papan berukuran $2\\times8$ akan ditutup penuh, tanpa tumpang tindih, oleh domino $1\\times2$ (boleh diletakkan mendatar\natau tegak) dan ubin persegi $2\\times2$. Ubin sejenis dianggap sama. Berapa banyak cara menutupnya?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "171",
+      "display": "$171$"
+    },
+    "hints": [
+      "Lihat kolom paling kanan. Ditutup oleh satu domino tegak, oleh dua domino mendatar, atau oleh ubin $2\\times2$?",
+      "$a_n=a_{n-1}+2a_{n-2}$ dengan $a_0=1$, $a_1=1$."
+    ],
+    "solution": "Misalkan $a_n$ banyak cara untuk papan $2\\times n$ ($a_0=1$). Kolom paling kanan ditutup dengan tepat satu cara berikut:\n\n- satu domino tegak: sisa papan $2\\times(n-1)$;\n- dua domino mendatar yang menutup dua kolom terakhir: sisa $2\\times(n-2)$;\n- satu ubin $2\\times2$ pada dua kolom terakhir: sisa $2\\times(n-2)$.\n\n(Jika satu domino mendatar menutup petak kanan atas, petak kanan bawah hanya dapat ditutup domino mendatar juga.)\nJadi $a_n=a_{n-1}+2a_{n-2}$:\n\n| $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n|---|---|---|---|---|---|---|---|---|---|\n| $a_n$ | 1 | 1 | 3 | 5 | 11 | 21 | 43 | 85 | 171 |",
+    "key_idea": "Kasus untuk kolom terakhir; dua kasus menyisakan papan $2\\times(n-2)$.",
+    "common_error": "Lupa bahwa dua domino mendatar dan satu ubin $2\\times2$ adalah dua kasus berbeda, sehingga memakai $a_n=a_{n-1}+a_{n-2}$ dan menjawab $34$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P006",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "paritas derajat dan konstruksi",
+    "objective_id": "KO05-O4",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "jabat_tangan",
+      "paritas",
+      "konstruksi"
+    ],
+    "statement": "Di sebuah pertemuan ada $25$ orang. Setiap orang berjabat tangan dengan **tepat** $k$ orang lain (setiap pasangan\nberjabat tangan paling banyak sekali), dengan $0\\le k\\le24$. Berapa banyak nilai $k$ yang mungkin?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "13",
+      "display": "$13$"
+    },
+    "hints": [
+      "Jumlah derajat $25k$ harus genap.",
+      "Untuk setiap $k$ genap, susun $25$ orang melingkar dan suruh setiap orang berjabat tangan dengan $\\frac k2$ orang terdekat di kiri dan $\\frac k2$ di kanan."
+    ],
+    "solution": "**Syarat perlu.** Menurut lemma jabat tangan, $25k$ sama dengan dua kali banyak jabat tangan, jadi genap. Karena $25$\nganjil, $k$ genap: $k\\in\\{0,2,4,\\dots,24\\}$, ada $13$ nilai.\n\n**Semua nilai itu mungkin.** Untuk $k=2m$, susun orang melingkar dan pasangkan setiap orang dengan $m$ orang terdekat di\nkiri dan $m$ orang terdekat di kanannya. Karena $2m\\le24$, kedua kelompok itu tidak bertumpuk (orang di kiri dan di\nkanan berbeda), sehingga setiap orang berjabat tangan dengan tepat $2m=k$ orang.\n\nJawabannya $13$.",
+    "key_idea": "Paritas memberi batas; susunan melingkar menunjukkan semua nilai genap tercapai.",
+    "common_error": "Menjawab $25$ (semua nilai $0$ sampai $24$) tanpa memeriksa paritas, atau hanya membuktikan syarat perlu tanpa contoh.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P007",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi kata tanpa huruf kembar",
+    "objective_id": "KO05-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "keadaan_tambahan"
+    ],
+    "statement": "Berapa banyak kata sepanjang $6$ yang disusun dari huruf $\\mathrm A$, $\\mathrm B$, $\\mathrm C$ (boleh berulang) dan tidak\nmemuat dua huruf $\\mathrm A$ berurutan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "448",
+      "display": "$448$"
+    },
+    "hints": [
+      "Jika huruf terakhir $\\mathrm B$ atau $\\mathrm C$, bagian depannya bebas (asal baik). Jika huruf terakhir $\\mathrm A$, huruf sebelumnya $\\mathrm B$ atau $\\mathrm C$.",
+      "$a_n=2a_{n-1}+2a_{n-2}$ dengan $a_0=1$, $a_1=3$."
+    ],
+    "solution": "Misalkan $a_n$ banyak kata baik sepanjang $n$ ($a_0=1$, $a_1=3$).\n\n- Huruf terakhir $\\mathrm B$ atau $\\mathrm C$: $2a_{n-1}$ kata.\n- Huruf terakhir $\\mathrm A$: huruf sebelumnya $\\mathrm B$ atau $\\mathrm C$ (untuk $n\\ge2$), dan bagian sebelum itu kata baik sepanjang $n-2$: $2a_{n-2}$ kata.\n\nJadi $a_n=2a_{n-1}+2a_{n-2}$:\n$$a_2=8,\\ a_3=22,\\ a_4=60,\\ a_5=164,\\ a_6=448.$$\nCek: $a_2=9-1=8$.",
+    "key_idea": "Huruf terakhir $\\mathrm A$ memaksa huruf sebelumnya bukan $\\mathrm A$.",
+    "common_error": "Mengurangkan dari $3^6$ hanya kata yang memuat $\\mathrm{AA}$ di satu posisi tertentu, misalnya $3^6-5\\cdot3^4=324$, sehingga kata dengan lebih dari satu $\\mathrm{AA}$ terkurangi berkali-kali.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P008",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi dan induksi menara Hanoi",
+    "objective_id": "KO05-O1",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 7,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "induksi",
+      "argumen_minimal"
+    ],
+    "statement": "Pada permainan menara Hanoi ada tiga tiang dan $7$ cakram berbeda ukuran yang semula bertumpuk di tiang pertama, dari yang\nterbesar di bawah. Pada setiap langkah, satu cakram teratas dipindahkan ke tiang lain, dan cakram tidak boleh diletakkan\ndi atas cakram yang lebih kecil. Berapa banyak langkah **minimal** untuk memindahkan semua cakram ke tiang ketiga?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "127",
+      "display": "$127$"
+    },
+    "hints": [
+      "Cakram terbesar harus berpindah paling sedikit sekali. Saat itu di mana keenam cakram lainnya?",
+      "$h_n=2h_{n-1}+1$ dengan $h_1=1$. Buktikan $h_n=2^n-1$ dengan induksi."
+    ],
+    "solution": "Misalkan $h_n$ langkah minimal untuk $n$ cakram.\n\n**Batas bawah.** Cakram terbesar harus berpindah. Sebelum perpindahan pertamanya, $n-1$ cakram lain harus semuanya\nberada di tiang ketiga yang lain (paling sedikit $h_{n-1}$ langkah). Setelah perpindahan terakhirnya ke tiang tujuan,\n$n-1$ cakram itu harus dipindahkan ke atasnya (paling sedikit $h_{n-1}$ langkah lagi). Jadi $h_n\\ge2h_{n-1}+1$.\n\n**Cukup.** Cara \"pindahkan $n-1$ cakram, pindahkan cakram terbesar, pindahkan $n-1$ cakram lagi\" memakai tepat\n$2h_{n-1}+1$ langkah. Jadi $h_n=2h_{n-1}+1$, $h_1=1$.\n\n**Induksi.** Jika $h_k=2^k-1$, maka $h_{k+1}=2(2^k-1)+1=2^{k+1}-1$. Jadi $h_7=2^7-1=127$.",
+    "key_idea": "Cakram terbesar memaksa dua kali pemindahan menara yang lebih kecil.",
+    "common_error": "Menganggap setiap cakram cukup dipindahkan sekali atau dua kali sehingga menjawab $7$ atau $14$. Cakram kecil harus berpindah berkali-kali.",
+    "origin": "adapted",
+    "source_refs": [
+      "Menara Hanoi (Lucas, 1883; folklor)"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P009",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "graf lengkap dan komplemen",
+    "objective_id": "KO05-O5",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "jabat_tangan",
+      "graf_lengkap",
+      "komplemen"
+    ],
+    "statement": "Di sebuah kelas yang terdiri atas $30$ siswa, setiap siswa berteman dengan tepat $4$ siswa lain di kelas itu (pertemanan\nberlaku dua arah). Berapa banyak pasangan siswa di kelas itu yang **tidak** berteman?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "375",
+      "display": "$375$"
+    },
+    "hints": [
+      "Banyak pasangan berteman $=\\frac{30\\cdot4}2$.",
+      "Banyak semua pasangan siswa adalah $\\binom{30}2$."
+    ],
+    "solution": "Banyak pasangan berteman $=\\frac{30\\cdot4}{2}=60$. Banyak semua pasangan $\\binom{30}2=435$. Jadi pasangan yang tidak\nberteman ada $435-60=375$.\n\n(Dengan komplemen graf: setiap siswa tidak berteman dengan $29-4=25$ siswa, jadi $\\frac{30\\cdot25}2=375$.)",
+    "key_idea": "Sisi graf + sisi komplemen $=\\binom n2$.",
+    "common_error": "Menghitung $30\\cdot25=750$ tanpa membagi dua.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P010",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "keterhubungan dan kasus terburuk",
+    "objective_id": "KO05-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "graf_terhubung",
+      "kasus_terburuk",
+      "graf_lengkap"
+    ],
+    "statement": "Tentukan bilangan bulat positif terkecil $m$ sehingga **setiap** graf dengan $10$ titik dan $m$ sisi pasti terhubung.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "37",
+      "display": "$37$"
+    },
+    "hints": [
+      "Kasus terburuk: graf tak terhubung dengan sisi sebanyak mungkin. Coba $K_9$ ditambah satu titik terpencil.",
+      "Graf tak terhubung dapat dibagi menjadi bagian berisi $k$ titik dan $10-k$ titik tanpa sisi di antaranya, sehingga sisinya paling banyak $\\binom k2+\\binom{10-k}2$."
+    ],
+    "solution": "**Kasus terburuk.** Graf lengkap $K_9$ ditambah satu titik tanpa sisi mempunyai $\\binom92=36$ sisi dan tidak terhubung.\nJadi $m\\ge37$.\n\n**Cukup.** Jika graf $10$ titik tidak terhubung, ambil satu komponen; titik-titiknya membentuk bagian berisi $k$ titik\n($1\\le k\\le9$), dan tidak ada sisi antara bagian itu dan $10-k$ titik sisanya. Banyak sisi paling banyak\n$$\\tbinom k2+\\tbinom{10-k}2.$$\nUntuk $k=1,2,3,4,5$ nilainya $36,29,24,21,20$, dan simetris untuk $k\\ge5$. Jadi graf tak terhubung mempunyai paling\nbanyak $36$ sisi, sehingga $37$ sisi memaksa graf terhubung.\n\nJawabannya $37$.",
+    "key_idea": "Graf tak terhubung terbelah dua tanpa sisi di antaranya; maksimum dicapai oleh $K_9$ plus satu titik.",
+    "common_error": "Menjawab $9$ (banyak sisi pohon $10$ titik). Itu banyak sisi minimal agar graf **dapat** terhubung, bukan agar **pasti** terhubung.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P011",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi jumlah hasil kali",
+    "objective_id": "KO05-O3",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 12,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "jumlah_hasil_kali",
+      "kasus_pertama"
+    ],
+    "statement": "Sepuluh titik terletak pada sebuah lingkaran. Titik-titik itu akan dipasangkan menjadi $5$ pasang, dan setiap pasang\ndihubungkan dengan tali busur, sehingga **tidak ada dua tali busur yang berpotongan**. Berapa banyak cara melakukannya?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "42",
+      "display": "$42$"
+    },
+    "hints": [
+      "Misalkan $c_n$ banyak cara untuk $2n$ titik. Titik pertama dipasangkan dengan titik mana? Tali busurnya membelah titik lain menjadi dua kelompok.",
+      "Kedua kelompok harus berisi banyak titik genap dan dipasangkan sendiri-sendiri: $c_n=\\sum_{k=0}^{n-1}c_kc_{n-1-k}$, $c_0=1$."
+    ],
+    "solution": "Misalkan $c_n$ banyak cara untuk $2n$ titik pada lingkaran ($c_0=1$). Beri nomor titik $1,2,\\dots,2n$ berurutan.\nTitik $1$ dipasangkan dengan titik $j$. Tali busur $1j$ membagi titik lain menjadi titik $2,\\dots,j-1$ dan titik\n$j+1,\\dots,2n$. Tali busur lain tidak boleh memotong $1j$, jadi setiap kelompok dipasangkan di dalam kelompoknya sendiri;\nkarena itu $j-2$ harus genap. Jika kelompok pertama berisi $2k$ titik, kelompok kedua berisi $2(n-1-k)$ titik, dan\n$$c_n=c_0c_{n-1}+c_1c_{n-2}+\\cdots+c_{n-1}c_0.$$\nMaka $c_1=1$, $c_2=2$, $c_3=2+1+2=5$, $c_4=5+2+2+5=14$, dan\n$$c_5=14+5+2\\cdot2+5+14=42.$$",
+    "key_idea": "Pasangan titik pertama membelah masalah menjadi dua masalah bebas yang lebih kecil.",
+    "common_error": "Memakai $c_n=c_{n-1}\\cdot(\\text{banyak pilihan pasangan})$ seolah-olah setiap pilihan menyisakan satu kelompok saja, atau lupa bahwa kedua kelompok harus berisi banyak titik genap.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO05-P012",
+    "version": 1,
+    "module_id": "KO05",
+    "domain": "kombinatorika",
+    "subtopic": "turnamen dan penghitungan ganda",
+    "objective_id": "KO05-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 12,
+    "prerequisites": [
+      "KO01",
+      "KO02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "turnamen",
+      "hitung_dua_cara",
+      "konstruksi"
+    ],
+    "statement": "Delapan tim mengikuti kompetisi setengah putaran: setiap dua tim bertanding tepat sekali, dan tidak ada hasil seri.\nBerapa banyak **maksimum** tim yang dapat memperoleh paling sedikit $5$ kemenangan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "Misalkan $k$ tim menang paling sedikit $5$ kali. Kemenangan mereka berasal dari pertandingan antarmereka ($\\binom k2$) dan pertandingan melawan $8-k$ tim lain ($k(8-k)$).",
+      "$5k\\le\\binom k2+k(8-k)$ memberi $k\\le5$. Untuk $k=5$, buat kelima tim saling menang $2$ kali di antara mereka dan mengalahkan semua tim lain."
+    ],
+    "solution": "**Batas atas.** Misalkan $k\\ge1$ tim masing-masing menang paling sedikit $5$ kali. Total kemenangan mereka paling sedikit\n$5k$. Kemenangan itu diperoleh dari $\\binom k2$ pertandingan antarmereka dan paling banyak $k(8-k)$ pertandingan melawan\ntim lain. Jadi\n$$5k\\le\\frac{k(k-1)}2+k(8-k)\\iff5\\le\\frac{k-1}2+8-k\\iff k\\le5.$$\n\n**Konstruksi untuk $k=5$.** Lima tim $T_1,\\dots,T_5$ disusun melingkar; setiap $T_i$ mengalahkan $T_{i+1}$ dan $T_{i+2}$\n(indeks dibaca melingkar), sehingga setiap tim menang $2$ kali di antara mereka. Kelima tim juga mengalahkan ketiga tim\nlainnya: $2+3=5$ kemenangan. Hasil antara tiga tim lainnya bebas.\n\nJawabannya $5$.",
+    "key_idea": "Hitung kemenangan kelompok dua cara: dari dalam kelompok dan dari luar kelompok; lengkapi dengan konstruksi.",
+    "common_error": "Menjawab $6$ dengan menganggap keenam tim cukup mengalahkan kedua tim di luar kelompok dan $3$ tim di dalam kelompok. Keenam tim hanya memainkan $\\binom62=15$ pertandingan antarmereka, jadi rata-rata paling banyak $2{,}5$ kemenangan di dalam kelompok, dan total rata-rata paling banyak $4{,}5<5$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO05.md): A1–A6 lulus. A5: scripts/checks/KO05.py (pencarian lengkap / BFS / Havel–Hakimi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]

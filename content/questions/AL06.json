@@ -1,0 +1,509 @@
+[
+  {
+    "id": "AL06-E01",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "De Moivre",
+    "objective_id": "AL06-O2",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "bentuk_polar",
+      "de_moivre"
+    ],
+    "statement": "Tentukan nilai $\\left(1+i\\sqrt3\\right)^9$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "-512",
+      "display": "$-512$"
+    },
+    "hints": [
+      "Tulis $1+i\\sqrt3$ dalam bentuk polar: berapa modulus dan argumennya?",
+      "$1+i\\sqrt3=2\\operatorname{cis}60^\\circ$. Pakai De Moivre."
+    ],
+    "solution": "**Ide kunci.** Pada bentuk polar, memangkatkan berarti memangkatkan modulus dan mengalikan argumen.\n\nModulus: $\\left|1+i\\sqrt3\\right|=\\sqrt{1+3}=2$. Argumen: $\\cos\\theta=\\frac12$, $\\sin\\theta=\\frac{\\sqrt3}2$, jadi $\\theta=60^\\circ$.\nMaka $1+i\\sqrt3=2\\operatorname{cis}60^\\circ$ dan menurut De Moivre\n$$\\left(1+i\\sqrt3\\right)^9=2^9\\operatorname{cis}540^\\circ=512\\operatorname{cis}180^\\circ=512\\cdot(-1)=-512.$$\n\n**Cek sebagian.** $\\left(1+i\\sqrt3\\right)^3=2^3\\operatorname{cis}180^\\circ=-8$; memang $(1+i\\sqrt3)^2=-2+2i\\sqrt3$ dan\n$(-2+2i\\sqrt3)(1+i\\sqrt3)=-2-6=-8$. Jadi pangkat $9$ adalah $(-8)^3=-512$.",
+    "key_idea": "Ubah ke bentuk polar, lalu De Moivre.",
+    "common_error": "Memangkatkan bagian real dan imajiner secara terpisah: $1^9+(i\\sqrt3)^9$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-E02",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "akar satuan pangkat tiga",
+    "objective_id": "AL06-O3",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "akar_satuan",
+      "omega"
+    ],
+    "statement": "Misalkan $\\omega$ bilangan kompleks dengan $\\omega^3=1$ dan $\\omega\\ne1$. Tentukan nilai $$\\left(1-\\omega+\\omega^2\\right)\\left(1+\\omega-\\omega^2\\right).$$",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "4",
+      "display": "$4$"
+    },
+    "hints": [
+      "Dari $\\omega^3=1$, $\\omega\\ne1$, diperoleh $1+\\omega+\\omega^2=0$.",
+      "$1+\\omega^2=-\\omega$, jadi faktor pertama $=-2\\omega$. Begitu pula $1+\\omega=-\\omega^2$."
+    ],
+    "solution": "**Ide kunci.** Jangan menghitung $\\omega$ secara eksplisit; pakai $1+\\omega+\\omega^2=0$.\n\nKarena $\\omega^3-1=(\\omega-1)(\\omega^2+\\omega+1)=0$ dan $\\omega\\ne1$, berlaku $\\omega^2+\\omega+1=0$. Maka\n$$\\begin{aligned}1-\\omega+\\omega^2&=(1+\\omega^2)-\\omega=-\\omega-\\omega=-2\\omega,\\\\1+\\omega-\\omega^2&=(1+\\omega)-\\omega^2=-\\omega^2-\\omega^2=-2\\omega^2.\\end{aligned}$$\nHasil kalinya $4\\omega^3=4$.",
+    "key_idea": "Ganti $1+\\omega$ dan $1+\\omega^2$ dengan $-\\omega^2$ dan $-\\omega$.",
+    "common_error": "Memakai $1+\\omega+\\omega^2=0$ juga untuk $\\omega=1$, atau menganggap $\\omega^2=-1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P001",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "perkalian bilangan kompleks",
+    "objective_id": "AL06-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "aritmetika_kompleks"
+    ],
+    "statement": "Jika $(2+3i)(4-i)=a+bi$ dengan $a,b$ real, tentukan $a+b$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "21",
+      "display": "$21$"
+    },
+    "hints": [
+      "Jabarkan seperti polinom, lalu ganti $i^2$ dengan $-1$.",
+      "$8-2i+12i-3i^2$."
+    ],
+    "solution": "$(2+3i)(4-i)=8-2i+12i-3i^2=8+10i+3=11+10i$. Jadi $a+b=21$.",
+    "key_idea": "Jabarkan dan pakai $i^2=-1$.",
+    "common_error": "Memakai $i^2=1$ sehingga diperoleh $5+10i$ dan $a+b=15$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P002",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "pembagian dan modulus",
+    "objective_id": "AL06-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "konjugat",
+      "modulus"
+    ],
+    "statement": "Misalkan $z=\\dfrac{1+7i}{1-i}$. Tentukan $|z|$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "Kalikan pembilang dan penyebut dengan $1+i$, atau pakai $\\left|\\frac zw\\right|=\\frac{|z|}{|w|}$.",
+      "$|1+7i|=\\sqrt{50}$ dan $|1-i|=\\sqrt2$."
+    ],
+    "solution": "$|z|=\\dfrac{|1+7i|}{|1-i|}=\\dfrac{\\sqrt{50}}{\\sqrt2}=5$.\n\n(Dengan konjugat: $z=\\frac{(1+7i)(1+i)}{2}=\\frac{-6+8i}2=-3+4i$, dan $|z|=\\sqrt{9+16}=5$.)",
+    "key_idea": "Modulus hasil bagi = hasil bagi modulus.",
+    "common_error": "Menghitung $|z|$ sebagai $\\frac{1+7}{1+1}=4$, yaitu menjumlahkan bagian real dan imajiner.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P003",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "sudut rangkap",
+    "objective_id": "AL06-O4",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "sudut_rangkap",
+      "identitas_trigonometri"
+    ],
+    "statement": "Bilangan real $x$ memenuhi $\\sin x+\\cos x=\\dfrac75$. Tentukan nilai $\\sin2x$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "24/25",
+      "display": "$\\dfrac{24}{25}$"
+    },
+    "hints": [
+      "Kuadratkan kedua ruas.",
+      "$(\\sin x+\\cos x)^2=1+2\\sin x\\cos x=1+\\sin2x$."
+    ],
+    "solution": "Kuadratkan: $\\sin^2x+2\\sin x\\cos x+\\cos^2x=\\frac{49}{25}$, yaitu $1+\\sin2x=\\frac{49}{25}$. Jadi $\\sin2x=\\frac{24}{25}$.\n\n(Nilai seperti itu ada, misalnya $\\sin x=\\frac35$, $\\cos x=\\frac45$.)",
+    "key_idea": "Mengkuadratkan $\\sin x+\\cos x$ memunculkan $\\sin^2+\\cos^2=1$ dan $\\sin2x$.",
+    "common_error": "Lupa suku $\\sin^2x+\\cos^2x=1$ dan menjawab $\\sin2x=\\frac{49}{25}$, yang lebih dari $1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P004",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "pangkat i berperiode",
+    "objective_id": "AL06-O1",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "pangkat_i",
+      "periodik",
+      "modulus"
+    ],
+    "statement": "Misalkan $$S=1\\cdot i+2\\cdot i^2+3\\cdot i^3+\\cdots+20\\cdot i^{20}.$$ Tentukan $|S|^2$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "200",
+      "display": "$200$"
+    },
+    "hints": [
+      "Pangkat $i$ berulang dengan periode $4$. Kelompokkan empat suku berurutan.",
+      "$(4m+1)i-(4m+2)-(4m+3)i+(4m+4)=2-2i$ untuk setiap $m$."
+    ],
+    "solution": "Kelompokkan suku ke-$(4m+1)$ sampai ke-$(4m+4)$, $m=0,1,2,3,4$:\n$$(4m+1)i-(4m+2)-(4m+3)i+(4m+4)=2-2i.$$\nAda $5$ kelompok, jadi $S=10-10i$ dan $|S|^2=100+100=200$.",
+    "key_idea": "Kelompokkan menurut periode $4$ pangkat $i$; setiap kelompok memberi nilai yang sama.",
+    "common_error": "Menganggap jumlah satu periode $i-1-i+1=0$ sehingga $S=0$, padahal koefisiennya berbeda.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P005",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "argumen kelipatan",
+    "objective_id": "AL06-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "bentuk_polar",
+      "de_moivre"
+    ],
+    "statement": "Tentukan bilangan bulat positif terkecil $n$ sehingga $\\left(\\sqrt3+i\\right)^n$ adalah bilangan real **positif**.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "12",
+      "display": "$12$"
+    },
+    "hints": [
+      "$\\sqrt3+i=2\\operatorname{cis}30^\\circ$.",
+      "$\\left(\\sqrt3+i\\right)^n=2^n\\operatorname{cis}(30n)^\\circ$ real positif jika $30n$ kelipatan $360$."
+    ],
+    "solution": "$\\sqrt3+i=2\\operatorname{cis}30^\\circ$, jadi $\\left(\\sqrt3+i\\right)^n=2^n\\operatorname{cis}(30n)^\\circ$. Bilangan ini real positif\ntepat jika $30n$ kelipatan $360$, yaitu $n$ kelipatan $12$. Yang terkecil $n=12$.",
+    "key_idea": "Real positif berarti argumen kelipatan $360^\\circ$.",
+    "common_error": "Menjawab $6$: untuk $n=6$ hasilnya $64\\operatorname{cis}180^\\circ=-64$, real tetapi negatif.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P006",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "hasil kali dari akar satuan",
+    "objective_id": "AL06-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 7,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "akar_satuan",
+      "faktorisasi_polinom"
+    ],
+    "statement": "Misalkan $z$ bilangan kompleks dengan $z^5=1$ dan $z\\ne1$. Tentukan nilai $$(1-z)(1-z^2)(1-z^3)(1-z^4).$$",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "Bilangan $z,z^2,z^3,z^4$ adalah keempat akar ke-$5$ satuan selain $1$ (mengapa semuanya berbeda?).",
+      "$x^4+x^3+x^2+x+1=(x-z)(x-z^2)(x-z^3)(x-z^4)$. Substitusi $x=1$."
+    ],
+    "solution": "Karena $z^5=1$ dan $z\\ne1$, bilangan $z,z^2,z^3,z^4$ semuanya akar ke-$5$ satuan dan tidak ada yang sama dengan $1$\n($z^k=1$ dengan $1\\le k\\le4$ akan memaksa $z=1$, karena $5$ prima). Mereka juga berbeda satu sama lain (jika $z^j=z^k$ dengan\n$j<k$, maka $z^{k-j}=1$). Jadi mereka adalah keempat akar\n$$x^4+x^3+x^2+x+1=\\frac{x^5-1}{x-1},$$\nsehingga $x^4+x^3+x^2+x+1=(x-z)(x-z^2)(x-z^3)(x-z^4)$. Substitusi $x=1$:\n$$(1-z)(1-z^2)(1-z^3)(1-z^4)=1+1+1+1+1=5.$$",
+    "key_idea": "Hasil kali $(1-\\zeta)$ atas akar satuan nontrivial = nilai $1+x+\\cdots+x^{n-1}$ di $x=1$.",
+    "common_error": "Menganggap hasilnya $0$ karena $1$ adalah akar $x^5-1$; faktor $(x-1)$ sudah dibagi keluar.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P007",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "hasil kali kosinus",
+    "objective_id": "AL06-O4",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 7,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "sudut_rangkap",
+      "teleskopik"
+    ],
+    "statement": "Tentukan nilai $\\cos20^\\circ\\cdot\\cos40^\\circ\\cdot\\cos80^\\circ$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "1/8",
+      "display": "$\\dfrac18$"
+    },
+    "hints": [
+      "Kalikan dengan $\\sin20^\\circ$ lalu pakai $2\\sin x\\cos x=\\sin2x$ berulang kali.",
+      "$8\\sin20^\\circ\\cos20^\\circ\\cos40^\\circ\\cos80^\\circ=\\sin160^\\circ$."
+    ],
+    "solution": "Misalkan $P=\\cos20^\\circ\\cos40^\\circ\\cos80^\\circ$. Dengan $2\\sin x\\cos x=\\sin2x$ tiga kali:\n$$\\begin{aligned}8\\sin20^\\circ\\,P&=4\\sin40^\\circ\\cos40^\\circ\\cos80^\\circ\\\\&=2\\sin80^\\circ\\cos80^\\circ=\\sin160^\\circ.\\end{aligned}$$\nKarena $\\sin160^\\circ=\\sin20^\\circ\\ne0$, diperoleh $P=\\frac18$.",
+    "key_idea": "Kalikan dengan sinus sudut terkecil agar sudut rangkap “melipat” hasil kali.",
+    "common_error": "Menganggap $\\cos20^\\circ\\cos40^\\circ=\\cos60^\\circ$ (menjumlahkan sudut dalam hasil kali).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P008",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "akar kuadrat bilangan kompleks",
+    "objective_id": "AL06-O1",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "kesamaan_kompleks",
+      "sistem_persamaan"
+    ],
+    "statement": "Bilangan kompleks $z=a+bi$ ($a,b$ real, $a>0$) memenuhi $z^2=-5+12i$. Tentukan $a+b$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "$(a+bi)^2=a^2-b^2+2abi$. Samakan bagian real dan imajiner.",
+      "$a^2-b^2=-5$ dan $ab=6$. Pakai juga $|z|^2=|z^2|$: $a^2+b^2=13$."
+    ],
+    "solution": "$(a+bi)^2=(a^2-b^2)+2abi$, jadi $a^2-b^2=-5$ dan $2ab=12$. Selain itu $|z|^2=|z^2|=\\sqrt{25+144}=13$, yaitu\n$a^2+b^2=13$. Maka $a^2=4$, $b^2=9$. Karena $a>0$, $a=2$; dari $ab=6$, $b=3$. Jadi $z=2+3i$ dan $a+b=5$.\n\nCek: $(2+3i)^2=4+12i-9=-5+12i$.",
+    "key_idea": "Samakan bagian real dan imajiner; modulus memberi persamaan ketiga yang memudahkan.",
+    "common_error": "Mengambil $b=-3$ dari $b^2=9$ tanpa memeriksa $ab=6$, sehingga menjawab $-1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P009",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "tangen dan sudut rangkap",
+    "objective_id": "AL06-O4",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "sudut_rangkap",
+      "identitas_trigonometri"
+    ],
+    "statement": "Bilangan real $x$ memenuhi $\\tan x=\\dfrac13$. Tentukan nilai $\\sin2x+\\cos2x$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "7/5",
+      "display": "$\\dfrac75$"
+    },
+    "hints": [
+      "Tulis $\\sin2x$ dan $\\cos2x$ sebagai pecahan dengan penyebut $\\sin^2x+\\cos^2x$, lalu bagi dengan $\\cos^2x$.",
+      "$\\sin2x=\\frac{2\\tan x}{1+\\tan^2x}$ dan $\\cos2x=\\frac{1-\\tan^2x}{1+\\tan^2x}$."
+    ],
+    "solution": "Karena $\\sin^2x+\\cos^2x=1$,\n$$\\sin2x=\\frac{2\\sin x\\cos x}{\\sin^2x+\\cos^2x}=\\frac{2\\tan x}{1+\\tan^2x}=\\frac{2/3}{10/9}=\\frac35,$$\n$$\\cos2x=\\frac{\\cos^2x-\\sin^2x}{\\sin^2x+\\cos^2x}=\\frac{1-\\tan^2x}{1+\\tan^2x}=\\frac{8/9}{10/9}=\\frac45.$$\nJumlahnya $\\frac75$. (Hasilnya sama untuk $x$ di kuadran I maupun III, karena kedua rumus hanya bergantung pada $\\tan x$.)",
+    "key_idea": "Nyatakan $\\sin2x$ dan $\\cos2x$ dalam $\\tan x$ dengan membagi oleh $\\cos^2x$.",
+    "common_error": "Memakai $\\sin2x=2\\tan x=\\frac23$ dan $\\cos2x=1-\\tan^2x=\\frac89$, sehingga diperoleh $\\frac{14}9$. Kedua rumus itu kehilangan penyebut $1+\\tan^2x$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P010",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "jumlah kosinus dari akar satuan",
+    "objective_id": "AL06-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "akar_satuan",
+      "jumlah_kosinus",
+      "simetri"
+    ],
+    "statement": "Tentukan nilai $$\\cos\\frac{2\\pi}7+\\cos\\frac{4\\pi}7+\\cos\\frac{6\\pi}7$$ (sudut dalam radian; $\\pi$ radian $=180^\\circ$).",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "-1/2",
+      "display": "$-\\dfrac12$"
+    },
+    "hints": [
+      "Misalkan $\\zeta=\\operatorname{cis}\\frac{2\\pi}7$. Jumlah $1+\\zeta+\\zeta^2+\\cdots+\\zeta^6=0$. Ambil bagian real.",
+      "$\\cos\\frac{2\\pi k}7=\\cos\\frac{2\\pi(7-k)}7$, jadi bagian real $\\zeta+\\cdots+\\zeta^6$ adalah dua kali jumlah yang ditanya."
+    ],
+    "solution": "Misalkan $\\zeta=\\operatorname{cis}\\frac{2\\pi}7$. Akar-akar ke-$7$ satuan berjumlah nol:\n$$1+\\zeta+\\zeta^2+\\cdots+\\zeta^6=0.$$\nBagian real $\\zeta^k$ adalah $\\cos\\frac{2\\pi k}7$, dan $\\cos\\frac{2\\pi k}7=\\cos\\frac{2\\pi(7-k)}7$ (sudut $\\theta$ dan $2\\pi-\\theta$).\nJadi bagian real persamaan di atas memberi\n$$1+2\\left(\\cos\\frac{2\\pi}7+\\cos\\frac{4\\pi}7+\\cos\\frac{6\\pi}7\\right)=0,$$\nsehingga jumlah yang ditanya $=-\\frac12$.",
+    "key_idea": "Jumlah kosinus berpola = setengah bagian real dari jumlah akar satuan tanpa suku $1$.",
+    "common_error": "Lupa suku $1$ (untuk $k=0$) sehingga menjawab $0$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P011",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "jumlah binomial berselang",
+    "objective_id": "AL06-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "binomial",
+      "de_moivre",
+      "bagian_real"
+    ],
+    "statement": "Tentukan nilai $$\\binom{20}0-\\binom{20}2+\\binom{20}4-\\binom{20}6+\\cdots-\\binom{20}{18}+\\binom{20}{20}.$$",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "-1024",
+      "display": "$-1024$"
+    },
+    "hints": [
+      "Jabarkan $(1+i)^{20}$ dengan binomial. Suku-suku mana yang real, dan apa tandanya?",
+      "Bagian real $(1+i)^{20}$ tepat jumlah yang ditanya. Hitung $(1+i)^{20}$ dengan $(1+i)^2=2i$."
+    ],
+    "solution": "Menurut binomial, $(1+i)^{20}=\\sum_{k=0}^{20}\\binom{20}k i^k$. Suku dengan $k$ ganjil imajiner; untuk $k$ genap,\n$i^k=(-1)^{k/2}$, yaitu $+1,-1,+1,\\dots$ untuk $k=0,2,4,\\dots$. Jadi jumlah yang ditanya adalah bagian real $(1+i)^{20}$.\n\nKarena $(1+i)^2=2i$, $(1+i)^{20}=(2i)^{10}=2^{10}i^{10}=-1024$. Bilangan ini real, jadi jumlahnya $-1024$.\n(Tanda suku terakhir $\\binom{20}{20}$: $k=20$, $(-1)^{10}=+1$, sesuai soal.)",
+    "key_idea": "Jumlah binomial genap bertanda berselang = bagian real $(1+i)^n$.",
+    "common_error": "Menganggap jumlahnya $2^{19}$ (jumlah semua $\\binom{20}k$ genap) dengan mengabaikan tanda berselang, atau salah menghitung $i^{10}=1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "AL06-P012",
+    "version": 1,
+    "module_id": "AL06",
+    "domain": "aljabar",
+    "subtopic": "saringan akar satuan",
+    "objective_id": "AL06-O3",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 12,
+    "prerequisites": [
+      "AL02",
+      "AL04"
+    ],
+    "technique_tags": [
+      "akar_satuan",
+      "omega",
+      "pencacahan"
+    ],
+    "statement": "Berapa banyak himpunan bagian dari $\\{1,2,3,\\dots,9\\}$ (termasuk himpunan kosong) yang jumlah anggotanya habis dibagi $3$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "176",
+      "display": "$176$"
+    },
+    "hints": [
+      "Pandang $F(x)=(1+x)(1+x^2)\\cdots(1+x^9)$: koefisien $x^s$ adalah banyak himpunan bagian berjumlah $s$. Yang dicari: jumlah koefisien dengan $s$ kelipatan $3$.",
+      "Jumlah itu $=\\frac{F(1)+F(\\omega)+F(\\omega^2)}3$. Hitung $F(\\omega)$ dengan mengelompokkan faktor menurut sisa pangkat modulo $3$."
+    ],
+    "solution": "Misalkan $F(x)=(1+x)(1+x^2)\\cdots(1+x^9)=\\sum_s c_sx^s$, dengan $c_s$ banyak himpunan bagian berjumlah $s$. Untuk\n$\\omega$ dengan $\\omega^3=1$, $\\omega\\ne1$:\n$$1+\\omega^s+\\omega^{2s}=\\begin{cases}3,&3\\mid s,\\\\0,&3\\nmid s.\\end{cases}$$\nJadi banyak yang dicari $N=\\frac{F(1)+F(\\omega)+F(\\omega^2)}3$.\n\n- $F(1)=2^9=512$.\n- Pangkat $1,\\dots,9$ memuat tiga dari setiap sisa modulo $3$, jadi\n  $F(\\omega)=\\big[(1+\\omega)(1+\\omega^2)(1+1)\\big]^3$. Karena $(1+\\omega)(1+\\omega^2)=1+\\omega+\\omega^2+\\omega^3=1$,\n  diperoleh $F(\\omega)=2^3=8$. Dengan cara yang sama $F(\\omega^2)=8$.\n\nMaka $N=\\frac{512+8+8}3=176$.\n\n**Cek dengan pencacahan.** Pilih $a$ bilangan dari $\\{1,4,7\\}$ dan $b$ dari $\\{2,5,8\\}$; jumlahnya habis dibagi $3$ tepat\njika $a+2b\\equiv0$, yaitu $a\\equiv b\\pmod3$. Pasangan $(a,b)$ yang memenuhi: $a=b$ ($1+9+9+1=20$ cara) atau $\\{a,b\\}=\\{0,3\\}$\n($2$ cara), jadi $22$ cara. Anggota $\\{3,6,9\\}$ bebas: $2^3=8$. Total $22\\cdot8=176$.",
+    "key_idea": "Saringan akar satuan: $\\frac13\\big(F(1)+F(\\omega)+F(\\omega^2)\\big)$ mengambil koefisien berpangkat kelipatan $3$.",
+    "common_error": "Menganggap sepertiga himpunan bagian memenuhi, $\\frac{512}3$ (bukan bilangan bulat), atau melupakan himpunan kosong sehingga menjawab $175$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_AL06.md): A1–A6 lulus. A5: scripts/checks/AL06.py (aritmetika kompleks eksak sympy / pencarian lengkap) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]
