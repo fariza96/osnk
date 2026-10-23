@@ -1,0 +1,518 @@
+[
+ {
+  "id": "KO03-E01",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah berupa pasangan",
+  "objective_id": "KO03-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati",
+   "pasangan",
+   "kasus_terburuk"
+  ],
+  "statement": "Berapa banyak bilangan minimal yang harus diambil dari $\\{1,2,\\dots,20\\}$ agar **pasti** ada dua bilangan\nterambil yang jumlahnya $21$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "11",
+   "display": "$11$"
+  },
+  "hints": [
+   "Kelompokkan $1,\\dots,20$ menjadi pasangan yang berjumlah $21$. Ada berapa pasangan?",
+   "Ada $10$ pasangan $\\{1,20\\},\\{2,19\\},\\dots,\\{10,11\\}$. Ambil satu dari setiap pasangan untuk kasus terburuk."
+  ],
+  "solution": "**Ide kunci.** Rumahnya harus dipilih sehingga dua bilangan dalam satu rumah **otomatis** berjumlah $21$.\n\n**Rumah merpati (cukup).** Bagi $\\{1,\\dots,20\\}$ menjadi $10$ pasangan\n$$\\{1,20\\},\\{2,19\\},\\dots,\\{10,11\\}.$$\nJika $11$ bilangan diambil, menurut prinsip rumah merpati ada dua bilangan dari pasangan yang sama, dan\njumlahnya $21$.\n\n**Kasus terburuk (perlu).** Bilangan $1,2,\\dots,10$ adalah $10$ bilangan tanpa pasangan berjumlah $21$, karena\njumlah dua di antaranya paling besar $19$. Jadi $10$ bilangan belum cukup.\n\nJawabannya $11$.",
+  "key_idea": "Pilih rumah yang membuat syarat soal terpenuhi otomatis, lalu lengkapi dengan contoh kasus terburuk.",
+  "common_error": "Menjawab $10$ (banyak pasangan). Dengan $10$ bilangan masih mungkin mengambil tepat satu dari setiap pasangan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-E02",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "invarian hasil kali",
+  "objective_id": "KO03-O4",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "invarian",
+   "faktorisasi"
+  ],
+  "statement": "Bilangan $1,2,3,4,5,6$ ditulis di papan. Pada setiap langkah, dua bilangan $a$ dan $b$ dihapus lalu diganti\ndengan $a+b+ab$. Setelah $5$ langkah tersisa satu bilangan. Tentukan bilangan itu.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5039",
+   "display": "$5039$"
+  },
+  "hints": [
+   "Perhatikan bahwa $a+b+ab=(1+a)(1+b)-1$.",
+   "Hasil kali semua $(1+x)$ untuk bilangan $x$ di papan tidak berubah."
+  ],
+  "solution": "**Ide kunci.** Cari besaran yang tidak berubah oleh langkah itu. Faktorkan bentuk barunya.\n\n**Langkah.**\n\n1. $1+(a+b+ab)=(1+a)(1+b)$. Jadi jika $Q$ adalah hasil kali semua $(1+x)$ untuk $x$ di papan, mengganti $a,b$\n   dengan $a+b+ab$ tidak mengubah $Q$.\n2. Di awal, $Q=2\\cdot3\\cdot4\\cdot5\\cdot6\\cdot7=5040$.\n3. Di akhir hanya ada satu bilangan $N$, sehingga $1+N=5040$ dan $N=5039$.\n\nHasilnya tidak bergantung pada urutan pemilihan.\n\n**Pemeriksaan kecil.** Untuk $1,2$ saja: $1+2+2=5$, dan $(2)(3)-1=5$ ✓.",
+  "key_idea": "Invarian sering muncul dengan memfaktorkan aturan langkahnya: $a+b+ab$ menjadi $(1+a)(1+b)-1$.",
+  "common_error": "Mengira hasil akhir bergantung pada urutan, lalu mencoba satu urutan dengan hitungan yang keliru. Atau menjumlahkan bilangan ($21$) seolah-olah aturannya hanya $a+b$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P001",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah merpati bentuk umum",
+  "objective_id": "KO03-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati"
+  ],
+  "statement": "Sebuah kelas terdiri atas $30$ siswa. Tentukan bilangan bulat terbesar $k$ sehingga **pasti** ada $k$ siswa yang\nlahir pada bulan yang sama.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3",
+   "display": "$3$"
+  },
+  "hints": [
+   "Ada $12$ bulan (rumah) dan $30$ siswa (merpati).",
+   "Jika setiap bulan berisi paling banyak $2$ siswa, totalnya paling banyak $24$."
+  ],
+  "solution": "Jika setiap bulan berisi paling banyak $2$ siswa, totalnya paling banyak $24<30$. Jadi pasti ada bulan dengan\npaling sedikit $3$ siswa: $k\\ge3$, sesuai $\\left\\lceil\\frac{30}{12}\\right\\rceil=3$.\n\n$k=4$ tidak dijamin: $6$ bulan berisi $3$ siswa dan $6$ bulan berisi $2$ siswa ($18+12=30$), sehingga tidak ada\nbulan dengan $4$ siswa. Jadi $k=3$.",
+  "key_idea": "$N$ objek dalam $k$ kotak menjamin satu kotak berisi $\\left\\lceil\\frac Nk\\right\\rceil$ objek, dan sebaran merata menunjukkan bahwa jaminan tidak lebih dari itu.",
+  "common_error": "Menghitung $\\frac{30}{12}=2{,}5$ lalu membulatkan ke bawah menjadi $2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P002",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "kasus terburuk",
+  "objective_id": "KO03-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "kasus_terburuk",
+   "rumah_merpati"
+  ],
+  "statement": "Dalam kantong gelap ada $5$ kaus kaki merah, $7$ biru, dan $9$ hijau. Berapa banyak kaus kaki minimal yang\nharus diambil (tanpa melihat) agar **pasti** terambil $3$ kaus kaki berwarna sama?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "7",
+   "display": "$7$"
+  },
+  "hints": [
+   "Kasus terburuk: ambil sebanyak mungkin tanpa ada $3$ yang sewarna.",
+   "Paling banyak $2$ dari setiap warna, jadi $6$ kaus kaki. Stok setiap warna cukup untuk itu."
+  ],
+  "solution": "**Kasus terburuk.** Tanpa $3$ yang sewarna, paling banyak $2$ kaus kaki dari setiap warna dapat diambil, jadi\npaling banyak $6$. Ini memang mungkin, karena setiap warna mempunyai stok paling sedikit $2$.\n\n**Cukup.** Dengan $7$ kaus kaki dalam $3$ warna, ada warna yang muncul $\\left\\lceil\\frac73\\right\\rceil=3$ kali.\n\nJawabannya $7$.",
+  "key_idea": "Jawaban “minimal agar pasti” adalah ukuran kasus terburuk ditambah satu.",
+  "common_error": "Menganggap kasus terburuk adalah mengambil semua kaus kaki dari dua warna lebih dulu, misalnya $5+7+3=15$. Soal ini meminta $3$ yang sewarna, bukan $3$ dari warna tertentu.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P003",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah berupa kelas sisa",
+  "objective_id": "KO03-O3",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati",
+   "kelas_sisa"
+  ],
+  "statement": "Berapa banyak bilangan bulat minimal yang harus dipilih agar **pasti** ada dua bilangan terpilih yang\nselisihnya habis dibagi $11$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "Dua bilangan berselisih kelipatan $11$ tepat jika sisanya sama ketika dibagi $11$.",
+   "Ada $11$ kemungkinan sisa. Bilangan $0,1,\\dots,10$ adalah contoh $11$ bilangan yang belum memenuhi."
+  ],
+  "solution": "Selisih $a-b$ habis dibagi $11$ tepat jika $a$ dan $b$ bersisa sama ketika dibagi $11$. Ada $11$ kemungkinan sisa\n(rumah). Dengan $12$ bilangan, dua di antaranya bersisa sama.\n\nBilangan $0,1,\\dots,10$ bersisa berbeda semua, jadi $11$ bilangan belum cukup. Jawabannya $12$.",
+  "key_idea": "Syarat “selisih habis dibagi $m$” menunjuk langsung ke rumah berupa kelas sisa modulo $m$.",
+  "common_error": "Menjawab $11$ (banyak kelas sisa) dan lupa menambah satu.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P004",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah berupa rantai",
+  "objective_id": "KO03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati",
+   "rantai",
+   "kasus_terburuk"
+  ],
+  "statement": "Berapa banyak bilangan minimal yang harus diambil dari $\\{1,2,\\dots,30\\}$ agar **pasti** ada dua bilangan terambil\nyang selisihnya tepat $5$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "16",
+   "display": "$16$"
+  },
+  "hints": [
+   "Kelompokkan bilangan menurut sisa pembagian oleh $5$. Setiap kelompok berupa rantai $r,r+5,\\dots,r+25$.",
+   "Dari rantai $6$ bilangan, paling banyak $3$ dapat diambil tanpa dua yang bertetangga di rantai."
+  ],
+  "solution": "**Rantai.** Untuk $r=1,\\dots,5$, bentuk rantai $r,\\,r+5,\\,r+10,\\,r+15,\\,r+20,\\,r+25$. Dua bilangan berselisih tepat\n$5$ hanya jika keduanya bertetangga dalam rantai yang sama.\n\n**Batas per rantai.** Dari $6$ bilangan berjajar, tanpa dua yang bertetangga, paling banyak $3$ dapat diambil.\nJadi tanpa selisih $5$, paling banyak $5\\cdot3=15$ bilangan.\n\n**Kasus terburuk.** $\\{1,\\dots,5\\}\\cup\\{11,\\dots,15\\}\\cup\\{21,\\dots,25\\}$ berisi $15$ bilangan. Selisih di dalam\nsatu blok paling besar $4$, dan selisih antarblok paling kecil $6$, jadi tidak ada selisih $5$.\n\nDengan $16$ bilangan, ada rantai yang memuat $4$ bilangan, dan pasti ada dua yang bertetangga. Jawabannya $16$.",
+  "key_idea": "Jika syaratnya bukan “sama rumah” tetapi “bertetangga”, rumahnya berupa rantai, dan kapasitas setiap rumah dihitung sendiri.",
+  "common_error": "Memakai $5$ kelas sisa sebagai rumah biasa dan menjawab $6$. Dua bilangan bersisa sama belum tentu berselisih **tepat** $5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P005",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "pewarnaan papan catur",
+  "objective_id": "KO03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "pewarnaan",
+   "invarian",
+   "konstruksi"
+  ],
+  "statement": "Setiap petak papan $5\\times5$ ditempati seekor kumbang. Pada saat yang sama, setiap kumbang berpindah ke salah\nsatu petak yang bersisian dengannya (atas, bawah, kiri, atau kanan). Satu petak boleh ditempati beberapa\nkumbang. Berapa banyak **minimum** petak kosong setelah perpindahan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "1",
+   "display": "$1$"
+  },
+  "hints": [
+   "Warnai papan seperti papan catur dengan pojok berwarna gelap. Berapa petak gelap dan terang? Ke warna apa kumbang berpindah?",
+   "Ada $13$ petak gelap dan $12$ terang. Kumbang dari petak terang ($12$ ekor) adalah satu-satunya yang mendarat di petak gelap."
+  ],
+  "solution": "**Batas bawah.** Warnai papan seperti papan catur dengan pojok gelap: ada $13$ petak gelap dan $12$ petak terang.\nSetiap kumbang berpindah ke petak yang warnanya berbeda. Petak gelap hanya dapat diisi oleh $12$ kumbang dari\npetak terang, jadi paling sedikit $13-12=1$ petak gelap kosong.\n\n**Tercapai.** Petak tengah berwarna gelap. Sisa $24$ petak terbagi menjadi cincin luar ($16$ petak) dan cincin\ndalam ($8$ petak). Setiap cincin adalah lintasan tertutup dengan banyak petak genap, jadi dapat dipotong menjadi\npasangan petak bersisian. Kumbang dalam setiap pasangan bertukar tempat, dan kumbang di tengah pindah ke salah\nsatu tetangganya. Semua petak kecuali petak tengah terisi.\n\nJawabannya $1$.",
+  "key_idea": "Pewarnaan papan catur mengubah perpindahan ke tetangga menjadi pertukaran warna; selisih banyak warna memberi batas.",
+  "common_error": "Menjawab $0$ karena mengira kumbang dapat diatur agar semua petak terisi, tanpa menghitung warna.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P006",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "invarian warna pada langkah kuda",
+  "objective_id": "KO03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "pewarnaan",
+   "invarian",
+   "konstruksi"
+  ],
+  "statement": "Sebuah bidak kuda catur berada di petak pojok kiri bawah papan $8\\times8$ (petak $a1$). Pada setiap langkah, kuda\nbergerak seperti biasa: $2$ petak ke satu arah lalu $1$ petak tegak lurus. Untuk berapa banyak bilangan bulat $k$\ndengan $1\\le k\\le23$, kuda dapat berada di petak pojok kanan atas ($h8$) setelah **tepat** $k$ langkah?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "Setiap langkah kuda berganti warna petak. Apakah $a1$ dan $h8$ berwarna sama?",
+   "$k$ harus genap. Berapa langkah minimum dari $a1$ ke $h8$? Setiap langkah menambah jumlah koordinat paling banyak $3$."
+  ],
+  "solution": "Beri petak koordinat $(x,y)$ dengan $1\\le x,y\\le8$; $a1=(1,1)$ dan $h8=(8,8)$.\n\n**Paritas.** Setiap langkah mengubah $x+y$ sebesar $\\pm1$ atau $\\pm3$, jadi paritas $x+y$ berganti. Karena\n$1+1$ dan $8+8$ sama-sama genap, $k$ harus genap.\n\n**Batas bawah.** Setiap langkah menambah $x+y$ paling banyak $3$, sedangkan yang diperlukan $16-2=14$. Jadi\n$k\\ge5$, dan karena genap, $k\\ge6$.\n\n**Tercapai.** Enam langkah:\n$(1,1)\\to(2,3)\\to(3,5)\\to(4,7)\\to(6,8)\\to(7,6)\\to(8,8)$. Untuk setiap $k$ genap yang lebih besar, sisipkan\nlangkah bolak-balik (pergi lalu kembali) di tengah perjalanan; setiap sisipan menambah $2$ langkah.\n\nJadi $k\\in\\{6,8,10,\\dots,22\\}$, sebanyak $9$ nilai.",
+  "key_idea": "Invarian warna membuang semua $k$ ganjil; batas jarak memberi minimum; langkah bolak-balik mengisi semua $k$ genap yang lebih besar.",
+  "common_error": "Hanya memakai paritas dan menghitung semua $k$ genap dari $2$ sampai $22$ ($11$ nilai), padahal $k=2$ dan $k=4$ terlalu sedikit untuk mencapai pojok seberang.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P007",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah berupa daerah",
+  "objective_id": "KO03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati",
+   "potong_daerah",
+   "kasus_terburuk"
+  ],
+  "statement": "Beberapa titik diletakkan di dalam atau pada sisi sebuah persegi bersisi $3$. Berapa banyak titik minimal agar\n**pasti** ada dua titik yang jaraknya paling jauh $\\sqrt2$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "10",
+   "display": "$10$"
+  },
+  "hints": [
+   "Potong persegi menjadi $9$ persegi satuan. Berapa jarak terjauh dua titik dalam satu persegi satuan?",
+   "Diagonal persegi satuan adalah $\\sqrt2$. Untuk kasus terburuk, coba $9$ titik pada kisi berjarak $1{,}5$."
+  ],
+  "solution": "**Cukup.** Potong persegi menjadi $9$ persegi satuan. Dua titik dalam satu persegi satuan (termasuk sisinya)\nberjarak paling jauh $\\sqrt2$, yaitu panjang diagonalnya. Dengan $10$ titik, dua di antaranya berada di persegi\nsatuan yang sama.\n\n**Kasus terburuk.** Ambil $9$ titik $(1{,}5i,\\;1{,}5j)$ untuk $i,j\\in\\{0,1,2\\}$. Jarak terdekat dua titik adalah\n$1{,}5>\\sqrt2\\approx1{,}414$. Jadi $9$ titik belum cukup.\n\nJawabannya $10$.",
+  "key_idea": "Untuk titik dalam bangun, potong bangun menjadi bagian-bagian yang diameternya sama dengan jarak yang diminta.",
+  "common_error": "Menjawab $9$ (banyak bagian) tanpa menambah satu, atau tidak memeriksa bahwa $9$ titik memang dapat diletakkan saling berjauhan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P008",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah gabungan dua sifat",
+  "objective_id": "KO03-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati",
+   "aturan_perkalian"
+  ],
+  "statement": "Berapa banyak orang minimal yang harus dikumpulkan agar **pasti** ada $5$ orang yang lahir pada bulan yang sama\n**dan** berjenis kelamin sama?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "97",
+   "display": "$97$"
+  },
+  "hints": [
+   "Rumahnya adalah pasangan (bulan, jenis kelamin). Ada berapa rumah?",
+   "Ada $12\\cdot2=24$ rumah. Kasus terburuk: $4$ orang di setiap rumah."
+  ],
+  "solution": "Rumahnya pasangan (bulan, jenis kelamin), sebanyak $12\\cdot2=24$. Jika setiap rumah berisi paling banyak $4$ orang,\ntotalnya paling banyak $96$, dan sebaran ini memang mungkin. Dengan $97$ orang, ada rumah berisi\n$\\left\\lceil\\frac{97}{24}\\right\\rceil=5$ orang. Jawabannya $97$.",
+  "key_idea": "Jika syaratnya gabungan beberapa sifat, rumahnya adalah kombinasi semua sifat itu (aturan perkalian).",
+  "common_error": "Menghitung bulan dan jenis kelamin secara terpisah, misalnya $4\\cdot12+1=49$, padahal kelima orang itu juga harus berjenis kelamin sama.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P009",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "kelas sisa yang saling bermusuhan",
+  "objective_id": "KO03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 8,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "kelas_sisa",
+   "kasus_terburuk",
+   "pembagian_kasus"
+  ],
+  "statement": "Berapa banyak bilangan minimal yang harus diambil dari $\\{1,2,\\dots,100\\}$ agar **pasti** ada dua bilangan\nterambil yang jumlahnya habis dibagi $7$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "46",
+   "display": "$46$"
+  },
+  "hints": [
+   "Dua bilangan berjumlah kelipatan $7$ jika sisanya $r$ dan $7-r$, atau keduanya bersisa $0$. Hitung banyak bilangan di setiap kelas sisa.",
+   "Dari setiap pasangan kelas $\\{1,6\\},\\{2,5\\},\\{3,4\\}$ hanya satu kelas yang boleh dipakai, dan dari kelas $0$ hanya satu bilangan."
+  ],
+  "solution": "**Banyak anggota kelas sisa** modulo $7$ di $\\{1,\\dots,100\\}$: sisa $1$ dan $2$ masing-masing $15$\nbilangan, sisa $0,3,4,5,6$ masing-masing $14$ bilangan.\n\n**Batas.** Jumlah dua bilangan habis dibagi $7$ tepat jika sisanya $\\{r,7-r\\}$ atau keduanya bersisa $0$. Jadi\nhimpunan tanpa pasangan seperti itu memuat paling banyak satu bilangan bersisa $0$, dan dari setiap pasangan\nkelas $\\{1,6\\},\\{2,5\\},\\{3,4\\}$ hanya satu kelas. Ukuran terbesarnya\n$$1+\\max(15,14)+\\max(15,14)+\\max(14,14)=1+15+15+14=45.$$\n\n**Kasus terburuk.** Ambil $7$, semua bilangan bersisa $1$, semua bersisa $2$, dan semua bersisa $3$: $45$\nbilangan tanpa pasangan berjumlah kelipatan $7$.\n\nJadi jawabannya $46$.",
+  "key_idea": "Untuk syarat jumlah, kelas sisa $r$ dan $m-r$ saling bermusuhan; pilih kelas yang lebih besar dari setiap pasangan, dan ingat kelas $0$.",
+  "common_error": "Lupa bahwa satu bilangan bersisa $0$ tetap boleh diambil (sehingga mendapat $45$), atau mengambil seluruh kelas $0$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P010",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "rumah berupa bagian ganjil",
+  "objective_id": "KO03-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "rumah_merpati",
+   "rantai",
+   "kasus_terburuk"
+  ],
+  "statement": "Berapa banyak bilangan minimal yang harus diambil dari $\\{1,2,\\dots,100\\}$ agar **pasti** ada dua bilangan\nterambil yang salah satunya membagi yang lain?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "51",
+   "display": "$51$"
+  },
+  "hints": [
+   "Setiap bilangan dapat ditulis $2^k\\cdot m$ dengan $m$ ganjil. Jadikan $m$ sebagai rumah.",
+   "Ada $50$ bilangan ganjil $m\\le99$. Dua bilangan dengan $m$ sama: yang kecil membagi yang besar. Untuk kasus terburuk, coba $51,\\dots,100$."
+  ],
+  "solution": "**Rumah.** Tulis setiap $n$ sebagai $2^k m$ dengan $m$ ganjil (bagian ganjil $n$). Ada $50$ kemungkinan\n$m\\in\\{1,3,\\dots,99\\}$. Jika $2^a m$ dan $2^b m$ dengan $a<b$ sama-sama terambil, yang pertama membagi yang kedua.\nJadi dengan $51$ bilangan, dua di antaranya serumah dan salah satunya membagi yang lain.\n\n**Kasus terburuk.** $51,52,\\dots,100$ adalah $50$ bilangan. Jika $a<b$ di antaranya dan $a\\mid b$, maka\n$b\\ge2a\\ge102$, mustahil. Jadi $50$ bilangan belum cukup.\n\nJawabannya $51$.",
+  "key_idea": "Bagian ganjil mengelompokkan bilangan menjadi rantai pembagian; banyak rantai adalah banyak rumah.",
+  "common_error": "Memakai bilangan prima atau kelas sisa sebagai rumah, sehingga dua bilangan serumah belum tentu saling membagi.",
+  "origin": "adapted",
+  "source_refs": [
+   "Soal klasik rumah merpati (folklor); rentang dan redaksi disesuaikan"
+  ],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P011",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "tiga bilangan berjumlah kelipatan tiga",
+  "objective_id": "KO03-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "kelas_sisa",
+   "pembagian_kasus",
+   "kasus_terburuk"
+  ],
+  "statement": "Tentukan bilangan bulat positif terkecil $n$ sehingga dari **sembarang** $n$ bilangan bulat selalu dapat dipilih\n$3$ bilangan yang jumlahnya habis dibagi $3$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5",
+   "display": "$5$"
+  },
+  "hints": [
+   "Perhatikan sisa modulo $3$. Tiga bilangan dengan sisa sama, atau dengan sisa $0,1,2$, berjumlah kelipatan $3$.",
+   "Untuk $n=4$, coba sisa $0,0,1,1$. Untuk $n=5$, pisahkan kasus ketiga sisa muncul atau tidak."
+  ],
+  "solution": "**$n=4$ tidak cukup.** Bilangan $0,0,1,1$: setiap tiga di antaranya berjumlah $1$ atau $2$, bukan kelipatan $3$.\n\n**$n=5$ cukup.** Lihat sisa modulo $3$.\n\n- Jika ketiga sisa $0,1,2$ muncul, ambil satu dari masing-masing: jumlahnya $\\equiv0+1+2\\equiv0$.\n- Jika tidak, kelima bilangan hanya memakai paling banyak $2$ sisa. Menurut rumah merpati, ada sisa yang muncul\n  $\\left\\lceil\\frac52\\right\\rceil=3$ kali, dan tiga bilangan bersisa sama berjumlah $\\equiv3r\\equiv0$.\n\nJawabannya $5$.",
+  "key_idea": "Bagi kasus menurut sisa yang muncul; pada kasus yang sisanya sedikit, rumah merpati memaksa tiga sisa yang sama.",
+  "common_error": "Menjawab $7$ (tiga kelas sisa, masing-masing dua bilangan, ditambah satu) tanpa melihat bahwa satu bilangan dari setiap kelas juga berhasil.",
+  "origin": "adapted",
+  "source_refs": [
+   "Kasus n = 3 teorema Erdős–Ginzburg–Ziv (1961)"
+  ],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "KO03-P012",
+  "version": 1,
+  "module_id": "KO03",
+  "domain": "kombinatorika",
+  "subtopic": "pewarnaan diagonal untuk ubin",
+  "objective_id": "KO03-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "KO01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "pewarnaan",
+   "invarian",
+   "konstruksi"
+  ],
+  "statement": "Ubin berukuran $1\\times4$ akan diletakkan pada papan $6\\times6$. Setiap ubin menutup tepat $4$ petak dalam satu baris\natau satu kolom, dan ubin tidak boleh bertumpuk. Berapa banyak **maksimum** ubin yang dapat diletakkan?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "8",
+   "display": "$8$"
+  },
+  "hints": [
+   "Warnai petak $(i,j)$ dengan warna $(i+j)\\bmod4$. Setiap ubin $1\\times4$ menutup satu petak dari setiap warna.",
+   "Hitung banyak petak setiap warna. Warna yang paling sedikit membatasi banyak ubin."
+  ],
+  "solution": "**Batas atas.** Beri petak koordinat $(i,j)$ dengan $0\\le i,j\\le5$ dan warnai dengan $(i+j)\\bmod4$. Empat petak\nberurutan dalam satu baris atau kolom mempunyai nilai $i+j$ berurutan, jadi setiap ubin menutup tepat satu petak\ndari setiap warna. Banyak petak per warna:\n\n| warna | nilai $i+j$ | banyak petak |\n|---|---|---|\n| $0$ | $0,4,8$ | $1+5+3=9$ |\n| $1$ | $1,5,9$ | $2+6+2=10$ |\n| $2$ | $2,6,10$ | $3+5+1=9$ |\n| $3$ | $3,7$ | $4+4=8$ |\n\nSetiap ubin memakai satu petak warna $3$, jadi paling banyak $8$ ubin.\n\n**Tercapai.** Susunan \"kincir\": dua ubin mendatar di baris $0$–$1$ kolom $0$–$3$; dua ubin tegak di kolom $4$–$5$\nbaris $0$–$3$; dua ubin mendatar di baris $4$–$5$ kolom $2$–$5$; dua ubin tegak di kolom $0$–$1$ baris $2$–$5$.\nKedelapan ubin tidak bertumpuk, dan hanya petak tengah $2\\times2$ yang kosong.\n\nJawabannya $8$.",
+  "key_idea": "Pewarnaan yang membuat setiap ubin menutup satu petak dari setiap warna memberi batas sebesar banyak petak warna yang paling sedikit.",
+  "common_error": "Menjawab $9=\\frac{36}4$ hanya dari luas, tanpa memeriksa apakah $9$ ubin benar-benar muat.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_KO03.md): A1–A6 lulus. A5: scripts/checks/KO03.py (pencarian lengkap / pencocokan / BFS / saksi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
