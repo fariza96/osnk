@@ -1,0 +1,509 @@
+[
+ {
+  "id": "TB04-E01",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "persamaan linear Diophantine",
+  "objective_id": "TB04-O1",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "diophantine_linear",
+   "invers_modulo"
+  ],
+  "statement": "Berapa banyak pasangan bilangan bulat positif $(x,y)$ yang memenuhi $7x+11y=500$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Cari satu solusi dengan bekerja modulo $7$: $11y\\equiv500\\pmod7$.",
+   "$y\\equiv6\\pmod7$. Tulis $y=6+7t$, lalu nyatakan $x$ dalam $t$ dan syaratkan $x,y>0$."
+  ],
+  "solution": "**Ide kunci.** Satu solusi ditemukan dengan modulo; semua solusi lain berbeda kelipatan $11$ pada $x$ dan\nkelipatan $7$ pada $y$.\n\n**Langkah.**\n\n1. Modulo $7$: $11\\equiv4$ dan $500\\equiv3$, jadi $4y\\equiv3\\pmod7$. Invers $4$ modulo $7$ adalah $2$\n   ($4\\cdot2=8\\equiv1$), sehingga $y\\equiv6\\pmod7$.\n2. Tulis $y=6+7t$. Maka $7x=500-66-77t$, jadi $x=62-11t$.\n3. Syarat $y>0$: $t\\ge0$. Syarat $x>0$: $62-11t>0$, jadi $t\\le5$.\n4. $t=0,1,\\dots,5$ memberi $6$ pasangan: $(62,6)$, $(51,13)$, $(40,20)$, $(29,27)$, $(18,34)$, $(7,41)$.\n\n**Pemeriksaan.** $7\\cdot7+11\\cdot41=49+451=500$ ✓.",
+  "key_idea": "Satu solusi dari modulo, lalu solusi umum $x=x_0+bt$, $y=y_0-at$; syarat positif menjadi selang untuk $t$.",
+  "common_error": "Berhenti setelah menemukan satu solusi, atau mengikutkan $t=6$ yang memberi $x=-4$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-E02",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "pembatasan dengan mengurutkan",
+  "objective_id": "TB04-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "pembatasan_ukuran",
+   "pembagian_kasus"
+  ],
+  "statement": "Berapa banyak tripel terurut $(x,y,z)$ bilangan bulat positif yang memenuhi\n$$\\frac1x+\\frac1y+\\frac1z=1?$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "10",
+   "display": "$10$"
+  },
+  "hints": [
+   "Hitung dulu tripel dengan $x\\le y\\le z$. Karena $\\frac1x$ suku terbesar, $\\frac3x\\ge1$.",
+   "$x\\in\\{2,3\\}$. Untuk setiap $x$, batasi $y$ dengan cara yang sama, lalu hitung urutannya."
+  ],
+  "solution": "**Ide kunci.** Urutkan variabel, lalu batasi yang terkecil karena suku kebalikannya paling besar.\n\n**Langkah ($x\\le y\\le z$).**\n\n1. $1=\\frac1x+\\frac1y+\\frac1z\\le\\frac3x$, jadi $x\\le3$. Selain itu $x\\ne1$ (sisa $\\frac1y+\\frac1z=0$ mustahil). Jadi $x\\in\\{2,3\\}$.\n2. $x=2$: $\\frac1y+\\frac1z=\\frac12$ dengan $y\\le z$, jadi $\\frac2y\\ge\\frac12$ dan $y\\le4$; juga $y>2$.\n   $y=3$ memberi $z=6$, dan $y=4$ memberi $z=4$.\n3. $x=3$: $\\frac1y+\\frac1z=\\frac23$ dengan $3\\le y\\le z$, jadi $\\frac2y\\ge\\frac23$ dan $y=3$, $z=3$.\n4. Tripel terurut naik: $(2,3,6)$, $(2,4,4)$, $(3,3,3)$.\n\n**Menghitung urutan.** $(2,3,6)$ mempunyai $3!=6$ urutan, $(2,4,4)$ mempunyai $3$, dan $(3,3,3)$ mempunyai $1$.\nTotal $6+3+1=10$.",
+  "key_idea": "Mengurutkan variabel memberi batas atas untuk variabel terkecil; setiap kasus kemudian membatasi variabel berikutnya.",
+  "common_error": "Menjawab $3$ (banyak tripel naik), padahal yang diminta tripel **terurut**; atau menghitung $3!$ untuk setiap tripel termasuk yang anggotanya kembar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P001",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "solusi tak negatif persamaan linear",
+  "objective_id": "TB04-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "diophantine_linear"
+  ],
+  "statement": "Berapa banyak pasangan bilangan bulat tak negatif $(x,y)$ yang memenuhi $3x+5y=47$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "3",
+   "display": "$3$"
+  },
+  "hints": [
+   "Modulo $3$: $5y\\equiv47$, yaitu $2y\\equiv2\\pmod3$.",
+   "$y\\equiv1\\pmod3$ dan $5y\\le47$."
+  ],
+  "solution": "Modulo $3$: $2y\\equiv2$, jadi $y\\equiv1\\pmod3$. Dengan $5y\\le47$, $y\\in\\{1,4,7\\}$, yang memberi\n$x=14,9,4$. Ada $3$ pasangan.",
+  "key_idea": "Modulo salah satu koefisien menentukan kelas sisa variabel lain; batas ukuran memotong daftarnya.",
+  "common_error": "Lupa bahwa $y$ harus bersisa $1$ modulo $3$, lalu menghitung semua $y\\le9$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P002",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "persamaan digit",
+  "objective_id": "TB04-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "digit"
+  ],
+  "statement": "Berapa banyak bilangan dua digit yang sama dengan $4$ kali jumlah digit-digitnya?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "4",
+   "display": "$4$"
+  },
+  "hints": [
+   "Tulis bilangannya $10a+b$ dengan $1\\le a\\le9$, $0\\le b\\le9$.",
+   "$10a+b=4(a+b)$ menjadi $b=2a$."
+  ],
+  "solution": "$10a+b=4(a+b)$ memberi $6a=3b$, yaitu $b=2a$. Karena $b\\le9$, $a\\in\\{1,2,3,4\\}$. Bilangannya $12,24,36,48$, sebanyak $4$.",
+  "key_idea": "Tulis bilangan dengan digitnya ($10a+b$), lalu pakai batas digit.",
+  "common_error": "Lupa batas $b\\le9$ dan mengikutkan $a=5$ ($b=10$ bukan digit).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P003",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "jumlah bilangan bulat terbesar",
+  "objective_id": "TB04-O5",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "floor",
+   "pengelompokan"
+  ],
+  "statement": "Tentukan nilai $\\lfloor\\sqrt1\\rfloor+\\lfloor\\sqrt2\\rfloor+\\lfloor\\sqrt3\\rfloor+\\cdots+\\lfloor\\sqrt{30}\\rfloor$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "100",
+   "display": "$100$"
+  },
+  "hints": [
+   "Kelompokkan $k$ dengan nilai $\\lfloor\\sqrt k\\rfloor$ yang sama.",
+   "$\\lfloor\\sqrt k\\rfloor=m$ untuk $m^2\\le k\\le(m+1)^2-1$."
+  ],
+  "solution": "$\\lfloor\\sqrt k\\rfloor=m$ tepat untuk $m^2\\le k<(m+1)^2$:\n\n- $m=1$: $k=1..3$ ($3$ suku), sumbangan $3$;\n- $m=2$: $k=4..8$ ($5$ suku), sumbangan $10$;\n- $m=3$: $k=9..15$ ($7$ suku), sumbangan $21$;\n- $m=4$: $k=16..24$ ($9$ suku), sumbangan $36$;\n- $m=5$: $k=25..30$ ($6$ suku), sumbangan $30$.\n\nJumlahnya $3+10+21+36+30=100$.",
+  "key_idea": "Kelompokkan suku-suku yang nilai lantainya sama, lalu kalikan nilai dengan banyak sukunya.",
+  "common_error": "Memakai $2m+1$ suku juga untuk kelompok terakhir ($11$ suku untuk $m=5$), padahal hanya sampai $k=30$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P004",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "melengkapkan kuadrat dan pemfaktoran",
+  "objective_id": "TB04-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "selisih_kuadrat",
+   "paritas_faktor"
+  ],
+  "statement": "Berapa banyak pasangan bilangan bulat $(m,n)$ (boleh negatif) yang memenuhi $m^2+6m=n^2+15$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "8",
+   "display": "$8$"
+  },
+  "hints": [
+   "Lengkapkan kuadrat: $(m+3)^2-n^2=24$.",
+   "$(m+3-n)(m+3+n)=24$, dan kedua faktor berparitas sama, jadi keduanya genap."
+  ],
+  "solution": "$m^2+6m+9=n^2+24$, jadi $(m+3)^2-n^2=24$, yaitu $uv=24$ dengan $u=m+3-n$ dan $v=m+3+n$.\n\n$u+v=2(m+3)$ genap, jadi $u,v$ berparitas sama; karena hasil kalinya genap, keduanya genap. Pasangan faktor\ngenap dari $24$: $(2,12),(4,6),(6,4),(12,2)$ dan keempat pasangan negatifnya, total $8$. Setiap pasangan\nmemberi tepat satu $(m,n)$ melalui $m=\\frac{u+v}2-3$ dan $n=\\frac{v-u}2$, misalnya $(2,12)$ memberi $(4,5)$:\n$16+24=40=25+15$ ✓.\n\nJadi ada $8$ pasangan.",
+  "key_idea": "Lengkapkan kuadrat agar muncul selisih kuadrat; paritas kedua faktor menyaring pasangan faktor.",
+  "common_error": "Hanya memakai faktor positif (mendapat $4$), atau tidak menyaring paritas sehingga ikut menghitung $(1,24)$ dan $(3,8)$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P005",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "ketakmungkinan dengan modulo 4",
+  "objective_id": "TB04-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "modulo",
+   "sisa_kuadrat",
+   "konstruksi"
+  ],
+  "statement": "Untuk berapa banyak bilangan bulat $n$ dengan $1\\le n\\le50$, persamaan $x^2-y^2=n$ **tidak** mempunyai solusi\nbilangan bulat $(x,y)$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "13",
+   "display": "$13$"
+  },
+  "hints": [
+   "Kuadrat modulo $4$ hanya $0$ atau $1$. Sisa berapa yang mustahil untuk $x^2-y^2$?",
+   "$n\\equiv2\\pmod4$ mustahil. Untuk $n$ lainnya, tuliskan konstruksi eksplisit."
+  ],
+  "solution": "**Mustahil.** $x^2,y^2\\equiv0$ atau $1\\pmod4$, jadi $x^2-y^2\\equiv0,1,3\\pmod4$. Bilangan $n\\equiv2\\pmod4$ tidak mungkin.\n\n**Selalu bisa untuk $n$ lainnya.**\n\n- $n$ ganjil: $n=\\left(\\frac{n+1}2\\right)^2-\\left(\\frac{n-1}2\\right)^2$.\n- $4\\mid n$: $n=\\left(\\frac n4+1\\right)^2-\\left(\\frac n4-1\\right)^2$.\n\nJadi yang tidak mempunyai solusi tepat $n\\equiv2\\pmod4$: $2,6,10,\\dots,50$, sebanyak $13$.",
+  "key_idea": "Modulo membuang sebagian $n$; konstruksi eksplisit menunjukkan bahwa sisanya memang mempunyai solusi.",
+  "common_error": "Menganggap semua $n$ genap mustahil, sehingga menjawab $25$; padahal $4=2^2-0^2$ dan $8=3^2-1^2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P006",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "digit dan keterbagian",
+  "objective_id": "TB04-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "digit",
+   "keterbagian"
+  ],
+  "statement": "Tentukan bilangan tiga digit yang sama dengan $12$ kali jumlah digit-digitnya.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "108",
+   "display": "$108$"
+  },
+  "hints": [
+   "Tulis $100a+10b+c=12(a+b+c)$ lalu sederhanakan.",
+   "Diperoleh $88a=2b+11c$. Lihat ruas mana yang harus habis dibagi $11$."
+  ],
+  "solution": "$100a+10b+c=12a+12b+12c$ memberi $88a=2b+11c$. Karena $11\\mid88a$ dan $11\\mid11c$, haruslah $11\\mid2b$, jadi\n$11\\mid b$ dan $b=0$. Maka $88a=11c$, yaitu $c=8a$. Dengan $c\\le9$: $a=1$ dan $c=8$.\n\nBilangannya $108$. **Pemeriksaan.** $12\\cdot(1+0+8)=108$ ✓.",
+  "key_idea": "Persamaan digit menjadi persamaan bilangan bulat kecil; keterbagian dan batas digit menyelesaikannya.",
+  "common_error": "Mencoba beberapa kelipatan $12$ dan berhenti tanpa membuktikan bahwa tidak ada bilangan lain.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P007",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "persamaan dengan bilangan bulat terbesar",
+  "objective_id": "TB04-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "floor",
+   "pembatasan_ukuran"
+  ],
+  "statement": "Tentukan jumlah kuadrat semua bilangan real $x$ yang memenuhi $x^2-7\\lfloor x\\rfloor+10=0$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "58",
+   "display": "$58$"
+  },
+  "hints": [
+   "Misalkan $n=\\lfloor x\\rfloor$. Maka $x^2=7n-10$, dan harus berlaku $n\\le x<n+1$.",
+   "$7n-10\\ge0$ memaksa $n\\ge2$, jadi $x>0$ dan $x=\\sqrt{7n-10}$. Syaratnya $n^2\\le7n-10<(n+1)^2$."
+  ],
+  "solution": "Misalkan $n=\\lfloor x\\rfloor$. Persamaannya menjadi $x^2=7n-10$, jadi $7n-10\\ge0$ dan $n\\ge2$. Akibatnya\n$x\\ge n\\ge2>0$, sehingga $x=\\sqrt{7n-10}$.\n\nSyarat $n\\le x<n+1$ menjadi $n^2\\le7n-10<(n+1)^2$.\n\n- $n^2-7n+10\\le0\\iff(n-2)(n-5)\\le0\\iff2\\le n\\le5$.\n- $7n-10<n^2+2n+1\\iff n^2-5n+11>0$, selalu benar (diskriminan negatif).\n\nJadi $n=2,3,4,5$, dengan solusi $x=\\sqrt4=2$, $\\sqrt{11}$, $\\sqrt{18}$, $\\sqrt{25}=5$ (dicek:\n$\\lfloor\\sqrt{11}\\rfloor=3$, $\\lfloor\\sqrt{18}\\rfloor=4$). Jumlah kuadratnya $4+11+18+25=58$.",
+  "key_idea": "Ganti $\\lfloor x\\rfloor$ dengan bilangan bulat $n$, selesaikan $x$ dalam $n$, lalu syarat $n\\le x<n+1$ menjadi ketaksamaan untuk $n$.",
+  "common_error": "Mengikutkan akar negatif $x=-\\sqrt{7n-10}$, yang tidak memenuhi $\\lfloor x\\rfloor=n\\ge2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P008",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "soal cerita persamaan linear",
+  "objective_id": "TB04-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "diophantine_linear"
+  ],
+  "statement": "Rina membeli prangko seharga Rp3.000 dan Rp5.000, masing-masing paling sedikit satu lembar, dan menghabiskan\ntepat Rp150.000. Ada berapa kemungkinan banyak lembar setiap jenis prangko?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "Dalam ribuan rupiah: $3x+5y=150$ dengan $x,y\\ge1$.",
+   "$3\\mid5y$, jadi $3\\mid y$. Tulis $y=3t$."
+  ],
+  "solution": "Dalam ribuan rupiah: $3x+5y=150$ dengan $x,y\\ge1$. Karena $3\\mid150$ dan $\\mathrm{FPB}(3,5)=1$, haruslah $3\\mid y$.\nTulis $y=3t$, maka $x=50-5t$. Syarat $y\\ge1$ memberi $t\\ge1$, dan $x\\ge1$ memberi $t\\le9$. Jadi ada $9$ kemungkinan.",
+  "key_idea": "Keterbagian langsung memaksa bentuk salah satu variabel; syarat “paling sedikit satu” memotong ujung selang.",
+  "common_error": "Mengikutkan $t=0$ atau $t=10$, yang membuat salah satu jenis prangko tidak dibeli.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P009",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "kuadrat sempurna dan modulo 5",
+  "objective_id": "TB04-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "modulo",
+   "sisa_kuadrat",
+   "faktorial"
+  ],
+  "statement": "Untuk berapa banyak bilangan bulat positif $n\\le100$ jumlah $1!+2!+3!+\\cdots+n!$ merupakan kuadrat sempurna?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "2",
+   "display": "$2$"
+  },
+  "hints": [
+   "Periksa $n=1,2,3,4$ secara langsung. Untuk $n\\ge5$, $k!$ dengan $k\\ge5$ habis dibagi $5$.",
+   "Untuk $n\\ge4$, jumlahnya $\\equiv1+2+6+24=33\\equiv3\\pmod5$. Kuadrat modulo $5$ hanya $0,1,4$."
+  ],
+  "solution": "Nilai awal: $n=1$: $1$ (kuadrat); $n=2$: $3$; $n=3$: $9$ (kuadrat); $n=4$: $33$.\n\nUntuk $n\\ge4$, setiap $k!$ dengan $k\\ge5$ habis dibagi $5$, sehingga jumlahnya $\\equiv33\\equiv3\\pmod5$. Kuadrat modulo\n$5$ hanya $0$, $1$, atau $4$, jadi untuk $n\\ge4$ jumlahnya bukan kuadrat.\n\nJawabannya $n\\in\\{1,3\\}$, sebanyak $2$.",
+  "key_idea": "Suku yang habis dibagi modulus menghilang, sehingga ekor jumlah menjadi konstan modulo; sisa kuadrat memastikan ketakmungkinan.",
+  "common_error": "Menganggap $n=1$ tidak dihitung karena $1$ dianggap bukan kuadrat sempurna, padahal $1=1^2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P010",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "nilai berbeda barisan floor",
+  "objective_id": "TB04-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "floor",
+   "selisih_suku"
+  ],
+  "statement": "Berapa banyak bilangan bulat **berbeda** di antara\n$$\\left\\lfloor\\frac{1^2}{100}\\right\\rfloor,\\ \\left\\lfloor\\frac{2^2}{100}\\right\\rfloor,\\ \\dots,\\ \\left\\lfloor\\frac{100^2}{100}\\right\\rfloor?$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "76",
+   "display": "$76$"
+  },
+  "hints": [
+   "Selisih dua suku sebelum dibulatkan: $\\dfrac{(k+1)^2-k^2}{100}=\\dfrac{2k+1}{100}$. Kapan selisih itu kurang dari $1$?",
+   "Untuk $k\\le49$, selisihnya kurang dari $1$, jadi nilai lantai naik paling banyak $1$ dan tidak melewatkan bilangan. Untuk $k\\ge50$, setiap suku berbeda."
+  ],
+  "solution": "Misalkan $a_k=\\frac{k^2}{100}$, sehingga $a_{k+1}-a_k=\\frac{2k+1}{100}$.\n\n**Bagian $k=1,\\dots,50$.** Untuk $k\\le49$ selisihnya kurang dari $1$, jadi $\\lfloor a_k\\rfloor$ naik paling banyak $1$\nsetiap langkah. Mulai dari $\\lfloor a_1\\rfloor=0$ sampai $\\lfloor a_{50}\\rfloor=25$, semua bilangan $0,1,\\dots,25$\nmuncul: $26$ nilai.\n\n**Bagian $k=51,\\dots,100$.** Untuk $k\\ge50$ selisihnya $\\frac{2k+1}{100}>1$, jadi $\\lfloor a_{k+1}\\rfloor>\\lfloor a_k\\rfloor$\ndan nilai-nilai ini berbeda semua: $50$ nilai. Nilai terkecilnya $\\lfloor a_{51}\\rfloor=\\lfloor26{,}01\\rfloor=26>25$,\njadi tidak ada yang sama dengan bagian pertama.\n\nTotal $26+50=76$.",
+  "key_idea": "Bandingkan selisih suku berurutan dengan $1$: selisih kecil berarti tidak ada bilangan terlewat, selisih besar berarti tidak ada nilai berulang.",
+  "common_error": "Menganggap semua $100$ nilai berbeda, atau hanya menghitung bagian pertama.",
+  "origin": "adapted",
+  "source_refs": [
+   "Tipe soal klasik tentang nilai berbeda dari floor(k^2/N); angka dipilih ulang"
+  ],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P011",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "pangkat dengan modulo dan pemfaktoran",
+  "objective_id": "TB04-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "modulo",
+   "selisih_kuadrat",
+   "pembagian_kasus"
+  ],
+  "statement": "Tentukan jumlah $x+y$ atas semua pasangan bilangan bulat positif $(x,y)$ yang memenuhi $3^x-2^y=1$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "7",
+   "display": "$7$"
+  },
+  "hints": [
+   "Pisahkan $y=1$ dan $y\\ge2$. Untuk $y\\ge2$, periksa modulo $4$: $3^x\\equiv1\\pmod4$.",
+   "$x$ genap, $x=2k$. Faktorkan $(3^k-1)(3^k+1)=2^y$: dua pangkat $2$ yang selisihnya $2$."
+  ],
+  "solution": "**$y=1$.** $3^x=3$, jadi $(x,y)=(1,1)$.\n\n**$y\\ge2$.** Modulo $4$: $3^x\\equiv1$, padahal $3^x\\equiv(-1)^x$. Jadi $x$ genap, $x=2k$ dengan $k\\ge1$. Maka\n$$(3^k-1)(3^k+1)=2^y.$$\nKedua faktor adalah pangkat $2$ dan selisihnya $2$. Dua pangkat $2$ yang selisihnya $2$ hanyalah $2$ dan $4$, jadi\n$3^k=3$, $k=1$, $x=2$, dan $2^y=8$, $y=3$. Periksa: $9-8=1$ ✓.\n\nSolusinya $(1,1)$ dan $(2,3)$, sehingga jumlahnya $2+5=7$.",
+  "key_idea": "Modulo memaksa eksponen genap; eksponen genap membuka selisih kuadrat; faktor yang sama-sama pangkat prima dibatasi selisihnya.",
+  "common_error": "Hanya menemukan $(2,3)$ dan melupakan $y=1$, sehingga menjawab $5$; atau menyimpulkan tanpa membuktikan tidak ada solusi lain.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "TB04-P012",
+  "version": 1,
+  "module_id": "TB04",
+  "domain": "teori_bilangan",
+  "subtopic": "bilangan ditambah jumlah digitnya",
+  "objective_id": "TB04-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "TB01",
+   "TB02"
+  ],
+  "technique_tags": [
+   "digit",
+   "jumlah_digit_mod9",
+   "pembatasan_ukuran"
+  ],
+  "statement": "Untuk bilangan bulat positif $n$, misalkan $S(n)$ adalah jumlah digit $n$. Tentukan jumlah semua $n$ yang memenuhi\n$$n+S(n)=2026.$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "2021",
+   "display": "$2021$"
+  },
+  "hints": [
+   "$n<2026$, jadi $S(n)\\le1+9+9+9=28$ dan $n\\ge1998$. Lalu pakai $n\\equiv S(n)\\pmod9$.",
+   "$2n\\equiv2026\\equiv1\\pmod9$, jadi $n\\equiv5\\pmod9$. Calonnya $2003$, $2012$, $2021$."
+  ],
+  "solution": "**Ukuran.** $n<2026$, jadi $n$ paling banyak empat digit dan $S(n)\\le1+9+9+9=28$. Maka $n=2026-S(n)\\ge1998$.\n\n**Modulo $9$.** $S(n)\\equiv n\\pmod9$, jadi $2n\\equiv2026\\pmod9$. Karena $2026\\equiv1$, $2n\\equiv1$ dan $n\\equiv5\\pmod9$\n(invers $2$ adalah $5$). Di antara $1998$ dan $2025$, bilangan yang bersisa $5$ adalah $2003$, $2012$, $2021$.\n\n**Periksa.** $2003+5=2008$, $2012+5=2017$, $2021+5=2026$ ✓. Hanya $n=2021$, jadi jumlahnya $2021$.",
+  "key_idea": "Jumlah digit kecil (batas ukuran) dan sama dengan bilangannya modulo $9$; keduanya menyisakan sedikit calon.",
+  "common_error": "Hanya memakai modulo $9$ tanpa batas ukuran, sehingga calonnya tak hingga; atau tidak memeriksa ketiga calon.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_TB04.md): A1–A6 lulus. A5: scripts/checks/TB04.py (enumerasi pada rentang yang mencakup semua solusi) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]

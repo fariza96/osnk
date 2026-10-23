@@ -42,6 +42,7 @@ Token penalaran (thinking) ditagih sebagai output.
 | 2026-10-22 | Tahap 4: KO02+GE02 (sesi 2), GE02 dengan 7 diagram | sesi Claude Code | tidak tersedia | estimasi ≈ US$3,5–4 per modul, belum dikalibrasi; **guru diminta mengirim angka kumulatif aktual (tonggak 8 modul)** | estimasi |
 | 2026-10-22/23 | Tahap 4: TB03+AL03 (sesi 2) | sesi Claude Code | tidak tersedia | estimasi ≈ US$3,5–4 per modul, belum dikalibrasi | estimasi |
 | 2026-10-23 | Perbaikan workflow Pages + Tahap 4: KO03+GE03 (sesi 2) | sesi Claude Code | tidak tersedia | estimasi ≈ US$3,5–4 per modul + ≈ US$1 perbaikan Pages, belum dikalibrasi | estimasi |
+| 2026-10-23 | **Laporan guru setelah 12 modul + perbaikan Pages** | — | tidak tersedia | **"masih 69 dolar" (aktual, dilaporkan guru)**; ditafsirkan sebagai sisa kredit US$69 | aktual |
 
 ### Proyeksi setelah pilot (dikalibrasi dengan US$11 aktual)
 
@@ -71,3 +72,13 @@ terbaca dari cache, output + penalaran 80–200 rb token.
 
 Ketidakpastian tinggi; dikalibrasi ulang setelah pilot hanya bila guru dapat membaca pemakaian
 aktual di akun.
+
+### Kalibrasi setelah laporan "masih 69 dolar" (23 Okt 2026)
+
+Tafsiran (perlu konfirmasi guru): sisa kredit US$69 dari total US$100 (operasional US$90 + cadangan US$10), sehingga
+terpakai ≈ US$31 untuk Tahap 0–2 (US$11) dan 10 modul berikutnya + perbaikan Pages. Artinya ≈ **US$2 per modul**,
+lebih murah dari proyeksi pilot (US$3,5–4).
+
+Proyeksi sisa (estimasi): 6 modul × US$2–3 = US$12–18; diagnostik + 2 Latihan Campuran ≈ US$5–8; pengemasan
+≈ US$2–3. Total tambahan ≈ US$19–29, sehingga total akhir ≈ US$50–60, di bawah batas operasional US$90.
+Jika "69 dolar" ternyata berarti total terpakai, proyeksi akhir menjadi ≈ US$88–98 dan volume perlu dibahas ulang.
