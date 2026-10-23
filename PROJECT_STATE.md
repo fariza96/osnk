@@ -27,7 +27,9 @@ Terakhir diperbarui: 2026-10-23 (sesi 2).
 - Format jawaban: isian singkat bilangan bulat (sesuai peta guru).
 - Penyimpanan: repositori GitHub privat `fariza96/osnk`.
 - MathJax 4.1.2 + font NewCM dibundel lokal (pemecahan baris otomatis untuk ponsel; berjalan tanpa internet, sudah diuji).
-- Pages: workflow `.github/workflows/pages.yml` hanya manual (`workflow_dispatch`).
+- Pages: workflow `.github/workflows/pages.yml` berjalan **otomatis setiap push ke `main`** dan tetap bisa manual
+  (`workflow_dispatch`), disetujui guru 23 Okt 2026. Setiap push ke `main` = situs terbit. Versi yang terbit tampil di
+  footer situs ("Versi <sha>") dan di ringkasan run Actions. Sebelumnya hanya manual, sehingga situs tertahan di `1e769c0`.
 - **19 modul** (AL05 fungsi, KO05 induksi/rekursi/graf, AL06 kompleks & trigonometri ditambahkan, disetujui guru);
   program 10 minggu. Sasaran lengkap: 228 latihan modul + 16 diagnostik + 40 campuran = **284 soal unik**, plus 38 contoh.
 - Repositori: `fariza96/osnk` (privat), `main`. Setiap batch di-commit dan di-push.

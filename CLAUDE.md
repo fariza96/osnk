@@ -33,7 +33,9 @@ hanya berkas yang relevan.
     terlihat dari dalam sesi — catat estimasi berlabel di `costs/cost_log.md`, jangan mengarang
     angka aktual. Batas operasional US$90; US$10 cadangan hanya dengan keputusan guru.
 11. **Publikasi**: jangan membuat repositori publik, mendorong, atau menerbitkan situs tanpa
-    otorisasi guru. Tidak ada secret, API key, atau data siswa di repositori.
+    otorisasi guru. Tidak ada secret, API key, atau data siswa di repositori. Workflow Pages berjalan
+    otomatis pada setiap push ke `main` (disetujui guru), jadi push ke `main` = situs terbit; jangan
+    push butir yang belum diaudit (build rilis hanya memuat `verified`, tetapi materi `.md` ikut terbit).
 12. **Hemat token**: kerjakan per batch (≤ 6 soal), simpan, perbarui `PROJECT_STATE.md`, laporkan
     singkat (Selesai / Mutu / Anggaran / Berikutnya). Jangan mencetak ulang materi yang tersimpan.
 

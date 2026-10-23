@@ -1,22 +1,36 @@
 # Membangun dist/ (hanya butir verified) dan menerbitkannya ke GitHub Pages.
-# Sengaja hanya dijalankan manual (Actions → Pages → Run workflow) agar tidak ada publikasi tanpa keputusan guru.
+# Berjalan otomatis setiap push ke main (disetujui guru, 23 Okt 2026) dan tetap bisa dijalankan manual
+# (Actions → Pages → Run workflow). Setiap run membangun ulang dari commit yang memicunya; tidak ada artifact
+# lama yang dipakai ulang. Versi yang terbit tampil di footer situs ("Versi <sha>").
 # Prasyarat: Settings → Pages → Source: GitHub Actions. Pages untuk repositori privat butuh paket GitHub berbayar,
 # dan situs Pages dapat diakses publik kecuali memakai fitur akses terbatas (Enterprise).
 name: Pages
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 permissions:
   contents: read
   pages: write
   id-token: write
+# Deploy yang sedang berjalan tidak dibatalkan; run yang menunggu digantikan oleh run terbaru,
+# sehingga commit terakhir di main selalu menjadi deploy terakhir.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Pastikan checkout = commit pemicu
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          echo "Commit: $GITHUB_SHA"
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -27,6 +41,22 @@ jobs:
       - run: pip install sympy==1.13.3
       - run: npm run check:math
       - run: npm run build:release
+      - name: Ringkasan build
+        run: |
+          node -e '
+            const fs = require("fs");
+            const w = {};
+            new Function("window", fs.readFileSync("dist/data.js", "utf8"))(w);
+            const d = w.OSNK_DATA;
+            const lines = [
+              `### Situs dibangun dari ${d.commit}`,
+              `${d.questions.length} butir verified, ${d.modules.filter((m) => m.ready).length} modul bermateri:`,
+              "",
+              ...d.modules.filter((m) => m.ready).map((m) => `- ${m.id} ${m.title} (${d.questions.filter((q) => q.module_id === m.id).length} butir)`),
+            ];
+            console.log(lines.join("\n"));
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+          '
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

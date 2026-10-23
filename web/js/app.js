@@ -8,6 +8,14 @@
   const DIFF = { foundation: "Fondasi", core: "Inti", challenge: "Tantangan" };
   const byId = Object.fromEntries(D.questions.map((q) => [q.id, q]));
   const qsOf = (mid, role) => D.questions.filter((q) => q.module_id === mid && q.role === role);
+  // Versi build di footer, agar guru dapat memastikan situs memakai commit terbaru.
+  const $foot = document.querySelector("footer small");
+  if ($foot && D.commit) {
+    const v = document.createElement("span");
+    v.className = "muted";
+    v.textContent = ` Versi ${D.commit.slice(0, 7)} · dibangun ${String(D.built).slice(0, 10)}.`;
+    $foot.after(v);
+  }
 
   // ---- Progres lokal ----
   const KEY = "osnk-progres-v1";

@@ -3,6 +3,7 @@
 //   node scripts/build.mjs --release  hanya butir verified
 //   node scripts/build.mjs --questions DIR --out DIR   (dipakai tes)
 import { marked } from "marked";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -52,8 +53,16 @@ const renderQ = (q) => ({
   diagram_alt: q.diagram_alt || "",
 });
 
+// Commit sumber build: GITHUB_SHA di Actions, git lokal bila ada, selain itu "lokal".
+let COMMIT = process.env.GITHUB_SHA || "";
+if (!COMMIT) {
+  try { COMMIT = execFileSync("git", ["rev-parse", "HEAD"], { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim(); }
+  catch { COMMIT = "lokal"; }
+}
+
 const data = {
   built: new Date().toISOString(),
+  commit: COMMIT,
   release: RELEASE,
   modules: modules.map((m) => {
     const f = path.join(ROOT, "content/modules", `${m.id}.md`);
@@ -64,6 +73,11 @@ const data = {
 
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.cpSync(path.join(ROOT, "web"), OUT, { recursive: true });
+// Aset lokal diberi ?v=<commit> agar browser tidak memakai data.js/app.js lama dari cache setelah deploy baru.
+const ver = encodeURIComponent(COMMIT.slice(0, 12));
+const indexPath = path.join(OUT, "index.html");
+fs.writeFileSync(indexPath, fs.readFileSync(indexPath, "utf8")
+  .replace(/(src|href)="((?:js|css)\/[^"?]+|data\.js)"/g, `$1="$2?v=${ver}"`));
 // "<" di-escape agar teks soal tidak dapat menutup tag <script>.
 fs.writeFileSync(path.join(OUT, "data.js"),
   "window.OSNK_DATA = " + JSON.stringify(data).replace(/</g, "\\u003c") + ";\n");
@@ -80,5 +94,5 @@ for (const f of ["chtml.js", "package.json", "LICENSE"]) {
 }
 fs.cpSync(path.join(font, "chtml"), path.join(vend, "fonts/mathjax-newcm-font/chtml"), { recursive: true });
 
-console.log(`dist: ${data.questions.length} butir, ${data.modules.filter((m) => m.ready).length} modul bermateri` +
+console.log(`dist (commit ${COMMIT.slice(0, 7)}): ${data.questions.length} butir, ${data.modules.filter((m) => m.ready).length} modul bermateri` +
   (RELEASE ? `, ${skipped} butir non-verified dikeluarkan` : `, ${skipped} butir belum verified (ditandai DRAF)`));
