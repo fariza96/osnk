@@ -42,7 +42,7 @@ questions = questions.filter((q) => q.verification_status !== "quarantined");
 
 const renderQ = (q) => ({
   id: q.id, module_id: q.module_id, domain: q.domain, role: q.role, difficulty: q.difficulty,
-  subtopic: q.subtopic, minutes: q.estimated_minutes, tags: q.technique_tags,
+  subtopic: q.subtopic, minutes: q.estimated_minutes, tags: q.technique_tags, prerequisites: q.prerequisites,
   status: q.verification_status, answer_type: q.answer_type,
   answer_spec: q.answer_spec, answer_html: md(q.answer_spec.display, true),
   statement: md(q.statement), hints: q.hints.map((h) => md(h)), solution: md(q.solution),

@@ -1,0 +1,714 @@
+[
+  {
+    "id": "MX2-001",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "legendre",
+    "objective_id": "TB03-O3",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "TB03"
+    ],
+    "technique_tags": [
+      "legendre",
+      "valuasi"
+    ],
+    "statement": "Tentukan bilangan bulat terbesar $k$ sehingga $3^k$ membagi $50!$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "22",
+      "display": "$22$"
+    },
+    "hints": [
+      "Hitung banyak kelipatan $3$, $9$, $27$ di antara $1,\\dots,50$.",
+      "$\\left\\lfloor\\frac{50}3\\right\\rfloor+\\left\\lfloor\\frac{50}9\\right\\rfloor+\\left\\lfloor\\frac{50}{27}\\right\\rfloor$."
+    ],
+    "solution": "Menurut rumus Legendre, $k=\\left\\lfloor\\frac{50}3\\right\\rfloor+\\left\\lfloor\\frac{50}9\\right\\rfloor+\\left\\lfloor\\frac{50}{27}\\right\\rfloor=16+5+1=22$.",
+    "key_idea": "Rumus Legendre: jumlahkan $\\lfloor n/p^i\\rfloor$.",
+    "common_error": "Hanya menghitung kelipatan $3$ ($16$), sehingga faktor $3$ tambahan dari $9$ dan $27$ terlewat.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-002",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "pembagian polinom",
+    "objective_id": "TB04-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "TB04",
+      "TB01"
+    ],
+    "technique_tags": [
+      "pembagian_polinom",
+      "keterbagian"
+    ],
+    "statement": "Berapa banyak bilangan bulat positif $n$ sehingga $n+2$ membagi $n^2+20$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "6",
+      "display": "$6$"
+    },
+    "hints": [
+      "Bagi $n^2+20$ dengan $n+2$: $n^2+20=(n+2)(n-2)+24$.",
+      "Jadi $n+2$ membagi $24$, dengan $n+2\\ge3$."
+    ],
+    "solution": "$n^2+20=(n+2)(n-2)+24$, jadi $n+2\\mid n^2+20$ tepat jika $n+2\\mid24$. Pembagi $24$ yang paling sedikit $3$: $3,4,6,8,12,24$,\nmemberi $n=1,2,4,6,10,22$. Ada $6$ nilai.",
+    "key_idea": "Kurangi kelipatan pembagi hingga tersisa konstanta.",
+    "common_error": "Memasukkan pembagi $1$ dan $2$ (memberi $n=-1$ dan $n=0$, bukan bilangan bulat positif) sehingga menjawab $8$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-003",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "banyak faktor",
+    "objective_id": "TB03-O1",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "TB03"
+    ],
+    "technique_tags": [
+      "banyak_faktor",
+      "faktorisasi_prima"
+    ],
+    "statement": "Berapa banyak faktor positif dari $720$ yang habis dibagi $6$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "16",
+      "display": "$16$"
+    },
+    "hints": [
+      "$720=2^4\\cdot3^2\\cdot5$.",
+      "Faktor yang habis dibagi $6$ berbentuk $2^a3^b5^c$ dengan $a\\ge1$ dan $b\\ge1$."
+    ],
+    "solution": "$720=2^4\\cdot3^2\\cdot5$. Faktor yang habis dibagi $6$: $2^a3^b5^c$ dengan $1\\le a\\le4$, $1\\le b\\le2$, $0\\le c\\le1$, jadi\n$4\\cdot2\\cdot2=16$. (Atau: faktor dari $\\frac{720}6=120=2^3\\cdot3\\cdot5$, ada $4\\cdot2\\cdot2=16$.)",
+    "key_idea": "Faktor kelipatan $d$ dari $N$ sama banyak dengan faktor dari $N/d$.",
+    "common_error": "Menghitung semua faktor $720$ ($30$) dibagi $6$, atau memakai $5\\cdot3\\cdot2-1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-004",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "fungsi lantai",
+    "objective_id": "TB04-O4",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "TB04"
+    ],
+    "technique_tags": [
+      "fungsi_lantai",
+      "pengelompokan"
+    ],
+    "statement": "Tentukan nilai $$\\left\\lfloor\\frac13\\right\\rfloor+\\left\\lfloor\\frac23\\right\\rfloor+\\left\\lfloor\\frac33\\right\\rfloor+\\cdots+\\left\\lfloor\\frac{20}3\\right\\rfloor.$$",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "63",
+      "display": "$63$"
+    },
+    "hints": [
+      "Kelompokkan $k$ yang memberi nilai lantai sama.",
+      "$k=3,4,5$ memberi $1$; $k=6,7,8$ memberi $2$; …; $k=18,19,20$ memberi $6$."
+    ],
+    "solution": "Untuk $k=1,2$ nilainya $0$. Untuk $k=3m,3m+1,3m+2$ nilainya $m$, dengan $m=1,\\dots,6$ (kelompok terakhir $18,19,20$ lengkap).\nJumlahnya $3(1+2+\\cdots+6)=63$.",
+    "key_idea": "Kelompokkan suku yang nilai lantainya sama.",
+    "common_error": "Menghitung $\\frac{1+2+\\cdots+20}3=70$ tanpa pembulatan ke bawah.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-005",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "orde",
+    "objective_id": "TB02-O4",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 9,
+    "prerequisites": [
+      "TB02"
+    ],
+    "technique_tags": [
+      "orde",
+      "crt"
+    ],
+    "statement": "Tentukan bilangan bulat positif terkecil $n$ sehingga $2^n-1$ habis dibagi $77$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "30",
+      "display": "$30$"
+    },
+    "hints": [
+      "$77=7\\cdot11$. Cari $n$ terkecil dengan $2^n\\equiv1\\pmod7$, lalu $\\pmod{11}$.",
+      "Modulo $7$: periode $3$. Modulo $11$: periode $10$. Syarat keduanya: $n$ kelipatan keduanya."
+    ],
+    "solution": "$77\\mid2^n-1$ ⇔ $7\\mid2^n-1$ dan $11\\mid2^n-1$.\n\n- Modulo $7$: $2^1,2^2,2^3\\equiv2,4,1$, jadi $2^n\\equiv1$ ⇔ $3\\mid n$.\n- Modulo $11$: $2^1,\\dots,2^{10}\\equiv2,4,8,5,10,9,7,3,6,1$; yang pertama bersisa $1$ adalah $2^{10}$, jadi $2^n\\equiv1$ ⇔ $10\\mid n$.\n\nJadi $n$ kelipatan $\\mathrm{KPK}(3,10)=30$; yang terkecil $30$.",
+    "key_idea": "Pecah modulus menjadi faktor prima; orde gabungan = KPK orde masing-masing.",
+    "common_error": "Memakai $\\varphi(77)=60$ sebagai jawaban (itu kelipatan orde, belum tentu yang terkecil), atau mengalikan $3\\cdot10$ tanpa alasan KPK.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-006",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "am gm",
+    "objective_id": "AL03-O2",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "AL03"
+    ],
+    "technique_tags": [
+      "am_gm"
+    ],
+    "statement": "Tentukan nilai minimum $x+\\dfrac{16}x$ untuk bilangan real $x>0$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "8",
+      "display": "$8$"
+    },
+    "hints": [
+      "AM-GM untuk dua bilangan positif.",
+      "$x+\\frac{16}x\\ge2\\sqrt{16}$; kapan kesamaan?"
+    ],
+    "solution": "Menurut AM-GM, $x+\\frac{16}x\\ge2\\sqrt{x\\cdot\\frac{16}x}=8$, dengan kesamaan saat $x=\\frac{16}x$, yaitu $x=4$. Minimumnya $8$.",
+    "key_idea": "AM-GM dua suku; hasil kalinya konstan.",
+    "common_error": "Menjawab $4$ (nilai $x$ saat minimum tercapai).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-007",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "teleskopik",
+    "objective_id": "AL04-O3",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL04"
+    ],
+    "technique_tags": [
+      "teleskopik",
+      "pecahan_parsial"
+    ],
+    "statement": "Tentukan nilai $$\\frac1{1\\cdot2\\cdot3}+\\frac1{2\\cdot3\\cdot4}+\\frac1{3\\cdot4\\cdot5}+\\cdots+\\frac1{8\\cdot9\\cdot10}.$$",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "11/45",
+      "display": "$\\dfrac{11}{45}$"
+    },
+    "hints": [
+      "$\\frac1{k(k+1)(k+2)}=\\frac12\\left(\\frac1{k(k+1)}-\\frac1{(k+1)(k+2)}\\right)$.",
+      "Jumlahnya teleskopik: tersisa suku pertama dan suku terakhir."
+    ],
+    "solution": "Karena $\\frac1{k(k+1)}-\\frac1{(k+1)(k+2)}=\\frac{2}{k(k+1)(k+2)}$,\n$$\\sum_{k=1}^8\\frac1{k(k+1)(k+2)}=\\frac12\\left(\\frac1{1\\cdot2}-\\frac1{9\\cdot10}\\right)=\\frac12\\cdot\\frac{44}{90}=\\frac{11}{45}.$$",
+    "key_idea": "Pecah menjadi selisih dua suku berurutan agar jumlahnya teleskopik.",
+    "common_error": "Lupa faktor $\\frac12$ sehingga menjawab $\\frac{22}{45}$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-008",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "substitusi",
+    "objective_id": "AL05-O3",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "AL05"
+    ],
+    "technique_tags": [
+      "substitusi",
+      "sistem_persamaan"
+    ],
+    "statement": "Fungsi $f:\\mathbb R\\to\\mathbb R$ memenuhi $f(x)-3f(-x)=4x+2$ untuk setiap bilangan real $x$. Tentukan $f(2026)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "2025",
+      "display": "$2025$"
+    },
+    "hints": [
+      "Ganti $x$ dengan $-x$ untuk memperoleh persamaan kedua.",
+      "$f(-x)-3f(x)=-4x+2$. Selesaikan sistem dua persamaan dengan anu $f(x)$ dan $f(-x)$."
+    ],
+    "solution": "Ganti $x$ dengan $-x$: $f(-x)-3f(x)=-4x+2$, jadi $f(-x)=3f(x)-4x+2$. Substitusi ke persamaan semula:\n$$f(x)-9f(x)+12x-6=4x+2\\ \\Longrightarrow\\ f(x)=x-1.$$\nCek: $(x-1)-3(-x-1)=4x+2$. Jadi $f(2026)=2025$.",
+    "key_idea": "Penukaran $x\\leftrightarrow-x$ memberi sistem dua persamaan.",
+    "common_error": "Menganggap $f$ ganjil ($f(-x)=-f(x)$) sehingga $4f(x)=4x+2$ dan menjawab $2026{,}5$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-009",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "modulus",
+    "objective_id": "AL06-O1",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL06"
+    ],
+    "technique_tags": [
+      "modulus",
+      "kesamaan_kompleks"
+    ],
+    "statement": "Bilangan kompleks $z$ memenuhi $z+|z|=1+7i$. Tentukan $|z|$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "25",
+      "display": "$25$"
+    },
+    "hints": [
+      "Tulis $z=a+bi$. Bagian imajiner memberi $b$.",
+      "$b=7$ dan $a+\\sqrt{a^2+49}=1$."
+    ],
+    "solution": "Tulis $z=a+bi$. Karena $|z|$ real, $b=7$ dan $a+\\sqrt{a^2+49}=1$. Maka $\\sqrt{a^2+49}=1-a$; kuadratkan:\n$a^2+49=1-2a+a^2$, jadi $a=-24$ (dan $1-a=25>0$, sah). Jadi $|z|=\\sqrt{576+49}=25$.",
+    "key_idea": "Pisahkan bagian real dan imajiner; modulus selalu real.",
+    "common_error": "Menganggap $|z|=|1+7i|=\\sqrt{50}$, yaitu mencampur $z$ dengan ruas kanan.",
+    "origin": "adapted",
+    "source_refs": [
+      "Gagasan soal kompetisi klasik z + |z| = bilangan kompleks tertentu (folklor); bilangan diubah"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-010",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "cauchy schwarz",
+    "objective_id": "AL03-O3",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 9,
+    "prerequisites": [
+      "AL03"
+    ],
+    "technique_tags": [
+      "cauchy_schwarz",
+      "titu",
+      "syarat_kesamaan"
+    ],
+    "statement": "Bilangan real positif $x$, $y$, $z$ memenuhi $x+y+z=3$. Tentukan nilai minimum $$\\frac1x+\\frac4y+\\frac9z.$$",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "12",
+      "display": "$12$"
+    },
+    "hints": [
+      "Bentuk Titu (Engel): $\\frac{a^2}x+\\frac{b^2}y+\\frac{c^2}z\\ge\\frac{(a+b+c)^2}{x+y+z}$.",
+      "$a,b,c=1,2,3$; kesamaan saat $x:y:z=1:2:3$."
+    ],
+    "solution": "Menurut bentuk Titu dari Cauchy-Schwarz,\n$$\\frac{1^2}x+\\frac{2^2}y+\\frac{3^2}z\\ge\\frac{(1+2+3)^2}{x+y+z}=\\frac{36}3=12.$$\nKesamaan saat $\\frac1x=\\frac2y=\\frac3z$, yaitu $x:y:z=1:2:3$; dengan $x+y+z=3$: $x=\\frac12$, $y=1$, $z=\\frac32$, dan nilainya\n$2+4+6=12$. Jadi minimumnya $12$.",
+    "key_idea": "Titu memberi batas bawah; tunjukkan kesamaan tercapai.",
+    "common_error": "Memakai $x=y=z=1$ (nilai $14$) seolah-olah titik simetris selalu minimum.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-011",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "rumah merpati",
+    "objective_id": "KO03-O2",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "KO03"
+    ],
+    "technique_tags": [
+      "rumah_merpati",
+      "kasus_terburuk"
+    ],
+    "statement": "Berapa banyak orang minimal yang harus ada dalam sebuah kelompok agar **pasti** ada $4$ orang yang lahir pada hari (Senin, Selasa, …, Minggu) yang sama?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "22",
+      "display": "$22$"
+    },
+    "hints": [
+      "Kasus terburuk: setiap hari paling banyak $3$ orang.",
+      "$7\\cdot3=21$ orang belum cukup."
+    ],
+    "solution": "Dengan $21$ orang mungkin setiap hari tepat $3$ orang, jadi belum pasti. Dengan $22$ orang dalam $7$ hari, ada hari dengan\npaling sedikit $\\left\\lceil\\frac{22}7\\right\\rceil=4$ orang. Jawabannya $22$.",
+    "key_idea": "Kasus terburuk + rumah merpati.",
+    "common_error": "Menjawab $28=7\\cdot4$ atau $21$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-012",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "peluang klasik",
+    "objective_id": "KO04-O3",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO04",
+      "TB02"
+    ],
+    "technique_tags": [
+      "peluang_klasik",
+      "kelas_sisa"
+    ],
+    "statement": "Tiga kartu diambil sekaligus secara acak dari sembilan kartu bernomor $1,2,\\dots,9$. Berapa peluang jumlah ketiga nomor habis dibagi $3$?",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "5/14",
+      "display": "$\\dfrac5{14}$"
+    },
+    "hints": [
+      "Kelompokkan nomor menurut sisa dibagi $3$: masing-masing kelas berisi $3$ kartu.",
+      "Jumlah habis dibagi $3$ jika ketiga sisanya sama atau ketiganya berbeda."
+    ],
+    "solution": "Ruang sampel $\\binom93=84$. Setiap kelas sisa ($0$, $1$, $2$) berisi $3$ kartu. Jumlah habis dibagi $3$ tepat jika ketiga kartu\ndari kelas yang sama ($3\\cdot\\binom33=3$ cara) atau dari tiga kelas berbeda ($3^3=27$ cara). Peluangnya $\\frac{30}{84}=\\frac5{14}$.",
+    "key_idea": "Pecah menurut kelas sisa.",
+    "common_error": "Menganggap peluangnya $\\frac13$ karena ada tiga kemungkinan sisa.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-013",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "rekurensi",
+    "objective_id": "KO05-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO05"
+    ],
+    "technique_tags": [
+      "rekurensi",
+      "kasus_terakhir"
+    ],
+    "statement": "Seorang anak menaiki tangga dengan $8$ anak tangga. Setiap langkah ia naik $1$, $2$, atau $3$ anak tangga. Berapa banyak cara ia\nmencapai anak tangga ke-$8$ (urutan langkah diperhatikan)?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "81",
+      "display": "$81$"
+    },
+    "hints": [
+      "Langkah terakhir $1$, $2$, atau $3$.",
+      "$t_n=t_{n-1}+t_{n-2}+t_{n-3}$ dengan $t_0=1$, $t_1=1$, $t_2=2$."
+    ],
+    "solution": "Misalkan $t_n$ banyak cara mencapai anak tangga ke-$n$ ($t_0=1$). Menurut langkah terakhir, $t_n=t_{n-1}+t_{n-2}+t_{n-3}$:\n$$t_1=1,\\ t_2=2,\\ t_3=4,\\ t_4=7,\\ t_5=13,\\ t_6=24,\\ t_7=44,\\ t_8=81.$$",
+    "key_idea": "Pecah menurut langkah terakhir.",
+    "common_error": "Memakai $t_n=t_{n-1}+t_{n-2}$ (hanya langkah $1$ dan $2$), sehingga menjawab $34$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-014",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "inklusi eksklusi",
+    "objective_id": "KO04-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO04"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi",
+      "permutasi"
+    ],
+    "statement": "Berapa banyak permutasi $(a_1,a_2,a_3,a_4,a_5)$ dari $1,2,3,4,5$ yang memenuhi $a_1\\ne1$ **dan** $a_2\\ne2$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "78",
+      "display": "$78$"
+    },
+    "hints": [
+      "Hitung komplemennya: $a_1=1$ atau $a_2=2$.",
+      "$|A|=|B|=4!$ dan $|A\\cap B|=3!$."
+    ],
+    "solution": "Misalkan $A$: $a_1=1$, dan $B$: $a_2=2$. $|A|=|B|=24$, $|A\\cap B|=6$, jadi $|A\\cup B|=42$. Permutasi yang memenuhi ada\n$120-42=78$.",
+    "key_idea": "Komplemen + inklusi-eksklusi dua himpunan.",
+    "common_error": "Menghitung $120-24-24=72$ (lupa menambahkan kembali irisan).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-015",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "invarian",
+    "objective_id": "KO03-O4",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 12,
+    "prerequisites": [
+      "KO03"
+    ],
+    "technique_tags": [
+      "invarian",
+      "paritas",
+      "konstruksi"
+    ],
+    "statement": "Bilangan $1,2,3,\\dots,10$ ditulis di papan. Pada setiap langkah, dua bilangan $a$ dan $b$ dihapus lalu diganti dengan $|a-b|$.\nSetelah $9$ langkah tersisa satu bilangan. Berapa banyak nilai berbeda yang mungkin untuk bilangan terakhir itu?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "Bagaimana paritas jumlah semua bilangan berubah? Bandingkan $a+b$ dan $|a-b|$.",
+      "Jumlah awal $55$ ganjil, jadi bilangan terakhir ganjil; ia juga paling besar $10$. Untuk setiap bilangan ganjil $1,3,\\dots,9$, cari urutan langkah."
+    ],
+    "solution": "**Invarian.** $a+b$ dan $|a-b|$ mempunyai paritas yang sama, jadi paritas jumlah semua bilangan tetap. Jumlah awal $55$ ganjil,\nsehingga bilangan terakhir ganjil. Selain itu, semua bilangan selalu tak negatif dan $|a-b|\\le\\max(a,b)$, jadi bilangan terakhir\npaling besar $10$. Calonnya $1,3,5,7,9$.\n\n**Konstruksi.** Untuk $k\\in\\{1,3,5,7,9\\}$, misalkan $m=10-k$ (juga ganjil). Delapan bilangan $\\{1,\\dots,9\\}\\setminus\\{m\\}$ dapat\ndipasangkan menjadi empat pasangan bilangan berurutan; misalnya untuk $m=5$: $(1,2),(3,4),(6,7),(8,9)$. Setiap pasangan menghasilkan\n$1$ (empat langkah). Empat angka $1$ menjadi $0,0$ lalu $0$ (tiga langkah). Tersisa $\\{10,m,0\\}$: $(m,0)\\to m$, lalu\n$(10,m)\\to10-m=k$. Totalnya $9$ langkah.\n\nJadi ada $5$ nilai.",
+    "key_idea": "Paritas jumlah adalah invarian; batas atas dan konstruksi melengkapi jawaban.",
+    "common_error": "Hanya memakai paritas tanpa batas atas, sehingga menganggap tak hingga banyak nilai ganjil mungkin; atau tanpa konstruksi menganggap hanya $1$ yang mungkin.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-016",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "segi empat tali busur",
+    "objective_id": "GE03-O2",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "GE03"
+    ],
+    "technique_tags": [
+      "segi_empat_tali_busur"
+    ],
+    "statement": "Segi empat $ABCD$ terletak pada sebuah lingkaran, dengan $\\angle BAD=2\\angle BCD$. Tentukan $\\angle BCD$ dalam derajat.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "60",
+      "display": "$60$"
+    },
+    "hints": [
+      "Sudut berhadapan pada segi empat tali busur berjumlah $180^\\circ$.",
+      "$2x+x=180^\\circ$."
+    ],
+    "solution": "$\\angle BAD+\\angle BCD=180^\\circ$, jadi $3\\angle BCD=180^\\circ$ dan $\\angle BCD=60^\\circ$.",
+    "key_idea": "Sudut berhadapan segi empat tali busur berjumlah $180^\\circ$.",
+    "common_error": "Menganggap jumlahnya $360^\\circ$ sehingga menjawab $120$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-017",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "kuasa titik",
+    "objective_id": "GE04-O1",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 7,
+    "prerequisites": [
+      "GE03",
+      "GE04"
+    ],
+    "technique_tags": [
+      "kuasa_titik",
+      "koordinat"
+    ],
+    "statement": "Dua tali busur $AB$ dan $CD$ sebuah lingkaran berpotongan tegak lurus di titik $P$. Diketahui $AP=2$, $PB=6$, dan $CP=3$.\nJika $r$ jari-jari lingkaran itu, tentukan $r^2$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "65/4",
+      "display": "$\\dfrac{65}4$"
+    },
+    "hints": [
+      "Kuasa titik memberi $PD$. Lalu pasang koordinat dengan $P$ di titik asal, $AB$ pada sumbu-$x$, $CD$ pada sumbu-$y$.",
+      "$PD=4$. Pusat lingkaran berada pada sumbu tali busur $AB$ dan sumbu tali busur $CD$."
+    ],
+    "solution": "Kuasa titik: $PA\\cdot PB=PC\\cdot PD$, jadi $PD=\\frac{2\\cdot6}3=4$.\n\nAmbil $P=(0,0)$, $A=(-2,0)$, $B=(6,0)$, $C=(0,3)$, $D=(0,-4)$. Pusat lingkaran berjarak sama dari $A$ dan $B$, jadi absisnya\n$\\frac{-2+6}2=2$; berjarak sama dari $C$ dan $D$, jadi ordinatnya $\\frac{3-4}2=-\\frac12$. Maka\n$$r^2=OA^2=(2+2)^2+\\left(-\\tfrac12\\right)^2=16+\\tfrac14=\\tfrac{65}4.$$",
+    "key_idea": "Kuasa titik melengkapi data; koordinat dengan tali busur sebagai sumbu menempatkan pusat.",
+    "common_error": "Menganggap $P$ pusat lingkaran, misalnya $r=\\frac{AB}2=4$.",
+    "diagram": "MX2-017.svg",
+    "diagram_alt": "Lingkaran dengan tali busur mendatar AB dan tali busur tegak CD yang berpotongan tegak lurus di P; A di kiri, B di kanan, C di atas, D di bawah.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-018",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "tali sepatu",
+    "objective_id": "GE04-O2",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE04"
+    ],
+    "technique_tags": [
+      "tali_sepatu",
+      "koordinat"
+    ],
+    "statement": "Tentukan luas segitiga dengan titik sudut $(1,1)$, $(7,3)$, dan $(3,9)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "22",
+      "display": "$22$"
+    },
+    "hints": [
+      "Geser agar satu titik sudut di titik asal: kurangi $(1,1)$ dari semua titik.",
+      "$(0,0)$, $(6,2)$, $(2,8)$: $L=\\frac12|6\\cdot8-2\\cdot2|$."
+    ],
+    "solution": "Geser dengan $(-1,-1)$: titik sudutnya $(0,0)$, $(6,2)$, $(2,8)$. Luas $\\frac12|6\\cdot8-2\\cdot2|=\\frac12\\cdot44=22$.",
+    "key_idea": "Rumus tali sepatu; menggeser titik tidak mengubah luas.",
+    "common_error": "Lupa faktor $\\frac12$ sehingga menjawab $44$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-019",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "heron",
+    "objective_id": "GE04-O4",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "GE04",
+      "GE03"
+    ],
+    "technique_tags": [
+      "heron",
+      "jari_jari_luar"
+    ],
+    "statement": "Sebuah segitiga mempunyai panjang sisi $9$, $10$, dan $17$. Tentukan jari-jari lingkaran luarnya.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "85/8",
+      "display": "$\\dfrac{85}8$"
+    },
+    "hints": [
+      "Hitung luas dengan Heron: $s=18$.",
+      "$L=36$, lalu $R=\\frac{abc}{4L}$."
+    ],
+    "solution": "$s=18$, $L=\\sqrt{18\\cdot9\\cdot8\\cdot1}=\\sqrt{1296}=36$. Maka $R=\\frac{9\\cdot10\\cdot17}{4\\cdot36}=\\frac{1530}{144}=\\frac{85}8$.",
+    "key_idea": "Heron lalu $R=\\frac{abc}{4L}$.",
+    "common_error": "Memakai $R=\\frac Ls$ (rumus jari-jari lingkaran **dalam**) sehingga menjawab $2$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX2-020",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "koordinat",
+    "objective_id": "GE04-O1",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "GE04",
+      "GE03"
+    ],
+    "technique_tags": [
+      "koordinat",
+      "garis_singgung",
+      "simetri"
+    ],
+    "statement": "Persegi $ABCD$ mempunyai panjang sisi $10$. Sebuah lingkaran melalui $A$ dan $B$ serta menyinggung sisi $CD$. Tentukan jari-jari lingkaran itu.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "25/4",
+      "display": "$\\dfrac{25}4$"
+    },
+    "hints": [
+      "Pasang $A(0,0)$, $B(10,0)$, $C(10,10)$, $D(0,10)$. Pusat lingkaran berada pada sumbu $AB$, yaitu $x=5$.",
+      "Pusat $(5,k)$; menyinggung $y=10$ berarti $r=10-k$. Dan $r^2=25+k^2$."
+    ],
+    "solution": "Ambil $A(0,0)$, $B(10,0)$, $C(10,10)$, $D(0,10)$. Pusat berjarak sama dari $A$ dan $B$, jadi pusatnya $O(5,k)$. Lingkaran\nmenyinggung garis $CD$ ($y=10$), jadi $r=10-k$ (pusat di bawah $CD$). Dari $OA=r$:\n$$25+k^2=(10-k)^2=100-20k+k^2\\ \\Longrightarrow\\ k=\\tfrac{15}4,\\quad r=\\tfrac{25}4.$$\nTitik singgungnya $(5,10)$, titik tengah $CD$, memang terletak pada sisi $CD$.",
+    "key_idea": "Simetri menempatkan pusat; menyinggung berarti jarak pusat ke garis sama dengan jari-jari.",
+    "common_error": "Menganggap lingkaran juga melalui $C$ dan $D$ (lingkaran luar persegi) sehingga menjawab $5\\sqrt2$, atau menganggap $r=5$.",
+    "diagram": "MX2-020.svg",
+    "diagram_alt": "Persegi ABCD dengan A kiri bawah, B kanan bawah, C kanan atas, D kiri atas. Lingkaran melalui A dan B dan menyinggung sisi atas CD di titik tengahnya.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX2.md): A1–A6 lulus. A5: scripts/checks/MX2.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]

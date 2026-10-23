@@ -8,7 +8,7 @@ Terakhir diperbarui: 2026-10-23 (sesi 2).
 - [x] Tahap 1 — blueprint, rencana 8 minggu, skema, standar audit, platform, kerangka proyek + tes
 - [x] Tahap 2 — **pilot TB01 + GE01 selesai**: 2 materi, 4 contoh, 24 latihan, semuanya `verified`
 - [x] Tahap 3 — volume dipertahankan (12 latihan/modul); biaya aktual US$11 setelah pilot, proyeksi di `costs/cost_log.md`
-- [ ] Tahap 4 — produksi: **19/19 modul selesai**; tersisa diagnostik (16 soal) dan dua Latihan Campuran (40 soal)
+- [x] Tahap 4 — produksi: **19/19 modul + diagnostik (16) + Latihan Campuran 1 dan 2 (2 × 20)**; 322 butir, semuanya verified
 - [ ] Tahap 5–6
 
 ## Lingkungan
@@ -55,11 +55,15 @@ Terakhir diperbarui: 2026-10-23 (sesi 2).
 - KO05: materi + `KO05-E01..E02`, `KO05-P001..P012`: verified (P003, P008 `adapted`).
 - AL06: materi + `AL06-E01..E02`, `AL06-P001..P012`: verified.
 - GE02: materi + `GE02-E01..E02`, `GE02-P001..P012`: verified; diagram E01, E02, P004, P006, P008, P010, P011 (`scripts/diagrams/GE02.py`).
-- Audit: `review/audit_<MODUL>.md` untuk kesembilan belas modul. Pemeriksaan: `npm run check:math` (266/266 cocok).
+- DG: `DG-001..016` (4 per bidang); MX1: `MX1-001..020` (modul 1–8); MX2: `MX2-001..020` (modul 1–19); semuanya verified,
+  `module_id: null`, modul rujukan di `prerequisites`. Diagram MX1-018, MX1-020, MX2-017, MX2-020 (`scripts/diagrams/MX.py`).
+  Situs: halaman paket `#/p/DG`, `#/p/MX1`, `#/p/MX2` (ringkasan per bidang, cetak), daftar paket di beranda.
+- Audit: `review/audit_<MODUL>.md` untuk kesembilan belas modul dan `audit_DG.md`, `audit_MX1.md`, `audit_MX2.md`.
+  Pemeriksaan: `npm run check:math` (322/322 cocok).
 - Lingkungan sesi baru: `npm ci` dan `pip install sympy==1.13.3` (sympy tidak terpasang bawaan).
 - Tes: `npm test` (penilai, validator, build, situs fixture, dan tampilan konten nyata per modul) lulus.
 
-Mutu kumulatif: 266 butir; batch AL05+KO05+AL06: 7 temuan sebelum verified (1 domain soal yang membuat keberadaan fungsi tak konstruktif; 1 kekeliruan umum yang kebetulan menghasilkan kunci; 3 kekeliruan umum kabur; 1 soal tantangan yang ternyata cukup dijumlah langsung, diganti; 1 kemiripan dengan AL04 dicatat), 0 kunci salah; batch GE04: 3 temuan sebelum verified (data P002 sama dengan contoh materi; kunci P012 sama dengan anggapan keliru "titik berat"; diagram P007 menyesatkan), 0 kunci salah; batch KO04: 4 temuan teks (1 kekeliruan umum yang kebetulan menghasilkan kunci, 2 angka di kekeliruan umum, 1 kunci kembar P009/P010 diganti), 0 kunci salah; batch AL04: 3 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten), 0 kunci salah; batch TB04: 3 temuan (2 contoh materi membocorkan soal, 1 contoh pengganti salah hitung sebelum terbit, 1 tata letak), 0 kunci salah; batch GE03: 0 temuan yang mengubah kunci, 0 kunci salah; batch KO03: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL03: 2 temuan (kekeliruan umum P006 bukan kesalahan; tipe jawaban P011), 0 kunci salah; batch TB03: 4 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten, 1 tata letak), 0 kunci salah; batch GE02: 2 temuan (contoh materi membocorkan P006; klaim rasio salah di kekeliruan umum P011), keduanya diperbaiki sebelum verified, 0 kunci salah; batch KO02: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL02: 1 temuan (pemantik materi membocorkan trik P010, diganti), 0 kunci salah. Batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
+Mutu kumulatif: 322 butir; paket DG+MX1+MX2: 13 rancangan diganti sebelum ditulis/verified (9 sama atau terlalu mirip dengan bank modul, 1 terjawab trivial, 1 pembahasan tidak rapi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah; batch AL05+KO05+AL06: 7 temuan sebelum verified (1 domain soal yang membuat keberadaan fungsi tak konstruktif; 1 kekeliruan umum yang kebetulan menghasilkan kunci; 3 kekeliruan umum kabur; 1 soal tantangan yang ternyata cukup dijumlah langsung, diganti; 1 kemiripan dengan AL04 dicatat), 0 kunci salah; batch GE04: 3 temuan sebelum verified (data P002 sama dengan contoh materi; kunci P012 sama dengan anggapan keliru "titik berat"; diagram P007 menyesatkan), 0 kunci salah; batch KO04: 4 temuan teks (1 kekeliruan umum yang kebetulan menghasilkan kunci, 2 angka di kekeliruan umum, 1 kunci kembar P009/P010 diganti), 0 kunci salah; batch AL04: 3 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten), 0 kunci salah; batch TB04: 3 temuan (2 contoh materi membocorkan soal, 1 contoh pengganti salah hitung sebelum terbit, 1 tata letak), 0 kunci salah; batch GE03: 0 temuan yang mengubah kunci, 0 kunci salah; batch KO03: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL03: 2 temuan (kekeliruan umum P006 bukan kesalahan; tipe jawaban P011), 0 kunci salah; batch TB03: 4 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten, 1 tata letak), 0 kunci salah; batch GE02: 2 temuan (contoh materi membocorkan P006; klaim rasio salah di kekeliruan umum P011), keduanya diperbaiki sebelum verified, 0 kunci salah; batch KO02: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL02: 1 temuan (pemantik materi membocorkan trik P010, diganti), 0 kunci salah. Batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
 Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu ringkas (1), escaping LaTeX
 (tertangkap validator), dan rumus terlalu lebar di ponsel (tata letak).
 
@@ -78,6 +82,5 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Berikutnya
 
-19/19 modul selesai (266 butir). Berikutnya diagnostik `DG-001..016` (sebelum program, memetakan bidang lemah) dan
-Latihan Campuran `MX1-001..020` (modul 1–8) serta `MX2-001..020` (modul 1–19), semuanya soal baru, bukan salinan bank modul.
-Setelah itu Tahap 5–6 (pengemasan, tinjauan guru).
+Konten lengkap: 19 modul, 266 butir modul + 56 butir paket. Berikutnya Tahap 5–6: tinjauan guru (kesulitan, bahasa,
+diagnostik), uji coba pada siswa, perbaikan dari temuan, dan pengemasan akhir (README pemakaian guru, build rilis).

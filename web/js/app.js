@@ -8,6 +8,16 @@
   const DIFF = { foundation: "Fondasi", core: "Inti", challenge: "Tantangan" };
   const byId = Object.fromEntries(D.questions.map((q) => [q.id, q]));
   const qsOf = (mid, role) => D.questions.filter((q) => q.module_id === mid && q.role === role);
+  // Paket lintas modul (diagnostik, Latihan Campuran): butir dikenali dari prefiks ID.
+  const PACKS = [
+    { id: "DG", title: "Diagnostik", note: "16 soal, ±60 menit, dikerjakan mandiri sebelum program. Ringkasan per bidang di bawah menunjukkan bidang yang perlu diperkuat." },
+    { id: "MX1", title: "Latihan Campuran 1", note: "20 soal dari modul 1–8 (akhir minggu 4), dikerjakan mandiri." },
+    { id: "MX2", title: "Latihan Campuran 2", note: "20 soal dari modul 1–19 (minggu 10), dikerjakan mandiri." },
+  ];
+  const packQs = (pid) => D.questions.filter((q) => q.id.startsWith(pid + "-")).sort((a, b) => a.id.localeCompare(b.id));
+  const packOf = (pid) => PACKS.find((p) => p.id === pid);
+  // Modul rujukan sebuah butir: modulnya sendiri, atau modul pertama yang diujinya (butir paket).
+  const homeModule = (q) => q.module_id || (q.prerequisites || [])[0];
   // Versi build di footer, agar guru dapat memastikan situs memakai commit terbaru.
   const $foot = document.querySelector("footer small");
   if ($foot && D.commit) {
@@ -52,7 +62,7 @@
         <label class="sr">Kesulitan <select id="fDiff"><option value="">Semua kesulitan</option>${Object.entries(DIFF).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label>
         <input id="fText" type="search" placeholder="Cari judul, subtopik, teknik…" aria-label="Cari">
       </div>
-      <ul class="cards" id="list"></ul>${recommend()}`);
+      <ul class="cards" id="list"></ul>${packList()}${recommend()}`);
     const dom = document.getElementById("fDom"), diff = document.getElementById("fDiff"), txt = document.getElementById("fText");
     dom.value = f.dom || ""; diff.value = f.diff || ""; txt.value = f.txt || "";
     const update = () => {
@@ -79,12 +89,22 @@
     update();
   }
 
+  function packList() {
+    const items = PACKS.map((p) => ({ p, qs: packQs(p.id) })).filter((x) => x.qs.length);
+    if (!items.length) return "";
+    return `<h2>Paket latihan</h2><ul class="cards">${items.map(({ p, qs }) => {
+      const done = qs.filter((q) => P[q.id] && P[q.id].solved).length;
+      return `<li class="card"><div><strong><a href="#/p/${p.id}">${esc(p.title)}</a></strong></div>
+        <div class="meta"><span class="chip">${p.id}</span> ${done}/${qs.length} soal selesai</div></li>`;
+    }).join("")}</ul>`;
+  }
+
   // Rekomendasi deterministik: tag dari soal yang terakhir dijawab salah -> modul yang memuat tag itu.
   function recommend() {
     const wrong = Object.entries(P).filter(([id, r]) => r.lastWrong && !r.solved && byId[id]).map(([id]) => byId[id]);
     if (!wrong.length) return "";
     const mods = {};
-    wrong.forEach((q) => { mods[q.module_id] = (mods[q.module_id] || 0) + 1; });
+    wrong.forEach((q) => { const mid = homeModule(q); if (mid) mods[mid] = (mods[mid] || 0) + 1; });
     const list = Object.entries(mods).sort((a, b) => b[1] - a[1]).slice(0, 3)
       .map(([mid, n]) => { const m = D.modules.find((x) => x.id === mid); return `<li><a href="#/m/${mid}">${esc(m.title)}</a> — ${n} soal belum tuntas</li>`; });
     return `<h2>Disarankan untuk diulang</h2><ul>${list.join("")}</ul>`;
@@ -101,7 +121,7 @@
          <button class="primary" data-act="check" data-id="${q.id}">Periksa</button><span class="feedback" role="status" aria-live="polite"></span></div>`;
     const status = r.solved ? `<span class="chip">✓ ${r.solvedUnaided ? "tuntas tanpa bantuan" : "tuntas dengan bantuan"}</span>` : r.attempts ? `<span class="chip">sudah dicoba</span>` : "";
     return `<article class="q" id="${q.id}"><header><span class="qid">${n}</span><span class="chip">${q.id}</span>
-      <span class="chip">${DIFF[q.difficulty]}</span><span class="muted">±${q.minutes} menit</span>${status}${draftChip(q)}</header>
+      <span class="chip">${DIFF[q.difficulty]}</span>${q.module_id ? "" : `<span class="chip">${DOMAIN[q.domain]} · ${esc((q.prerequisites || []).join(", "))}</span>`}<span class="muted">±${q.minutes} menit</span>${status}${draftChip(q)}</header>
       ${q.statement}${q.diagram ? `<figure class="diagram" role="img" aria-label="${esc(q.diagram_alt)}">${q.diagram}<figcaption class="muted">${esc(q.diagram_alt)}</figcaption></figure>` : ""}
       ${choices}${input}
       ${q.hints.map((h, i) => `<details data-act="hint" data-id="${q.id}" data-n="${i + 1}"><summary>Petunjuk ${i + 1}</summary>${h}</details>`).join("")}
@@ -124,6 +144,24 @@
         ${q.diagram ? `<figure class="diagram" role="img" aria-label="${esc(q.diagram_alt)}">${q.diagram}</figure>` : ""}${q.solution}
         <p><b>Jawaban:</b> ${q.answer_html}</p><p><b>Pelajaran.</b> ${q.key_idea}</p></article>`).join("")}` : ""}
       <h2>Latihan</h2>${pr.map((q, i) => qBlock(q, i + 1, true)).join("") || `<p class="muted">Belum ada latihan.</p>`}`, true);
+  }
+
+  // ---- Halaman: paket ----
+  function viewPack(pid) {
+    const p = packOf(pid), qs = packQs(pid);
+    if (!p || !qs.length) return render("<p>Paket tidak ditemukan.</p>");
+    const rows = Object.entries(DOMAIN).map(([k, v]) => {
+      const d = qs.filter((q) => q.domain === k);
+      if (!d.length) return "";
+      const solved = d.filter((q) => P[q.id] && P[q.id].solvedUnaided).length;
+      const tried = d.filter((q) => P[q.id] && P[q.id].attempts).length;
+      return `<tr><td>${v}</td><td>${solved} / ${d.length}</td><td>${tried}</td></tr>`;
+    }).join("");
+    render(`<p class="muted"><a href="#/">← Modul</a></p><h1>${esc(p.title)}</h1><p>${esc(p.note)}</p>
+      <div class="toolbar"><a href="#/cetak/${pid}/soal">Cetak soal</a><a href="#/cetak/${pid}/pembahasan">Cetak soal + pembahasan</a></div>
+      <table class="summary"><thead><tr><th>Bidang</th><th>Benar tanpa bantuan</th><th>Dicoba</th></tr></thead><tbody>${rows}</tbody></table>
+      <p class="muted">Ringkasan diperbarui saat halaman dibuka ulang. Modul rujukan setiap soal tertera pada label soal.</p>
+      ${qs.map((q, i) => qBlock(q, i + 1, true)).join("")}`, true);
   }
 
   // ---- Interaksi latihan (delegasi event) ----
@@ -155,10 +193,11 @@
 
   // ---- Cetak ----
   function viewPrint(mid, mode) {
-    const m = D.modules.find((x) => x.id === mid);
+    const pack = packOf(mid), m = pack || D.modules.find((x) => x.id === mid);
+    if (!m) return render("<p>Tidak ditemukan.</p>");
     const withSol = mode === "pembahasan";
-    const pr = qsOf(mid, "practice");
-    render(`<p class="no-print"><a href="#/m/${mid}">← Kembali</a> · <button onclick="window.print()">Cetak / simpan PDF</button></p>
+    const pr = pack ? packQs(mid) : qsOf(mid, "practice");
+    render(`<p class="no-print"><a href="#/${pack ? "p" : "m"}/${mid}">← Kembali</a> · <button onclick="window.print()">Cetak / simpan PDF</button></p>
       <h1>${esc(m.title)} — ${withSol ? "Soal dan Pembahasan" : "Soal"}</h1>
       ${pr.map((q, i) => `<article class="q"><header><span class="qid">${i + 1}.</span><span class="chip">${q.id}</span>${draftChip(q)}</header>${q.statement}
         ${q.diagram ? `<figure class="diagram">${q.diagram}</figure>` : ""}
@@ -168,10 +207,10 @@
 
   // ---- Progres: ringkasan, ekspor, impor ----
   function viewProgress() {
-    const pr = D.questions.filter((q) => q.role === "practice");
+    const pr = D.questions.filter((q) => q.role !== "worked_example");
     const n = (f) => pr.filter((q) => P[q.id] && f(P[q.id])).length;
     render(`<h1>Progres</h1><p class="muted">Tersimpan di browser ini saja. Gunakan ekspor/impor untuk pindah perangkat.</p>
-      <ul><li>Dicoba: ${n((r) => r.attempts > 0)} dari ${pr.length} latihan</li>
+      <ul><li>Dicoba: ${n((r) => r.attempts > 0)} dari ${pr.length} soal (latihan modul dan paket)</li>
       <li>Tuntas tanpa bantuan: ${n((r) => r.solvedUnaided)}</li>
       <li>Tuntas dengan petunjuk/pembahasan: ${n((r) => r.solved && !r.solvedUnaided)}</li></ul>
       <div class="toolbar"><button id="exp">Ekspor progres (JSON)</button>
@@ -195,6 +234,7 @@
   function route() {
     const h = location.hash.replace(/^#\/?/, "").split("/");
     if (h[0] === "m") viewModule(h[1]);
+    else if (h[0] === "p") viewPack(h[1]);
     else if (h[0] === "cetak") viewPrint(h[1], h[2]);
     else if (h[0] === "progres") viewProgress();
     else viewHome();

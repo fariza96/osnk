@@ -1,4 +1,4 @@
-// Tes tampilan konten nyata: setiap modul bermateri dirender tanpa galat LaTeX, tanpa jaringan,
+// Tes tampilan konten nyata: setiap modul bermateri dan setiap paket (DG, MX1, MX2) dirender tanpa galat LaTeX, tanpa jaringan,
 // dan tanpa scroll horizontal di lebar ponsel (semua petunjuk/pembahasan dibuka).
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
@@ -22,8 +22,11 @@ before(async () => {
 });
 after(async () => { await browser?.close(); fs.rmSync(OUT, { recursive: true, force: true }); });
 
-for (const m of modules) {
-  for (const route of [`m/${m.id}`, `cetak/${m.id}/pembahasan`]) {
+const packs = ["DG", "MX1", "MX2"].filter((p) => fs.existsSync(path.join(ROOT, "content/questions", `${p}.json`)));
+const routes = [...modules.flatMap((m) => [`m/${m.id}`, `cetak/${m.id}/pembahasan`]),
+  ...packs.flatMap((p) => [`p/${p}`, `cetak/${p}/pembahasan`])];
+{
+  for (const route of routes) {
     test(`konten ${route}: rumus valid, luring, muat di layar 390 px`, async () => {
       const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
       const errors = [];

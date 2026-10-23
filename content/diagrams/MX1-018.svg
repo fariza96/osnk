@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 168.0" width="280" height="168" role="img" aria-label="Jajargenjang ABCD; E titik tengah CD; AE dan BD berpotongan di F" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="28.0" y1="140.0" x2="207.2" y2="140.0"/>
+<line x1="207.2" y1="140.0" x2="252.0" y2="28.0"/>
+<line x1="252.0" y1="28.0" x2="72.8" y2="28.0"/>
+<line x1="72.8" y1="28.0" x2="28.0" y2="140.0"/>
+<line x1="28.0" y1="140.0" x2="162.4" y2="28.0"/>
+<line x1="207.2" y1="140.0" x2="72.8" y2="28.0"/>
+<line x1="117.6" y1="21.0" x2="117.6" y2="35.0" stroke-width="1.2"/>
+<line x1="207.2" y1="21.0" x2="207.2" y2="35.0" stroke-width="1.2"/>
+<circle cx="28.0" cy="140.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="150.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="207.2" cy="140.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="217.2" y="150.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="252.0" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="262.0" y="20.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="72.8" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="62.8" y="20.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+<circle cx="162.4" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="162.4" y="15.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">E</text>
+<circle cx="117.6" cy="65.33" r="2.6" fill="currentColor" stroke="none"/>
+<text x="129.6" y="67.33" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">F</text>
+</svg>

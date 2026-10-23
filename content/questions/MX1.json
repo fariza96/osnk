@@ -1,0 +1,710 @@
+[
+  {
+    "id": "MX1-001",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "faktorisasi prima",
+    "objective_id": "TB01-O1",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "TB01"
+    ],
+    "technique_tags": [
+      "faktorisasi_prima",
+      "kuadrat_sempurna"
+    ],
+    "statement": "Tentukan bilangan bulat positif terkecil $n$ sehingga $84n$ merupakan kuadrat sempurna.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "21",
+      "display": "$21$"
+    },
+    "hints": [
+      "Faktorkan $84$. Pada kuadrat sempurna, setiap pangkat prima genap.",
+      "$84=2^2\\cdot3\\cdot7$."
+    ],
+    "solution": "$84=2^2\\cdot3\\cdot7$. Agar semua pangkat prima di $84n$ genap, $n$ harus memuat $3$ dan $7$; yang terkecil $n=21$, dan\n$84\\cdot21=1764=42^2$.",
+    "key_idea": "Kuadrat sempurna ⇔ semua pangkat prima genap.",
+    "common_error": "Menjawab $84$ (mengalikan dengan dirinya sendiri) atau $7$ (lupa faktor $3$).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-002",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "sisa pembagian",
+    "objective_id": "TB02-O1",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "TB02"
+    ],
+    "technique_tags": [
+      "sisa_pembagian",
+      "siklus"
+    ],
+    "statement": "Tentukan sisa pembagian $3^{100}$ oleh $13$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "3",
+      "display": "$3$"
+    },
+    "hints": [
+      "Cari pangkat kecil $3^k$ yang bersisa $1$ bila dibagi $13$.",
+      "$3^3=27\\equiv1\\pmod{13}$, dan $100=3\\cdot33+1$."
+    ],
+    "solution": "$3^3=27=2\\cdot13+1\\equiv1\\pmod{13}$. Karena $100=3\\cdot33+1$, $3^{100}=(3^3)^{33}\\cdot3\\equiv3\\pmod{13}$.",
+    "key_idea": "Pangkat yang bersisa $1$ membuat siklus; sisakan eksponen modulo panjang siklus.",
+    "common_error": "Menyimpulkan $3^{100}\\equiv1$ karena $3^3\\equiv1$, tanpa memperhitungkan sisa $100$ dibagi $3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-003",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "fpb",
+    "objective_id": "TB02-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "TB02",
+      "TB01"
+    ],
+    "technique_tags": [
+      "fpb",
+      "periodik_modulo"
+    ],
+    "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ yang memenuhi $\\mathrm{FPB}(n,12)=1$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "33",
+      "display": "$33$"
+    },
+    "hints": [
+      "$\\mathrm{FPB}(n,12)=1$ berarti $n$ tidak habis dibagi $2$ maupun $3$. Sisa $n$ dibagi $6$ berapa saja yang memenuhi?",
+      "Hanya $n\\equiv1$ atau $5\\pmod6$. Ada $16$ blok penuh $1$–$96$."
+    ],
+    "solution": "$\\mathrm{FPB}(n,12)=1$ tepat jika $n$ tidak habis dibagi $2$ maupun $3$, yaitu $n\\equiv1$ atau $5\\pmod 6$. Dalam $1,\\dots,96$\nada $16$ blok berisi $6$ bilangan, masing-masing menyumbang $2$: $32$ bilangan. Dari $97,98,99,100$, hanya $97\\equiv1\\pmod6$\nyang memenuhi. Totalnya $33$.",
+    "key_idea": "Syarat saling prima bergantung pada sisa modulo $6$; hitung per blok.",
+    "common_error": "Menghitung $\\frac{100}{6}\\cdot2\\approx33{,}3$ lalu membulatkan tanpa memeriksa sisa blok, atau hanya membuang bilangan genap ($50$).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-004",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "selisih kuadrat",
+    "objective_id": "TB02-O3",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 7,
+    "prerequisites": [
+      "TB02",
+      "AL01"
+    ],
+    "technique_tags": [
+      "selisih_kuadrat",
+      "modulo_4"
+    ],
+    "statement": "Berapa banyak bilangan bulat $n$ dengan $1\\le n\\le100$ yang dapat ditulis sebagai $x^2-y^2$ untuk suatu bilangan bulat tak negatif $x$ dan $y$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "75",
+      "display": "$75$"
+    },
+    "hints": [
+      "Kuadrat sempurna bersisa $0$ atau $1$ bila dibagi $4$. Sisa berapa yang mustahil untuk selisihnya?",
+      "Bilangan ganjil $2k+1=(k+1)^2-k^2$ dan kelipatan $4$: $4k=(k+1)^2-(k-1)^2$."
+    ],
+    "solution": "**Mustahil.** Kuadrat sempurna bersisa $0$ atau $1$ modulo $4$, jadi $x^2-y^2$ bersisa $0$, $1$, atau $3$, tidak pernah $2$.\nBilangan $n\\equiv2\\pmod 4$ di $1..100$ ada $25$ ($2,6,\\dots,98$).\n\n**Mungkin.** Bilangan ganjil: $2k+1=(k+1)^2-k^2$. Kelipatan $4$: $4k=(k+1)^2-(k-1)^2$ untuk $k\\ge1$.\n\nJadi ada $100-25=75$ bilangan.",
+    "key_idea": "Modulo $4$ memberi ketakmungkinan; identitas selisih kuadrat memberi konstruksi.",
+    "common_error": "Hanya menghitung bilangan ganjil ($50$) karena lupa kelipatan $4$, atau menganggap semua bilangan bisa.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-005",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "sistem kongruensi",
+    "objective_id": "TB02-O4",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 9,
+    "prerequisites": [
+      "TB02"
+    ],
+    "technique_tags": [
+      "sistem_kongruensi",
+      "crt"
+    ],
+    "statement": "Tentukan bilangan bulat positif terkecil $n$ sehingga $n$ habis dibagi $3$, $n+1$ habis dibagi $4$, $n+2$ habis dibagi $5$, dan\n$n+3$ habis dibagi $7$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "123",
+      "display": "$123$"
+    },
+    "hints": [
+      "Syaratnya: $n\\equiv0\\pmod3$, $n\\equiv3\\pmod4$, $n\\equiv3\\pmod5$, $n\\equiv4\\pmod7$. Gabungkan dua syarat yang sisanya sama dulu.",
+      "$n\\equiv3\\pmod{20}$ dan $n\\equiv0\\pmod3$ memberi $n\\equiv3\\pmod{60}$. Lalu cari $n=3+60t$ dengan $n\\equiv4\\pmod7$."
+    ],
+    "solution": "Syaratnya $n\\equiv0\\pmod3$, $n\\equiv3\\pmod4$, $n\\equiv3\\pmod5$, $n\\equiv4\\pmod7$.\n\n- $n\\equiv3\\pmod4$ dan $n\\equiv3\\pmod5$ ⇔ $n\\equiv3\\pmod{20}$.\n- Di antara $3,23,43$ (sisa modulo $60$), yang habis dibagi $3$ hanya $3$; jadi $n\\equiv3\\pmod{60}$.\n- $n=3+60t\\equiv3+4t\\pmod7$. Syarat $3+4t\\equiv4$, yaitu $4t\\equiv1\\pmod7$, memberi $t\\equiv2\\pmod7$.\n\nYang terkecil $t=2$, $n=123$. Cek: $123=3\\cdot41$, $124=4\\cdot31$, $125=5\\cdot25$, $126=7\\cdot18$.",
+    "key_idea": "Gabungkan kongruensi bertahap (teorema sisa Cina), mulai dari yang sisanya sama.",
+    "common_error": "Menjawab $3$ karena $3$, $4$, $5$ masing-masing habis dibagi $3$, $4$, $5$; tetapi $3+3=6$ tidak habis dibagi $7$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-006",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "identitas kuadrat",
+    "objective_id": "AL01-O1",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "AL01"
+    ],
+    "technique_tags": [
+      "identitas_kuadrat"
+    ],
+    "statement": "Bilangan real $x\\ne0$ memenuhi $x-\\dfrac1x=3$. Tentukan $\\left(x+\\dfrac1x\\right)^2$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "13",
+      "display": "$13$"
+    },
+    "hints": [
+      "Bandingkan $\\left(x+\\frac1x\\right)^2$ dan $\\left(x-\\frac1x\\right)^2$.",
+      "Selisihnya $4$."
+    ],
+    "solution": "$\\left(x+\\frac1x\\right)^2=\\left(x-\\frac1x\\right)^2+4=9+4=13$.",
+    "key_idea": "$\\left(x+\\frac1x\\right)^2-\\left(x-\\frac1x\\right)^2=4$.",
+    "common_error": "Menganggap selisihnya $2$ (seperti suku tengah) sehingga menjawab $11$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-007",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "vieta",
+    "objective_id": "AL02-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "AL02",
+      "AL01"
+    ],
+    "technique_tags": [
+      "vieta",
+      "identitas_kubik"
+    ],
+    "statement": "Persamaan $x^2-5x+2=0$ mempunyai akar $p$ dan $q$. Tentukan $p^3+q^3$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "95",
+      "display": "$95$"
+    },
+    "hints": [
+      "$p+q=5$, $pq=2$.",
+      "$p^3+q^3=(p+q)^3-3pq(p+q)$."
+    ],
+    "solution": "$p^3+q^3=(p+q)^3-3pq(p+q)=125-3\\cdot2\\cdot5=95$.",
+    "key_idea": "Nyatakan jumlah pangkat tiga dalam $p+q$ dan $pq$.",
+    "common_error": "Memakai $(p+q)^3=p^3+q^3$ sehingga menjawab $125$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-008",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "teorema sisa",
+    "objective_id": "AL02-O3",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL02"
+    ],
+    "technique_tags": [
+      "teorema_sisa"
+    ],
+    "statement": "Sisa pembagian $P(x)=x^{100}+2x^{51}-3$ oleh $x^2-1$ adalah $r(x)$. Tentukan $r(10)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "18",
+      "display": "$18$"
+    },
+    "hints": [
+      "Sisanya berbentuk $r(x)=ax+b$. Substitusi akar pembagi, $x=1$ dan $x=-1$.",
+      "$P(1)=a+b=0$ dan $P(-1)=-a+b=-4$."
+    ],
+    "solution": "Karena pembagi berderajat $2$, $r(x)=ax+b$, dan $P(x)=(x^2-1)H(x)+ax+b$. Substitusi:\n$$\\begin{aligned}x=1&:\\ P(1)=1+2-3=0=a+b,\\\\x=-1&:\\ P(-1)=1-2-3=-4=-a+b.\\end{aligned}$$\nJadi $b=-2$, $a=2$, $r(x)=2x-2$, dan $r(10)=18$.",
+    "key_idea": "Substitusi akar pembagi ke $P(x)=Q(x)H(x)+r(x)$.",
+    "common_error": "Mengira sisanya konstanta $P(1)=0$, atau menghitung $(-1)^{51}=1$ sehingga $P(-1)=0$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-009",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "sistem simetris",
+    "objective_id": "AL02-O4",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 9,
+    "prerequisites": [
+      "AL01",
+      "AL02"
+    ],
+    "technique_tags": [
+      "sistem_simetris",
+      "vieta",
+      "kelengkapan_kasus"
+    ],
+    "statement": "Bilangan real $x$ dan $y$ memenuhi $$\\begin{aligned}x+y+xy&=11,\\\\x^2y+xy^2&=30.\\end{aligned}$$ Tentukan jumlah semua nilai $x^2+y^2$ yang mungkin.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "39",
+      "display": "$39$"
+    },
+    "hints": [
+      "Misalkan $s=x+y$, $p=xy$. Persamaannya menjadi $s+p=11$ dan $sp=30$.",
+      "$(s,p)=(5,6)$ atau $(6,5)$. Periksa apakah $x,y$ real ($s^2\\ge4p$), lalu hitung $s^2-2p$."
+    ],
+    "solution": "Dengan $s=x+y$ dan $p=xy$: $s+p=11$ dan $sp=30$, jadi $s,p$ adalah akar $t^2-11t+30=0$, yaitu $\\{5,6\\}$.\n\n- $(s,p)=(5,6)$: $x,y$ akar $t^2-5t+6$, yaitu $2,3$ (real). $x^2+y^2=25-12=13$.\n- $(s,p)=(6,5)$: $x,y$ akar $t^2-6t+5$, yaitu $1,5$ (real). $x^2+y^2=36-10=26$.\n\nJumlahnya $13+26=39$.",
+    "key_idea": "Ganti ke $s=x+y$ dan $p=xy$; periksa setiap kasus dan syarat realnya.",
+    "common_error": "Hanya menemukan satu kasus (misalnya menebak $x=2$, $y=3$) dan menjawab $13$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-010",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "sophie germain",
+    "objective_id": "AL01-O4",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "AL01"
+    ],
+    "technique_tags": [
+      "sophie_germain",
+      "faktorisasi"
+    ],
+    "statement": "Berapa banyak bilangan bulat positif $n$ sehingga $n^4+4$ merupakan bilangan prima?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "1",
+      "display": "$1$"
+    },
+    "hints": [
+      "$n^4+4=(n^2+2)^2-(2n)^2$.",
+      "$n^4+4=(n^2+2n+2)(n^2-2n+2)$. Kapan faktor yang lebih kecil sama dengan $1$?"
+    ],
+    "solution": "$n^4+4=(n^2+2)^2-4n^2=(n^2+2n+2)(n^2-2n+2)$. Faktor kedua $(n-1)^2+1\\ge1$, sama dengan $1$ hanya untuk $n=1$.\nUntuk $n\\ge2$ kedua faktor lebih dari $1$, jadi $n^4+4$ komposit. Untuk $n=1$, $n^4+4=5$ prima. Jawabannya $1$.",
+    "key_idea": "Identitas Sophie Germain: $a^4+4b^4=(a^2+2b^2)^2-(2ab)^2$.",
+    "common_error": "Menguji beberapa $n$ kecil dan menyimpulkan “tak hingga banyak” atau “tidak ada”, tanpa faktorisasi.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-011",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "aturan perkalian",
+    "objective_id": "KO01-O1",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "KO01"
+    ],
+    "technique_tags": [
+      "aturan_perkalian"
+    ],
+    "statement": "Berapa banyak bilangan genap empat digit yang dapat disusun dari angka $1,2,3,4,5$ tanpa pengulangan angka?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "48",
+      "display": "$48$"
+    },
+    "hints": [
+      "Isi digit satuan dulu.",
+      "Satuan $2$ atau $4$; tiga digit lain dari $4$ angka sisa: $4\\cdot3\\cdot2$."
+    ],
+    "solution": "Digit satuan: $2$ pilihan ($2$ atau $4$). Ketiga digit lain: $4\\cdot3\\cdot2=24$. Total $2\\cdot24=48$.",
+    "key_idea": "Isi posisi yang dibatasi (satuan) lebih dulu.",
+    "common_error": "Mengisi dari kiri tanpa memperhatikan bahwa angka genap mungkin sudah terpakai, misalnya $5\\cdot4\\cdot3\\cdot2$ lalu dibagi $2$ menjadi $60$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-012",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "sekat celah",
+    "objective_id": "KO02-O3",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO02"
+    ],
+    "technique_tags": [
+      "sekat_celah",
+      "objek_identik"
+    ],
+    "statement": "Berapa banyak susunan huruf berbeda dari kata $\\mathrm{BANANA}$ yang tidak memuat dua huruf $\\mathrm A$ bersebelahan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "12",
+      "display": "$12$"
+    },
+    "hints": [
+      "Susun dulu huruf selain $\\mathrm A$: $\\mathrm{B,N,N}$.",
+      "Ada $3$ susunan $\\mathrm{BNN}$ dan $4$ celah; pilih $3$ celah untuk $\\mathrm A$."
+    ],
+    "solution": "Huruf $\\mathrm{B,N,N}$ disusun dalam $\\frac{3!}{2!}=3$ cara. Keempat celah (dua ujung dan dua di antara) dipilih $3$ untuk\n$\\mathrm A$: $\\binom43=4$ cara. Total $12$.",
+    "key_idea": "Susun huruf lain dulu, lalu tempatkan huruf terlarang di celah.",
+    "common_error": "Memakai $3!=6$ untuk $\\mathrm{BNN}$ (lupa $\\mathrm N$ kembar) sehingga menjawab $24$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-013",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "paritas",
+    "objective_id": "KO02-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "paritas",
+      "kombinasi",
+      "partisi_kasus"
+    ],
+    "statement": "Tiga bilangan berbeda dipilih dari $\\{1,2,\\dots,20\\}$. Berapa banyak cara memilih sehingga jumlah ketiganya genap?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "570",
+      "display": "$570$"
+    },
+    "hints": [
+      "Jumlah tiga bilangan genap jika banyak bilangan ganjilnya $0$ atau $2$.",
+      "$\\binom{10}3+\\binom{10}2\\cdot10$."
+    ],
+    "solution": "Ada $10$ bilangan ganjil dan $10$ genap. Jumlahnya genap tepat jika banyak bilangan ganjil yang terpilih $0$ atau $2$:\n$$\\tbinom{10}3+\\tbinom{10}2\\tbinom{10}1=120+450=570.$$",
+    "key_idea": "Pecah menurut banyak bilangan ganjil yang terpilih.",
+    "common_error": "Lupa kasus tiga bilangan genap sehingga menjawab $450$, atau memakai kasus “tiga ganjil”.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-014",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "bintang sekat",
+    "objective_id": "KO02-O4",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO02"
+    ],
+    "technique_tags": [
+      "bintang_sekat",
+      "substitusi"
+    ],
+    "statement": "Berapa banyak solusi $a+b+c+d=10$ dengan $a,b,c,d$ bilangan bulat positif **ganjil**?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "20",
+      "display": "$20$"
+    },
+    "hints": [
+      "Tulis $a=2a'+1$, dan seterusnya, dengan $a'\\ge0$.",
+      "$a'+b'+c'+d'=3$; bintang dan sekat."
+    ],
+    "solution": "Tulis $a=2a'+1$, $b=2b'+1$, $c=2c'+1$, $d=2d'+1$ dengan $a',b',c',d'\\ge0$. Persamaan menjadi\n$2(a'+b'+c'+d')+4=10$, yaitu $a'+b'+c'+d'=3$, dengan $\\binom{6}{3}=20$ solusi.",
+    "key_idea": "Substitusi bentuk ganjil mengubah soal menjadi bintang dan sekat biasa.",
+    "common_error": "Langsung memakai $\\binom{9}{3}=84$ (solusi positif tanpa syarat ganjil).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-015",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "melingkar",
+    "objective_id": "KO02-O5",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "KO02"
+    ],
+    "technique_tags": [
+      "melingkar",
+      "tanpa_bersebelahan",
+      "simetri"
+    ],
+    "statement": "Berapa banyak cara memilih $3$ titik sudut dari sebuah segi-$12$ beraturan sehingga tidak ada dua titik terpilih yang bersebelahan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "112",
+      "display": "$112$"
+    },
+    "hints": [
+      "Hitung dulu banyak pilihan yang memuat satu titik tertentu, misalnya $A_1$.",
+      "Jika $A_1$ terpilih, $A_2$ dan $A_{12}$ tidak boleh; pilih $2$ titik tak bersebelahan dari $A_3,\\dots,A_{11}$ (barisan $9$ titik): $\\binom82$."
+    ],
+    "solution": "Jika $A_1$ terpilih, $A_2$ dan $A_{12}$ terlarang, dan dua titik lain dipilih dari barisan $A_3,\\dots,A_{11}$ ($9$ titik,\ntidak melingkar) tanpa bersebelahan: $\\binom{9-1}2=28$ cara. Setiap titik sudut termuat dalam $28$ pilihan, dan setiap pilihan\nmemuat $3$ titik, jadi banyak pilihan $\\frac{12\\cdot28}3=112$.",
+    "key_idea": "Tetapkan satu titik untuk memutus lingkaran, lalu koreksi penghitungan ganda dengan simetri.",
+    "common_error": "Memakai rumus barisan lurus $\\binom{12-2}3=120$, yang membolehkan $A_1$ dan $A_{12}$ terpilih bersama.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-016",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "mengejar sudut",
+    "objective_id": "GE01-O1",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE01"
+    ],
+    "technique_tags": [
+      "mengejar_sudut",
+      "garis_bagi"
+    ],
+    "statement": "Pada segitiga $ABC$, $\\angle BAC=50^\\circ$. Garis bagi sudut $B$ dan garis bagi sudut $C$ berpotongan di $I$. Tentukan $\\angle BIC$ dalam derajat.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "115",
+      "display": "$115$"
+    },
+    "hints": [
+      "$\\angle ABC+\\angle ACB=130^\\circ$.",
+      "$\\angle IBC+\\angle ICB=\\frac12\\cdot130^\\circ$."
+    ],
+    "solution": "$\\angle ABC+\\angle ACB=130^\\circ$, jadi $\\angle IBC+\\angle ICB=65^\\circ$ dan $\\angle BIC=180^\\circ-65^\\circ=115^\\circ$.",
+    "key_idea": "$\\angle BIC=90^\\circ+\\frac12\\angle A$.",
+    "common_error": "Menjawab $130$ (lupa membagi dua) atau $100$ ($2\\cdot50^\\circ$, rumus sudut pusat).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-017",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "teorema garis bagi",
+    "objective_id": "GE01-O3",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE01"
+    ],
+    "technique_tags": [
+      "teorema_garis_bagi"
+    ],
+    "statement": "Pada segitiga $ABC$, $AB=6$, $AC=9$, dan $BC=10$. Garis bagi sudut $A$ memotong $BC$ di $D$. Tentukan $BD$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "4",
+      "display": "$4$"
+    },
+    "hints": [
+      "$\\frac{BD}{DC}=\\frac{AB}{AC}$.",
+      "$BD:DC=2:3$ dan $BD+DC=10$."
+    ],
+    "solution": "$\\frac{BD}{DC}=\\frac69=\\frac23$ dan $BD+DC=10$, jadi $BD=4$.",
+    "key_idea": "Teorema garis bagi.",
+    "common_error": "Membalik perbandingan sehingga menjawab $6$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-018",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "kesebangunan",
+    "objective_id": "GE02-O2",
+    "role": "mixed",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "GE02"
+    ],
+    "technique_tags": [
+      "kesebangunan",
+      "perbandingan_luas"
+    ],
+    "statement": "Luas jajargenjang $ABCD$ adalah $60$. Titik $E$ adalah titik tengah $CD$, dan ruas $AE$ memotong diagonal $BD$ di $F$. Tentukan luas segitiga $DEF$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "$DE\\parallel AB$, jadi $\\triangle FDE\\sim\\triangle FBA$. Berapa perbandingannya?",
+      "$DF:FB=EF:FA=1:2$. Mulai dari $L_{ABD}=30$."
+    ],
+    "solution": "Karena $DE\\parallel AB$ dan $DE=\\frac12AB$, $\\triangle FDE\\sim\\triangle FBA$ dengan perbandingan $1:2$; jadi $DF:FB=1:2$ dan\n$EF:FA=1:2$.\n\n- $L_{ABD}=\\frac12\\cdot60=30$.\n- $L_{ADF}=\\frac{DF}{DB}L_{ABD}=\\frac13\\cdot30=10$ (tinggi dari $A$ sama).\n- $L_{DEF}=\\frac{FE}{FA}L_{ADF}=\\frac12\\cdot10=5$ (tinggi dari $D$ sama).",
+    "key_idea": "Kesebangunan memberi perbandingan ruas; perbandingan ruas memberi perbandingan luas.",
+    "common_error": "Memakai perbandingan luas $1:2$ (bukan $1:4$) untuk segitiga sebangun, atau menganggap $F$ titik tengah $BD$.",
+    "diagram": "MX1-018.svg",
+    "diagram_alt": "Jajargenjang ABCD dengan AB di bawah dan CD di atas. E titik tengah CD. Ruas AE dan diagonal BD berpotongan di F.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-019",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "jari jari dalam",
+    "objective_id": "GE01-O4",
+    "role": "mixed",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE01"
+    ],
+    "technique_tags": [
+      "jari_jari_dalam",
+      "pythagoras"
+    ],
+    "statement": "Sebuah segitiga siku-siku mempunyai sisi siku-siku $20$ dan $21$. Tentukan jari-jari lingkaran dalamnya.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "6",
+      "display": "$6$"
+    },
+    "hints": [
+      "Hitung hipotenusa.",
+      "$r=\\frac Ls$ dengan $L=210$ dan $s=35$."
+    ],
+    "solution": "Hipotenusa $\\sqrt{400+441}=29$. $L=\\frac12\\cdot20\\cdot21=210$ dan $s=\\frac{20+21+29}2=35$, jadi $r=\\frac{210}{35}=6$.\n(Untuk segitiga siku-siku juga $r=\\frac{a+b-c}2=\\frac{20+21-29}2$.)",
+    "key_idea": "$r=\\frac Ls$.",
+    "common_error": "Memakai keliling, bukan setengah keliling, sehingga menjawab $3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "MX1-020",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "garis sejajar bantu",
+    "objective_id": "GE02-O3",
+    "role": "mixed",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "GE02"
+    ],
+    "technique_tags": [
+      "garis_sejajar_bantu",
+      "perbandingan_ruas"
+    ],
+    "statement": "Pada segitiga $ABC$, titik $D$ terletak pada sisi $BC$ dengan $BD:DC=2:1$, dan $E$ adalah titik tengah $AD$. Garis $BE$ memotong\nsisi $AC$ di $F$. Jika $AC=20$, tentukan $AF$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "8",
+      "display": "$8$"
+    },
+    "hints": [
+      "Tarik garis melalui $D$ yang sejajar $BF$, memotong $AC$ di $G$.",
+      "Di $\\triangle ADG$, $E$ titik tengah dan $EF\\parallel DG$, jadi $AF=FG$. Di $\\triangle CBF$, $CG:GF=CD:DB=1:2$."
+    ],
+    "solution": "Tarik $DG\\parallel BF$ dengan $G$ pada $AC$.\n\n- Di $\\triangle ADG$: $E$ titik tengah $AD$ dan $EF\\parallel DG$, jadi $F$ titik tengah $AG$: $AF=FG$.\n- Di $\\triangle CBF$: $DG\\parallel BF$, jadi $CG:GF=CD:DB=1:2$.\n\nMisalkan $CG=u$; maka $GF=2u$ dan $AF=2u$, sehingga $AC=5u=20$, $u=4$, dan $AF=8$.",
+    "key_idea": "Garis sejajar bantu memindahkan perbandingan dari $BC$ dan $AD$ ke $AC$.",
+    "common_error": "Menganggap $F$ titik tengah $AC$ karena $E$ titik tengah $AD$, sehingga menjawab $10$.",
+    "diagram": "MX1-020.svg",
+    "diagram_alt": "Segitiga ABC dengan A di atas. D pada BC dengan BD dua kali DC. E titik tengah AD. Garis BE memotong AC di F.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]

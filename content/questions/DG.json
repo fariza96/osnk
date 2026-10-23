@@ -1,0 +1,560 @@
+[
+  {
+    "id": "DG-001",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "kelipatan",
+    "objective_id": "TB01-O1",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "TB01"
+    ],
+    "technique_tags": [
+      "kelipatan",
+      "komplemen"
+    ],
+    "statement": "Berapa banyak bilangan bulat dari $1$ sampai $100$ yang habis dibagi $6$ tetapi **tidak** habis dibagi $4$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "8",
+      "display": "$8$"
+    },
+    "hints": [
+      "Hitung dulu kelipatan $6$. Kelipatan $6$ yang juga habis dibagi $4$ adalah kelipatan berapa?",
+      "Habis dibagi $6$ dan $4$ berarti habis dibagi $\\mathrm{KPK}(6,4)=12$."
+    ],
+    "solution": "Kelipatan $6$ dari $1$ sampai $100$ ada $\\left\\lfloor\\frac{100}6\\right\\rfloor=16$. Yang juga habis dibagi $4$ adalah kelipatan\n$\\mathrm{KPK}(4,6)=12$, ada $\\left\\lfloor\\frac{100}{12}\\right\\rfloor=8$. Jadi jawabannya $16-8=8$.",
+    "key_idea": "Buang kelipatan KPK dari kelipatan $6$.",
+    "common_error": "Membuang kelipatan $24=4\\cdot6$ (ada $4$) sehingga menjawab $12$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-002",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "fpb kpk",
+    "objective_id": "TB01-O2",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "TB01"
+    ],
+    "technique_tags": [
+      "fpb_kpk",
+      "faktorisasi_prima"
+    ],
+    "statement": "Tentukan nilai $\\mathrm{FPB}(84,126)+\\mathrm{KPK}(84,126)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "294",
+      "display": "$294$"
+    },
+    "hints": [
+      "Faktorkan: $84=2^2\\cdot3\\cdot7$ dan $126=2\\cdot3^2\\cdot7$.",
+      "FPB memakai pangkat terkecil, KPK pangkat terbesar. Cek: $\\mathrm{FPB}\\cdot\\mathrm{KPK}=84\\cdot126$."
+    ],
+    "solution": "$84=2^2\\cdot3\\cdot7$ dan $126=2\\cdot3^2\\cdot7$. Maka $\\mathrm{FPB}=2\\cdot3\\cdot7=42$ dan $\\mathrm{KPK}=2^2\\cdot3^2\\cdot7=252$\n(cek: $42\\cdot252=10584=84\\cdot126$). Jumlahnya $294$.",
+    "key_idea": "FPB: pangkat prima terkecil; KPK: pangkat terbesar.",
+    "common_error": "Menukar aturan pangkat, misalnya $\\mathrm{FPB}=2^2\\cdot3^2\\cdot7$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-003",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "sisa pembagian",
+    "objective_id": "TB02-O1",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "TB02"
+    ],
+    "technique_tags": [
+      "sisa_pembagian",
+      "siklus"
+    ],
+    "statement": "Tentukan sisa pembagian $2^{100}$ oleh $7$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "2",
+      "display": "$2$"
+    },
+    "hints": [
+      "Hitung sisa $2^1,2^2,2^3$ dibagi $7$.",
+      "$2^3=8\\equiv1\\pmod7$. Tulis $100=3\\cdot33+1$."
+    ],
+    "solution": "$2^3=8\\equiv1\\pmod 7$. Karena $100=3\\cdot33+1$, $2^{100}=(2^3)^{33}\\cdot2\\equiv1\\cdot2=2\\pmod7$.",
+    "key_idea": "Cari pangkat yang bersisa $1$, lalu pakai sisa pembagian eksponennya.",
+    "common_error": "Menganggap siklusnya panjang $4$ seperti angka satuan, sehingga $100\\equiv0\\pmod4$ dan menjawab $1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-004",
+    "version": 1,
+    "module_id": null,
+    "domain": "teori_bilangan",
+    "subtopic": "banyak faktor",
+    "objective_id": "TB03-O1",
+    "role": "diagnostic",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "TB03"
+    ],
+    "technique_tags": [
+      "banyak_faktor",
+      "faktorisasi_prima"
+    ],
+    "statement": "Berapa banyak faktor (pembagi) positif dari $360$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "24",
+      "display": "$24$"
+    },
+    "hints": [
+      "Faktorkan $360$ menjadi bilangan prima.",
+      "$360=2^3\\cdot3^2\\cdot5$. Setiap faktor berbentuk $2^a3^b5^c$."
+    ],
+    "solution": "$360=2^3\\cdot3^2\\cdot5$. Faktor positif berbentuk $2^a3^b5^c$ dengan $0\\le a\\le3$, $0\\le b\\le2$, $0\\le c\\le1$, jadi ada\n$4\\cdot3\\cdot2=24$ faktor.",
+    "key_idea": "Banyak faktor = hasil kali (pangkat $+1$).",
+    "common_error": "Mengalikan pangkatnya saja, $3\\cdot2\\cdot1=6$, atau menjumlahkan $(3+1)+(2+1)+(1+1)=9$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-005",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "identitas kuadrat",
+    "objective_id": "AL01-O1",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "AL01"
+    ],
+    "technique_tags": [
+      "identitas_kuadrat"
+    ],
+    "statement": "Bilangan real $a$ dan $b$ memenuhi $a-b=3$ dan $ab=10$. Tentukan $a^2+b^2$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "29",
+      "display": "$29$"
+    },
+    "hints": [
+      "Kuadratkan $a-b$.",
+      "$(a-b)^2=a^2+b^2-2ab$."
+    ],
+    "solution": "$a^2+b^2=(a-b)^2+2ab=9+20=29$.",
+    "key_idea": "Nyatakan $a^2+b^2$ dengan $a-b$ dan $ab$.",
+    "common_error": "Memakai $(a-b)^2=a^2-b^2$ sehingga menjawab $9$, atau mengurangkan $2ab$ sehingga menjawab $-11$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-006",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "vieta",
+    "objective_id": "AL02-O2",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL02"
+    ],
+    "technique_tags": [
+      "vieta",
+      "persamaan_kuadrat"
+    ],
+    "statement": "Persamaan $2x^2-7x+3=0$ mempunyai akar $p$ dan $q$. Tentukan $p^2+q^2$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "37/4",
+      "display": "$\\dfrac{37}4$"
+    },
+    "hints": [
+      "Menurut Vieta, $p+q=\\frac72$ dan $pq=\\frac32$.",
+      "$p^2+q^2=(p+q)^2-2pq$."
+    ],
+    "solution": "$p+q=\\frac72$, $pq=\\frac32$, jadi $p^2+q^2=\\frac{49}4-3=\\frac{37}4$. (Cek: akarnya $3$ dan $\\frac12$, dan $9+\\frac14=\\frac{37}4$.)",
+    "key_idea": "Vieta lalu identitas kuadrat.",
+    "common_error": "Memakai $p+q=7$ dan $pq=3$ (lupa membagi dengan koefisien $x^2$) sehingga menjawab $43$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-007",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "rasionalisasi",
+    "objective_id": "AL01-O3",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL01"
+    ],
+    "technique_tags": [
+      "rasionalisasi"
+    ],
+    "statement": "Tentukan nilai $\\dfrac1{\\sqrt5-2}-\\sqrt5$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "2",
+      "display": "$2$"
+    },
+    "hints": [
+      "Kalikan pembilang dan penyebut dengan $\\sqrt5+2$.",
+      "$(\\sqrt5-2)(\\sqrt5+2)=5-4=1$."
+    ],
+    "solution": "$\\frac1{\\sqrt5-2}=\\frac{\\sqrt5+2}{(\\sqrt5-2)(\\sqrt5+2)}=\\frac{\\sqrt5+2}{1}=\\sqrt5+2$. Jadi nilainya $(\\sqrt5+2)-\\sqrt5=2$.",
+    "key_idea": "Rasionalkan penyebut dengan sekawannya.",
+    "common_error": "Mengalikan dengan $\\sqrt5-2$ (bukan sekawannya), atau menghitung $(\\sqrt5-2)(\\sqrt5+2)=5-2=3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-008",
+    "version": 1,
+    "module_id": null,
+    "domain": "aljabar",
+    "subtopic": "melengkapkan kuadrat",
+    "objective_id": "AL03-O1",
+    "role": "diagnostic",
+    "difficulty": "core",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "AL03"
+    ],
+    "technique_tags": [
+      "melengkapkan_kuadrat",
+      "nilai_ekstrem"
+    ],
+    "statement": "Tentukan nilai minimum $x^2-6x+14$ untuk $x$ bilangan real.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "Lengkapkan kuadrat.",
+      "$x^2-6x+14=(x-3)^2+5$."
+    ],
+    "solution": "$x^2-6x+14=(x-3)^2+5\\ge5$, dengan kesamaan saat $x=3$. Jadi minimumnya $5$.",
+    "key_idea": "Melengkapkan kuadrat memberi nilai minimum dan titik tercapainya.",
+    "common_error": "Menjawab $3$ (nilai $x$ tempat minimum tercapai), bukan nilai minimumnya.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-009",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "aturan perkalian",
+    "objective_id": "KO01-O1",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "KO01"
+    ],
+    "technique_tags": [
+      "aturan_perkalian"
+    ],
+    "statement": "Berapa banyak bilangan tiga digit yang ketiga digitnya berbeda?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "648",
+      "display": "$648$"
+    },
+    "hints": [
+      "Isi digit ratusan dulu: tidak boleh $0$.",
+      "$9$ pilihan ratusan, $9$ pilihan puluhan, $8$ pilihan satuan."
+    ],
+    "solution": "Digit ratusan: $9$ pilihan ($1$–$9$). Digit puluhan: $9$ pilihan (termasuk $0$, kecuali digit ratusan). Digit satuan: $8$ pilihan.\nTotal $9\\cdot9\\cdot8=648$.",
+    "key_idea": "Isi posisi yang paling dibatasi lebih dulu.",
+    "common_error": "Menghitung $10\\cdot9\\cdot8=720$ dengan membolehkan $0$ di depan.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-010",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "kombinasi",
+    "objective_id": "KO02-O2",
+    "role": "diagnostic",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "KO02"
+    ],
+    "technique_tags": [
+      "kombinasi",
+      "komplemen"
+    ],
+    "statement": "Dari $4$ siswa putra dan $4$ siswi putri akan dipilih $3$ orang. Berapa banyak cara memilih jika paling sedikit satu putri harus terpilih?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "52",
+      "display": "$52$"
+    },
+    "hints": [
+      "Pakai komplemen: semua pilihan dikurangi pilihan tanpa putri.",
+      "$\\binom83-\\binom43$."
+    ],
+    "solution": "Semua pilihan $\\binom83=56$; pilihan tanpa putri $\\binom43=4$. Jadi $56-4=52$.",
+    "key_idea": "“Paling sedikit satu” → komplemen.",
+    "common_error": "Memilih satu putri dulu lalu dua orang bebas: $4\\cdot\\binom72=84$, yang menghitung ganda.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-011",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "permutasi",
+    "objective_id": "KO02-O3",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "KO02"
+    ],
+    "technique_tags": [
+      "permutasi",
+      "blok"
+    ],
+    "statement": "Lima buku berbeda disusun berjajar di rak. Dua buku tertentu harus berdampingan. Berapa banyak susunan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "48",
+      "display": "$48$"
+    },
+    "hints": [
+      "Satukan kedua buku menjadi satu blok.",
+      "Blok dan $3$ buku lain: $4!$ susunan; di dalam blok: $2$ susunan."
+    ],
+    "solution": "Anggap dua buku itu satu blok. Blok dan tiga buku lain disusun dalam $4!=24$ cara, dan dua buku di dalam blok dalam $2$ cara.\nTotal $48$.",
+    "key_idea": "Satukan menjadi blok, lalu kalikan susunan di dalam blok.",
+    "common_error": "Lupa susunan di dalam blok sehingga menjawab $24$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-012",
+    "version": 1,
+    "module_id": null,
+    "domain": "kombinatorika",
+    "subtopic": "peluang klasik",
+    "objective_id": "KO04-O3",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "KO04"
+    ],
+    "technique_tags": [
+      "peluang_klasik"
+    ],
+    "statement": "Dua dadu bersisi enam yang setimbang dilempar. Berapa peluang jumlah kedua mata dadu sama dengan $10$?",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "1/12",
+      "display": "$\\dfrac1{12}$"
+    },
+    "hints": [
+      "Ruang sampel $36$ pasangan berurutan.",
+      "Pasangan berjumlah $10$: $(4,6)$, $(5,5)$, $(6,4)$."
+    ],
+    "solution": "Ada $36$ pasangan berurutan yang sama mungkin; yang berjumlah $10$ ada $3$. Peluangnya $\\frac3{36}=\\frac1{12}$.",
+    "key_idea": "Ruang sampel: pasangan berurutan.",
+    "common_error": "Menghitung $(4,6)$ dan $(6,4)$ sebagai satu hasil sehingga memperoleh $\\frac2{36}$, atau memakai $\\frac1{11}$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-013",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "pythagoras",
+    "objective_id": "GE01-O2",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "GE01",
+      "GE02"
+    ],
+    "technique_tags": [
+      "pythagoras",
+      "luas_dua_cara"
+    ],
+    "statement": "Sebuah segitiga siku-siku mempunyai sisi siku-siku $9$ dan $12$. Tentukan panjang garis tinggi dari titik sudut siku-siku ke hipotenusa.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "36/5",
+      "display": "$\\dfrac{36}5$"
+    },
+    "hints": [
+      "Hitung hipotenusa dengan Pythagoras.",
+      "Hitung luas dengan dua cara: $\\frac12\\cdot9\\cdot12=\\frac12\\cdot15\\cdot t$."
+    ],
+    "solution": "Hipotenusa $\\sqrt{81+144}=15$. Luas dihitung dua cara: $\\frac12\\cdot9\\cdot12=\\frac12\\cdot15\\cdot t$, jadi $t=\\frac{108}{15}=\\frac{36}5$.",
+    "key_idea": "Luas dengan dua pasang alas-tinggi.",
+    "common_error": "Menganggap garis tinggi membagi hipotenusa sama panjang, atau menjawab rata-rata kedua sisi siku-siku.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-014",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "segitiga sama kaki",
+    "objective_id": "GE01-O1",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "GE01"
+    ],
+    "technique_tags": [
+      "segitiga_sama_kaki",
+      "sudut_luar"
+    ],
+    "statement": "Pada segitiga $ABC$, $AB=AC$ dan $\\angle BAC=40^\\circ$. Sisi $CB$ diperpanjang melewati $B$ sampai titik $D$. Tentukan $\\angle ABD$ dalam derajat.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "110",
+      "display": "$110$"
+    },
+    "hints": [
+      "Pada segitiga sama kaki, sudut alasnya sama: $\\angle ABC=\\angle ACB$.",
+      "$\\angle ABC=70^\\circ$, dan $\\angle ABD=180^\\circ-\\angle ABC$."
+    ],
+    "solution": "$\\angle ABC=\\angle ACB=\\frac{180^\\circ-40^\\circ}2=70^\\circ$. Karena $D$, $B$, $C$ segaris, $\\angle ABD=180^\\circ-70^\\circ=110^\\circ$.\n(Atau: sudut luar $=\\angle BAC+\\angle ACB=40^\\circ+70^\\circ$.)",
+    "key_idea": "Sudut alas segitiga sama kaki sama; sudut luar = jumlah dua sudut dalam yang tidak bersisian.",
+    "common_error": "Menjawab $70$ (sudut dalam di $B$) atau $140$ ($180^\\circ-40^\\circ$).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-015",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "kesebangunan",
+    "objective_id": "GE02-O1",
+    "role": "diagnostic",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE02"
+    ],
+    "technique_tags": [
+      "kesebangunan",
+      "garis_sejajar"
+    ],
+    "statement": "Pada segitiga $ABC$, titik $D$ pada sisi $AB$ dan titik $E$ pada sisi $AC$ sehingga $DE\\parallel BC$. Diketahui $AD=4$, $DB=6$, dan $BC=15$. Tentukan $DE$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "6",
+      "display": "$6$"
+    },
+    "hints": [
+      "$\\triangle ADE\\sim\\triangle ABC$.",
+      "$\\frac{DE}{BC}=\\frac{AD}{AB}=\\frac4{10}$."
+    ],
+    "solution": "Karena $DE\\parallel BC$, $\\triangle ADE\\sim\\triangle ABC$ dengan perbandingan $\\frac{AD}{AB}=\\frac4{10}$. Jadi $DE=\\frac4{10}\\cdot15=6$.",
+    "key_idea": "Garis sejajar alas membentuk segitiga sebangun dengan perbandingan $AD:AB$.",
+    "common_error": "Memakai $\\frac{AD}{DB}=\\frac46$ sebagai perbandingan sehingga menjawab $10$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "DG-016",
+    "version": 1,
+    "module_id": null,
+    "domain": "geometri",
+    "subtopic": "thales",
+    "objective_id": "GE03-O1",
+    "role": "diagnostic",
+    "difficulty": "core",
+    "estimated_minutes": 4,
+    "prerequisites": [
+      "GE03",
+      "GE01"
+    ],
+    "technique_tags": [
+      "thales",
+      "pythagoras"
+    ],
+    "statement": "Ruas $AB$ adalah diameter sebuah lingkaran, dan $C$ titik pada lingkaran itu (berbeda dari $A$ dan $B$). Jika $AC=5$ dan $BC=12$, tentukan jari-jari lingkaran.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "13/2",
+      "display": "$\\dfrac{13}2$"
+    },
+    "hints": [
+      "Berapa besar $\\angle ACB$?",
+      "$\\angle ACB=90^\\circ$ (Thales), jadi $AB=\\sqrt{5^2+12^2}$."
+    ],
+    "solution": "Sudut keliling yang menghadap diameter siku-siku, jadi $\\angle ACB=90^\\circ$ dan $AB=\\sqrt{25+144}=13$. Jari-jarinya $\\frac{13}2$.",
+    "key_idea": "Sudut yang menghadap diameter siku-siku.",
+    "common_error": "Menjawab $13$ (diameter, bukan jari-jari).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]
