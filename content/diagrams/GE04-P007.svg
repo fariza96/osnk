@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 361.64" width="240" height="362" role="img" aria-label="Persegi panjang ABCD dengan titik P di dalamnya; PA = 3, PB = 4, PC = 5; PD putus-putus" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="28.0" y1="333.64" x2="212.0" y2="333.64"/>
+<line x1="212.0" y1="333.64" x2="212.0" y2="28.0"/>
+<line x1="212.0" y1="28.0" x2="28.0" y2="28.0"/>
+<line x1="28.0" y1="28.0" x2="28.0" y2="333.64"/>
+<line x1="81.79" y1="210.4" x2="28.0" y2="333.64"/>
+<line x1="81.79" y1="210.4" x2="212.0" y2="333.64"/>
+<line x1="81.79" y1="210.4" x2="212.0" y2="28.0"/>
+<line x1="81.79" y1="210.4" x2="28.0" y2="28.0" stroke-dasharray="5 4"/>
+<circle cx="28.0" cy="333.64" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="343.64" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="212.0" cy="333.64" r="2.6" fill="currentColor" stroke="none"/>
+<text x="222.0" y="343.64" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="212.0" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="222.0" y="18.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="28.0" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="18.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+<circle cx="81.79" cy="210.4" r="2.6" fill="currentColor" stroke="none"/>
+<text x="93.79" y="214.4" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">P</text>
+<text x="45.89" y="274.02" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">3</text>
+<text x="152.89" y="284.02" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">4</text>
+<text x="138.89" y="113.2" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">5</text>
+</svg>

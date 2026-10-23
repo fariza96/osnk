@@ -1,0 +1,551 @@
+[
+  {
+    "id": "GE04-E01",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "rumus Heron dan jari-jari lingkaran dalam",
+    "objective_id": "GE04-O4",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "heron",
+      "jari_jari_dalam"
+    ],
+    "statement": "Sebuah segitiga mempunyai panjang sisi $13$, $14$, dan $15$. Tentukan jari-jari lingkaran dalamnya.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "4",
+      "display": "$4$"
+    },
+    "hints": [
+      "Hitung setengah keliling $s$, lalu luas dengan rumus Heron.",
+      "$s=21$ dan $L=\\sqrt{21\\cdot8\\cdot7\\cdot6}$. Lalu $r=\\frac Ls$."
+    ],
+    "solution": "**Ide kunci.** Tanpa sudut atau garis tinggi, luas tetap dapat dihitung dari ketiga sisi dengan rumus Heron. Setelah luas\ndiketahui, $r=\\frac Ls$ (GE01).\n\nSetengah keliling: $s=\\frac{13+14+15}2=21$. Maka\n$$L=\\sqrt{21\\cdot(21-13)\\cdot(21-14)\\cdot(21-15)}=\\sqrt{21\\cdot8\\cdot7\\cdot6}=\\sqrt{7056}=84.$$\nUntuk menghitung akarnya, faktorkan: $21\\cdot8\\cdot7\\cdot6=(3\\cdot7)\\cdot2^3\\cdot7\\cdot(2\\cdot3)=2^4\\cdot3^2\\cdot7^2$, jadi\n$L=2^2\\cdot3\\cdot7=84$.\n\nJari-jari lingkaran dalam: $r=\\frac Ls=\\frac{84}{21}=4$.",
+    "key_idea": "Heron memberi luas dari tiga sisi; luas lalu memberi $r=\\frac Ls$.",
+    "common_error": "Memakai keliling $42$ sebagai $s$, baik di rumus Heron maupun di $r=\\frac Ls$ (misalnya menjawab $\\frac{84}{42}=2$).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-E02",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "luas dengan koordinat",
+    "objective_id": "GE04-O2",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "koordinat",
+      "tali_sepatu"
+    ],
+    "statement": "Persegi $ABCD$ mempunyai panjang sisi $6$ (titik sudutnya berurutan berlawanan arah jarum jam). Titik $M$ adalah titik\ntengah $BC$, dan $N$ terletak pada sisi $CD$ dengan $DN=2$. Tentukan luas segitiga $AMN$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "15",
+      "display": "$15$"
+    },
+    "hints": [
+      "Pasang koordinat $A(0,0)$, $B(6,0)$, $C(6,6)$, $D(0,6)$. Tentukan koordinat $M$ dan $N$.",
+      "$M(6,3)$ dan $N(2,6)$. Karena $A$ di titik asal, $L=\\frac12|x_My_N-x_Ny_M|$."
+    ],
+    "solution": "**Ide kunci.** Letakkan titik sudut segitiga yang paling \"sulit\" di titik asal; rumus tali sepatu lalu menjadi satu baris.\n\nAmbil $A(0,0)$, $B(6,0)$, $C(6,6)$, $D(0,6)$. Maka $M=(6,3)$ (titik tengah $BC$) dan $N=(2,6)$ (pada $CD$, berjarak $2$ dari\n$D$). Dengan $A$ di titik asal,\n$$L_{AMN}=\\tfrac12\\,|x_My_N-x_Ny_M|=\\tfrac12\\,|6\\cdot6-2\\cdot3|=\\tfrac12\\cdot30=15.$$\n\n**Cek dengan cara lain.** Luas persegi dikurangi tiga segitiga siku-siku di pojok:\n$$36-\\underbrace{\\tfrac12\\cdot6\\cdot3}_{ABM}-\\underbrace{\\tfrac12\\cdot3\\cdot4}_{MCN}-\\underbrace{\\tfrac12\\cdot6\\cdot2}_{ADN}=36-9-6-6=15.$$",
+    "key_idea": "Koordinat yang baik membuat rumus tali sepatu sangat pendek.",
+    "common_error": "Menghitung $\\frac12\\cdot AM\\cdot MN$ seolah-olah sudut $AMN$ siku-siku. Sudut itu tidak siku-siku.",
+    "diagram": "GE04-E02.svg",
+    "diagram_alt": "Persegi ABCD dengan A kiri bawah, B kanan bawah, C kanan atas, D kiri atas. M titik tengah BC (tanda sama panjang pada BM dan MC). N pada sisi atas CD. Segitiga AMN digambar.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P001",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "rumus tali sepatu",
+    "objective_id": "GE04-O2",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "tali_sepatu"
+    ],
+    "statement": "Tentukan luas segi empat dengan titik sudut berurutan $(0,0)$, $(6,1)$, $(5,5)$, dan $(1,4)$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "20",
+      "display": "$20$"
+    },
+    "hints": [
+      "Pakai rumus tali sepatu dengan titik dalam urutan yang diberikan.",
+      "Hitung $x_iy_{i+1}-x_{i+1}y_i$ untuk keempat pasangan berurutan, termasuk pasangan terakhir ke titik pertama."
+    ],
+    "solution": "Dengan urutan $(0,0)\\to(6,1)\\to(5,5)\\to(1,4)\\to(0,0)$:\n$$\\begin{aligned}0\\cdot1-6\\cdot0&=0,\\\\6\\cdot5-5\\cdot1&=25,\\\\5\\cdot4-1\\cdot5&=15,\\\\1\\cdot0-0\\cdot4&=0.\\end{aligned}$$\nJumlahnya $40$, jadi luasnya $\\frac12\\cdot40=20$.",
+    "key_idea": "Rumus tali sepatu dengan titik berurutan mengelilingi poligon.",
+    "common_error": "Memakai urutan titik yang menyilang, misalnya $(0,0),(5,5),(6,1),(1,4)$, sehingga diperoleh $\\frac12|{-2}|=1$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P002",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "aturan kosinus",
+    "objective_id": "GE04-O3",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "aturan_kosinus"
+    ],
+    "statement": "Pada segitiga $ABC$, $AB=3$, $AC=5$, dan $\\angle BAC=120^\\circ$. Tentukan panjang $BC$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "7",
+      "display": "$7$"
+    },
+    "hints": [
+      "Pakai $BC^2=AB^2+AC^2-2\\cdot AB\\cdot AC\\cos\\angle BAC$.",
+      "$\\cos120^\\circ=-\\frac12$, jadi suku terakhir menjadi $+AB\\cdot AC$."
+    ],
+    "solution": "Menurut aturan kosinus,\n$$BC^2=3^2+5^2-2\\cdot3\\cdot5\\cos120^\\circ=9+25+15=49,$$\nsehingga $BC=7$.",
+    "key_idea": "Dua sisi dan sudut apit → aturan kosinus.",
+    "common_error": "Memakai $\\cos120^\\circ=\\frac12$, sehingga diperoleh $BC^2=19$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P003",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "rumus Heron",
+    "objective_id": "GE04-O4",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "heron"
+    ],
+    "statement": "Tentukan luas segitiga yang panjang sisinya $7$, $15$, dan $20$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "42",
+      "display": "$42$"
+    },
+    "hints": [
+      "Hitung setengah keliling $s$ terlebih dahulu.",
+      "$s=21$, lalu $L=\\sqrt{21\\cdot14\\cdot6\\cdot1}$. Faktorkan sebelum mengakarkan."
+    ],
+    "solution": "$s=\\frac{7+15+20}2=21$, sehingga\n$$L=\\sqrt{21\\cdot14\\cdot6\\cdot1}=\\sqrt{(3\\cdot7)(2\\cdot7)(2\\cdot3)}=\\sqrt{2^2\\cdot3^2\\cdot7^2}=42.$$",
+    "key_idea": "Rumus Heron; faktorkan hasil kali sebelum mengakarkan.",
+    "common_error": "Memakai keliling $42$ sebagai $s$, atau mengira segitiga ini siku-siku dan menghitung $\\frac12\\cdot7\\cdot15$ (padahal $7^2+15^2\\ne20^2$).",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P004",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "Menelaus untuk perbandingan ruas",
+    "objective_id": "GE04-O5",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "menelaus",
+      "perbandingan_ruas"
+    ],
+    "statement": "Pada segitiga $ABC$, titik $D$ adalah titik tengah $BC$, dan titik $E$ terletak pada sisi $AC$ dengan $AE:EC=2:1$.\nRuas $AD$ dan $BE$ berpotongan di $P$. Tentukan nilai $\\dfrac{AP}{PD}$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "4",
+      "display": "$4$"
+    },
+    "hints": [
+      "Pakai Menelaus pada segitiga yang memuat $AD$ sebagai sisi, dengan garis $BE$ sebagai garis potong.",
+      "Segitiga $ADC$ dipotong garis $B$–$P$–$E$: $P$ pada $AD$, $B$ pada perpanjangan $DC$, $E$ pada $CA$."
+    ],
+    "solution": "Garis $BE$ memotong ketiga garis sisi segitiga $ADC$: di $P$ (pada $AD$), di $B$ (pada perpanjangan $CD$), dan di $E$\n(pada $CA$). Menurut Menelaus, dengan berjalan $A\\to P\\to D\\to B\\to C\\to E\\to A$,\n$$\\frac{AP}{PD}\\cdot\\frac{DB}{BC}\\cdot\\frac{CE}{EA}=1.$$\nKarena $D$ titik tengah, $\\frac{DB}{BC}=\\frac12$; dan $\\frac{CE}{EA}=\\frac12$. Jadi $\\frac{AP}{PD}\\cdot\\frac14=1$, yaitu\n$\\frac{AP}{PD}=4$.\n\n**Cek dengan koordinat.** Ambil $B(0,0)$, $C(2,0)$, $A(0,3)$. Maka $D(1,0)$, $E=A+\\frac23(C-A)=(\\frac43,1)$. Garis $BE$:\n$y=\\frac34x$; garis $AD$: $x=t$, $y=3-3t$. Perpotongan: $3-3t=\\frac34t$, jadi $t=\\frac45$, artinya $AP:PD=\\frac45:\\frac15=4$.",
+    "key_idea": "Untuk $AP:PD$, pakai Menelaus pada segitiga yang memuat $AD$ dan jadikan garis lain sebagai garis potong.",
+    "common_error": "Mengira $P$ titik berat sehingga $AP:PD=2:1$. Itu hanya benar jika $E$ juga titik tengah.",
+    "diagram": "GE04-P004.svg",
+    "diagram_alt": "Segitiga ABC dengan A di atas, B kiri bawah, C kanan bawah. D titik tengah BC (tanda sama panjang pada BD dan DC). E pada sisi AC, lebih dekat ke C. Ruas AD dan BE berpotongan di P.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P005",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "kuasa titik dari persamaan lingkaran",
+    "objective_id": "GE04-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "persamaan_lingkaran",
+      "kuasa_titik",
+      "garis_singgung"
+    ],
+    "statement": "Dari titik $P(14,6)$ ditarik garis singgung ke lingkaran $x^2+y^2-4x-2y-20=0$. Tentukan panjang ruas garis singgung\ndari $P$ ke titik singgungnya.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "12",
+      "display": "$12$"
+    },
+    "hints": [
+      "Lengkapkan kuadrat untuk mendapatkan pusat dan jari-jari, atau pakai kuasa titik.",
+      "$(x-2)^2+(y-1)^2=25$. Panjang garis singgung $PT$ memenuhi $PT^2=PO^2-r^2$."
+    ],
+    "solution": "Melengkapkan kuadrat: $(x-2)^2+(y-1)^2=4+1+20=25$, jadi pusat $O(2,1)$ dan $r=5$. Karena garis singgung tegak lurus\njari-jari,\n$$PT^2=PO^2-r^2=(12^2+5^2)-25=169-25=144,$$\nsehingga $PT=12$.\n\n**Lebih cepat.** Substitusi $P$ ke ruas kiri persamaan lingkaran memberi kuasa $P$:\n$14^2+6^2-4\\cdot14-2\\cdot6-20=196+36-56-12-20=144=PT^2$.",
+    "key_idea": "Substitusi titik ke persamaan lingkaran (bentuk $\\dots=0$) memberi kuasa titik, yaitu kuadrat panjang garis singgung.",
+    "common_error": "Membaca $r^2=20$ langsung dari konstanta persamaan tanpa melengkapkan kuadrat, sehingga diperoleh $PT^2=169-20=149$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P006",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "aturan kosinus dengan sudut bersama",
+    "objective_id": "GE04-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "aturan_kosinus",
+      "sudut_bersama",
+      "garis_berat"
+    ],
+    "statement": "Pada segitiga $ABC$, $AB=7$, $BC=8$, dan $CA=9$. Titik $M$ adalah titik tengah $BC$. Tentukan panjang $AM$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "7",
+      "display": "$7$"
+    },
+    "hints": [
+      "Segitiga $ABC$ dan $ABM$ berbagi sudut $B$. Hitung $\\cos B$ dari segitiga $ABC$.",
+      "$\\cos B=\\frac{7^2+8^2-9^2}{2\\cdot7\\cdot8}=\\frac27$. Lalu pakai aturan kosinus di segitiga $ABM$ dengan $BM=4$."
+    ],
+    "solution": "Dari segitiga $ABC$:\n$$\\cos B=\\frac{AB^2+BC^2-CA^2}{2\\cdot AB\\cdot BC}=\\frac{49+64-81}{112}=\\frac{32}{112}=\\frac27.$$\nDi segitiga $ABM$ dengan $BM=4$ dan sudut $B$ yang sama:\n$$AM^2=7^2+4^2-2\\cdot7\\cdot4\\cdot\\tfrac27=49+16-16=49,$$\nsehingga $AM=7$.",
+    "key_idea": "Hitung kosinus sudut bersama dari segitiga besar, lalu pakai di segitiga kecil.",
+    "common_error": "Menganggap garis berat sama dengan rata-rata dua sisi yang mengapitnya, $\\frac{7+9}2=8$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P007",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "memilih koordinat",
+    "objective_id": "GE04-O1",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "koordinat",
+      "jarak"
+    ],
+    "statement": "Titik $P$ terletak di dalam persegi panjang $ABCD$ (titik sudutnya berurutan). Diketahui $PA=3$, $PB=4$, dan $PC=5$.\nTentukan nilai $PD^2$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "18",
+      "display": "$18$"
+    },
+    "hints": [
+      "Pasang $A(0,0)$, $B(p,0)$, $C(p,q)$, $D(0,q)$, dan $P(x,y)$. Tulis keempat kuadrat jarak.",
+      "Bandingkan $PA^2+PC^2$ dengan $PB^2+PD^2$."
+    ],
+    "solution": "Ambil $A(0,0)$, $B(p,0)$, $C(p,q)$, $D(0,q)$, dan $P(x,y)$. Maka\n$$\\begin{aligned}PA^2+PC^2&=x^2+y^2+(p-x)^2+(q-y)^2,\\\\PB^2+PD^2&=(p-x)^2+y^2+x^2+(q-y)^2.\\end{aligned}$$\nKedua ruas sama, jadi $PD^2=PA^2+PC^2-PB^2=9+25-16=18$.\n\nKonfigurasi seperti ini memang ada: misalnya $x=\\frac65$, lalu $y$, $p$, $q$ dapat dipilih dari $PA=3$, $PB=4$, $PC=5$\ndengan semua nilai positif.",
+    "key_idea": "Pada persegi panjang, $PA^2+PC^2=PB^2+PD^2$ untuk setiap titik $P$; koordinat membuktikannya dalam satu baris.",
+    "common_error": "Menganggap $PA+PC=PB+PD$ sehingga menjawab $PD=4$ ($PD^2=16$). Yang kekal adalah jumlah **kuadrat** jarak ke titik sudut yang berhadapan.",
+    "diagram": "GE04-P007.svg",
+    "diagram_alt": "Persegi panjang ABCD dengan A kiri bawah, B kanan bawah, C kanan atas, D kiri atas. Titik P di dalamnya; ruas PA = 3, PB = 4, PC = 5 ditandai, dan PD digambar putus-putus.",
+    "origin": "adapted",
+    "source_refs": [
+      "Teorema bendera Inggris (British flag theorem, folklor); bilangan dipilih"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P008",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "Heron dan garis tinggi",
+    "objective_id": "GE04-O4",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "heron",
+      "garis_tinggi"
+    ],
+    "statement": "Sebuah segitiga mempunyai panjang sisi $10$, $17$, dan $21$. Tentukan panjang garis tinggi **terpendek** segitiga itu.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "8",
+      "display": "$8$"
+    },
+    "hints": [
+      "Hitung luas dengan Heron. Garis tinggi ke sisi $a$ adalah $\\frac{2L}a$.",
+      "Karena $h=\\frac{2L}{a}$, garis tinggi terpendek jatuh pada sisi **terpanjang**."
+    ],
+    "solution": "$s=24$, sehingga\n$$L=\\sqrt{24\\cdot14\\cdot7\\cdot3}=\\sqrt{2^4\\cdot3^2\\cdot7^2}=84.$$\nGaris tinggi ke sisi $a$ adalah $\\frac{2L}a=\\frac{168}a$, paling kecil untuk sisi terpanjang $a=21$: $\\frac{168}{21}=8$.",
+    "key_idea": "Luas tetap, jadi garis tinggi berbanding terbalik dengan sisi alasnya.",
+    "common_error": "Memilih garis tinggi ke sisi terpendek, $\\frac{168}{10}=16{,}8$, yang justru garis tinggi terpanjang.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P009",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "aturan kosinus dan aturan sinus",
+    "objective_id": "GE04-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "aturan_kosinus",
+      "aturan_sinus",
+      "jari_jari_luar"
+    ],
+    "statement": "Pada segitiga $ABC$, $AB=15$, $AC=8$, dan $\\angle BAC=60^\\circ$. Jika $R$ adalah jari-jari lingkaran luar segitiga $ABC$,\ntentukan nilai $R^2$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "169/3",
+      "display": "$\\dfrac{169}3$"
+    },
+    "hints": [
+      "Hitung $BC$ dengan aturan kosinus.",
+      "$BC=13$. Lalu $\\frac{BC}{\\sin A}=2R$."
+    ],
+    "solution": "Aturan kosinus: $BC^2=15^2+8^2-2\\cdot15\\cdot8\\cdot\\frac12=225+64-120=169$, jadi $BC=13$. Aturan sinus:\n$$2R=\\frac{BC}{\\sin60^\\circ}=\\frac{13}{\\sqrt3/2}=\\frac{26}{\\sqrt3},$$\nsehingga $R=\\frac{13}{\\sqrt3}$ dan $R^2=\\frac{169}3$.",
+    "key_idea": "Sisi di hadapan sudut yang diketahui, lalu $\\frac a{\\sin A}=2R$.",
+    "common_error": "Lupa faktor $2$, yaitu memakai $\\frac a{\\sin A}=R$, sehingga diperoleh $R^2=\\frac{676}3$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P010",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "koordinat titik istimewa",
+    "objective_id": "GE04-O1",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 9,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "koordinat",
+      "jari_jari_dalam",
+      "thales"
+    ],
+    "statement": "Segitiga $ABC$ siku-siku di $C$ dengan $AC=6$ dan $BC=8$. Titik $I$ adalah pusat lingkaran dalam dan $O$ adalah pusat\nlingkaran luar segitiga $ABC$. Tentukan nilai $OI^2$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "5",
+      "display": "$5$"
+    },
+    "hints": [
+      "Pasang $C(0,0)$, $A(6,0)$, $B(0,8)$. Di mana pusat lingkaran luar segitiga siku-siku?",
+      "$O$ titik tengah $AB$ (Thales). Lingkaran dalam menyinggung kedua sumbu, jadi $I=(r,r)$ dengan $r=\\frac Ls$."
+    ],
+    "solution": "Ambil $C(0,0)$, $A(6,0)$, $B(0,8)$, sehingga $AB=10$.\n\n- **Pusat lingkaran luar.** Sudut $C$ siku-siku, jadi $AB$ adalah diameter lingkaran luar (Thales) dan $O$ titik tengah $AB$:\n  $O=(3,4)$.\n- **Pusat lingkaran dalam.** $L=24$ dan $s=12$, jadi $r=\\frac Ls=2$. Lingkaran dalam menyinggung kedua kaki $CA$ (sumbu-$x$) dan\n  $CB$ (sumbu-$y$), jadi pusatnya berjarak $2$ dari kedua sumbu: $I=(2,2)$.\n\nMaka $OI^2=(3-2)^2+(4-2)^2=1+4=5$.",
+    "key_idea": "Koordinat dengan titik sudut siku-siku di titik asal: $O$ titik tengah hipotenusa, $I=(r,r)$.",
+    "common_error": "Memakai $r=\\frac L{a+b+c}=1$ (keliling, bukan setengah keliling), sehingga $I=(1,1)$ dan $OI^2=13$.",
+    "diagram": "GE04-P010.svg",
+    "diagram_alt": "Segitiga ABC siku-siku di C (kiri bawah), A di kanan bawah, B di atas C. Lingkaran dalam berpusat I digambar putus-putus. O titik tengah AB. Ruas OI digambar.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P011",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "panjang garis bagi",
+    "objective_id": "GE04-O3",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "teorema_garis_bagi",
+      "aturan_kosinus",
+      "sudut_bersama"
+    ],
+    "statement": "Pada segitiga $ABC$, $AB=6$, $BC=7$, dan $CA=8$. Garis bagi sudut $A$ memotong $BC$ di $D$. Tentukan panjang $AD$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "6",
+      "display": "$6$"
+    },
+    "hints": [
+      "Teorema garis bagi (GE01): $\\frac{BD}{DC}=\\frac{AB}{AC}$. Tentukan $BD$.",
+      "$BD=3$. Segitiga $ABD$ dan $ABC$ berbagi sudut $B$; hitung $\\cos B$ dari segitiga $ABC$."
+    ],
+    "solution": "**Teorema garis bagi.** $\\frac{BD}{DC}=\\frac{AB}{AC}=\\frac68=\\frac34$ dan $BD+DC=7$, jadi $BD=3$, $DC=4$.\n\n**Sudut bersama.** Dari segitiga $ABC$:\n$$\\cos B=\\frac{AB^2+BC^2-CA^2}{2\\cdot AB\\cdot BC}=\\frac{36+49-64}{84}=\\frac{21}{84}=\\frac14.$$\nDi segitiga $ABD$:\n$$AD^2=AB^2+BD^2-2\\cdot AB\\cdot BD\\cos B=36+9-2\\cdot6\\cdot3\\cdot\\tfrac14=45-9=36,$$\nsehingga $AD=6$.",
+    "key_idea": "Teorema garis bagi memberi $BD$; kosinus sudut bersama $B$ memberi $AD$.",
+    "common_error": "Membalik perbandingan garis bagi ($BD=4$, $DC=3$), sehingga diperoleh $AD^2=36+16-12=40$.",
+    "diagram": "GE04-P011.svg",
+    "diagram_alt": "Segitiga ABC dengan A di atas, B kiri bawah, C kanan bawah. AD membagi dua sudut A, dengan D pada BC lebih dekat ke B; dua sudut sama di A ditandai.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "GE04-P012",
+    "version": 1,
+    "module_id": "GE04",
+    "domain": "geometri",
+    "subtopic": "Ceva, Menelaus, dan perbandingan luas",
+    "objective_id": "GE04-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 12,
+    "prerequisites": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "AL02"
+    ],
+    "technique_tags": [
+      "ceva",
+      "menelaus",
+      "perbandingan_luas"
+    ],
+    "statement": "Luas segitiga $ABC$ adalah $80$. Titik $D$ terletak pada sisi $BC$ dengan $BD:DC=1:3$, titik $E$ adalah titik tengah $CA$,\ndan titik $F$ terletak pada sisi $AB$. Garis $AD$, $BE$, dan $CF$ berpotongan di satu titik $P$. Tentukan luas segitiga $AFP$.",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "12",
+      "display": "$12$"
+    },
+    "hints": [
+      "Ceva memberi $AF:FB$. Menelaus pada segitiga $ADC$ dengan garis $B$–$P$–$E$ memberi $AP:PD$.",
+      "$AF:FB=3:1$ dan $AP:PD=4:1$. Lalu turun bertahap: $L_{ABD}\\to L_{ABP}\\to L_{AFP}$ dengan perbandingan alas pada tinggi yang sama."
+    ],
+    "solution": "**Ceva.** $\\frac{AF}{FB}\\cdot\\frac{BD}{DC}\\cdot\\frac{CE}{EA}=1$, yaitu $\\frac{AF}{FB}\\cdot\\frac13\\cdot1=1$, jadi $AF:FB=3:1$.\n\n**Menelaus** pada segitiga $ADC$ dengan garis potong $B$–$P$–$E$:\n$$\\frac{AP}{PD}\\cdot\\frac{DB}{BC}\\cdot\\frac{CE}{EA}=1\\ \\Longrightarrow\\ \\frac{AP}{PD}\\cdot\\frac14\\cdot1=1,$$\njadi $AP:PD=4:1$.\n\n**Perbandingan luas** (segitiga dengan tinggi yang sama berbanding seperti alasnya):\n$$\\begin{aligned}L_{ABD}&=\\tfrac{BD}{BC}\\,L_{ABC}=\\tfrac14\\cdot80=20,\\\\L_{ABP}&=\\tfrac{AP}{AD}\\,L_{ABD}=\\tfrac45\\cdot20=16,\\\\L_{AFP}&=\\tfrac{AF}{AB}\\,L_{ABP}=\\tfrac34\\cdot16=12.\\end{aligned}$$",
+    "key_idea": "Ceva dan Menelaus memberi perbandingan ruas; perbandingan ruas memberi perbandingan luas.",
+    "common_error": "Menganggap $P$ titik berat sehingga keenam segitiga kecil berluas $\\frac{80}6$. Di sini $D$ bukan titik tengah $BC$.",
+    "diagram": "GE04-P012.svg",
+    "diagram_alt": "Segitiga ABC dengan A di atas, B kiri bawah, C kanan bawah. D pada BC dekat B; E titik tengah CA (tanda sama panjang); F pada AB. Ruas AD, BE, CF berpotongan di P.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_GE04.md): A1–A6 lulus. A5: scripts/checks/GE04.py (koordinat eksak sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]

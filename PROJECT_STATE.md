@@ -8,7 +8,7 @@ Terakhir diperbarui: 2026-10-23 (sesi 2).
 - [x] Tahap 1 — blueprint, rencana 8 minggu, skema, standar audit, platform, kerangka proyek + tes
 - [x] Tahap 2 — **pilot TB01 + GE01 selesai**: 2 materi, 4 contoh, 24 latihan, semuanya `verified`
 - [x] Tahap 3 — volume dipertahankan (12 latihan/modul); biaya aktual US$11 setelah pilot, proyeksi di `costs/cost_log.md`
-- [ ] Tahap 4 — produksi: **14/19 modul selesai** (versi inti 8 modul lengkap + TB03, AL03, KO03, GE03, TB04, AL04)
+- [ ] Tahap 4 — produksi: **16/19 modul selesai** (versi inti 8 modul lengkap + TB03, AL03, KO03, GE03, TB04, AL04, KO04, GE04)
 - [ ] Tahap 5–6
 
 ## Lingkungan
@@ -49,12 +49,14 @@ Terakhir diperbarui: 2026-10-23 (sesi 2).
 - GE03: materi + `GE03-E01..E02`, `GE03-P001..P012`: verified; diagram E01, E02, P004, P009, P010, P012 (`scripts/diagrams/GE03.py`).
 - TB04: materi + `TB04-E01..E02`, `TB04-P001..P012`: verified (P010 `adapted`).
 - AL04: materi + `AL04-E01..E02`, `AL04-P001..P012`: verified (E01, P011 `rational`).
+- KO04: materi + `KO04-E01..E02`, `KO04-P001..P012`: verified (P010, P011 `adapted`; 8 butir `rational`).
+- GE04: materi + `GE04-E01..E02`, `GE04-P001..P012`: verified (P007 `adapted`, P009 `rational`); diagram E02, P004, P007, P010, P011, P012 (`scripts/diagrams/GE04.py`).
 - GE02: materi + `GE02-E01..E02`, `GE02-P001..P012`: verified; diagram E01, E02, P004, P006, P008, P010, P011 (`scripts/diagrams/GE02.py`).
-- Audit: `review/audit_<MODUL>.md` untuk keempat belas modul. Pemeriksaan: `npm run check:math` (196/196 cocok).
+- Audit: `review/audit_<MODUL>.md` untuk keenam belas modul. Pemeriksaan: `npm run check:math` (224/224 cocok).
 - Lingkungan sesi baru: `npm ci` dan `pip install sympy==1.13.3` (sympy tidak terpasang bawaan).
 - Tes: `npm test` (penilai, validator, build, situs fixture, dan tampilan konten nyata per modul) lulus.
 
-Mutu kumulatif: 196 butir; batch AL04: 3 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten), 0 kunci salah; batch TB04: 3 temuan (2 contoh materi membocorkan soal, 1 contoh pengganti salah hitung sebelum terbit, 1 tata letak), 0 kunci salah; batch GE03: 0 temuan yang mengubah kunci, 0 kunci salah; batch KO03: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL03: 2 temuan (kekeliruan umum P006 bukan kesalahan; tipe jawaban P011), 0 kunci salah; batch TB03: 4 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten, 1 tata letak), 0 kunci salah; batch GE02: 2 temuan (contoh materi membocorkan P006; klaim rasio salah di kekeliruan umum P011), keduanya diperbaiki sebelum verified, 0 kunci salah; batch KO02: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL02: 1 temuan (pemantik materi membocorkan trik P010, diganti), 0 kunci salah. Batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
+Mutu kumulatif: 224 butir; batch GE04: 3 temuan sebelum verified (data P002 sama dengan contoh materi; kunci P012 sama dengan anggapan keliru "titik berat"; diagram P007 menyesatkan), 0 kunci salah; batch KO04: 4 temuan teks (1 kekeliruan umum yang kebetulan menghasilkan kunci, 2 angka di kekeliruan umum, 1 kunci kembar P009/P010 diganti), 0 kunci salah; batch AL04: 3 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten), 0 kunci salah; batch TB04: 3 temuan (2 contoh materi membocorkan soal, 1 contoh pengganti salah hitung sebelum terbit, 1 tata letak), 0 kunci salah; batch GE03: 0 temuan yang mengubah kunci, 0 kunci salah; batch KO03: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL03: 2 temuan (kekeliruan umum P006 bukan kesalahan; tipe jawaban P011), 0 kunci salah; batch TB03: 4 temuan (2 contoh materi membocorkan soal, 1 kekeliruan umum tidak konsisten, 1 tata letak), 0 kunci salah; batch GE02: 2 temuan (contoh materi membocorkan P006; klaim rasio salah di kekeliruan umum P011), keduanya diperbaiki sebelum verified, 0 kunci salah; batch KO02: 0 temuan yang mengubah kunci, 0 kunci salah; batch AL02: 1 temuan (pemantik materi membocorkan trik P010, diganti), 0 kunci salah. Batch TB02: 5 butir diubah sebelum audit selesai (3 terlalu mirip contoh di materi, 2 kekeliruan umum yang kebetulan menghasilkan kunci), 0 kunci salah. Batch AL01+KO01: 5 butir revisi teks (0 kunci salah). Mutu pilot: 28 butir; 4 butir perlu revisi teks pembahasan (14%), **0 kunci salah**; 0 karantina.
 Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu ringkas (1), escaping LaTeX
 (tertangkap validator), dan rumus terlalu lebar di ponsel (tata letak).
 
@@ -67,12 +69,11 @@ Jenis temuan: kekeliruan umum yang kabur atau salah (3), langkah bukti terlalu r
 
 ## Keputusan terbuka (guru)
 
-1. **Anggaran:** guru melaporkan "masih 69 dolar" (23 Okt 2026, setelah 12 modul). Ditafsirkan sebagai sisa kredit
-   US$69; perlu konfirmasi guru. Lihat `costs/cost_log.md`.
+1. **Anggaran:** guru melaporkan "sisa 65$" setelah 14 modul (sebelumnya "masih 69 dolar" setelah 12 modul), jadi angka
+   itu adalah sisa kredit; ≈ US$2 per modul. Lihat `costs/cost_log.md`.
 2. **Tinjauan guru** atas 28 butir pilot (terutama kesulitan dan bahasa) sebelum dipakai siswa.
 
 ## Berikutnya
 
-14/19 modul. Menurut blueprint berikutnya KO04 (bintang-sekat lanjutan, inklusi-eksklusi, lintasan, peluang, nilai
-harapan) dan GE04 (koordinat, aturan sinus/kosinus, Heron, Ceva/Menelaus; perlu diagram). Setelah itu AL05, KO05,
-AL06, lalu diagnostik dan dua Latihan Campuran.
+16/19 modul. Berikutnya AL05 (fungsi, persamaan fungsi, Cauchy pada $\mathbb Q$), KO05 (induksi, rekurensi pencacahan,
+graf dasar), AL06 (bilangan kompleks, trigonometri). Setelah itu diagnostik (16 soal) dan dua Latihan Campuran.

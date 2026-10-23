@@ -1,0 +1,517 @@
+[
+  {
+    "id": "KO04-E01",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "inklusi-eksklusi tiga himpunan",
+    "objective_id": "KO04-O1",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi",
+      "komplemen"
+    ],
+    "statement": "Berapa banyak bilangan bulat dari $1$ sampai $1000$ yang **tidak** habis dibagi $2$, $3$, maupun $5$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "266",
+      "display": "$266$"
+    },
+    "hints": [
+      "Misalkan $A,B,C$ himpunan kelipatan $2$, $3$, $5$ di antara $1,\\dots,1000$. Hitung $|A\\cup B\\cup C|$, lalu pakai komplemen.",
+      "Irisan: kelipatan $6$, $10$, $15$, dan $30$. Banyak kelipatan $k$ adalah $\\left\\lfloor\\frac{1000}k\\right\\rfloor$."
+    ],
+    "solution": "**Ide kunci.** Lebih mudah menghitung yang habis dibagi **paling sedikit satu** dari $2,3,5$, lalu mengurangkannya dari $1000$.\n\nMisalkan $A$, $B$, $C$ berturut-turut himpunan kelipatan $2$, $3$, $5$ di antara $1,\\dots,1000$. Karena $2,3,5$ prima,\nirisannya adalah kelipatan hasil kalinya:\n$$\\begin{aligned}|A|&=500,\\quad |B|=333,\\quad |C|=200,\\\\|A\\cap B|&=\\left\\lfloor\\tfrac{1000}{6}\\right\\rfloor=166,\\quad |A\\cap C|=100,\\quad |B\\cap C|=66,\\\\|A\\cap B\\cap C|&=\\left\\lfloor\\tfrac{1000}{30}\\right\\rfloor=33.\\end{aligned}$$\nMenurut inklusi-eksklusi,\n$$|A\\cup B\\cup C|=1033-332+33=734.$$\nYang tidak habis dibagi $2$, $3$, maupun $5$ ada $1000-734=266$.",
+    "key_idea": "Hitung gabungan dengan inklusi-eksklusi, lalu ambil komplemennya.",
+    "common_error": "Berhenti di $1000-(500+333+200)=-33$. Bilangan negatif menandakan ada yang terkurangi lebih dari sekali; irisan harus ditambahkan kembali.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-E02",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "linearitas nilai harapan",
+    "objective_id": "KO04-O4",
+    "role": "worked_example",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "nilai_harapan",
+      "indikator",
+      "linearitas"
+    ],
+    "statement": "Sebuah koin dilempar $10$ kali dan hasilnya dicatat berurutan, misalnya $\\mathrm{AAGAAAGGAG}$ ($\\mathrm A$ = angka,\n$\\mathrm G$ = gambar). Kemunculan $\\mathrm{AA}$ dihitung pada setiap dua lemparan berurutan, boleh tumpang tindih (contoh\ntadi memuat $3$ kemunculan). Tentukan nilai harapan banyak kemunculan $\\mathrm{AA}$.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "9/4",
+      "display": "$\\dfrac94$"
+    },
+    "hints": [
+      "Ada $9$ pasangan lemparan berurutan: lemparan ke-$1$ dan ke-$2$, ke-$2$ dan ke-$3$, …, ke-$9$ dan ke-$10$.",
+      "Untuk setiap pasangan, buat indikator yang bernilai $1$ jika keduanya $\\mathrm A$. Peluangnya $\\frac14$."
+    ],
+    "solution": "**Ide kunci.** Menghitung sebaran peluang banyak kemunculan $\\mathrm{AA}$ itu rumit. Linearitas nilai harapan menghindarinya.\n\nUntuk $j=1,2,\\dots,9$, misalkan $I_j=1$ jika lemparan ke-$j$ dan ke-$(j+1)$ keduanya $\\mathrm A$, dan $I_j=0$ jika tidak.\nBanyak kemunculan $\\mathrm{AA}$ adalah $X=I_1+I_2+\\cdots+I_9$, dan\n$$E[I_j]=P(\\text{lemparan ke-}j\\text{ dan ke-}(j+1)\\text{ keduanya A})=\\tfrac12\\cdot\\tfrac12=\\tfrac14.$$\nMenurut linearitas,\n$$E[X]=9\\cdot\\tfrac14=\\tfrac94.$$\nIndikator yang bersebelahan, misalnya $I_1$ dan $I_2$, saling bergantung (keduanya memakai lemparan ke-$2$). Itu tidak\nmasalah, karena linearitas tidak memerlukan kebebasan.",
+    "key_idea": "Banyak kemunculan = jumlah indikator; nilai harapannya = jumlah peluang setiap indikator.",
+    "common_error": "Menghitung $10$ posisi (bukan $9$), atau mengira indikator yang saling bergantung tidak boleh dijumlahkan.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P001",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "inklusi-eksklusi dua himpunan",
+    "objective_id": "KO04-O1",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi"
+    ],
+    "statement": "Di sebuah kelas yang terdiri atas $40$ siswa, $23$ siswa menyukai matematika, $18$ siswa menyukai fisika, dan $7$ siswa\ntidak menyukai keduanya. Berapa siswa yang menyukai matematika **dan** fisika?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "8",
+      "display": "$8$"
+    },
+    "hints": [
+      "Berapa siswa yang menyukai paling sedikit satu dari kedua pelajaran?",
+      "$|M\\cup F|=40-7=33$. Pakai $|M\\cup F|=|M|+|F|-|M\\cap F|$."
+    ],
+    "solution": "Siswa yang menyukai paling sedikit satu pelajaran ada $40-7=33$. Menurut inklusi-eksklusi,\n$$33=|M\\cup F|=|M|+|F|-|M\\cap F|=23+18-|M\\cap F|,$$\nsehingga $|M\\cap F|=41-33=8$.",
+    "key_idea": "Gabungan diperoleh dari komplemen, lalu irisan dari rumus inklusi-eksklusi.",
+    "common_error": "Menjawab $23+18-40=1$, yaitu lupa bahwa $7$ siswa tidak termasuk gabungan.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P002",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "peluang dua dadu",
+    "objective_id": "KO04-O3",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 3,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "peluang_klasik",
+      "ruang_sampel"
+    ],
+    "statement": "Dua dadu bersisi enam yang setimbang dilempar bersamaan. Berapa peluang jumlah kedua mata dadu merupakan bilangan prima?",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "5/12",
+      "display": "$\\dfrac5{12}$"
+    },
+    "hints": [
+      "Ruang sampel yang sama mungkin adalah $36$ pasangan berurutan $(a,b)$.",
+      "Jumlah prima yang mungkin: $2,3,5,7,11$. Hitung banyak pasangan untuk setiap jumlah."
+    ],
+    "solution": "Ruang sampelnya $36$ pasangan berurutan $(a,b)$ yang sama mungkin. Jumlah yang prima adalah $2,3,5,7,11$, dengan banyak\npasangan\n$$\\begin{aligned}&2:\\ 1,\\quad 3:\\ 2,\\quad 5:\\ 4,\\\\&7:\\ 6,\\quad 11:\\ 2.\\end{aligned}$$\nTotalnya $15$, jadi peluangnya $\\frac{15}{36}=\\frac5{12}$.",
+    "key_idea": "Pakai pasangan berurutan sebagai ruang sampel yang sama mungkin.",
+    "common_error": "Memakai $11$ kemungkinan jumlah ($2$ sampai $12$) sebagai ruang sampel dan menjawab $\\frac5{11}$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P003",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "linearitas nilai harapan",
+    "objective_id": "KO04-O4",
+    "role": "practice",
+    "difficulty": "foundation",
+    "estimated_minutes": 2,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "nilai_harapan",
+      "linearitas"
+    ],
+    "statement": "Tiga dadu bersisi enam yang setimbang dilempar. Tentukan nilai harapan jumlah ketiga mata dadu.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "21/2",
+      "display": "$\\dfrac{21}2$"
+    },
+    "hints": [
+      "Hitung dulu nilai harapan mata **satu** dadu.",
+      "Satu dadu: $\\frac{1+2+\\cdots+6}6=\\frac72$. Lalu pakai linearitas."
+    ],
+    "solution": "Nilai harapan mata satu dadu adalah $\\frac{1+2+3+4+5+6}{6}=\\frac72$. Menurut linearitas, nilai harapan jumlah tiga mata\ndadu adalah $3\\cdot\\frac72=\\frac{21}2$.",
+    "key_idea": "Nilai harapan jumlah = jumlah nilai harapan.",
+    "common_error": "Mengambil nilai harapan satu dadu $\\frac62=3$, sehingga menjawab $9$. Yang benar adalah rata-rata keenam mata, $\\frac{21}6=\\frac72$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P004",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "inklusi-eksklusi dengan KPK",
+    "objective_id": "KO04-O1",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi",
+      "kpk"
+    ],
+    "statement": "Berapa banyak bilangan bulat dari $1$ sampai $600$ yang habis dibagi $4$, $6$, **atau** $15$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "220",
+      "display": "$220$"
+    },
+    "hints": [
+      "Pakai inklusi-eksklusi untuk tiga himpunan. Hati-hati: $4$, $6$, $15$ tidak saling prima.",
+      "Habis dibagi $4$ dan $6$ berarti habis dibagi $\\mathrm{KPK}(4,6)=12$, bukan $24$. Begitu pula untuk pasangan lain."
+    ],
+    "solution": "Misalkan $A_k$ himpunan kelipatan $k$ di antara $1,\\dots,600$. Irisannya adalah kelipatan KPK:\n$\\mathrm{KPK}(4,6)=12$, $\\mathrm{KPK}(4,15)=60$, $\\mathrm{KPK}(6,15)=30$, $\\mathrm{KPK}(4,6,15)=60$. Maka\n$$\\begin{aligned}|A_4|+|A_6|+|A_{15}|&=150+100+40=290,\\\\|A_{12}|+|A_{60}|+|A_{30}|&=50+10+20=80,\\\\|A_{60}|&=10,\\end{aligned}$$\ndan banyak yang dicari $290-80+10=220$.",
+    "key_idea": "Irisan “habis dibagi $a$ dan $b$” adalah kelipatan $\\mathrm{KPK}(a,b)$.",
+    "common_error": "Memakai hasil kali sebagai irisan ($24$, $60$, $90$, $360$), sehingga diperoleh $290-(25+10+6)+1=250$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P005",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "lintasan grid menghindari titik",
+    "objective_id": "KO04-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi",
+      "lintasan_grid",
+      "komplemen"
+    ],
+    "statement": "Sebuah lintasan dari $(0,0)$ ke $(5,5)$ tersusun atas langkah satu satuan ke kanan atau ke atas. Berapa banyak lintasan\nyang **tidak** melalui titik $(2,2)$ **dan tidak** melalui titik $(3,3)$?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "84",
+      "display": "$84$"
+    },
+    "hints": [
+      "Hitung lintasan yang melalui $(2,2)$, yang melalui $(3,3)$, dan yang melalui keduanya; lalu pakai komplemen.",
+      "Lintasan melalui keduanya: $(0,0)\\to(2,2)\\to(3,3)\\to(5,5)$, yaitu $\\binom42\\binom21\\binom42$."
+    ],
+    "solution": "Semua lintasan: $\\binom{10}5=252$. Misalkan $A$ lintasan yang melalui $(2,2)$ dan $B$ yang melalui $(3,3)$.\n$$\\begin{aligned}|A|&=\\tbinom42\\tbinom63=6\\cdot20=120,\\\\|B|&=\\tbinom63\\tbinom42=20\\cdot6=120,\\\\|A\\cap B|&=\\tbinom42\\tbinom21\\tbinom42=6\\cdot2\\cdot6=72.\\end{aligned}$$\nJadi $|A\\cup B|=120+120-72=168$, dan lintasan yang menghindari kedua titik ada $252-168=84$.",
+    "key_idea": "Lintasan terlarang = gabungan dua himpunan; irisannya dihitung dengan memotong lintasan di kedua titik.",
+    "common_error": "Menjawab $252-120-120=12$ karena lupa bahwa $72$ lintasan melalui kedua titik terkurangi dua kali.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P006",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "setiap jenis muncul",
+    "objective_id": "KO04-O2",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi",
+      "komplemen",
+      "fungsi_surjektif"
+    ],
+    "statement": "Lima siswa yang berbeda dibagi ke dalam tiga kelompok kerja bernama Kelompok $1$, $2$, dan $3$. Setiap siswa masuk tepat\nsatu kelompok, dan **setiap kelompok harus mempunyai paling sedikit satu anggota**. Berapa banyak cara pembagian?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "150",
+      "display": "$150$"
+    },
+    "hints": [
+      "Tanpa syarat, setiap siswa memilih salah satu dari $3$ kelompok: $3^5$ cara. Buang pembagian yang membuat suatu kelompok kosong.",
+      "Misalkan $A_i$ pembagian dengan Kelompok $i$ kosong. $|A_i|=2^5$, $|A_i\\cap A_j|=1^5$, $|A_1\\cap A_2\\cap A_3|=0$."
+    ],
+    "solution": "Tanpa syarat ada $3^5=243$ pembagian. Misalkan $A_i$ himpunan pembagian dengan Kelompok $i$ kosong. Maka $|A_i|=2^5=32$\n(setiap siswa memilih dari dua kelompok lain), $|A_i\\cap A_j|=1$ (semua siswa di kelompok yang tersisa), dan\n$|A_1\\cap A_2\\cap A_3|=0$. Jadi\n$$|A_1\\cup A_2\\cup A_3|=3\\cdot32-3\\cdot1+0=93,$$\ndan banyak pembagian tanpa kelompok kosong adalah $243-93=150$.",
+    "key_idea": "“Setiap kelompok terisi” = total dikurangi gabungan himpunan “kelompok $i$ kosong”.",
+    "common_error": "Menempatkan dulu satu siswa ke setiap kelompok ($5\\cdot4\\cdot3$ cara) lalu dua sisanya bebas ($3^2$), sehingga diperoleh $540$. Cara itu menghitung satu pembagian lebih dari sekali.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P007",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "peluang pengambilan tanpa urutan",
+    "objective_id": "KO04-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 5,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "peluang_klasik",
+      "kombinasi",
+      "partisi_kasus"
+    ],
+    "statement": "Sebuah kotak berisi $3$ bola merah, $4$ bola putih, dan $5$ bola biru. Empat bola diambil sekaligus secara acak.\nBerapa peluang ketiga warna muncul di antara keempat bola itu?",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "6/11",
+      "display": "$\\dfrac6{11}$"
+    },
+    "hints": [
+      "Ruang sampel: $\\binom{12}4$ pilihan $4$ bola. Jika ketiga warna muncul, satu warna muncul dua kali.",
+      "Bagi menurut warna yang muncul dua kali: merah, putih, atau biru."
+    ],
+    "solution": "Ruang sampelnya $\\binom{12}4=495$ pilihan $4$ bola (tidak berurutan), semuanya sama mungkin. Agar ketiga warna muncul,\nbanyak bola per warna adalah $2,1,1$ dalam suatu urutan warna:\n$$\\begin{aligned}\\text{merah dua}&:\\ \\tbinom32\\cdot4\\cdot5=60,\\\\\\text{putih dua}&:\\ 3\\cdot\\tbinom42\\cdot5=90,\\\\\\text{biru dua}&:\\ 3\\cdot4\\cdot\\tbinom52=120.\\end{aligned}$$\nTotalnya $270$, sehingga peluangnya $\\frac{270}{495}=\\frac6{11}$.",
+    "key_idea": "Pecah menurut warna yang muncul dua kali; hitung ruang sampel dan kejadian sama-sama tanpa urutan.",
+    "common_error": "Memilih dulu satu bola dari setiap warna ($3\\cdot4\\cdot5$) lalu satu bola bebas dari $9$ sisanya, sehingga diperoleh $540$, lebih besar daripada seluruh ruang sampel ($495$). Setiap pilihan yang baik terhitung dua kali.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P008",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "indikator pada susunan melingkar",
+    "objective_id": "KO04-O4",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "nilai_harapan",
+      "indikator",
+      "linearitas"
+    ],
+    "statement": "Empat pria dan empat wanita duduk secara acak pada $8$ kursi yang mengelilingi meja bundar (semua susunan sama mungkin).\nDua orang disebut *bertetangga* jika kursinya bersebelahan, sehingga ada $8$ pasangan tetangga. Tentukan nilai harapan\nbanyak pasangan tetangga yang terdiri atas satu pria dan satu wanita.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "32/7",
+      "display": "$\\dfrac{32}7$"
+    },
+    "hints": [
+      "Buat indikator untuk setiap pasangan kursi bersebelahan. Berapa peluang pasangan kursi itu ditempati satu pria dan satu wanita?",
+      "Peluang kursi pertama pria dan kursi kedua wanita adalah $\\frac48\\cdot\\frac47$. Jangan lupa urutan sebaliknya."
+    ],
+    "solution": "Untuk setiap pasangan kursi bersebelahan $j=1,\\dots,8$, misalkan $I_j=1$ jika kedua kursi ditempati satu pria dan satu\nwanita. Peluangnya\n$$P(I_j=1)=\\tfrac48\\cdot\\tfrac47+\\tfrac48\\cdot\\tfrac47=\\tfrac47.$$\nMenurut linearitas, nilai harapannya $8\\cdot\\frac47=\\frac{32}7$.",
+    "key_idea": "Satu indikator untuk setiap pasangan kursi; semua pasangan berpeluang sama.",
+    "common_error": "Memakai peluang $\\frac12$ untuk setiap pasangan (seolah-olah setiap kursi diisi pria atau wanita secara bebas) dan menjawab $4$. Orang di kursi kedua dipilih dari $7$ orang sisanya, bukan $8$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P009",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "peluang dan pencacahan barisan aritmetika",
+    "objective_id": "KO04-O3",
+    "role": "practice",
+    "difficulty": "core",
+    "estimated_minutes": 6,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "peluang_klasik",
+      "partisi_kasus"
+    ],
+    "statement": "Tiga bilangan berbeda dipilih secara acak dari $\\{1,2,\\dots,10\\}$ (setiap pilihan tiga bilangan sama mungkin).\nBerapa peluang ketiga bilangan itu dapat disusun menjadi barisan aritmetika?",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "1/6",
+      "display": "$\\dfrac16$"
+    },
+    "hints": [
+      "Tiga bilangan $a<b<c$ membentuk barisan aritmetika jika $c-b=b-a=d\\ge1$. Hitung menurut beda $d$.",
+      "Untuk beda $d$, suku pertama $a$ memenuhi $a+2d\\le10$, jadi ada $10-2d$ pilihan."
+    ],
+    "solution": "Ruang sampel: $\\binom{10}3=120$. Himpunan $\\{a,b,c\\}$ dengan $a<b<c$ dapat disusun menjadi barisan aritmetika tepat jika\n$b-a=c-b=d$ untuk suatu $d\\ge1$. Untuk setiap $d$, $a$ dapat dipilih dari $1$ sampai $10-2d$:\n$$d=1,2,3,4:\\quad 8+6+4+2=20.$$\nUntuk $d\\ge5$ tidak ada. Jadi peluangnya $\\frac{20}{120}=\\frac16$.",
+    "key_idea": "Cacah kejadian menurut beda barisan; ruang sampel himpunan tak berurutan.",
+    "common_error": "Menghitung tripel berurutan $(a,b,c)$ dan $(c,b,a)$ sebagai dua kejadian, tetapi ruang sampel dibiarkan tak berurutan, sehingga diperoleh $\\frac13$.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P010",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "derangement",
+    "objective_id": "KO04-O5",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 8,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "derangement",
+      "inklusi_eksklusi",
+      "peluang_klasik"
+    ],
+    "statement": "Lima surat yang berbeda dimasukkan secara acak ke lima amplop yang sudah bertuliskan alamat, satu surat untuk setiap\namplop (semua cara sama mungkin). Berapa peluang **tepat satu** surat masuk ke amplop yang benar?",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "3/8",
+      "display": "$\\dfrac38$"
+    },
+    "hints": [
+      "Pilih surat yang benar ($5$ cara). Empat surat lainnya harus **semuanya** salah amplop.",
+      "Banyak cara empat surat semuanya salah amplop adalah $D_4=9$ (hitung dengan inklusi-eksklusi atau daftar)."
+    ],
+    "solution": "Ruang sampel: $5!=120$ cara. Pilih surat yang masuk amplop benar: $5$ cara. Keempat surat lainnya harus semuanya salah,\nyaitu derangement $4$ objek. Dengan inklusi-eksklusi atas \"surat $i$ benar\",\n$$D_4=4!-\\tbinom41 3!+\\tbinom42 2!-\\tbinom43 1!+\\tbinom44 0!=24-24+12-4+1=9.$$\nJadi banyak cara $5\\cdot9=45$ dan peluangnya $\\frac{45}{120}=\\frac38$.",
+    "key_idea": "Tepat satu benar = pilih yang benar, sisanya derangement.",
+    "common_error": "Memilih surat yang benar lalu membiarkan empat sisanya bebas ($5\\cdot4!=120$, peluang $1$), atau memakai $4!-1=23$ untuk “empat sisanya salah”. Empat sisanya harus **semuanya** salah, yaitu $D_4=9$ cara.",
+    "origin": "adapted",
+    "source_refs": [
+      "Masalah amplop (derangement, folklor); bentuk “tepat satu” dan bilangan disesuaikan"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P011",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "indikator pada permutasi acak",
+    "objective_id": "KO04-O4",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "nilai_harapan",
+      "indikator",
+      "simetri"
+    ],
+    "statement": "Kartu bernomor $1,2,3,4,5,6$ dikocok lalu dibuka satu per satu (semua urutan sama mungkin). Sebuah kartu disebut\n*rekor* jika nomornya lebih besar daripada nomor **semua** kartu yang dibuka sebelumnya; kartu pertama selalu rekor.\nTentukan nilai harapan banyak rekor.",
+    "answer_type": "rational",
+    "answer_spec": {
+      "value": "49/20",
+      "display": "$\\dfrac{49}{20}$"
+    },
+    "hints": [
+      "Buat indikator $I_k$: kartu ke-$k$ adalah rekor. Kartu ke-$k$ adalah rekor jika ia yang terbesar di antara $k$ kartu pertama.",
+      "Setiap kartu di antara $k$ kartu pertama sama mungkin menjadi yang terbesar, jadi $P(I_k=1)=\\frac1k$."
+    ],
+    "solution": "Misalkan $I_k=1$ jika kartu ke-$k$ adalah rekor. Kartu ke-$k$ rekor tepat jika ia terbesar di antara $k$ kartu pertama.\nKarena urutan acak, setiap dari $k$ kartu itu sama mungkin menempati posisi terakhir di antara mereka, jadi\n$P(I_k=1)=\\frac1k$. Menurut linearitas,\n$$E=1+\\tfrac12+\\tfrac13+\\tfrac14+\\tfrac15+\\tfrac16=\\tfrac{60+30+20+15+12+10}{60}=\\tfrac{147}{60}=\\tfrac{49}{20}.$$",
+    "key_idea": "Rekor di posisi $k$ berpeluang $\\frac1k$ karena simetri; jumlahkan dengan linearitas.",
+    "common_error": "Mengira peluang kartu ke-$k$ rekor bergantung pada nomor kartu sebelumnya sehingga perlu dihitung kasus demi kasus. Simetri di antara $k$ kartu pertama sudah cukup.",
+    "origin": "adapted",
+    "source_refs": [
+      "Soal klasik nilai harapan banyak rekor pada permutasi acak (folklor); n = 6 dipilih"
+    ],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  },
+  {
+    "id": "KO04-P012",
+    "version": 1,
+    "module_id": "KO04",
+    "domain": "kombinatorika",
+    "subtopic": "larangan bersebelahan",
+    "objective_id": "KO04-O2",
+    "role": "practice",
+    "difficulty": "challenge",
+    "estimated_minutes": 10,
+    "prerequisites": [
+      "KO01",
+      "KO02"
+    ],
+    "technique_tags": [
+      "inklusi_eksklusi",
+      "blok",
+      "objek_identik"
+    ],
+    "statement": "Berapa banyak susunan keenam huruf $\\mathrm{A,A,B,B,C,C}$ dalam satu baris sehingga **tidak ada** dua huruf yang sama\nbersebelahan?",
+    "answer_type": "integer",
+    "answer_spec": {
+      "value": "30",
+      "display": "$30$"
+    },
+    "hints": [
+      "Total susunan $\\frac{6!}{2!\\,2!\\,2!}=90$. Misalkan $A$ susunan dengan kedua $\\mathrm A$ bersebelahan, dan seterusnya.",
+      "Satukan $\\mathrm{AA}$ menjadi satu blok: $|A|=\\frac{5!}{2!\\,2!}$. Untuk dua blok: $\\frac{4!}{2!}$; tiga blok: $3!$."
+    ],
+    "solution": "Total susunan: $\\frac{6!}{2!\\,2!\\,2!}=90$. Misalkan $A$, $B$, $C$ himpunan susunan dengan kedua huruf $\\mathrm A$, $\\mathrm B$,\n$\\mathrm C$ (berturut-turut) bersebelahan. Dengan menyatukan pasangan menjadi blok,\n$$\\begin{aligned}|A|&=\\tfrac{5!}{2!\\,2!}=30\\ \\text{(blok AA, B, B, C, C)},\\\\|A\\cap B|&=\\tfrac{4!}{2!}=12\\ \\text{(blok AA, blok BB, C, C)},\\\\|A\\cap B\\cap C|&=3!=6.\\end{aligned}$$\nBegitu pula untuk huruf lain. Jadi\n$$|A\\cup B\\cup C|=3\\cdot30-3\\cdot12+6=60,$$\ndan susunan tanpa dua huruf sama bersebelahan ada $90-60=30$.",
+    "key_idea": "Larangan bersebelahan → komplemen; \"bersebelahan\" dihitung dengan menyatukan pasangan menjadi blok.",
+    "common_error": "Menghitung $|A|=5!=120$ karena lupa bahwa $\\mathrm B$, $\\mathrm B$ dan $\\mathrm C$, $\\mathrm C$ identik, atau berhenti di $90-3\\cdot30=0$ tanpa menambahkan kembali irisan.",
+    "origin": "original",
+    "source_refs": [],
+    "verification_status": "verified",
+    "verification_notes": "Audit 2026-10-23 (review/audit_KO04.md): A1–A6 lulus. A5: scripts/checks/KO04.py (pencarian lengkap pada ruang sampel, pecahan eksak) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+  }
+]

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 274.67" width="220" height="275" role="img" aria-label="Segitiga ABC siku-siku di C; lingkaran dalam berpusat I; O titik tengah AB; ruas OI digambar" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<line x1="192.0" y1="246.67" x2="28.0" y2="28.0"/>
+<line x1="28.0" y1="28.0" x2="28.0" y2="246.67"/>
+<line x1="28.0" y1="246.67" x2="192.0" y2="246.67"/>
+<circle cx="82.67" cy="192.0" r="54.67" stroke-dasharray="5 4"/>
+<line x1="110.0" y1="137.33" x2="82.67" y2="192.0"/>
+<polyline points="44.4,246.67 44.4,230.27 28.0,230.27" stroke-width="1.2"/>
+<circle cx="28.0" cy="246.67" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="256.67" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="192.0" cy="246.67" r="2.6" fill="currentColor" stroke="none"/>
+<text x="202.0" y="256.67" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="28.0" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="18.0" y="22.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="82.67" cy="192.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="72.67" y="188.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">I</text>
+<circle cx="110.0" cy="137.33" r="2.6" fill="currentColor" stroke="none"/>
+<text x="120.0" y="133.33" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">O</text>
+</svg>
