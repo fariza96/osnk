@@ -1,0 +1,506 @@
+[
+ {
+  "id": "AL04-E01",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "hasil kali teleskopik",
+  "objective_id": "AL04-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "teleskopik_hasil_kali",
+   "selisih_kuadrat"
+  ],
+  "statement": "Tentukan nilai\n$$\\left(1-\\frac1{2^2}\\right)\\left(1-\\frac1{3^2}\\right)\\left(1-\\frac1{4^2}\\right)\\cdots\\left(1-\\frac1{100^2}\\right).$$\nTuliskan jawaban sebagai pecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "101/200",
+   "display": "$\\dfrac{101}{200}$"
+  },
+  "hints": [
+   "$1-\\dfrac1{k^2}=\\dfrac{k^2-1}{k^2}=\\dfrac{(k-1)(k+1)}{k\\cdot k}$.",
+   "Pisahkan menjadi $\\prod\\dfrac{k-1}k$ dan $\\prod\\dfrac{k+1}k$; masing-masing teleskopik."
+  ],
+  "solution": "**Ide kunci.** Tulis setiap faktor sebagai hasil bagi bentuk yang bergeser, lalu biarkan bagian tengah saling\nmenghapus.\n\n**Langkah.**\n\n1. $1-\\dfrac1{k^2}=\\dfrac{k-1}k\\cdot\\dfrac{k+1}k$.\n2. $\\displaystyle\\prod_{k=2}^{100}\\frac{k-1}k=\\frac12\\cdot\\frac23\\cdots\\frac{99}{100}=\\frac1{100}$.\n3. $\\displaystyle\\prod_{k=2}^{100}\\frac{k+1}k=\\frac32\\cdot\\frac43\\cdots\\frac{101}{100}=\\frac{101}2$.\n4. Hasilnya $\\dfrac1{100}\\cdot\\dfrac{101}2=\\dfrac{101}{200}$.\n\n**Pemeriksaan kecil.** Sampai $k=3$: $\\frac34\\cdot\\frac89=\\frac23$, dan rumus $\\frac{n+1}{2n}$ dengan $n=3$ memberi\n$\\frac46=\\frac23$ ✓.",
+  "key_idea": "Faktorkan setiap faktor menjadi rasio bentuk yang bergeser; hasil kali teleskopik hanya menyisakan ujung-ujungnya.",
+  "common_error": "Menganggap hasil kalinya mendekati $1$ atau $0$ tanpa menghitung, atau hanya memakai salah satu dari dua hasil kali teleskopik sehingga mendapat $\\frac1{100}$ atau $\\frac{101}2$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-E02",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "barisan rekursif periodik",
+  "objective_id": "AL04-O4",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "periode",
+   "rekursi"
+  ],
+  "statement": "Barisan $a_1,a_2,a_3,\\dots$ memenuhi $a_1=1$, $a_2=3$, dan $a_{n+2}=a_{n+1}-a_n$ untuk $n\\ge1$. Tentukan\n$a_1+a_2+\\cdots+a_{2026}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5",
+   "display": "$5$"
+  },
+  "hints": [
+   "Hitung beberapa suku pertama sampai pasangan $(1,3)$ muncul lagi.",
+   "Barisannya $1,3,2,-1,-3,-2,1,3,\\dots$ dengan periode $6$, dan jumlah satu periode $0$."
+  ],
+  "solution": "**Ide kunci.** Rekursi orde dua berulang begitu pasangan dua suku berurutan berulang.\n\n**Langkah.**\n\n1. Suku-sukunya: $1,3,2,-1,-3,-2,1,3,\\dots$ Pasangan $(a_7,a_8)=(1,3)=(a_1,a_2)$, jadi barisan berperiode $6$.\n2. Jumlah satu periode: $1+3+2-1-3-2=0$.\n3. $2026=6\\cdot337+4$, jadi jumlahnya sama dengan jumlah $4$ suku pertama: $1+3+2-1=5$.",
+  "key_idea": "Cari periode dari pasangan suku yang berulang; jumlah satu periode membuat jumlah panjang tinggal sisa beberapa suku.",
+  "common_error": "Memakai sisa $2026\\bmod6=4$ untuk mengambil suku ke-$4$ saja ($-1$), padahal yang diminta jumlah.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P001",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "suku barisan aritmetika",
+  "objective_id": "AL04-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "barisan_aritmetika"
+  ],
+  "statement": "Suku ke-$5$ suatu barisan aritmetika adalah $17$ dan suku ke-$12$ adalah $38$. Tentukan suku ke-$20$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "62",
+   "display": "$62$"
+  },
+  "hints": [
+   "$u_{12}-u_5=7b$.",
+   "$b=3$, lalu $u_{20}=u_{12}+8b$."
+  ],
+  "solution": "$u_{12}-u_5=7b=21$, jadi $b=3$. Maka $u_{20}=u_{12}+8b=38+24=62$.",
+  "key_idea": "Selisih dua suku sama dengan beda dikali selisih indeksnya.",
+  "common_error": "Memakai $u_{12}-u_5=12b-5b$ dengan benar tetapi menghitung $u_{20}=u_{12}+20b$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P002",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "suku barisan geometri",
+  "objective_id": "AL04-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "barisan_geometri"
+  ],
+  "statement": "Suku ke-$2$ suatu barisan geometri bilangan real adalah $6$ dan suku ke-$5$ adalah $162$. Tentukan suku ke-$7$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "1458",
+   "display": "$1458$"
+  },
+  "hints": [
+   "$\\dfrac{u_5}{u_2}=r^3$.",
+   "$r^3=27$, jadi $r=3$ (satu-satunya akar real)."
+  ],
+  "solution": "$\\dfrac{u_5}{u_2}=r^3=27$, jadi $r=3$. Maka $u_7=u_5r^2=162\\cdot9=1458$.",
+  "key_idea": "Hasil bagi dua suku sama dengan rasio dipangkatkan selisih indeksnya.",
+  "common_error": "Menganggap $r^3=27$ berarti $r=9$, atau menghitung $u_7=u_5\\cdot r$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P003",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "jumlah deret aritmetika",
+  "objective_id": "AL04-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 4,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "deret_aritmetika",
+   "banyak_suku"
+  ],
+  "statement": "Tentukan jumlah semua bilangan tiga digit yang habis dibagi $7$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "70336",
+   "display": "$70336$"
+  },
+  "hints": [
+   "Kelipatan $7$ tiga digit terkecil $105$, terbesar $994$. Berapa banyak sukunya?",
+   "Banyaknya $\\frac{994-105}7+1=128$. Jumlah = banyak suku × rata-rata suku pertama dan terakhir."
+  ],
+  "solution": "Kelipatan $7$ tiga digit: $105,112,\\dots,994$, sebanyak $\\frac{994-105}7+1=128$. Jumlahnya\n$$\\frac{128}2(105+994)=64\\cdot1099=70\\,336.$$",
+  "key_idea": "Jumlah deret aritmetika = banyak suku × rata-rata suku pertama dan terakhir.",
+  "common_error": "Menghitung banyak suku $\\frac{994-105}7=127$ (lupa menambah $1$), sehingga jumlahnya $69\\,786{,}5$ dan tampak janggal.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P004",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "deret geometri tak hingga",
+  "objective_id": "AL04-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "deret_geometri_tak_hingga",
+   "eliminasi"
+  ],
+  "statement": "Jumlah suatu deret geometri tak hingga adalah $12$, dan jumlah kuadrat suku-sukunya adalah $48$. Tentukan suku pertamanya.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Kuadrat suku-suku membentuk deret geometri dengan suku pertama $a^2$ dan rasio $r^2$.",
+   "$\\dfrac a{1-r}=12$ dan $\\dfrac{a^2}{1-r^2}=48$. Bagi persamaan kedua dengan yang pertama."
+  ],
+  "solution": "$\\dfrac a{1-r}=12$ dan $\\dfrac{a^2}{1-r^2}=48$ (deret kuadrat berasio $r^2$). Karena $1-r^2=(1-r)(1+r)$, bagi kedua\npersamaan: $\\dfrac a{1+r}=4$.\n\nDari $a=12(1-r)=4(1+r)$ diperoleh $16r=8$, $r=\\frac12$, dan $a=6$. Syarat $|r|<1$ terpenuhi.\n\n**Pemeriksaan.** $\\frac6{1/2}=12$ dan $\\frac{36}{3/4}=48$ ✓.",
+  "key_idea": "Kuadrat suku deret geometri juga deret geometri; membagi kedua rumus jumlah menghapus faktor $1-r$.",
+  "common_error": "Menganggap jumlah kuadrat sama dengan kuadrat jumlah ($144$), atau lupa memeriksa $|r|<1$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P005",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "teleskopik pecahan parsial",
+  "objective_id": "AL04-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "teleskopik",
+   "pecahan_parsial"
+  ],
+  "statement": "Tentukan bilangan bulat positif terkecil $n$ sehingga\n$$\\frac1{1\\cdot3}+\\frac1{3\\cdot5}+\\frac1{5\\cdot7}+\\cdots+\\frac1{(2n-1)(2n+1)}>\\frac{49}{100}.$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "25",
+   "display": "$25$"
+  },
+  "hints": [
+   "$\\dfrac1{(2k-1)(2k+1)}=\\dfrac12\\left(\\dfrac1{2k-1}-\\dfrac1{2k+1}\\right)$.",
+   "Jumlahnya $\\dfrac12\\left(1-\\dfrac1{2n+1}\\right)=\\dfrac n{2n+1}$."
+  ],
+  "solution": "$\\dfrac1{(2k-1)(2k+1)}=\\dfrac12\\left(\\dfrac1{2k-1}-\\dfrac1{2k+1}\\right)$, sehingga jumlahnya teleskopik:\n$$\\frac12\\left(1-\\frac1{2n+1}\\right)=\\frac n{2n+1}.$$\nSyarat $\\dfrac n{2n+1}>\\dfrac{49}{100}$ menjadi $100n>98n+49$, yaitu $n>24{,}5$. Jadi $n=25$.\n\n**Pemeriksaan.** $n=24$: $\\frac{24}{49}\\approx0{,}4898<0{,}49$; $n=25$: $\\frac{25}{51}\\approx0{,}4902$ ✓.",
+  "key_idea": "Pecah suku menjadi selisih dua pecahan berurutan; jumlahnya menjadi rumus sederhana dalam $n$.",
+  "common_error": "Lupa faktor $\\frac12$ pada pecahan parsial, sehingga mendapat jumlah $\\frac{2n}{2n+1}$ dan $n=1$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P006",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "rekursi linear orde satu",
+  "objective_id": "AL04-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "titik_tetap",
+   "rekursi"
+  ],
+  "statement": "Barisan $a_n$ memenuhi $a_1=5$ dan $a_{n+1}=3a_n-4$ untuk $n\\ge1$. Tentukan $a_6$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "731",
+   "display": "$731$"
+  },
+  "hints": [
+   "Cari titik tetap $c$ dengan $c=3c-4$.",
+   "$c=2$, jadi $a_{n+1}-2=3(a_n-2)$ dan $a_n-2=3^{n-1}(a_1-2)=3^n$."
+  ],
+  "solution": "Titik tetap: $c=3c-4$ memberi $c=2$. Maka $a_{n+1}-2=3(a_n-2)$, sehingga $a_n-2$ adalah barisan geometri berasio $3$\ndengan suku pertama $3$: $a_n-2=3^n$ dan $a_n=3^n+2$. Jadi $a_6=729+2=731$.\n\n**Pemeriksaan.** $a_2=3\\cdot5-4=11=3^2+2$ ✓.",
+  "key_idea": "Geser barisan dengan titik tetap rekursi; selisihnya menjadi barisan geometri.",
+  "common_error": "Menganggap $a_n-2$ berasio $3$ tetapi mulai dari $3^0$, sehingga mendapat $a_6=3^5+2=245$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P007",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "aritmetika menjadi geometri",
+  "objective_id": "AL04-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "barisan_aritmetika",
+   "barisan_geometri"
+  ],
+  "statement": "Tiga bilangan membentuk barisan aritmetika **naik** dengan jumlah $15$. Jika berturut-turut ditambah $1$, $3$, dan $9$,\nketiganya membentuk barisan geometri. Tentukan hasil kali ketiga bilangan semula.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "105",
+   "display": "$105$"
+  },
+  "hints": [
+   "Tulis ketiga bilangan sebagai $5-b$, $5$, $5+b$ dengan $b>0$.",
+   "Syarat geometri: $8^2=(6-b)(14+b)$."
+  ],
+  "solution": "Ketiga bilangan $5-b,\\ 5,\\ 5+b$ (jumlah $15$) dengan $b>0$ karena barisannya naik. Setelah ditambah:\n$6-b,\\ 8,\\ 14+b$. Syarat geometri:\n$$64=(6-b)(14+b)\\iff b^2+8b-20=0\\iff(b+10)(b-2)=0.$$\nKarena $b>0$, $b=2$, sehingga bilangannya $3,5,7$ (menjadi $4,8,16$ ✓). Hasil kalinya $105$.\n\nCatatan: $b=-10$ memberi barisan turun $15,5,-5$, yang dibuang oleh syarat \"naik\".",
+  "key_idea": "Tulis tiga suku aritmetika simetris terhadap suku tengah; syarat geometri $y^2=xz$ memberi persamaan kuadrat.",
+  "common_error": "Tidak memakai syarat “naik” dan memilih $b=-10$, sehingga mendapat hasil kali $-375$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P008",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "hasil kali barisan periodik",
+  "objective_id": "AL04-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "periode",
+   "rekursi"
+  ],
+  "statement": "Barisan $a_n$ memenuhi $a_1=2$ dan $a_{n+1}=\\dfrac{1+a_n}{1-a_n}$ untuk $n\\ge1$. Tentukan hasil kali\n$a_1a_2a_3\\cdots a_{2026}$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "-6",
+   "display": "$-6$"
+  },
+  "hints": [
+   "Hitung $a_2,a_3,a_4,a_5$ dengan pecahan eksak.",
+   "Barisannya $2,-3,-\\frac12,\\frac13,2,\\dots$ dengan periode $4$. Hitung hasil kali satu periode."
+  ],
+  "solution": "Suku-sukunya: $a_1=2$, $a_2=\\frac{3}{-1}=-3$, $a_3=\\frac{-2}{4}=-\\frac12$, $a_4=\\frac{1/2}{3/2}=\\frac13$,\n$a_5=\\frac{4/3}{2/3}=2$. Rekursi orde satu, jadi barisan berperiode $4$.\n\nHasil kali satu periode: $2\\cdot(-3)\\cdot\\left(-\\frac12\\right)\\cdot\\frac13=1$. Karena $2026=4\\cdot506+2$,\nhasil kalinya sama dengan $a_1a_2=2\\cdot(-3)=-6$.",
+  "key_idea": "Untuk rekursi orde satu, satu suku yang berulang sudah cukup untuk periode; hasil kali satu periode menyederhanakan hasil kali panjang.",
+  "common_error": "Mengambil suku ke-$2026$ ($-3$) alih-alih hasil kali, atau salah tanda pada $a_3$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P009",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "teleskopik dengan selisih kuadrat",
+  "objective_id": "AL04-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "teleskopik",
+   "selisih_kuadrat"
+  ],
+  "statement": "Misalkan\n$$S=\\frac{3}{1^2\\cdot2^2}+\\frac{5}{2^2\\cdot3^2}+\\frac{7}{3^2\\cdot4^2}+\\cdots+\\frac{19}{9^2\\cdot10^2}.$$\nTentukan nilai $100S$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "99",
+   "display": "$99$"
+  },
+  "hints": [
+   "Suku umumnya $\\dfrac{2k+1}{k^2(k+1)^2}$. Perhatikan pembilangnya dibandingkan dengan $(k+1)^2$ dan $k^2$.",
+   "$2k+1=(k+1)^2-k^2$, jadi suku umum $=\\dfrac1{k^2}-\\dfrac1{(k+1)^2}$."
+  ],
+  "solution": "Suku ke-$k$ adalah $\\dfrac{2k+1}{k^2(k+1)^2}$ untuk $k=1,\\dots,9$. Karena $2k+1=(k+1)^2-k^2$,\n$$\\frac{2k+1}{k^2(k+1)^2}=\\frac{(k+1)^2-k^2}{k^2(k+1)^2}=\\frac1{k^2}-\\frac1{(k+1)^2}.$$\nJumlahnya teleskopik: $S=1-\\dfrac1{100}=\\dfrac{99}{100}$, sehingga $100S=99$.",
+  "key_idea": "Pembilang yang merupakan selisih dua bentuk di penyebut memecah suku menjadi selisih dua pecahan.",
+  "common_error": "Salah membaca banyak suku (misalnya sampai $k=10$), sehingga mendapat $1-\\frac1{121}$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P010",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "deret Fibonacci",
+  "objective_id": "AL04-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "rekursi",
+   "deret_tak_hingga",
+   "geser_indeks"
+  ],
+  "statement": "Barisan Fibonacci didefinisikan dengan $F_1=F_2=1$ dan $F_{n+2}=F_{n+1}+F_n$. Tentukan nilai\n$$\\frac{F_1}{2}+\\frac{F_2}{2^2}+\\frac{F_3}{2^3}+\\frac{F_4}{2^4}+\\cdots$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "2",
+   "display": "$2$"
+  },
+  "hints": [
+   "Misalkan $S$ adalah jumlahnya. Ganti $F_n$ untuk $n\\ge3$ dengan $F_{n-1}+F_{n-2}$, lalu nyatakan kedua bagian dengan $S$.",
+   "$\\sum_{n\\ge3}\\frac{F_{n-1}}{2^n}=\\frac12\\left(S-\\frac12\\right)$ dan $\\sum_{n\\ge3}\\frac{F_{n-2}}{2^n}=\\frac S4$."
+  ],
+  "solution": "**Konvergen.** Dengan induksi, $F_n\\le\\left(\\frac53\\right)^n$: benar untuk $n=1,2$, dan\n$F_{n}\\le\\left(\\frac53\\right)^{n-1}+\\left(\\frac53\\right)^{n-2}=\\left(\\frac53\\right)^{n-2}\\cdot\\frac83\\le\\left(\\frac53\\right)^n$ karena\n$\\frac83\\le\\frac{25}9$. Jadi $\\frac{F_n}{2^n}\\le\\left(\\frac56\\right)^n$, dan deretnya konvergen.\n\n**Menggeser indeks.** Misalkan $S$ adalah jumlahnya. Untuk $n\\ge3$, $F_n=F_{n-1}+F_{n-2}$, sehingga\n$$S=\\frac12+\\frac14+\\sum_{n\\ge3}\\frac{F_{n-1}}{2^n}+\\sum_{n\\ge3}\\frac{F_{n-2}}{2^n}.$$\nSuku pertama dari kedua jumlah: $\\sum_{n\\ge3}\\frac{F_{n-1}}{2^n}=\\frac12\\sum_{m\\ge2}\\frac{F_m}{2^m}=\\frac12\\left(S-\\frac12\\right)$, dan\n$\\sum_{n\\ge3}\\frac{F_{n-2}}{2^n}=\\frac14\\sum_{m\\ge1}\\frac{F_m}{2^m}=\\frac S4$. Maka\n$$S=\\frac34+\\frac S2-\\frac14+\\frac S4\\iff\\frac S4=\\frac12\\iff S=2.$$",
+  "key_idea": "Pakai rekursi di dalam deret: geser indeks sehingga deret yang sama muncul kembali, lalu selesaikan persamaan linear untuk $S$.",
+  "common_error": "Langsung memanipulasi deret tanpa memeriksa konvergensi, atau salah menggeser indeks sehingga suku awal $\\frac{F_1}{2}$ terhitung dua kali.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P011",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "teleskopik dengan pemfaktoran derajat empat",
+  "objective_id": "AL04-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "teleskopik",
+   "pemfaktoran",
+   "sophie_germain"
+  ],
+  "statement": "Tentukan nilai\n$$\\sum_{k=1}^{9}\\frac{k}{k^4+k^2+1}.$$\nTuliskan jawaban sebagai pecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "45/91",
+   "display": "$\\dfrac{45}{91}$"
+  },
+  "hints": [
+   "$k^4+k^2+1=(k^2+1)^2-k^2$. Faktorkan sebagai selisih kuadrat.",
+   "$k^4+k^2+1=(k^2-k+1)(k^2+k+1)$, dan $(k+1)^2-(k+1)+1=k^2+k+1$."
+  ],
+  "solution": "**Pemfaktoran.** $k^4+k^2+1=(k^2+1)^2-k^2=(k^2-k+1)(k^2+k+1)$.\n\n**Pecahan parsial.** Selisih kedua faktor adalah $2k$, sehingga\n$$\\frac k{(k^2-k+1)(k^2+k+1)}=\\frac12\\left(\\frac1{k^2-k+1}-\\frac1{k^2+k+1}\\right).$$\n\n**Teleskopik.** Misalkan $g(k)=k^2-k+1$; maka $k^2+k+1=g(k+1)$. Jadi jumlahnya\n$$\\frac12\\left(\\frac1{g(1)}-\\frac1{g(10)}\\right)=\\frac12\\left(1-\\frac1{91}\\right)=\\frac{45}{91}.$$",
+  "key_idea": "Faktorkan penyebut menjadi dua faktor yang saling bergeser ketika $k$ diganti $k+1$; pecahan parsial lalu teleskopik.",
+  "common_error": "Mencoba pecahan parsial langsung tanpa memfaktorkan, atau lupa faktor $\\frac12$ sehingga mendapat $\\frac{90}{91}$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL04-P012",
+  "version": 1,
+  "module_id": "AL04",
+  "domain": "aljabar",
+  "subtopic": "barisan aritmetika yang memuat suku tertentu",
+  "objective_id": "AL04-O1",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 8,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "barisan_aritmetika",
+   "banyak_pembagi"
+  ],
+  "statement": "Berapa banyak barisan aritmetika tak hingga yang suku pertamanya $1$, bedanya bilangan bulat positif, dan memuat\nbilangan $2026$ sebagai salah satu sukunya?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "15",
+   "display": "$15$"
+  },
+  "hints": [
+   "$2026$ adalah suku jika $2026=1+(n-1)b$ untuk suatu bilangan bulat positif $n$.",
+   "Syaratnya $b\\mid2025$. Faktorkan $2025$."
+  ],
+  "solution": "Suku-sukunya $1+(n-1)b$. Bilangan $2026$ muncul tepat jika $(n-1)b=2025$ untuk suatu $n\\ge1$, yaitu $b$ pembagi\npositif $2025$. Setiap $b$ seperti itu memberi tepat satu barisan.\n\n$2025=3^4\\cdot5^2$, jadi banyak pembaginya $(4+1)(2+1)=15$.",
+  "key_idea": "Syarat “memuat suatu bilangan” pada barisan aritmetika menjadi syarat keterbagian pada bedanya.",
+  "common_error": "Memakai $2026$ (bukan $2026-1$) atau menghitung pembagi $2025$ tanpa faktorisasi yang benar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL04.md): A1–A6 lulus. A5: scripts/checks/AL04.py (pecahan eksak, iterasi langsung) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
