@@ -1,0 +1,504 @@
+[
+ {
+  "id": "AL03-E01",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "AM-GM dengan memecah suku",
+  "objective_id": "AL03-O2",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "am_gm",
+   "memecah_suku"
+  ],
+  "statement": "Untuk bilangan real $x>0$, tentukan nilai minimum $x^2+\\dfrac{16}x$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "AM-GM dua suku $x^2$ dan $\\frac{16}x$ memberi hasil kali $16x$, yang tidak konstan. Pecah $\\frac{16}x$ menjadi dua suku yang sama.",
+   "Tulis $x^2+\\frac8x+\\frac8x$. Hasil kali ketiga suku itu konstan."
+  ],
+  "solution": "**Ide kunci.** AM-GM memberi batas konstan hanya jika hasil kali suku-sukunya konstan. Karena pangkat $x$ pada\n$x^2$ adalah $2$ dan pada $\\frac{16}x$ adalah $-1$, suku kedua dipecah menjadi dua bagian agar pangkatnya saling\nmenghapus.\n\n**Langkah.**\n\n1. Tulis $x^2+\\dfrac{16}x=x^2+\\dfrac8x+\\dfrac8x$. Ketiga suku positif.\n2. AM-GM tiga suku:\n   $$x^2+\\frac8x+\\frac8x\\ge3\\sqrt[3]{x^2\\cdot\\frac8x\\cdot\\frac8x}=3\\sqrt[3]{64}=12.$$\n3. **Tercapai.** Kesamaan terjadi jika $x^2=\\dfrac8x$, yaitu $x^3=8$ dan $x=2$. Periksa:\n   $2^2+\\dfrac{16}2=4+8=12$ ✓.\n\nJadi nilai minimumnya $12$.",
+  "key_idea": "Pecah suku sehingga hasil kali semua suku menjadi konstan, lalu pastikan kesamaan AM-GM dapat terjadi.",
+  "common_error": "Memakai AM-GM dua suku: $x^2+\\frac{16}x\\ge2\\sqrt{16x}$. Ruas kanannya masih bergantung pada $x$, jadi bukan batas bawah.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-E02",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "bentuk Titu",
+  "objective_id": "AL03-O3",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "titu",
+   "syarat_kesamaan"
+  ],
+  "statement": "Bilangan real positif $a,b,c$ memenuhi $a+b+c=6$. Tentukan nilai minimum\n$$\\frac1a+\\frac4b+\\frac9c.$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Pembilangnya kuadrat: $1=1^2$, $4=2^2$, $9=3^2$. Pakai bentuk Titu.",
+   "$\\dfrac{1^2}a+\\dfrac{2^2}b+\\dfrac{3^2}c\\ge\\dfrac{(1+2+3)^2}{a+b+c}$. Lalu cari kapan kesamaan terjadi."
+  ],
+  "solution": "**Ide kunci.** Jumlah pecahan dengan pembilang kuadrat dan penyebut yang jumlahnya diketahui cocok untuk\nbentuk Titu.\n\n**Langkah.**\n\n1. Titu:\n   $$\\frac{1^2}a+\\frac{2^2}b+\\frac{3^2}c\\ge\\frac{(1+2+3)^2}{a+b+c}=\\frac{36}6=6.$$\n2. **Tercapai.** Kesamaan terjadi jika $\\dfrac1a=\\dfrac2b=\\dfrac3c$, yaitu $a:b:c=1:2:3$. Dengan $a+b+c=6$:\n   $a=1$, $b=2$, $c=3$.\n3. Periksa: $\\dfrac11+\\dfrac42+\\dfrac93=1+2+3=6$ ✓.\n\nJadi nilai minimumnya $6$.",
+  "key_idea": "Titu: $\\sum\\frac{x_i^2}{y_i}\\ge\\frac{(\\sum x_i)^2}{\\sum y_i}$, dengan kesamaan saat $\\frac{x_i}{y_i}$ sama.",
+  "common_error": "Menganggap minimum terjadi di $a=b=c=2$, sehingga mendapat $\\frac12+2+\\frac92=7$. Titik simetris tidak selalu optimal jika soalnya tidak simetris.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P001",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "minimum fungsi kuadrat",
+  "objective_id": "AL03-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "melengkapkan_kuadrat"
+  ],
+  "statement": "Tentukan nilai minimum $x^2-6x+14$ untuk $x$ bilangan real.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5",
+   "display": "$5$"
+  },
+  "hints": [
+   "Lengkapkan kuadrat: $x^2-6x=(x-3)^2-9$.",
+   "$(x-3)^2\\ge0$, dengan kesamaan di $x=3$."
+  ],
+  "solution": "$x^2-6x+14=(x-3)^2+5\\ge5$, dengan kesamaan di $x=3$. Nilai minimumnya $5$.",
+  "key_idea": "Melengkapkan kuadrat memisahkan bagian yang tak negatif dari konstanta.",
+  "common_error": "Menjawab $x=3$ (letak minimum) alih-alih nilai minimumnya, yaitu $5$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P002",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "AM-GM dua suku",
+  "objective_id": "AL03-O2",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "am_gm"
+  ],
+  "statement": "Untuk bilangan real $x>0$, tentukan nilai minimum $3x+\\dfrac{27}x$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "18",
+   "display": "$18$"
+  },
+  "hints": [
+   "Hasil kali $3x\\cdot\\dfrac{27}x$ konstan.",
+   "$3x+\\dfrac{27}x\\ge2\\sqrt{81}$. Kapan kesamaan terjadi?"
+  ],
+  "solution": "Kedua suku positif dan hasil kalinya $81$. AM-GM: $3x+\\dfrac{27}x\\ge2\\sqrt{81}=18$. Kesamaan terjadi jika\n$3x=\\dfrac{27}x$, yaitu $x=3$; periksa $9+9=18$ ✓. Nilai minimumnya $18$.",
+  "key_idea": "Jika hasil kali dua suku positif konstan, jumlahnya minimum ketika kedua suku sama.",
+  "common_error": "Menulis $3x+\\frac{27}x\\ge2\\sqrt{27}$ (lupa koefisien $3$ dalam hasil kali).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P003",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "pertidaksamaan nilai mutlak",
+  "objective_id": "AL03-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 3,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "nilai_mutlak"
+  ],
+  "statement": "Berapa banyak bilangan bulat $x$ yang memenuhi $|2x+1|\\le13$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "14",
+   "display": "$14$"
+  },
+  "hints": [
+   "$|u|\\le13$ berarti $-13\\le u\\le13$.",
+   "$-13\\le2x+1\\le13$ memberi $-7\\le x\\le6$."
+  ],
+  "solution": "$|2x+1|\\le13\\iff-13\\le2x+1\\le13\\iff-14\\le2x\\le12\\iff-7\\le x\\le6$. Bilangan bulatnya $-7,-6,\\dots,6$,\nsebanyak $14$.",
+  "key_idea": "Pertidaksamaan $|u|\\le c$ adalah pertidaksamaan ganda $-c\\le u\\le c$.",
+  "common_error": "Hanya memakai $2x+1\\le13$, sehingga batas bawah $x\\ge-7$ hilang dan banyaknya tampak tak hingga.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P004",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "minimum kuadrat dua variabel",
+  "objective_id": "AL03-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "melengkapkan_kuadrat"
+  ],
+  "statement": "Tentukan nilai minimum $x^2+2y^2+2xy-4x-2y+12$ untuk $x,y$ bilangan real.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "7",
+   "display": "$7$"
+  },
+  "hints": [
+   "Kumpulkan suku yang memuat $x$: $x^2+2xy-4x=x^2+2x(y-2)$. Lengkapkan kuadrat menjadi $(x+y-2)^2$.",
+   "Sisanya hanya memuat $y$: $y^2+2y+8=(y+1)^2+7$."
+  ],
+  "solution": "Suku yang memuat $x$ dilengkapkan: $x^2+2x(y-2)=(x+y-2)^2-(y-2)^2$. Maka\n$$\\begin{aligned}x^2+2y^2+2xy-4x-2y+12&=(x+y-2)^2-(y-2)^2+2y^2-2y+12\\\\&=(x+y-2)^2+y^2+2y+8\\\\&=(x+y-2)^2+(y+1)^2+7.\\end{aligned}$$\nJadi nilainya $\\ge7$. Kesamaan terjadi jika $y=-1$ dan $x+y=2$, yaitu $x=3$. Periksa:\n$9+2-6-12+2+12=7$ ✓. Nilai minimumnya $7$.",
+  "key_idea": "Lengkapkan kuadrat untuk satu variabel dengan memperlakukan variabel lain sebagai konstanta, lalu ulangi untuk sisanya.",
+  "common_error": "Melengkapkan kuadrat $x$ dan $y$ secara terpisah dengan mengabaikan suku $2xy$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P005",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "AM-GM dengan kendala hasil kali",
+  "objective_id": "AL03-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 4,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "am_gm",
+   "syarat_kesamaan"
+  ],
+  "statement": "Bilangan real positif $x$ dan $y$ memenuhi $xy=32$. Tentukan nilai minimum $2x+y$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "16",
+   "display": "$16$"
+  },
+  "hints": [
+   "$2x\\cdot y=2xy=64$ konstan.",
+   "$2x+y\\ge2\\sqrt{2x\\cdot y}$. Kesamaan terjadi jika $2x=y$."
+  ],
+  "solution": "AM-GM untuk $2x$ dan $y$: $2x+y\\ge2\\sqrt{2xy}=2\\sqrt{64}=16$. Kesamaan terjadi jika $2x=y$; dengan $xy=32$\ndiperoleh $2x^2=32$, sehingga $x=4$ dan $y=8$. Periksa: $8+8=16$ ✓. Nilai minimumnya $16$.",
+  "key_idea": "Pilih pasangan suku yang hasil kalinya konstan menurut kendala; koefisien ikut masuk ke hasil kali.",
+  "common_error": "Menganggap minimum di $x=y=\\sqrt{32}$, sehingga mendapat $3\\sqrt{32}\\approx16{,}97$, padahal kesamaan memerlukan $2x=y$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P006",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "jumlah jarak",
+  "objective_id": "AL03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "nilai_mutlak",
+   "median"
+  ],
+  "statement": "Tentukan nilai minimum $|x-1|+|x-4|+|x-6|+|x-10|$ untuk $x$ bilangan real.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "11",
+   "display": "$11$"
+  },
+  "hints": [
+   "Pasangkan titik terluar dan titik dalam: $|x-1|+|x-10|$ dan $|x-4|+|x-6|$.",
+   "$|x-1|+|x-10|\\ge9$ dan $|x-4|+|x-6|\\ge2$, dan keduanya menjadi kesamaan untuk $4\\le x\\le6$."
+  ],
+  "solution": "Jumlah jarak ke dua titik $a<b$ paling sedikit $b-a$, dengan kesamaan tepat jika $a\\le x\\le b$. Jadi\n$$|x-1|+|x-10|\\ge9\\quad\\text{dan}\\quad|x-4|+|x-6|\\ge2,$$\nsehingga jumlahnya $\\ge11$. Kedua kesamaan terjadi bersamaan untuk $4\\le x\\le6$, misalnya $x=5$:\n$4+1+1+5=11$ ✓. Nilai minimumnya $11$.",
+  "key_idea": "Pasangkan titik dari luar ke dalam; setiap pasangan memberi batas sebesar jaraknya, dan semua batas tercapai di median.",
+  "common_error": "Mencoba beberapa titik data, misalnya $x=1$ (nilainya $17$), lalu berhenti tanpa argumen bahwa $11$ adalah batas bawah untuk semua $x$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P007",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "ekstrem dengan syarat akar real",
+  "objective_id": "AL03-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 7,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "vieta",
+   "diskriminan",
+   "daerah_asal"
+  ],
+  "statement": "Persamaan $x^2-2kx+k+6=0$ mempunyai dua akar real $a$ dan $b$ (boleh sama). Tentukan nilai minimum\n$a^2+b^2$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "8",
+   "display": "$8$"
+  },
+  "hints": [
+   "Vieta: $a^2+b^2=(a+b)^2-2ab=4k^2-2k-12$. Tetapi $k$ tidak bebas.",
+   "Akar real memerlukan $D=4k^2-4(k+6)\\ge0$, yaitu $k\\le-2$ atau $k\\ge3$. Puncak $4k^2-2k-12$ ada di $k=\\frac14$, di luar daerah itu."
+  ],
+  "solution": "**Rumus.** Vieta: $a+b=2k$ dan $ab=k+6$, jadi $a^2+b^2=4k^2-2(k+6)=4k^2-2k-12$.\n\n**Daerah asal.** Akar real memerlukan $D=4k^2-4(k+6)\\ge0$, yaitu $k^2-k-6=(k-3)(k+2)\\ge0$, sehingga\n$k\\le-2$ atau $k\\ge3$.\n\n**Minimum.** $g(k)=4k^2-2k-12$ mempunyai puncak di $k=\\frac14$, yang tidak termasuk daerah asal. Pada\n$k\\le-2$, $g$ turun menuju $k=-2$; pada $k\\ge3$, $g$ naik dari $k=3$. Jadi calonnya $g(-2)=16+4-12=8$ dan\n$g(3)=36-6-12=18$. Minimumnya $8$, dicapai di $k=-2$: persamaannya $x^2+4x+4=0$ dengan akar kembar $-2$,\ndan $(-2)^2+(-2)^2=8$ ✓.",
+  "key_idea": "Ekspresi akar dari Vieta harus dibatasi oleh syarat akar real; jika puncak berada di luar daerah asal, minimum ada di ujung daerah.",
+  "common_error": "Mengambil puncak $k=\\frac14$ dan menjawab $g(\\frac14)=-\\frac{49}4$. Nilai negatif untuk $a^2+b^2$ jelas mustahil, dan untuk $k=\\frac14$ akarnya tidak real.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P008",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "Cauchy-Schwarz dengan kendala linear",
+  "objective_id": "AL03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "cauchy_schwarz",
+   "syarat_kesamaan"
+  ],
+  "statement": "Bilangan real $x,y,z$ memenuhi $x+2y+2z=9$. Tentukan nilai minimum $x^2+y^2+z^2$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "Cauchy-Schwarz: $(1\\cdot x+2\\cdot y+2\\cdot z)^2\\le(1^2+2^2+2^2)(x^2+y^2+z^2)$.",
+   "Kesamaan terjadi jika $(x,y,z)$ sebanding dengan $(1,2,2)$."
+  ],
+  "solution": "Cauchy-Schwarz:\n$$81=(1\\cdot x+2\\cdot y+2\\cdot z)^2\\le(1+4+4)(x^2+y^2+z^2),$$\nsehingga $x^2+y^2+z^2\\ge9$. Kesamaan terjadi jika $(x,y,z)=t(1,2,2)$; dari kendala, $9t=9$, jadi $t=1$ dan\n$(x,y,z)=(1,2,2)$. Periksa: $1+4+4=9$ ✓. Nilai minimumnya $9$.",
+  "key_idea": "Kendala linear dan jumlah kuadrat dihubungkan oleh Cauchy-Schwarz; kesamaan terjadi saat vektornya sebanding.",
+  "common_error": "Menganggap minimum di $x=y=z=\\frac95$, sehingga mendapat $\\frac{243}{25}\\approx9{,}72$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P009",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "nilai mutlak bersarang",
+  "objective_id": "AL03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "nilai_mutlak",
+   "pembagian_kasus"
+  ],
+  "statement": "Berapa banyak bilangan bulat $x$ yang memenuhi $\\big||x-2|-3\\big|\\le2$?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "10",
+   "display": "$10$"
+  },
+  "hints": [
+   "Kupas dari luar: $-2\\le|x-2|-3\\le2$, yaitu $1\\le|x-2|\\le5$.",
+   "$1\\le|x-2|\\le5$ berarti $x-2\\in[-5,-1]$ atau $x-2\\in[1,5]$."
+  ],
+  "solution": "Kupas nilai mutlak luar: $-2\\le|x-2|-3\\le2$, yaitu $1\\le|x-2|\\le5$. Jadi jarak $x$ ke $2$ antara $1$ dan $5$:\n\n- $x-2\\in[1,5]$: $x\\in\\{3,4,5,6,7\\}$;\n- $x-2\\in[-5,-1]$: $x\\in\\{-3,-2,-1,0,1\\}$.\n\nTotal $10$ bilangan bulat ($x=2$ tidak termasuk karena jaraknya $0$).",
+  "key_idea": "Nilai mutlak bersarang dikupas dari luar; $|u|$ yang dibatasi dari dua sisi memberi dua selang yang terpisah.",
+  "common_error": "Hanya memakai $|x-2|\\le5$ dan lupa batas bawah $|x-2|\\ge1$, sehingga ikut menghitung $x=2$ dan mendapat $11$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P010",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "AM-GM berbobot dengan memecah suku",
+  "objective_id": "AL03-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "am_gm",
+   "memecah_suku",
+   "syarat_kesamaan"
+  ],
+  "statement": "Bilangan real positif $a,b,c$ memenuhi $a+b+c=1$. Tentukan nilai maksimum $ab^2c^3$. Tuliskan jawaban sebagai\npecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "1/432",
+   "display": "$\\dfrac{1}{432}$"
+  },
+  "hints": [
+   "Pecah $b$ menjadi dua suku $\\frac b2$ dan $c$ menjadi tiga suku $\\frac c3$, sehingga ada enam suku dengan jumlah $1$.",
+   "AM-GM enam suku: $a,\\frac b2,\\frac b2,\\frac c3,\\frac c3,\\frac c3$. Hasil kalinya $\\frac{ab^2c^3}{4\\cdot27}$."
+  ],
+  "solution": "Agar jumlahnya tetap $1$ dan hasil kalinya memuat $ab^2c^3$, pecah menjadi enam suku positif:\n$$a+\\frac b2+\\frac b2+\\frac c3+\\frac c3+\\frac c3=1.$$\nAM-GM enam suku:\n$$\\frac16\\ge\\sqrt[6]{a\\cdot\\frac{b^2}{4}\\cdot\\frac{c^3}{27}}\\iff\\frac{ab^2c^3}{108}\\le\\frac1{6^6},$$\nsehingga $ab^2c^3\\le\\dfrac{108}{46656}=\\dfrac1{432}$.\n\n**Tercapai.** Kesamaan terjadi jika $a=\\frac b2=\\frac c3$; dengan $a+b+c=1$, yaitu $6a=1$: $a=\\frac16$,\n$b=\\frac13$, $c=\\frac12$. Periksa: $\\frac16\\cdot\\frac19\\cdot\\frac18=\\frac1{432}$ ✓.",
+  "key_idea": "Untuk memaksimumkan hasil kali berpangkat, pecah setiap variabel menjadi suku-suku yang sama sebanyak pangkatnya, sehingga jumlahnya tetap konstan.",
+  "common_error": "Memakai $a=b=c=\\frac13$ (titik simetris), sehingga mendapat $\\frac1{729}$. Nilai ini lebih kecil dari maksimum.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P011",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "Titu pada pecahan siklis",
+  "objective_id": "AL03-O3",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 8,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "titu",
+   "syarat_kesamaan"
+  ],
+  "statement": "Bilangan real positif $a,b,c$ memenuhi $a+b+c=3$. Tentukan nilai minimum\n$$\\frac{a^2}{b+c}+\\frac{b^2}{c+a}+\\frac{c^2}{a+b}.$$\nTuliskan jawaban sebagai pecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "3/2",
+   "display": "$\\dfrac32$"
+  },
+  "hints": [
+   "Pembilangnya kuadrat. Pakai Titu, lalu hitung jumlah penyebut.",
+   "Jumlah penyebut $(b+c)+(c+a)+(a+b)=2(a+b+c)=6$."
+  ],
+  "solution": "Titu:\n$$\\frac{a^2}{b+c}+\\frac{b^2}{c+a}+\\frac{c^2}{a+b}\\ge\\frac{(a+b+c)^2}{2(a+b+c)}=\\frac{9}{6}=\\frac32.$$\n**Tercapai.** Kesamaan terjadi jika $\\frac a{b+c}=\\frac b{c+a}=\\frac c{a+b}$, misalnya $a=b=c=1$, dan nilainya\n$3\\cdot\\frac12=\\frac32$ ✓. Nilai minimumnya $\\frac32$.",
+  "key_idea": "Untuk jumlah pecahan dengan pembilang kuadrat, Titu mengubah soal menjadi jumlah pembilang dan jumlah penyebut.",
+  "common_error": "Memakai AM-GM tiga suku langsung, yang menghasilkan batas berisi akar pangkat tiga dari ekspresi tak konstan, sehingga tidak dapat disimpulkan.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "AL03-P012",
+  "version": 1,
+  "module_id": "AL03",
+  "domain": "aljabar",
+  "subtopic": "AM-GM per faktor",
+  "objective_id": "AL03-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "AL01",
+   "AL02"
+  ],
+  "technique_tags": [
+   "am_gm",
+   "syarat_kesamaan"
+  ],
+  "statement": "Bilangan real positif $x,y,z$ memenuhi $xyz=1$. Tentukan nilai minimum\n$$(x+3y)(y+3z)(xz+1).$$",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "24",
+   "display": "$24$"
+  },
+  "hints": [
+   "Pakai AM-GM dua suku pada setiap faktor: $x+3y\\ge2\\sqrt{3xy}$, dan seterusnya.",
+   "Hasil kali ketiga batas memuat $\\sqrt{3xy\\cdot3yz\\cdot xz}=3xyz$. Lalu periksa apakah ketiga kesamaan dapat terjadi bersamaan."
+  ],
+  "solution": "AM-GM pada setiap faktor (semua suku positif):\n$$x+3y\\ge2\\sqrt{3xy},\\qquad y+3z\\ge2\\sqrt{3yz},\\qquad xz+1\\ge2\\sqrt{xz}.$$\nKalikan (semua ruas positif):\n$$(x+3y)(y+3z)(xz+1)\\ge8\\sqrt{9x^2y^2z^2}=8\\cdot3xyz=24.$$\n\n**Tercapai.** Kesamaan memerlukan $x=3y$, $y=3z$, dan $xz=1$ sekaligus. Dari dua yang pertama $x=9z$, lalu\n$9z^2=1$, jadi $z=\\frac13$, $y=1$, $x=3$, dan $xyz=1$ ✓. Periksa: $(3+3)(1+1)(1+1)=24$ ✓.",
+  "key_idea": "AM-GM pada setiap faktor lalu dikalikan; batasnya tajam hanya jika semua syarat kesamaan dapat dipenuhi bersamaan dengan kendala.",
+  "common_error": "Mencoba $x=y=z=1$ dan menjawab $(4)(4)(2)=32$, padahal titik simetris tidak optimal karena koefisiennya tidak simetris.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_AL03.md): A1–A6 lulus. A5: scripts/checks/AL03.py (nilai eksak tercapai + pencarian numerik acak tanpa nilai lebih baik) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
