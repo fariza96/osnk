@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240.0" width="240" height="240" role="img" aria-label="Segi empat ABCD pada lingkaran dengan diagonal AC dan BD" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<circle cx="120.0" cy="120.0" r="92.0"/>
+<line x1="206.45" y1="151.47" x2="179.14" y2="49.52"/>
+<line x1="179.14" y1="49.52" x2="74.0" y2="40.33"/>
+<line x1="74.0" y1="40.33" x2="104.02" y2="210.6"/>
+<line x1="104.02" y1="210.6" x2="206.45" y2="151.47"/>
+<line x1="206.45" y1="151.47" x2="74.0" y2="40.33"/>
+<line x1="179.14" y1="49.52" x2="104.02" y2="210.6"/>
+<circle cx="206.45" cy="151.47" r="2.6" fill="currentColor" stroke="none"/>
+<text x="219.61" y="156.26" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="179.14" cy="49.52" r="2.6" fill="currentColor" stroke="none"/>
+<text x="188.14" y="38.8" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="74.0" cy="40.33" r="2.6" fill="currentColor" stroke="none"/>
+<text x="67.0" y="28.21" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="104.02" cy="210.6" r="2.6" fill="currentColor" stroke="none"/>
+<text x="101.59" y="224.39" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+</svg>

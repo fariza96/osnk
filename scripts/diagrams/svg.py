@@ -35,6 +35,9 @@ class Fig:
     def ticks(self, p, q, n=1):
         self.items.append(("tick", (self._p(p), self._p(q), n)))
 
+    def circle(self, c, r, dash=False):
+        self.items.append(("circ", (self._p(c), r, dash)))
+
     def text(self, xy, s, dx=0, dy=0):
         self.items.append(("txt", (self._p(xy), s, dx, dy)))
 
@@ -50,6 +53,9 @@ class Fig:
             elif kind == "seg":
                 for x, y in d[:2]:
                     xs.append(x); ys.append(y)
+            elif kind == "circ":
+                (cx, cy), r, _ = d
+                xs += [cx - r, cx + r]; ys += [cy - r, cy + r]
         x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
         k = (self.width - 2 * self.pad) / max(x1 - x0, 1e-9)
         h = (y1 - y0) * k + 2 * self.pad
@@ -65,6 +71,11 @@ class Fig:
                 p, q = T(*a), T(*b)
                 da = ' stroke-dasharray="5 4"' if dash else ""
                 out.append(f'<line x1="{p[0]}" y1="{p[1]}" x2="{q[0]}" y2="{q[1]}"{da}/>')
+            elif kind == "circ":
+                (cx, cy), r, dash = d
+                c = T(cx, cy)
+                da = ' stroke-dasharray="5 4"' if dash else ""
+                out.append(f'<circle cx="{c[0]}" cy="{c[1]}" r="{round(r * unit, 2)}"{da}/>')
             elif kind == "arc":
                 a, v, b, r, label, lr = d
                 t1 = math.atan2(a[1] - v[1], a[0] - v[0])

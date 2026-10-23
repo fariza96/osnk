@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240.0" width="240" height="240" role="img" aria-label="Segitiga ABC dengan AB = AC pada lingkaran berpusat O; AD diameter; ruas BD digambar" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<circle cx="120.0" cy="120.0" r="92.0"/>
+<line x1="120.0" y1="28.0" x2="31.68" y2="145.76"/>
+<line x1="31.68" y1="145.76" x2="208.32" y2="145.76"/>
+<line x1="208.32" y1="145.76" x2="120.0" y2="28.0"/>
+<line x1="120.0" y1="28.0" x2="120.0" y2="212.0"/>
+<line x1="31.68" y1="145.76" x2="120.0" y2="212.0"/>
+<line x1="81.44" y1="91.08" x2="70.24" y2="82.68" stroke-width="1.2"/>
+<line x1="169.76" y1="82.68" x2="158.56" y2="91.08" stroke-width="1.2"/>
+<circle cx="120.0" cy="28.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="120.0" y="15.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="31.68" cy="145.76" r="2.6" fill="currentColor" stroke="none"/>
+<text x="20.68" y="149.76" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="208.32" cy="145.76" r="2.6" fill="currentColor" stroke="none"/>
+<text x="219.32" y="149.76" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">C</text>
+<circle cx="120.0" cy="212.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="120.0" y="226.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">D</text>
+<circle cx="120.0" cy="120.0" r="2.6" fill="currentColor" stroke="none"/>
+<text x="130.0" y="114.0" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">O</text>
+</svg>

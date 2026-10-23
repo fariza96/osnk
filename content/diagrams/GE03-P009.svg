@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180.44" width="280" height="180" role="img" aria-label="Dua lingkaran berpotongan di A dan B; garis singgung persekutuan menyinggung lingkaran di S dan T; perpanjangan BA memotong ST di M" font-family="serif" font-size="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+<circle cx="189.78" cy="90.22" r="62.22"/>
+<circle cx="90.22" cy="90.22" r="62.22"/>
+<line x1="59.11" y1="152.44" x2="220.89" y2="152.44"/>
+<line x1="140.0" y1="152.44" x2="140.0" y2="52.89" stroke-dasharray="5 4"/>
+<circle cx="140.0" cy="127.56" r="2.6" fill="currentColor" stroke="none"/>
+<text x="152.0" y="129.56" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">A</text>
+<circle cx="140.0" cy="52.89" r="2.6" fill="currentColor" stroke="none"/>
+<text x="152.0" y="50.89" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">B</text>
+<circle cx="140.0" cy="152.44" r="2.6" fill="currentColor" stroke="none"/>
+<text x="140.0" y="166.44" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">M</text>
+<circle cx="189.78" cy="152.44" r="2.6" fill="currentColor" stroke="none"/>
+<text x="189.78" y="166.44" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">S</text>
+<circle cx="90.22" cy="152.44" r="2.6" fill="currentColor" stroke="none"/>
+<text x="90.22" y="166.44" text-anchor="middle" dominant-baseline="middle" fill="currentColor" stroke="none" font-style="italic">T</text>
+</svg>

@@ -1,0 +1,516 @@
+[
+ {
+  "id": "GE03-E01",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "sudut pada segi empat tali busur",
+  "objective_id": "GE03-O2",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "segi_empat_tali_busur",
+   "sudut_keliling"
+  ],
+  "statement": "Segi empat $ABCD$ (titik-titiknya berurutan) terletak pada sebuah lingkaran. Diketahui $\\angle ABC=110^\\circ$\ndan $\\angle ACD=40^\\circ$. Tentukan besar $\\angle CBD$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "70",
+   "display": "$70$"
+  },
+  "hints": [
+   "Sudut berhadapan pada segi empat tali busur berjumlah $180^\\circ$. Hitung $\\angle ADC$, lalu $\\angle CAD$.",
+   "$\\angle CBD$ dan $\\angle CAD$ menghadap busur $CD$ yang sama."
+  ],
+  "solution": "**Ide kunci.** Sudut yang ditanyakan dipindahkan ke sudut lain yang menghadap busur yang sama, yaitu sudut\nyang berada dalam segitiga yang sudutnya dapat dihitung.\n\n**Langkah.**\n\n1. $ABCD$ segi empat tali busur, jadi $\\angle ADC=180^\\circ-\\angle ABC=70^\\circ$.\n2. Dalam $\\triangle ACD$: $\\angle CAD=180^\\circ-70^\\circ-40^\\circ=70^\\circ$.\n3. $\\angle CBD$ dan $\\angle CAD$ adalah sudut keliling yang menghadap busur $CD$, jadi $\\angle CBD=70^\\circ$.\n\n**Pemeriksaan dengan busur.** $\\angle ACD=40^\\circ$ berarti busur $AD=80^\\circ$; $\\angle ABC=110^\\circ$ berarti\nbusur $ADC=220^\\circ$. Jadi busur $CD=140^\\circ$, dan $\\angle CBD=\\tfrac12\\cdot140^\\circ=70^\\circ$ ✓.",
+  "key_idea": "Sudut keliling yang menghadap busur yang sama besarnya sama; gabungkan dengan sifat sudut berhadapan $180^\\circ$.",
+  "common_error": "Menganggap $\\angle CBD=\\tfrac12\\angle ABC=55^\\circ$, seolah-olah $BD$ membagi dua sudut $B$.",
+  "diagram": "GE03-E01.svg",
+  "diagram_alt": "Segi empat ABCD pada lingkaran dengan diagonal AC dan BD.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-E02",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "garis singgung dan garis potong",
+  "objective_id": "GE03-O4",
+  "role": "worked_example",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "kuasa_titik",
+   "garis_singgung"
+  ],
+  "statement": "Dari titik $P$ di luar sebuah lingkaran ditarik garis singgung $PT$ ($T$ titik singgung) dan sebuah garis yang\nmelalui pusat lingkaran dan memotong lingkaran di $A$ dan $B$, dengan $PA<PB$. Jika $PT=12$ dan $PA=8$, tentukan\njari-jari lingkaran.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "5",
+   "display": "$5$"
+  },
+  "hints": [
+   "Kuasa titik: $PT^2=PA\\cdot PB$.",
+   "$PB=\\dfrac{144}8=18$. Karena garis melalui pusat, $AB$ adalah diameter."
+  ],
+  "solution": "**Ide kunci.** Kuasa titik menghubungkan panjang garis singgung dengan dua ruas pada garis potong.\n\n**Langkah.**\n\n1. $PT^2=PA\\cdot PB$, jadi $144=8\\cdot PB$ dan $PB=18$.\n2. Garis melalui pusat, jadi $AB$ diameter: $AB=PB-PA=10$, dan jari-jarinya $5$.\n\n**Pemeriksaan dengan Pythagoras.** $PO=PA+r=13$, dan $\\triangle OTP$ siku-siku di $T$:\n$PT^2=13^2-5^2=144$ ✓.",
+  "key_idea": "$PT^2=PA\\cdot PB$: kuadrat garis singgung sama dengan hasil kali jarak $P$ ke kedua titik potong.",
+  "common_error": "Memakai $PT^2=PA\\cdot AB$, sehingga $AB=18$ dan jari-jarinya $9$.",
+  "diagram": "GE03-E02.svg",
+  "diagram_alt": "Lingkaran berpusat O; dari P di luar lingkaran ditarik garis singgung PT dan garis melalui O yang memotong lingkaran di A (dekat P) dan B.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P001",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "sudut pusat dan sudut keliling",
+  "objective_id": "GE03-O1",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "sudut_keliling"
+  ],
+  "statement": "Titik $A$, $B$, $C$ terletak pada lingkaran berpusat $O$, dengan $\\angle AOB=130^\\circ$ dan $C$ terletak pada busur\nbesar $AB$. Tentukan $\\angle ACB$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "65",
+   "display": "$65$"
+  },
+  "hints": [
+   "Sudut keliling sama dengan setengah sudut pusat yang menghadap busur yang sama.",
+   "$\\angle ACB$ menghadap busur kecil $AB$, yang sudut pusatnya $130^\\circ$."
+  ],
+  "solution": "$C$ pada busur besar, jadi $\\angle ACB$ menghadap busur kecil $AB$ yang bersudut pusat $130^\\circ$. Maka\n$\\angle ACB=\\tfrac12\\cdot130^\\circ=65^\\circ$.",
+  "key_idea": "Sudut keliling $=\\tfrac12$ sudut pusat yang menghadap busur yang sama.",
+  "common_error": "Menjawab $130^\\circ$ (menyamakan sudut keliling dengan sudut pusat), atau $115^\\circ$ (memakai busur besar).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P002",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "tali busur berpotongan",
+  "objective_id": "GE03-O4",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "kuasa_titik"
+  ],
+  "statement": "Tali busur $AB$ dan $CD$ sebuah lingkaran berpotongan di $P$. Jika $AP=4$, $PB=6$, dan $CP=3$, tentukan panjang $CD$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "11",
+   "display": "$11$"
+  },
+  "hints": [
+   "Kuasa titik: $AP\\cdot PB=CP\\cdot PD$.",
+   "$PD=\\dfrac{24}3=8$, lalu $CD=CP+PD$."
+  ],
+  "solution": "$AP\\cdot PB=CP\\cdot PD$, jadi $24=3\\cdot PD$ dan $PD=8$. Maka $CD=3+8=11$.",
+  "key_idea": "Untuk tali busur yang berpotongan, hasil kali kedua bagian tali busur sama.",
+  "common_error": "Menjawab $PD=8$, padahal yang ditanya panjang seluruh tali busur $CD$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P003",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "panjang garis singgung",
+  "objective_id": "GE03-O3",
+  "role": "practice",
+  "difficulty": "foundation",
+  "estimated_minutes": 2,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "garis_singgung",
+   "pythagoras"
+  ],
+  "statement": "Lingkaran berpusat $O$ berjari-jari $5$. Titik $P$ berjarak $13$ dari $O$. Tentukan panjang garis singgung dari $P$\nke lingkaran itu.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "12",
+   "display": "$12$"
+  },
+  "hints": [
+   "Garis singgung tegak lurus jari-jari di titik singgung $T$.",
+   "$\\triangle OTP$ siku-siku di $T$."
+  ],
+  "solution": "Garis singgung $PT$ tegak lurus jari-jari $OT$, jadi $PT^2=OP^2-OT^2=169-25=144$ dan $PT=12$.",
+  "key_idea": "Jari-jari ke titik singgung tegak lurus garis singgung, sehingga membentuk segitiga siku-siku dengan $OP$.",
+  "common_error": "Menghitung $13-5=8$, yaitu jarak $P$ ke titik terdekat lingkaran, bukan panjang garis singgung.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P004",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "sudut tali busur dan garis singgung",
+  "objective_id": "GE03-O2",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "sudut_singgung_tali_busur",
+   "jumlah_sudut_segitiga"
+  ],
+  "statement": "Segitiga $ABC$ terletak pada sebuah lingkaran. Garis singgung lingkaran di $A$ memuat titik $X$ yang berada pada\nsisi garis $AB$ yang berlawanan dengan $C$, dan $\\angle XAB=62^\\circ$. Jika $\\angle ABC=70^\\circ$, tentukan\n$\\angle BAC$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "48",
+   "display": "$48$"
+  },
+  "hints": [
+   "Sudut antara garis singgung dan tali busur $AB$ sama dengan sudut keliling yang menghadap busur $AB$ dari seberang.",
+   "$\\angle ACB=\\angle XAB=62^\\circ$. Lalu pakai jumlah sudut segitiga."
+  ],
+  "solution": "Menurut sifat sudut tali busur–singgung, $\\angle ACB=\\angle XAB=62^\\circ$ ($C$ berada di seberang $X$ terhadap\n$AB$). Dalam $\\triangle ABC$: $\\angle BAC=180^\\circ-70^\\circ-62^\\circ=48^\\circ$.",
+  "key_idea": "Sudut antara garis singgung dan tali busur sama dengan sudut keliling pada busur seberangnya.",
+  "common_error": "Mengira $\\angle XAB$ sama dengan $\\angle ABC$, atau menjumlahkan $62^\\circ$ dengan $\\angle BAC$ menjadi $90^\\circ$ seolah-olah $AB$ diameter.",
+  "diagram": "GE03-P004.svg",
+  "diagram_alt": "Segitiga ABC pada lingkaran; garis singgung di A memuat titik X di sisi AB yang berlawanan dengan C; sudut XAB ditandai.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P005",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "titik singgung lingkaran dalam",
+  "objective_id": "GE03-O3",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "garis_singgung_sama_panjang"
+  ],
+  "statement": "Segitiga $ABC$ mempunyai $AB=13$, $BC=14$, dan $CA=15$. Lingkaran dalamnya menyinggung $BC$ di $D$. Tentukan $BD$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "6",
+   "display": "$6$"
+  },
+  "hints": [
+   "Dua garis singgung dari satu titik sama panjang. Misalkan $BD=BF=x$, $CD=CE=y$, $AE=AF=z$.",
+   "$x+y=14$, $y+z=15$, $z+x=13$. Atau langsung $BD=s-b$."
+  ],
+  "solution": "Misalkan lingkaran dalam menyinggung $CA$ di $E$ dan $AB$ di $F$. Garis singgung dari titik yang sama sama panjang:\n$BD=BF=x$, $CD=CE=y$, $AE=AF=z$. Maka\n$$x+y=14,\\quad y+z=15,\\quad z+x=13.$$\nJumlahkan: $x+y+z=21$. Jadi $x=21-15=6$, yaitu $BD=6$.",
+  "key_idea": "Panjang garis singgung dari satu titik sama; tiga persamaan memberi $BD=s-b$.",
+  "common_error": "Menganggap $D$ titik tengah $BC$, sehingga $BD=7$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P006",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "dua garis potong",
+  "objective_id": "GE03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "kuasa_titik"
+  ],
+  "statement": "Dari titik $P$ di luar sebuah lingkaran ditarik dua garis. Garis pertama memotong lingkaran di $A$ dan $B$ dengan\n$PA=4$ dan $AB=5$ ($A$ di antara $P$ dan $B$). Garis kedua memotong lingkaran di $C$ dan $D$ dengan $PC=3$ ($C$ di antara\n$P$ dan $D$). Tentukan panjang $CD$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "9",
+   "display": "$9$"
+  },
+  "hints": [
+   "Kuasa titik: $PA\\cdot PB=PC\\cdot PD$, dengan $PB=PA+AB$.",
+   "$PB=9$, jadi $PD=\\dfrac{36}3=12$."
+  ],
+  "solution": "$PB=PA+AB=9$. Kuasa titik: $PA\\cdot PB=PC\\cdot PD$, jadi $36=3\\cdot PD$ dan $PD=12$. Maka\n$CD=PD-PC=12-3=9$.",
+  "key_idea": "Untuk garis potong dari titik luar, jarak diukur dari $P$ ke kedua titik potong.",
+  "common_error": "Memakai $PA\\cdot AB=PC\\cdot CD$, sehingga mendapat $CD=\\frac{20}3$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P007",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "jari-jari lingkaran luar",
+  "objective_id": "GE03-O5",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "rumus_r_luar",
+   "heron"
+  ],
+  "statement": "Segitiga $ABC$ mempunyai $AB=13$, $BC=14$, dan $CA=15$. Tentukan jari-jari lingkaran luarnya. Tuliskan jawaban sebagai pecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "65/8",
+   "display": "$\\dfrac{65}{8}$"
+  },
+  "hints": [
+   "$R=\\dfrac{abc}{4L}$. Luasnya dapat dihitung dengan garis tinggi dari $A$ ke $BC$ atau dengan rumus Heron.",
+   "Luas segitiga $13$-$14$-$15$ adalah $84$."
+  ],
+  "solution": "Luas: dengan $s=21$, $L=\\sqrt{21\\cdot8\\cdot7\\cdot6}=84$ (atau garis tinggi $12$ ke sisi $14$). Maka\n$$R=\\frac{abc}{4L}=\\frac{13\\cdot14\\cdot15}{4\\cdot84}=\\frac{2730}{336}=\\frac{65}8.$$",
+  "key_idea": "Jari-jari lingkaran luar dihitung dari ketiga sisi dan luas: $R=\\frac{abc}{4L}$.",
+  "common_error": "Tertukar dengan jari-jari lingkaran dalam $r=\\frac Ls=4$.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P008",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "Thales dan garis tinggi",
+  "objective_id": "GE03-O1",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 5,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "thales",
+   "garis_tinggi_sisi_miring"
+  ],
+  "statement": "$AB$ adalah diameter lingkaran yang panjangnya $10$. Titik $C$ pada lingkaran, dan $D$ pada $AB$ sehingga $CD\\perp AB$.\nJika $AD=2$, tentukan $CD$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "4",
+   "display": "$4$"
+  },
+  "hints": [
+   "Sudut $ACB$ menghadap diameter, jadi siku-siku.",
+   "Pada segitiga siku-siku dengan garis tinggi ke sisi miring, $CD^2=AD\\cdot DB$."
+  ],
+  "solution": "$\\angle ACB=90^\\circ$ (menghadap diameter). $CD$ adalah garis tinggi ke sisi miring, jadi\n$CD^2=AD\\cdot DB=2\\cdot8=16$ dan $CD=4$.\n\n**Cara lain (kuasa titik).** Perpanjang $CD$ hingga memotong lingkaran lagi di $C'$. Karena $AB\\perp CC'$, $D$ titik tengah\n$CC'$, sehingga $CD^2=CD\\cdot DC'=AD\\cdot DB=16$ ✓.",
+  "key_idea": "Diameter memberi sudut siku-siku; garis tinggi ke sisi miring memenuhi $CD^2=AD\\cdot DB$.",
+  "common_error": "Memakai Pythagoras dengan $AC=AD$, atau menganggap $DB=10$ (seluruh diameter).",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P009",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "sumbu radikal",
+  "objective_id": "GE03-O4",
+  "role": "practice",
+  "difficulty": "core",
+  "estimated_minutes": 6,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "sumbu_radikal",
+   "kuasa_titik"
+  ],
+  "statement": "Dua lingkaran berpotongan di $A$ dan $B$. Sebuah garis singgung persekutuan menyinggung kedua lingkaran di $S$\ndan $T$. Perpanjangan $BA$ (melewati $A$) memotong ruas $ST$ di $M$. Jika $MA=2$ dan $AB=6$, tentukan panjang $ST$.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "8",
+   "display": "$8$"
+  },
+  "hints": [
+   "$M$ terletak pada garis $AB$, yaitu sumbu radikal kedua lingkaran. Hitung kuasa $M$ terhadap setiap lingkaran.",
+   "$MS^2=MA\\cdot MB$ dan $MT^2=MA\\cdot MB$."
+  ],
+  "solution": "Terhadap lingkaran pertama, kuasa $M$ adalah $MS^2=MA\\cdot MB$; terhadap lingkaran kedua, $MT^2=MA\\cdot MB$.\nDengan $MB=MA+AB=8$, $MS^2=MT^2=16$, sehingga $MS=MT=4$. Jadi $M$ titik tengah $ST$ dan $ST=8$.",
+  "key_idea": "Titik pada sumbu radikal mempunyai kuasa sama terhadap kedua lingkaran, sehingga garis singgungnya ke kedua lingkaran sama panjang.",
+  "common_error": "Memakai $MS^2=MA\\cdot AB=12$, sehingga mendapat $ST=4\\sqrt3$.",
+  "diagram": "GE03-P009.svg",
+  "diagram_alt": "Dua lingkaran berpotongan di A dan B; garis singgung persekutuan menyinggung di S dan T; perpanjangan BA memotong ST di M.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P010",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "lingkaran tersembunyi dari garis tinggi",
+  "objective_id": "GE03-O2",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "titik_konsiklik",
+   "sudut_keliling"
+  ],
+  "statement": "Pada segitiga $ABC$, $\\angle ABC=70^\\circ$ dan $\\angle ACB=50^\\circ$. Garis tinggi $BE$ ($E$ pada $AC$) dan $CF$\n($F$ pada $AB$) digambar. Tentukan $\\angle EFC$ dalam derajat.",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "40",
+   "display": "$40$"
+  },
+  "hints": [
+   "$\\angle BEC=\\angle BFC=90^\\circ$. Apa artinya bagi titik $B$, $C$, $E$, $F$?",
+   "$B,C,E,F$ terletak pada lingkaran berdiameter $BC$. Maka $\\angle EFC=\\angle EBC$."
+  ],
+  "solution": "**Lingkaran tersembunyi.** $\\angle BEC=90^\\circ$ dan $\\angle BFC=90^\\circ$, jadi $E$ dan $F$ terletak pada lingkaran\nberdiameter $BC$ (kebalikan Thales). Keempat titik $B,C,E,F$ konsiklik.\n\n**Sudut keliling.** $\\angle EFC$ dan $\\angle EBC$ menghadap busur $EC$ yang sama, jadi\n$\\angle EFC=\\angle EBC$. Dalam $\\triangle BEC$ (siku-siku di $E$):\n$\\angle EBC=90^\\circ-\\angle ECB=90^\\circ-50^\\circ=40^\\circ$.\n\nJadi $\\angle EFC=40^\\circ$.",
+  "key_idea": "Dua sudut siku-siku yang menghadap ruas yang sama menunjukkan lingkaran tersembunyi; setelah itu sudut keliling memindahkan sudut.",
+  "common_error": "Mengira $EF\\parallel BC$, sehingga $\\angle EFC=\\angle FCB=20^\\circ$.",
+  "diagram": "GE03-P010.svg",
+  "diagram_alt": "Segitiga ABC dengan garis tinggi BE (E pada AC) dan CF (F pada AB); ruas EF digambar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P011",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "tali busur berpanjang bulat",
+  "objective_id": "GE03-O4",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 10,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "kuasa_titik",
+   "pencacahan_simetri"
+  ],
+  "statement": "Lingkaran berpusat $O$ berjari-jari $10$, dan titik $P$ di dalam lingkaran memenuhi $OP=8$. Berapa banyak tali busur\nyang melalui $P$ dan panjangnya bilangan bulat?",
+  "answer_type": "integer",
+  "answer_spec": {
+   "value": "16",
+   "display": "$16$"
+  },
+  "hints": [
+   "Tali busur terpendek melalui $P$ tegak lurus $OP$, dan tali busur terpanjang adalah diameter. Hitung keduanya.",
+   "Terpendek $2\\sqrt{100-64}=12$, terpanjang $20$. Untuk panjang di antaranya, ada dua tali busur yang simetris terhadap garis $OP$."
+  ],
+  "solution": "**Rentang panjang.** Jika jarak $O$ ke tali busur adalah $h$, panjangnya $2\\sqrt{100-h^2}$. Untuk tali busur melalui $P$,\n$0\\le h\\le OP=8$. Jadi panjangnya antara $2\\sqrt{36}=12$ (tali busur tegak lurus $OP$, $h=8$) dan $20$\n(diameter, $h=0$), dan ketika tali busur berputar mengelilingi $P$, panjangnya mengambil semua nilai di antara keduanya.\n\n**Banyak tali busur per panjang.**\n\n- Panjang $12$: hanya satu (tegak lurus $OP$).\n- Panjang $20$: hanya satu (diameter melalui $P$).\n- Panjang $13,14,\\dots,19$: masing-masing tepat dua tali busur, yang simetris terhadap garis $OP$.\n\nTotal $1+1+2\\cdot7=16$.\n\n**Hubungan dengan kuasa titik.** Untuk setiap tali busur $AB$ melalui $P$, $PA\\cdot PB=100-64=36$.",
+  "key_idea": "Panjang tali busur melalui titik tetap berubah kontinu dari terpendek (tegak lurus $OP$) ke diameter; setiap panjang di antaranya muncul dua kali karena simetri.",
+  "common_error": "Menghitung setiap panjang dari $12$ sampai $20$ satu kali saja ($9$), atau dua kali semuanya ($18$), tanpa memperhatikan bahwa kedua ujung rentang hanya punya satu tali busur.",
+  "origin": "adapted",
+  "source_refs": [
+   "Gagasan soal klasik tentang tali busur berpanjang bulat melalui titik dalam lingkaran; angka dipilih ulang"
+  ],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ },
+ {
+  "id": "GE03-P012",
+  "version": 1,
+  "module_id": "GE03",
+  "domain": "geometri",
+  "subtopic": "diameter lingkaran luar",
+  "objective_id": "GE03-O5",
+  "role": "practice",
+  "difficulty": "challenge",
+  "estimated_minutes": 9,
+  "prerequisites": [
+   "GE01",
+   "GE02"
+  ],
+  "technique_tags": [
+   "rumus_r_luar",
+   "thales"
+  ],
+  "statement": "Segitiga $ABC$ mempunyai $AB=AC=10$ dan $BC=12$. Titik $D$ pada lingkaran luar segitiga sehingga $AD$ adalah\ndiameter. Tentukan panjang $BD$. Tuliskan jawaban sebagai pecahan.",
+  "answer_type": "rational",
+  "answer_spec": {
+   "value": "15/2",
+   "display": "$\\dfrac{15}{2}$"
+  },
+  "hints": [
+   "Hitung $R$ lebih dulu, misalnya dengan $R=\\dfrac{abc}{4L}$. Garis tinggi dari $A$ ke $BC$ panjangnya $8$.",
+   "$\\angle ABD=90^\\circ$ (menghadap diameter), jadi $BD^2=AD^2-AB^2$."
+  ],
+  "solution": "**Jari-jari.** Garis tinggi dari $A$ ke $BC$ adalah $\\sqrt{10^2-6^2}=8$, jadi $L=\\tfrac12\\cdot12\\cdot8=48$ dan\n$$R=\\frac{10\\cdot10\\cdot12}{4\\cdot48}=\\frac{25}4,\\qquad AD=2R=\\frac{25}2.$$\n\n**Thales.** $\\angle ABD=90^\\circ$ karena menghadap diameter $AD$. Maka\n$$BD^2=AD^2-AB^2=\\frac{625}4-100=\\frac{225}4,\\qquad BD=\\frac{15}2.$$\n\n**Pemeriksaan dengan koordinat.** $A=(0,8)$, $B=(-6,0)$, $C=(6,0)$. Pusat lingkaran luar $O=(0,\\tfrac74)$, sehingga\n$D=(0,-\\tfrac92)$ dan $BD=\\sqrt{36+\\tfrac{81}4}=\\tfrac{15}2$ ✓.",
+  "key_idea": "Diameter lingkaran luar membuat sudut siku-siku dengan setiap titik lain pada lingkaran; $R=\\frac{abc}{4L}$ memberi panjang diameternya.",
+  "common_error": "Mengira $D$ adalah kaki garis tinggi dari $A$ (titik tengah $BC$), sehingga $BD=6$.",
+  "diagram": "GE03-P012.svg",
+  "diagram_alt": "Segitiga ABC dengan AB = AC (ditandai) pada lingkaran berpusat O; AD diameter; ruas BD digambar.",
+  "origin": "original",
+  "source_refs": [],
+  "verification_status": "verified",
+  "verification_notes": "Audit 2026-10-23 (review/audit_GE03.md): A1–A6 lulus. A5: scripts/checks/GE03.py (koordinat sympy) cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+ }
+]
