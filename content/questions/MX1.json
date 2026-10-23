@@ -637,10 +637,10 @@
   },
   {
     "id": "MX1-019",
-    "version": 1,
+    "version": 2,
     "module_id": null,
     "domain": "geometri",
-    "subtopic": "jari jari dalam",
+    "subtopic": "jari-jari dalam",
     "objective_id": "GE01-O4",
     "role": "mixed",
     "difficulty": "foundation",
@@ -652,23 +652,23 @@
       "jari_jari_dalam",
       "pythagoras"
     ],
-    "statement": "Sebuah segitiga siku-siku mempunyai sisi siku-siku $20$ dan $21$. Tentukan jari-jari lingkaran dalamnya.",
+    "statement": "Sebuah segitiga siku-siku mempunyai hipotenusa $25$ dan salah satu sisi siku-sikunya $7$. Tentukan jari-jari lingkaran dalamnya.",
     "answer_type": "integer",
     "answer_spec": {
-      "value": "6",
-      "display": "$6$"
+      "value": "3",
+      "display": "$3$"
     },
     "hints": [
-      "Hitung hipotenusa.",
-      "$r=\\frac Ls$ dengan $L=210$ dan $s=35$."
+      "Hitung sisi siku-siku yang lain dengan Pythagoras.",
+      "Sisi lainnya $24$; lalu $r=\\frac Ls$ dengan $L=84$ dan $s=28$."
     ],
-    "solution": "Hipotenusa $\\sqrt{400+441}=29$. $L=\\frac12\\cdot20\\cdot21=210$ dan $s=\\frac{20+21+29}2=35$, jadi $r=\\frac{210}{35}=6$.\n(Untuk segitiga siku-siku juga $r=\\frac{a+b-c}2=\\frac{20+21-29}2$.)",
+    "solution": "Sisi siku-siku lainnya $\\sqrt{625-49}=24$. $L=\\frac12\\cdot7\\cdot24=84$ dan $s=\\frac{7+24+25}2=28$, jadi $r=\\frac{84}{28}=3$.\n(Untuk segitiga siku-siku juga $r=\\frac{a+b-c}2=\\frac{7+24-25}2$.)",
     "key_idea": "$r=\\frac Ls$.",
-    "common_error": "Memakai keliling, bukan setengah keliling, sehingga menjawab $3$.",
+    "common_error": "Menganggap $25$ sebagai sisi siku-siku sehingga sisi ketiga $\\sqrt{625+49}$, atau memakai keliling sebagai $s$ sehingga menjawab $\\frac32$.",
     "origin": "original",
     "source_refs": [],
     "verification_status": "verified",
-    "verification_notes": "Audit 2026-10-23 (review/audit_MX1.md): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+    "verification_notes": "Audit 2026-10-23 versi 2 (review/audit_MX1.md; pengganti duplikat yang ditemukan audit lintas bank Tahap 5): A1–A6 lulus. A5: scripts/checks/MX1.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
   },
   {
     "id": "MX1-020",

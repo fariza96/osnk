@@ -81,7 +81,9 @@ def p018():
     return out.pop()
 def p019():
     from sympy import Triangle
-    return Triangle(Point(0, 0), Point(20, 0), Point(0, 21)).inradius
+    from sympy import sqrt
+    leg = sqrt(25 ** 2 - 7 ** 2)
+    return Triangle(Point(0, 0), Point(7, 0), Point(0, leg)).inradius
 def p020():
     out = set()
     for A, B, C in [(Point(1, 4), Point(0, 0), Point(9, 0)), (Point(-3, 8), Point(2, 0), Point(11, 3))]:

@@ -4,3 +4,5 @@ dist/
 *.log
 arsip/
 __pycache__/
+data-siswa/
+progres-osnk*.json

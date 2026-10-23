@@ -48,6 +48,7 @@ Token penalaran (thinking) ditagih sebagai output.
 | 2026-10-23 | Tahap 4: KO04+GE04 (sesi 2) | sesi Claude Code | tidak tersedia | estimasi ≈ US$2–3 per modul (GE04 dengan 6 diagram) | estimasi |
 | 2026-10-23 | Tahap 4: AL05+KO05+AL06 (sesi 2) | sesi Claude Code | tidak tersedia | estimasi ≈ US$2–3 per modul | estimasi |
 | 2026-10-23 | Tahap 4: diagnostik + 2 Latihan Campuran (56 soal) + halaman paket (sesi 2) | sesi Claude Code | tidak tersedia | estimasi ≈ US$5–8 | estimasi |
+| 2026-10-23 | Tahap 5–6: audit lintas bank, 4 butir pengganti, alat tinjauan/uji coba, panduan guru (sesi 2) | sesi Claude Code | tidak tersedia | estimasi ≈ US$3–5 | estimasi |
 
 ### Proyeksi setelah pilot (dikalibrasi dengan US$11 aktual)
 

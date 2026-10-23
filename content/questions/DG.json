@@ -106,7 +106,7 @@
   },
   {
     "id": "DG-004",
-    "version": 1,
+    "version": 2,
     "module_id": null,
     "domain": "teori_bilangan",
     "subtopic": "banyak faktor",
@@ -121,23 +121,23 @@
       "banyak_faktor",
       "faktorisasi_prima"
     ],
-    "statement": "Berapa banyak faktor (pembagi) positif dari $360$?",
+    "statement": "Berapa banyak faktor (pembagi) positif dari $450$?",
     "answer_type": "integer",
     "answer_spec": {
-      "value": "24",
-      "display": "$24$"
+      "value": "18",
+      "display": "$18$"
     },
     "hints": [
-      "Faktorkan $360$ menjadi bilangan prima.",
-      "$360=2^3\\cdot3^2\\cdot5$. Setiap faktor berbentuk $2^a3^b5^c$."
+      "Faktorkan $450$ menjadi bilangan prima.",
+      "$450=2\\cdot3^2\\cdot5^2$. Setiap faktor berbentuk $2^a3^b5^c$."
     ],
-    "solution": "$360=2^3\\cdot3^2\\cdot5$. Faktor positif berbentuk $2^a3^b5^c$ dengan $0\\le a\\le3$, $0\\le b\\le2$, $0\\le c\\le1$, jadi ada\n$4\\cdot3\\cdot2=24$ faktor.",
+    "solution": "$450=2\\cdot3^2\\cdot5^2$. Faktor positif berbentuk $2^a3^b5^c$ dengan $0\\le a\\le1$, $0\\le b\\le2$, $0\\le c\\le2$, jadi ada\n$2\\cdot3\\cdot3=18$ faktor.",
     "key_idea": "Banyak faktor = hasil kali (pangkat $+1$).",
-    "common_error": "Mengalikan pangkatnya saja, $3\\cdot2\\cdot1=6$, atau menjumlahkan $(3+1)+(2+1)+(1+1)=9$.",
+    "common_error": "Mengalikan pangkatnya saja, $1\\cdot2\\cdot2=4$, atau menjumlahkan $(1+1)+(2+1)+(2+1)=8$.",
     "origin": "original",
     "source_refs": [],
     "verification_status": "verified",
-    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+    "verification_notes": "Audit 2026-10-23 versi 2 (review/audit_DG.md; pengganti duplikat yang ditemukan audit lintas bank Tahap 5): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
   },
   {
     "id": "DG-005",
@@ -244,7 +244,7 @@
   },
   {
     "id": "DG-008",
-    "version": 1,
+    "version": 2,
     "module_id": null,
     "domain": "aljabar",
     "subtopic": "melengkapkan kuadrat",
@@ -259,27 +259,27 @@
       "melengkapkan_kuadrat",
       "nilai_ekstrem"
     ],
-    "statement": "Tentukan nilai minimum $x^2-6x+14$ untuk $x$ bilangan real.",
+    "statement": "Tentukan nilai maksimum $-2x^2+8x+3$ untuk $x$ bilangan real.",
     "answer_type": "integer",
     "answer_spec": {
-      "value": "5",
-      "display": "$5$"
+      "value": "11",
+      "display": "$11$"
     },
     "hints": [
-      "Lengkapkan kuadrat.",
-      "$x^2-6x+14=(x-3)^2+5$."
+      "Keluarkan $-2$ dari dua suku pertama, lalu lengkapkan kuadrat.",
+      "$-2x^2+8x+3=-2(x-2)^2+11$."
     ],
-    "solution": "$x^2-6x+14=(x-3)^2+5\\ge5$, dengan kesamaan saat $x=3$. Jadi minimumnya $5$.",
-    "key_idea": "Melengkapkan kuadrat memberi nilai minimum dan titik tercapainya.",
-    "common_error": "Menjawab $3$ (nilai $x$ tempat minimum tercapai), bukan nilai minimumnya.",
+    "solution": "$-2x^2+8x+3=-2(x^2-4x)+3=-2(x-2)^2+8+3=-2(x-2)^2+11\\le11$, dengan kesamaan saat $x=2$. Jadi maksimumnya $11$.",
+    "key_idea": "Melengkapkan kuadrat memberi nilai ekstrem dan titik tercapainya.",
+    "common_error": "Menjawab $2$ (nilai $x$ tempat maksimum tercapai), atau lupa mengalikan $-2$ dengan $4$ sehingga memperoleh $-2(x-2)^2+7$ dan menjawab $7$.",
     "origin": "original",
     "source_refs": [],
     "verification_status": "verified",
-    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+    "verification_notes": "Audit 2026-10-23 versi 2 (review/audit_DG.md; pengganti duplikat yang ditemukan audit lintas bank Tahap 5): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
   },
   {
     "id": "DG-009",
-    "version": 1,
+    "version": 2,
     "module_id": null,
     "domain": "kombinatorika",
     "subtopic": "aturan perkalian",
@@ -293,23 +293,23 @@
     "technique_tags": [
       "aturan_perkalian"
     ],
-    "statement": "Berapa banyak bilangan tiga digit yang ketiga digitnya berbeda?",
+    "statement": "Berapa banyak bilangan tiga digit yang **semua** digitnya ganjil?",
     "answer_type": "integer",
     "answer_spec": {
-      "value": "648",
-      "display": "$648$"
+      "value": "125",
+      "display": "$125$"
     },
     "hints": [
-      "Isi digit ratusan dulu: tidak boleh $0$.",
-      "$9$ pilihan ratusan, $9$ pilihan puluhan, $8$ pilihan satuan."
+      "Digit ganjil: $1,3,5,7,9$.",
+      "Setiap posisi mempunyai $5$ pilihan, dan digit boleh berulang."
     ],
-    "solution": "Digit ratusan: $9$ pilihan ($1$–$9$). Digit puluhan: $9$ pilihan (termasuk $0$, kecuali digit ratusan). Digit satuan: $8$ pilihan.\nTotal $9\\cdot9\\cdot8=648$.",
-    "key_idea": "Isi posisi yang paling dibatasi lebih dulu.",
-    "common_error": "Menghitung $10\\cdot9\\cdot8=720$ dengan membolehkan $0$ di depan.",
+    "solution": "Setiap digit (ratusan, puluhan, satuan) dipilih dari $1,3,5,7,9$, boleh berulang; digit ratusan otomatis bukan $0$.\nBanyaknya $5\\cdot5\\cdot5=125$.",
+    "key_idea": "Aturan perkalian; digit boleh berulang.",
+    "common_error": "Melarang pengulangan digit sehingga menjawab $5\\cdot4\\cdot3=60$.",
     "origin": "original",
     "source_refs": [],
     "verification_status": "verified",
-    "verification_notes": "Audit 2026-10-23 (review/audit_DG.md): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
+    "verification_notes": "Audit 2026-10-23 versi 2 (review/audit_DG.md; pengganti duplikat yang ditemukan audit lintas bank Tahap 5): A1–A6 lulus. A5: scripts/checks/DG.py cocok. A2 dikerjakan model penulis yang sama, bukan penyelesaian buta; belum ditinjau guru."
   },
   {
     "id": "DG-010",

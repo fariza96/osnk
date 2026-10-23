@@ -3,7 +3,9 @@
 Materi, bank soal, dan situs latihan statis untuk pembinaan OSN-K Matematika SMA/MA.
 Situs tidak memanggil Claude dan tidak memerlukan server; progres siswa tersimpan di browser.
 
-**Status: pilot selesai.** Modul TB01 dan GE01 (4 contoh, 24 latihan, semuanya `verified`). Lihat `PROJECT_STATE.md`.
+**Status: konten lengkap.** 19 modul (38 contoh, 228 latihan), diagnostik 16 soal, dan dua Latihan Campuran
+(2 × 20 soal); 322 butir, semuanya `verified` menurut audit internal. Panduan pemakaian untuk guru:
+[`docs/panduan_guru.md`](docs/panduan_guru.md). Status kerja terakhir: `PROJECT_STATE.md`.
 
 ## Menjalankan
 
@@ -28,8 +30,17 @@ dan ini sudah diuji di Chromium dengan semua jaringan diblokir. Tetap uji sekali
   Di JSON, backslash LaTeX ditulis ganda: `"$\\frac{a}{b}$"`.
 - Diagram: `content/diagrams/<ID-soal>.svg`.
 - Setelah mengubah: `python3 scripts/validate.py`, `npm run check:math`, lalu `npm run build`.
-- Diagram GE01 dibuat ulang dengan `python3 scripts/diagrams/GE01.py`.
+- Diagram dibuat ulang dengan `python3 scripts/diagrams/<GE01|GE02|GE03|GE04|MX>.py`.
+- Paket lintas modul: `content/questions/DG.json`, `MX1.json`, `MX2.json` (`module_id: null`, modul rujukan di `prerequisites`).
 - Rilis untuk siswa: `npm run build:release` (hanya butir berstatus `verified`).
+
+## Alat tinjauan dan uji coba
+
+```bash
+python3 scripts/audit_bank.py --write              # audit lintas bank -> review/audit_bank.md
+python3 scripts/review_sheet.py                    # lembar tinjauan guru -> review/tinjauan_guru.csv
+python3 scripts/analyze_progress.py FOLDER         # ringkas progres siswa yang diekspor (simpan di luar repo)
+```
 
 ## Tes
 
@@ -42,16 +53,18 @@ pilihan ganda, pengacakan opsi), validator, build, dan situs di Chromium (via `f
 seperti GitHub Pages: rumus tampil, petunjuk, progres setelah reload, cetak, tanpa scroll
 horizontal di lebar ponsel). Tes perangkat lunak **tidak** menggantikan audit matematika.
 
-## Membagikan (setelah guru memutuskan)
+## Membagikan
 
-Rencana: repositori GitHub privat. Opsi Pages: workflow `.github/workflows/pages.yml`, yang hanya berjalan
-manual dan membangun versi rilis (verified). Pages pada repositori privat memerlukan paket GitHub berbayar.
-Tanpa Pages, `dist/` dapat dibagikan sebagai arsip zip yang dibuka langsung di browser. Semua URL di situs relatif,
-sehingga cocok untuk subpath `https://<akun>.github.io/<repo>/`. Catatan:
+Repositori GitHub privat `fariza96/osnk`. Workflow `.github/workflows/pages.yml` membangun **versi rilis** (hanya
+`verified`) dan menerbitkannya ke GitHub Pages **setiap ada push ke `main`** (disetujui guru 23 Okt 2026); workflow juga dapat
+dijalankan manual. Versi yang terbit tertulis di kaki halaman situs. Tanpa Pages, `dist/` dapat dibagikan sebagai arsip
+zip yang dibuka langsung di browser. Semua URL di situs relatif, sehingga cocok untuk subpath `https://<akun>.github.io/<repo>/`.
+Catatan:
 
 - Repositori privat tidak otomatis membuat situs Pages privat. Periksa pengaturan akses sebelum
   memakai Pages untuk materi terbatas.
 - Kunci jawaban ada di frontend. Situs ini untuk latihan mandiri, bukan ujian rahasia.
+- Berkas progres siswa (`progres-osnk*.json`) adalah data siswa dan tidak boleh di-commit (`.gitignore` menolaknya).
 
 ## Batasan
 

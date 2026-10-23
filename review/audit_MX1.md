@@ -27,7 +27,7 @@ Keluaran A5 (2026-10-23): 20/20 `OK`.
 | MX1-016 | 115 | GE01 | foundation | — | verified |
 | MX1-017 | 4 | GE01 | foundation | — | verified |
 | MX1-018 | 5 | GE02 | core | rancangan awal (trapesium + diagonal) mirip GE02-E01 → diganti jajargenjang | verified |
-| MX1-019 | 6 | GE01 | foundation | — | verified |
+| MX1-019 | 3 | GE01 | foundation | versi 1 sama/terlalu mirip dengan GE01-P007 (ditemukan audit lintas bank Tahap 5) → diganti, diaudit ulang (versi 2) | verified |
 | MX1-020 | 8 | GE02 | challenge | — | verified |
 
 Semua perbaikan terjadi sebelum butir pertama kali berstatus `verified`.

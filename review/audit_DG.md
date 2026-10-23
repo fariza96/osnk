@@ -12,12 +12,12 @@ Keluaran A5 (2026-10-23): 16/16 `OK`.
 | DG-001 | 8 | TB01 | foundation | — | verified |
 | DG-002 | 294 | TB01 | foundation | — | verified |
 | DG-003 | 2 | TB02 | foundation | rancangan awal (angka satuan $7^{2026}$) hampir sama dengan TB02-P002 → diganti sisa $2^{100}$ mod 7; kekeliruan umum awal kebetulan menghasilkan kunci → diganti | verified |
-| DG-004 | 24 | TB03 | core | — | verified |
+| DG-004 | 18 | TB03 | core | versi 1 sama/terlalu mirip dengan TB03-P001 (ditemukan audit lintas bank Tahap 5) → diganti, diaudit ulang (versi 2) | verified |
 | DG-005 | 29 | AL01 | foundation | — | verified |
 | DG-006 | 37/4 | AL02 | foundation | — | verified |
 | DG-007 | 2 | AL01 | foundation | — | verified |
-| DG-008 | 5 | AL03 | core | — | verified |
-| DG-009 | 648 | KO01 | foundation | — | verified |
+| DG-008 | 11 | AL03 | core | versi 1 sama/terlalu mirip dengan AL03-P001 (ditemukan audit lintas bank Tahap 5) → diganti, diaudit ulang (versi 2) | verified |
+| DG-009 | 125 | KO01 | foundation | versi 1 sama/terlalu mirip dengan KO01-E01 (ditemukan audit lintas bank Tahap 5) → diganti, diaudit ulang (versi 2) | verified |
 | DG-010 | 52 | KO02 | core | — | verified |
 | DG-011 | 48 | KO02 | foundation | — | verified |
 | DG-012 | 1/12 | KO04 | foundation | — | verified |

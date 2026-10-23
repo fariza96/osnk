@@ -15,7 +15,7 @@ from _pack import run
 def p001(): return sum(1 for n in range(1, 101) if n % 6 == 0 and n % 4)
 def p002(): return gcd(84, 126) + 84 * 126 // gcd(84, 126)
 def p003(): return pow(2, 100, 7)
-def p004(): return sum(1 for d in range(1, 361) if 360 % d == 0)
+def p004(): return sum(1 for d in range(1, 451) if 450 % d == 0)
 def p005():
     a, b = symbols("a b", real=True)
     vals = {simplify(s[a] ** 2 + s[b] ** 2) for s in solve([a - b - 3, a * b - 10], [a, b], dict=True)}
@@ -25,8 +25,8 @@ def p006():
     x = symbols("x")
     return sum(r ** 2 for r in solve(2 * x ** 2 - 7 * x + 3, x))
 def p007(): return simplify(1 / (sqrt(5) - 2) - sqrt(5))
-def p008(): return min(F(x, 100) ** 2 - 6 * F(x, 100) + 14 for x in range(-1000, 1001))  # minimum di x = 3 termasuk grid
-def p009(): return sum(1 for n in range(100, 1000) if len(set(str(n))) == 3)
+def p008(): return max(-2 * F(x, 100) ** 2 + 8 * F(x, 100) + 3 for x in range(-1000, 1001))  # maksimum di x = 2 termasuk grid
+def p009(): return sum(1 for n in range(100, 1000) if all(int(c) % 2 for c in str(n)))
 def p010(): return sum(1 for c in combinations(range(8), 3) if any(i >= 4 for i in c))  # 0-3 putra, 4-7 putri
 def p011(): return sum(1 for p in permutations(range(5)) if abs(p.index(0) - p.index(1)) == 1)
 def p012(): return F(sum(1 for a, b in product(range(1, 7), repeat=2) if a + b == 10), 36)
